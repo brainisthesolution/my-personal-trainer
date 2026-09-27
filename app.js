@@ -405,6 +405,7 @@ function renderPlayer() {
   if (!segment) return finishRoutine();
   const total = player.timeline.reduce((sum, item) => sum + item.duration, 0);
   const elapsed = elapsedTimelineSeconds();
+  const segmentElapsed = elapsedCurrentSegmentSeconds();
   const remaining = remainingSeconds(segment);
   const nextExercise = nextExerciseName(player.index);
   const visualName = segment.kind === "exercise" ? segment.name : segment.nextName;
@@ -421,15 +422,15 @@ function renderPlayer() {
 
       <section class="timer-stage">
         ${visualName ? exerciseHero(visualName) : ""}
-        <div class="ring" style="--progress:${segmentProgress(segment)}">
-          <span>${remaining}</span>
+        <div class="ring" data-player-ring style="--progress:${segmentProgress(segment)}">
+          <span data-player-time data-player-elapsed="${segmentElapsed}">${remaining}</span>
         </div>
         <p class="segment-kind">${segmentKindLabel(segment)}</p>
         <h1>${escapeHtml(segmentTitle(segment))}</h1>
         ${nextExercise ? `<p class="next-line">Prossimo: ${escapeHtml(nextExercise)}</p>` : ""}
       </section>
 
-      <progress class="total-progress" max="${total}" value="${elapsed}"></progress>
+      <progress class="total-progress" data-player-progress max="${total}" value="${elapsed}"></progress>
 
       <footer class="player-controls">
         <button class="secondary" data-action="previous">${iconBack()}<span>Indietro</span></button>
@@ -516,9 +517,25 @@ function startTick() {
       player.spokenCountdown = "";
       if (player.index >= player.timeline.length) return finishRoutine();
       speakCurrentSegment();
+      renderPlayer();
+      return;
     }
-    renderPlayer();
+    updatePlayerClock(segment);
   }, 250);
+}
+
+function updatePlayerClock(segment = player.timeline[player.index]) {
+  if (!segment) return;
+  const time = document.querySelector("[data-player-time]");
+  const ring = document.querySelector("[data-player-ring]");
+  const progress = document.querySelector("[data-player-progress]");
+  const elapsed = elapsedCurrentSegmentSeconds();
+  if (time) {
+    time.textContent = String(remainingSeconds(segment));
+    time.dataset.playerElapsed = String(elapsed);
+  }
+  if (ring) ring.style.setProperty("--progress", segmentProgress(segment));
+  if (progress) progress.value = elapsedTimelineSeconds();
 }
 
 function speakCurrentSegment() {
@@ -562,10 +579,17 @@ function togglePlayer() {
     requestWakeLock();
   } else {
     player.paused = true;
-    player.elapsedBeforePause = elapsedCurrentSegmentSeconds();
+    player.elapsedBeforePause = Math.max(elapsedCurrentSegmentSeconds(), displayedElapsedSeconds());
     releaseWakeLock();
   }
   renderPlayer();
+}
+
+function displayedElapsedSeconds() {
+  const value = Number(document.querySelector("[data-player-time]")?.dataset.playerElapsed);
+  const segment = player.timeline[player.index];
+  if (!Number.isFinite(value) || !segment) return 0;
+  return Math.min(segment.duration, Math.max(0, value));
 }
 
 function nextSegment() {
@@ -749,7 +773,11 @@ function loadJson(key, fallback) {
 }
 
 function saveJson(key, value) {
-  localStorage.setItem(key, JSON.stringify(value));
+  try {
+    localStorage.setItem(key, JSON.stringify(value));
+  } catch {
+    // Storage can be unavailable in private or embedded browser contexts.
+  }
 }
 
 function clone(value) {
