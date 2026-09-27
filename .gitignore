@@ -1,0 +1,6 @@
+.DS_Store
+ScreenRecording_*.mov
+extracted_frames/
+data/ocr-frames.json
+scripts/
+.openai/

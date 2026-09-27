@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="600" viewBox="0 0 960 600" role="img" aria-labelledby="title desc">
+  <title id="title">Squat con slancio all'indietro</title>
+  <desc id="desc">Illustrazione originale dell'esercizio Squat con slancio all'indietro, ottimizzata per display ad alta densita.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 Z" fill="#dd9e4f"/>
+    </marker>
+  </defs>
+  <rect width="960" height="600" rx="56" fill="#e9edcf"/>
+  <circle cx="156" cy="476" r="138" fill="#fff" opacity=".36"/>
+  <path d="M118 512 C298 460 422 482 548 518 C664 552 768 526 860 470" fill="none" stroke="#fff" stroke-width="44" stroke-linecap="round" opacity=".46"/><circle cx="792" cy="124" r="96" fill="#dd9e4f" opacity=".28"/>
+  <g><path d="M420 390 L360 456 L260 456" fill="none" stroke="#748b35" stroke-width="22" stroke-linecap="round" stroke-linejoin="round"/><path d="M420 390 L560 390 L736 366" fill="none" stroke="#748b35" stroke-width="22" stroke-linecap="round" stroke-linejoin="round"/><path d="M440 260 L420 390" fill="none" stroke="#748b35" stroke-width="34" stroke-linecap="round" stroke-linejoin="round"/><path d="M430 192 L440 260" fill="none" stroke="#748b35" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/><path d="M440 260 L364 290 L316 334" fill="none" stroke="#748b35" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/><path d="M440 260 L516 284 L584 314" fill="none" stroke="#748b35" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/><circle cx="430" cy="168" r="25" fill="#f5c6aa" stroke="#748b35" stroke-width="6"/><circle cx="316" cy="334" r="8" fill="#748b35" opacity=".9"/><circle cx="584" cy="314" r="8" fill="#748b35" opacity=".9"/><circle cx="260" cy="456" r="8" fill="#748b35" opacity=".9"/><circle cx="736" cy="366" r="8" fill="#748b35" opacity=".9"/></g><path d="M608 394 C690 368 746 324 786 260" fill="none" stroke="#dd9e4f" stroke-width="9" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
+  <rect x="34" y="30" width="386" height="58" rx="29" fill="#fff" opacity=".88"/>
+  <text x="62" y="68" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="850" fill="#748b35">Squat con slancio all'indietro</text>
+</svg>

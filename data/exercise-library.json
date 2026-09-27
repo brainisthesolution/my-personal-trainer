@@ -1,0 +1,509 @@
+{
+  "categories": [
+    "Riscaldamento",
+    "Parte superiore",
+    "Parte inferiore",
+    "Core",
+    "Schiena/Postura",
+    "Stretching",
+    "Full body"
+  ],
+  "exercises": [
+    {
+      "name": "90/90",
+      "category": "Stretching",
+      "image": "assets/exercises/90-90.svg",
+      "phases": [
+        "cooldown"
+      ]
+    },
+    {
+      "name": "Affondi in avanti (alternati)",
+      "category": "Parte inferiore",
+      "image": "assets/exercises/affondi-in-avanti-alternati.svg",
+      "phases": [
+        "workout"
+      ]
+    },
+    {
+      "name": "Affondi indietro (alternati)",
+      "category": "Parte inferiore",
+      "image": "assets/exercises/affondi-indietro-alternati.svg",
+      "phases": [
+        "workout"
+      ]
+    },
+    {
+      "name": "Affondo profondo laterale (Cossack stretch)",
+      "category": "Stretching",
+      "image": "assets/exercises/affondo-profondo-laterale-cossack-stretch.svg",
+      "phases": [
+        "warmup"
+      ]
+    },
+    {
+      "name": "Air squat",
+      "category": "Parte inferiore",
+      "image": "assets/exercises/air-squat.svg",
+      "phases": [
+        "workout"
+      ]
+    },
+    {
+      "name": "Alzate a T prono",
+      "category": "Full body",
+      "image": "assets/exercises/alzate-a-t-prono.svg",
+      "phases": [
+        "workout"
+      ]
+    },
+    {
+      "name": "Alzate a W prono",
+      "category": "Full body",
+      "image": "assets/exercises/alzate-a-w-prono.svg",
+      "phases": [
+        "workout"
+      ]
+    },
+    {
+      "name": "Alzate a Y prono",
+      "category": "Full body",
+      "image": "assets/exercises/alzate-a-y-prono.svg",
+      "phases": [
+        "workout"
+      ]
+    },
+    {
+      "name": "Aperture del petto con rotazione",
+      "category": "Riscaldamento",
+      "image": "assets/exercises/aperture-del-petto-con-rotazione.svg",
+      "phases": [
+        "warmup"
+      ]
+    },
+    {
+      "name": "Back widows (completi)",
+      "category": "Schiena/Postura",
+      "image": "assets/exercises/back-widows-completi.svg",
+      "phases": [
+        "workout"
+      ]
+    },
+    {
+      "name": "Back widows (ginocchia piegate)",
+      "category": "Schiena/Postura",
+      "image": "assets/exercises/back-widows-ginocchia-piegate.svg",
+      "phases": [
+        "workout"
+      ]
+    },
+    {
+      "name": "Bird dog",
+      "category": "Full body",
+      "image": "assets/exercises/bird-dog.svg",
+      "phases": [
+        "workout"
+      ]
+    },
+    {
+      "name": "Burpee camminato",
+      "category": "Full body",
+      "image": "assets/exercises/burpee-camminato.svg",
+      "phases": [
+        "workout"
+      ]
+    },
+    {
+      "name": "Cerniera dell'anca",
+      "category": "Parte inferiore",
+      "image": "assets/exercises/cerniera-dell-anca.svg",
+      "phases": [
+        "workout"
+      ]
+    },
+    {
+      "name": "Contrazione isometrica dei dorsali",
+      "category": "Schiena/Postura",
+      "image": "assets/exercises/contrazione-isometrica-dei-dorsali.svg",
+      "phases": [
+        "workout"
+      ]
+    },
+    {
+      "name": "Crunch a bicicletta",
+      "category": "Core",
+      "image": "assets/exercises/crunch-a-bicicletta.svg",
+      "phases": [
+        "workout"
+      ]
+    },
+    {
+      "name": "Crunch laterale in piedi (destra)",
+      "category": "Core",
+      "image": "assets/exercises/crunch-laterale-in-piedi-destra.svg",
+      "phases": [
+        "workout"
+      ]
+    },
+    {
+      "name": "Crunch laterale in piedi (destra) 2v",
+      "category": "Core",
+      "image": "assets/exercises/crunch-laterale-in-piedi-destra-2v.svg",
+      "phases": [
+        "workout"
+      ]
+    },
+    {
+      "name": "Crunch laterale in piedi (sinistra)",
+      "category": "Core",
+      "image": "assets/exercises/crunch-laterale-in-piedi-sinistra.svg",
+      "phases": [
+        "workout"
+      ]
+    },
+    {
+      "name": "Crunch laterale in piedi (sinistra) 2v",
+      "category": "Core",
+      "image": "assets/exercises/crunch-laterale-in-piedi-sinistra-2v.svg",
+      "phases": [
+        "workout"
+      ]
+    },
+    {
+      "name": "Dead bug",
+      "category": "Core",
+      "image": "assets/exercises/dead-bug.svg",
+      "phases": [
+        "workout"
+      ]
+    },
+    {
+      "name": "Donkey kick (destra)",
+      "category": "Parte inferiore",
+      "image": "assets/exercises/donkey-kick-destra.svg",
+      "phases": [
+        "workout"
+      ]
+    },
+    {
+      "name": "Donkey kick (sinistra)",
+      "category": "Parte inferiore",
+      "image": "assets/exercises/donkey-kick-sinistra.svg",
+      "phases": [
+        "workout"
+      ]
+    },
+    {
+      "name": "Flessioni laterali dinamiche",
+      "category": "Riscaldamento",
+      "image": "assets/exercises/flessioni-laterali-dinamiche.svg",
+      "phases": [
+        "warmup"
+      ]
+    },
+    {
+      "name": "Floor angels",
+      "category": "Schiena/Postura",
+      "image": "assets/exercises/floor-angels.svg",
+      "phases": [
+        "workout"
+      ]
+    },
+    {
+      "name": "Gatto-mucca",
+      "category": "Riscaldamento",
+      "image": "assets/exercises/gatto-mucca.svg",
+      "phases": [
+        "warmup"
+      ]
+    },
+    {
+      "name": "Marcia in ponte",
+      "category": "Parte inferiore",
+      "image": "assets/exercises/marcia-in-ponte.svg",
+      "phases": [
+        "workout"
+      ]
+    },
+    {
+      "name": "Plank lean flow",
+      "category": "Core",
+      "image": "assets/exercises/plank-lean-flow.svg",
+      "phases": [
+        "workout"
+      ]
+    },
+    {
+      "name": "Ponte glutei (difficile)",
+      "category": "Parte inferiore",
+      "image": "assets/exercises/ponte-glutei-difficile.svg",
+      "phases": [
+        "workout"
+      ]
+    },
+    {
+      "name": "Ponte glutei (facile)",
+      "category": "Parte inferiore",
+      "image": "assets/exercises/ponte-glutei-facile.svg",
+      "phases": [
+        "workout"
+      ]
+    },
+    {
+      "name": "Ponte glutei isometrico",
+      "category": "Parte inferiore",
+      "image": "assets/exercises/ponte-glutei-isometrico.svg",
+      "phases": [
+        "workout"
+      ]
+    },
+    {
+      "name": "Posizione del bambino",
+      "category": "Stretching",
+      "image": "assets/exercises/posizione-del-bambino.svg",
+      "phases": [
+        "cooldown"
+      ]
+    },
+    {
+      "name": "Push up sulle ginocchia a cane a testa in giù",
+      "category": "Parte superiore",
+      "image": "assets/exercises/push-up-sulle-ginocchia-a-cane-a-testa-in-giu.svg",
+      "phases": [
+        "workout"
+      ]
+    },
+    {
+      "name": "Push-up a presa stretta al muro",
+      "category": "Parte superiore",
+      "image": "assets/exercises/push-up-a-presa-stretta-al-muro.svg",
+      "phases": [
+        "workout"
+      ]
+    },
+    {
+      "name": "Push-up sulle ginocchia",
+      "category": "Parte superiore",
+      "image": "assets/exercises/push-up-sulle-ginocchia.svg",
+      "phases": [
+        "workout"
+      ]
+    },
+    {
+      "name": "Riscaldamento dei polsi",
+      "category": "Riscaldamento",
+      "image": "assets/exercises/riscaldamento-dei-polsi.svg",
+      "phases": [
+        "warmup"
+      ]
+    },
+    {
+      "name": "Roll down",
+      "category": "Schiena/Postura",
+      "image": "assets/exercises/roll-down.svg",
+      "phases": [
+        "workout"
+      ]
+    },
+    {
+      "name": "Rotazioni dei gomiti",
+      "category": "Riscaldamento",
+      "image": "assets/exercises/rotazioni-dei-gomiti.svg",
+      "phases": [
+        "warmup"
+      ]
+    },
+    {
+      "name": "Rotazioni del bacino",
+      "category": "Riscaldamento",
+      "image": "assets/exercises/rotazioni-del-bacino.svg",
+      "phases": [
+        "warmup"
+      ]
+    },
+    {
+      "name": "Rotazioni del collo",
+      "category": "Riscaldamento",
+      "image": "assets/exercises/rotazioni-del-collo.svg",
+      "phases": [
+        "warmup"
+      ]
+    },
+    {
+      "name": "Rotazioni delle braccia",
+      "category": "Riscaldamento",
+      "image": "assets/exercises/rotazioni-delle-braccia.svg",
+      "phases": [
+        "warmup"
+      ]
+    },
+    {
+      "name": "Scivolamenti scapolari al muro",
+      "category": "Schiena/Postura",
+      "image": "assets/exercises/scivolamenti-scapolari-al-muro.svg",
+      "phases": [
+        "workout"
+      ]
+    },
+    {
+      "name": "Shadow boxing",
+      "category": "Full body",
+      "image": "assets/exercises/shadow-boxing.svg",
+      "phases": [
+        "workout"
+      ]
+    },
+    {
+      "name": "Snow angels inversi",
+      "category": "Schiena/Postura",
+      "image": "assets/exercises/snow-angels-inversi.svg",
+      "phases": [
+        "workout"
+      ]
+    },
+    {
+      "name": "Sollevamenti proni delle braccia (alternati)",
+      "category": "Parte superiore",
+      "image": "assets/exercises/sollevamenti-proni-delle-braccia-alternati.svg",
+      "phases": [
+        "workout"
+      ]
+    },
+    {
+      "name": "Spostamento del peso in quadrupedia",
+      "category": "Full body",
+      "image": "assets/exercises/spostamento-del-peso-in-quadrupedia.svg",
+      "phases": [
+        "workout"
+      ]
+    },
+    {
+      "name": "Squat con slancio all'indietro",
+      "category": "Parte inferiore",
+      "image": "assets/exercises/squat-con-slancio-all-indietro.svg",
+      "phases": [
+        "workout"
+      ]
+    },
+    {
+      "name": "Squat con sollevamento polpacci",
+      "category": "Parte inferiore",
+      "image": "assets/exercises/squat-con-sollevamento-polpacci.svg",
+      "phases": [
+        "workout"
+      ]
+    },
+    {
+      "name": "Stretching a farfalla da seduti",
+      "category": "Stretching",
+      "image": "assets/exercises/stretching-a-farfalla-da-seduti.svg",
+      "phases": [
+        "cooldown"
+      ]
+    },
+    {
+      "name": "Stretching attivo di polpacci e bicipiti femorali",
+      "category": "Stretching",
+      "image": "assets/exercises/stretching-attivo-di-polpacci-e-bicipiti-femorali.svg",
+      "phases": [
+        "warmup"
+      ]
+    },
+    {
+      "name": "Stretching dei bicipiti femorali da seduto",
+      "category": "Stretching",
+      "image": "assets/exercises/stretching-dei-bicipiti-femorali-da-seduto.svg",
+      "phases": [
+        "cooldown"
+      ]
+    },
+    {
+      "name": "Stretching dei dorsali sopra la testa",
+      "category": "Stretching",
+      "image": "assets/exercises/stretching-dei-dorsali-sopra-la-testa.svg",
+      "phases": [
+        "cooldown"
+      ]
+    },
+    {
+      "name": "Stretching della spalla incrociato",
+      "category": "Stretching",
+      "image": "assets/exercises/stretching-della-spalla-incrociato.svg",
+      "phases": [
+        "cooldown"
+      ]
+    },
+    {
+      "name": "Stretching ginocchia al petto",
+      "category": "Stretching",
+      "image": "assets/exercises/stretching-ginocchia-al-petto.svg",
+      "phases": [
+        "cooldown"
+      ]
+    },
+    {
+      "name": "Sumo squat",
+      "category": "Parte inferiore",
+      "image": "assets/exercises/sumo-squat.svg",
+      "phases": [
+        "workout"
+      ]
+    },
+    {
+      "name": "Tenuta in posizione del cobra",
+      "category": "Schiena/Postura",
+      "image": "assets/exercises/tenuta-in-posizione-del-cobra.svg",
+      "phases": [
+        "workout"
+      ]
+    },
+    {
+      "name": "Tenuta plank su avambracci e ginocchia",
+      "category": "Core",
+      "image": "assets/exercises/tenuta-plank-su-avambracci-e-ginocchia.svg",
+      "phases": [
+        "workout"
+      ]
+    },
+    {
+      "name": "Tocco alle spalle in quadrupedia",
+      "category": "Parte superiore",
+      "image": "assets/exercises/tocco-alle-spalle-in-quadrupedia.svg",
+      "phases": [
+        "workout"
+      ]
+    },
+    {
+      "name": "Tocco dei talloni",
+      "category": "Core",
+      "image": "assets/exercises/tocco-dei-talloni.svg",
+      "phases": [
+        "workout"
+      ]
+    },
+    {
+      "name": "Tocco delle punte",
+      "category": "Core",
+      "image": "assets/exercises/tocco-delle-punte.svg",
+      "phases": [
+        "workout"
+      ]
+    },
+    {
+      "name": "Torsioni spinali",
+      "category": "Stretching",
+      "image": "assets/exercises/torsioni-spinali.svg",
+      "phases": [
+        "cooldown"
+      ]
+    },
+    {
+      "name": "Wall sit",
+      "category": "Parte inferiore",
+      "image": "assets/exercises/wall-sit.svg",
+      "phases": [
+        "workout"
+      ]
+    }
+  ]
+}

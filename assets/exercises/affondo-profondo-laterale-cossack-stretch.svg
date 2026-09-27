@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="600" viewBox="0 0 960 600" role="img" aria-labelledby="title desc">
+  <title id="title">Affondo profondo laterale (Cossack stretch)</title>
+  <desc id="desc">Illustrazione originale dell'esercizio Affondo profondo laterale (Cossack stretch), ottimizzata per display ad alta densita.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 Z" fill="#7aa878"/>
+    </marker>
+  </defs>
+  <rect width="960" height="600" rx="56" fill="#f7e4da"/>
+  <circle cx="156" cy="476" r="138" fill="#fff" opacity=".36"/>
+  <path d="M118 512 C298 460 422 482 548 518 C664 552 768 526 860 470" fill="none" stroke="#fff" stroke-width="44" stroke-linecap="round" opacity=".46"/><circle cx="792" cy="124" r="96" fill="#7aa878" opacity=".28"/>
+  <g><path d="M388 410 L284 456 L190 456" fill="none" stroke="#b5644d" stroke-width="22" stroke-linecap="round" stroke-linejoin="round"/><path d="M388 410 L572 436 L792 436" fill="none" stroke="#b5644d" stroke-width="22" stroke-linecap="round" stroke-linejoin="round"/><path d="M396 282 L388 410" fill="none" stroke="#b5644d" stroke-width="34" stroke-linecap="round" stroke-linejoin="round"/><path d="M396 222 L396 282" fill="none" stroke="#b5644d" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/><path d="M396 282 L318 306 L250 336" fill="none" stroke="#b5644d" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/><path d="M396 282 L478 306 L560 334" fill="none" stroke="#b5644d" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/><circle cx="396" cy="198" r="25" fill="#f5c6aa" stroke="#b5644d" stroke-width="6"/><circle cx="250" cy="336" r="8" fill="#b5644d" opacity=".9"/><circle cx="560" cy="334" r="8" fill="#b5644d" opacity=".9"/><circle cx="190" cy="456" r="8" fill="#b5644d" opacity=".9"/><circle cx="792" cy="436" r="8" fill="#b5644d" opacity=".9"/></g>
+  <rect x="34" y="30" width="386" height="58" rx="29" fill="#fff" opacity=".88"/>
+  <text x="62" y="68" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="850" fill="#b5644d">Affondo profondo laterale</text>
+</svg>

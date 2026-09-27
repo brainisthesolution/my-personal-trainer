@@ -1,0 +1,202 @@
+{
+  "metadata": {
+    "sourceVideo": "ScreenRecording_09-09-2026 01-22-21_1.mov",
+    "extractedAt": "2026-09-27",
+    "language": "it-IT",
+    "defaultExerciseDurationSec": 30,
+    "notes": [
+      "Dati estratti dal video tramite frame + OCR Apple Vision.",
+      "La routine Settimana 4 / Giorno 1 compare nella lista ma non viene aperta nel video, quindi gli esercizi non sono disponibili."
+    ]
+  },
+  "timerRules": {
+    "warmupRestSec": 0,
+    "exerciseChangeSec": 10,
+    "workoutRestEveryExercises": 2,
+    "workoutRestSec": 30,
+    "workoutRounds": 2,
+    "cooldownRestSec": 0
+  },
+  "weeks": [
+    {
+      "week": 1,
+      "days": [
+        {
+          "day": 1,
+          "title": "Costruzione di Forza del Corpo Intero",
+          "extractionStatus": "complete",
+          "warmup": ["Gatto-mucca", "Rotazioni del bacino", "Flessioni laterali dinamiche", "Rotazioni delle braccia"],
+          "workout": ["Burpee camminato", "Ponte glutei (facile)", "Push-up sulle ginocchia", "Cerniera dell'anca", "Bird dog", "Air squat", "Contrazione isometrica dei dorsali", "Tocco dei talloni", "Shadow boxing"],
+          "cooldown": ["Posizione del bambino", "Stretching ginocchia al petto", "Stretching della spalla incrociato", "Stretching dei bicipiti femorali da seduto"]
+        },
+        {
+          "day": 2,
+          "title": "Costruzione di Forza con Spinta",
+          "extractionStatus": "complete",
+          "warmup": ["Gatto-mucca", "Rotazioni delle braccia", "Riscaldamento dei polsi", "Aperture del petto con rotazione"],
+          "workout": ["Push-up sulle ginocchia", "Contrazione isometrica dei dorsali", "Marcia in ponte", "Push-up a presa stretta al muro", "Spostamento del peso in quadrupedia", "Floor angels", "Affondi indietro (alternati)", "Tocco dei talloni", "Push up sulle ginocchia a cane a testa in giù"],
+          "cooldown": ["Posizione del bambino", "Stretching della spalla incrociato", "Torsioni spinali", "Stretching dei dorsali sopra la testa"]
+        },
+        {
+          "day": 3,
+          "title": "Costruzione di Forza Inferiore",
+          "extractionStatus": "complete",
+          "warmup": ["Rotazioni del bacino", "Affondo profondo laterale (Cossack stretch)", "Stretching attivo di polpacci e bicipiti femorali", "Flessioni laterali dinamiche"],
+          "workout": ["Sumo squat", "Marcia in ponte", "Cerniera dell'anca", "Spostamento del peso in quadrupedia", "Affondi indietro (alternati)", "Contrazione isometrica dei dorsali", "Squat con sollevamento polpacci", "Dead bug", "Squat con slancio all'indietro"],
+          "cooldown": ["Stretching dei bicipiti femorali da seduto", "90/90", "Posizione del bambino", "Stretching ginocchia al petto"]
+        },
+        {
+          "day": 4,
+          "title": "Costruttore di Forza del Core",
+          "extractionStatus": "complete",
+          "warmup": ["Gatto-mucca", "Flessioni laterali dinamiche", "Rotazioni del collo", "Rotazioni del bacino"],
+          "workout": ["Dead bug", "Spostamento del peso in quadrupedia", "Ponte glutei (facile)", "Tocco dei talloni", "Sollevamenti proni delle braccia (alternati)", "Cerniera dell'anca", "Crunch laterale in piedi (sinistra) 2v", "Crunch laterale in piedi (destra) 2v", "Tenuta plank su avambracci e ginocchia"],
+          "cooldown": ["Stretching ginocchia al petto", "Torsioni spinali", "Posizione del bambino", "90/90"]
+        },
+        {
+          "day": 5,
+          "title": "Costruzione di Forza Posturale",
+          "extractionStatus": "complete",
+          "warmup": ["Rotazioni del collo", "Rotazioni delle braccia", "Aperture del petto con rotazione", "Riscaldamento dei polsi"],
+          "workout": ["Snow angels inversi", "Ponte glutei (facile)", "Contrazione isometrica dei dorsali", "Spostamento del peso in quadrupedia", "Scivolamenti scapolari al muro", "Dead bug", "Tenuta in posizione del cobra", "Tocco dei talloni", "Back widows (completi)"],
+          "cooldown": ["Stretching della spalla incrociato", "Stretching dei dorsali sopra la testa", "Posizione del bambino", "Torsioni spinali"]
+        }
+      ]
+    },
+    {
+      "week": 2,
+      "days": [
+        {
+          "day": 1,
+          "title": "Costruzione di Slancio del Corpo Intero",
+          "extractionStatus": "complete",
+          "warmup": ["Rotazioni del collo", "Rotazioni delle braccia", "Rotazioni del bacino", "Flessioni laterali dinamiche", "Stretching attivo di polpacci e bicipiti femorali"],
+          "workout": ["Shadow boxing", "Air squat", "Contrazione isometrica dei dorsali", "Ponte glutei (facile)", "Bird dog", "Push-up a presa stretta al muro", "Tocco dei talloni", "Cerniera dell'anca", "Push up sulle ginocchia a cane a testa in giù"],
+          "cooldown": ["Posizione del bambino", "Stretching della spalla incrociato", "Stretching ginocchia al petto", "Torsioni spinali", "Stretching dei bicipiti femorali da seduto"]
+        },
+        {
+          "day": 2,
+          "title": "Controllo di Resistenza di Spinta",
+          "extractionStatus": "complete",
+          "warmup": ["Rotazioni del collo", "Riscaldamento dei polsi", "Rotazioni dei gomiti", "Aperture del petto con rotazione", "Rotazioni delle braccia"],
+          "workout": ["Push up sulle ginocchia a cane a testa in giù", "Scivolamenti scapolari al muro", "Bird dog", "Push-up a presa stretta al muro", "Ponte glutei (facile)", "Contrazione isometrica dei dorsali", "Floor angels", "Cerniera dell'anca", "Push-up sulle ginocchia"],
+          "cooldown": ["Stretching della spalla incrociato", "Stretching dei dorsali sopra la testa", "Posizione del bambino", "Torsioni spinali", "Stretching ginocchia al petto"]
+        },
+        {
+          "day": 3,
+          "title": "Controllo di Potenza delle Gambe",
+          "extractionStatus": "complete",
+          "warmup": ["Rotazioni del bacino", "Affondo profondo laterale (Cossack stretch)", "Stretching attivo di polpacci e bicipiti femorali", "Flessioni laterali dinamiche", "Gatto-mucca"],
+          "workout": ["Affondi indietro (alternati)", "Ponte glutei (difficile)", "Cerniera dell'anca", "Spostamento del peso in quadrupedia", "Sumo squat", "Floor angels", "Squat con slancio all'indietro", "Tocco dei talloni", "Marcia in ponte"],
+          "cooldown": ["Stretching dei bicipiti femorali da seduto", "90/90", "Stretching ginocchia al petto", "Posizione del bambino", "Stretching a farfalla da seduti"]
+        },
+        {
+          "day": 4,
+          "title": "Base di Forza in Rotazione",
+          "extractionStatus": "complete",
+          "warmup": ["Gatto-mucca", "Flessioni laterali dinamiche", "Rotazioni del bacino", "Rotazioni del collo", "Stretching attivo di polpacci e bicipiti femorali"],
+          "workout": ["Crunch laterale in piedi (sinistra) 2v", "Crunch laterale in piedi (destra) 2v", "Ponte glutei isometrico", "Contrazione isometrica dei dorsali", "Scivolamenti scapolari al muro", "Roll down", "Air squat", "Sollevamenti proni delle braccia (alternati)", "Tenuta plank su avambracci e ginocchia"],
+          "cooldown": ["Posizione del bambino", "90/90", "Stretching ginocchia al petto", "Torsioni spinali", "Stretching della spalla incrociato"]
+        },
+        {
+          "day": 5,
+          "title": "Costruttore di Forza della Schiena",
+          "extractionStatus": "complete",
+          "warmup": ["Gatto-mucca", "Rotazioni delle braccia", "Riscaldamento dei polsi", "Aperture del petto con rotazione", "Rotazioni del collo"],
+          "workout": ["Back widows (completi)", "Contrazione isometrica dei dorsali", "Marcia in ponte", "Floor angels", "Dead bug", "Cerniera dell'anca", "Tenuta in posizione del cobra", "Bird dog", "Snow angels inversi"],
+          "cooldown": ["Stretching della spalla incrociato", "Stretching dei dorsali sopra la testa", "Torsioni spinali", "Posizione del bambino", "Stretching ginocchia al petto"]
+        }
+      ]
+    },
+    {
+      "week": 3,
+      "days": [
+        {
+          "day": 1,
+          "title": "Costruzione di Forza per la Perdita di Grasso",
+          "extractionStatus": "complete",
+          "warmup": ["Rotazioni del collo", "Flessioni laterali dinamiche", "Stretching attivo di polpacci e bicipiti femorali", "Rotazioni delle braccia"],
+          "workout": ["Shadow boxing", "Air squat", "Contrazione isometrica dei dorsali", "Marcia in ponte", "Bird dog", "Push-up a presa stretta al muro", "Tocco dei talloni", "Cerniera dell'anca", "Affondi indietro (alternati)", "Push up sulle ginocchia a cane a testa in giù"],
+          "cooldown": ["Posizione del bambino", "Stretching della spalla incrociato", "Stretching ginocchia al petto", "Stretching dei bicipiti femorali da seduto"]
+        },
+        {
+          "day": 2,
+          "title": "Progressione di Forza di Spinta",
+          "extractionStatus": "complete",
+          "warmup": ["Gatto-mucca", "Rotazioni delle braccia", "Riscaldamento dei polsi", "Aperture del petto con rotazione"],
+          "workout": ["Push-up sulle ginocchia", "Contrazione isometrica dei dorsali", "Dead bug", "Marcia in ponte", "Push-up a presa stretta al muro", "Bird dog", "Floor angels", "Cerniera dell'anca", "Shadow boxing", "Push up sulle ginocchia a cane a testa in giù"],
+          "cooldown": ["Posizione del bambino", "Stretching della spalla incrociato", "Torsioni spinali", "Stretching dei dorsali sopra la testa"]
+        },
+        {
+          "day": 3,
+          "title": "Progressione di Forza delle Gambe",
+          "extractionStatus": "complete",
+          "warmup": ["Stretching attivo di polpacci e bicipiti femorali", "Rotazioni del bacino", "Flessioni laterali dinamiche", "Affondo profondo laterale (Cossack stretch)"],
+          "workout": ["Affondi indietro (alternati)", "Ponte glutei (difficile)", "Cerniera dell'anca", "Dead bug", "Sumo squat", "Floor angels", "Squat con slancio all'indietro", "Marcia in ponte", "Scivolamenti scapolari al muro", "Squat con sollevamento polpacci"],
+          "cooldown": ["Stretching dei bicipiti femorali da seduto", "Stretching ginocchia al petto", "Torsioni spinali", "Posizione del bambino"]
+        },
+        {
+          "day": 4,
+          "title": "Progressione del Controllo del Core",
+          "extractionStatus": "complete",
+          "warmup": ["Gatto-mucca", "Flessioni laterali dinamiche", "Stretching attivo di polpacci e bicipiti femorali", "Rotazioni del collo"],
+          "workout": ["Spostamento del peso in quadrupedia", "Ponte glutei isometrico", "Crunch laterale in piedi (sinistra) 2v", "Crunch laterale in piedi (destra) 2v", "Scivolamenti scapolari al muro", "Cerniera dell'anca", "Contrazione isometrica dei dorsali", "Roll down", "Air squat", "Tenuta plank su avambracci e ginocchia"],
+          "cooldown": ["Stretching ginocchia al petto", "Torsioni spinali", "Posizione del bambino", "90/90"]
+        },
+        {
+          "day": 5,
+          "title": "Progressione di Forza Posturale",
+          "extractionStatus": "complete",
+          "warmup": ["Rotazioni del collo", "Rotazioni delle braccia", "Aperture del petto con rotazione", "Riscaldamento dei polsi"],
+          "workout": ["Snow angels inversi", "Marcia in ponte", "Spostamento del peso in quadrupedia", "Dead bug", "Scivolamenti scapolari al muro", "Cerniera dell'anca", "Floor angels", "Tocco dei talloni", "Push-up sulle ginocchia", "Back widows (completi)"],
+          "cooldown": ["Stretching della spalla incrociato", "Stretching dei dorsali sopra la testa", "Posizione del bambino", "Torsioni spinali"]
+        }
+      ]
+    },
+    {
+      "week": 4,
+      "days": [
+        {
+          "day": 1,
+          "title": "Sfida di Forza del Corpo Intero",
+          "extractionStatus": "generated-from-week-4-pattern",
+          "warmup": ["Gatto-mucca", "Rotazioni delle braccia", "Rotazioni del bacino", "Flessioni laterali dinamiche", "Riscaldamento dei polsi"],
+          "workout": ["Push up sulle ginocchia a cane a testa in giù", "Affondi in avanti (alternati)", "Tenuta plank su avambracci e ginocchia", "Marcia in ponte", "Tocco alle spalle in quadrupedia", "Squat con slancio all'indietro", "Bird dog", "Wall sit", "Roll down", "Contrazione isometrica dei dorsali"],
+          "cooldown": ["Posizione del bambino", "Stretching della spalla incrociato", "Stretching ginocchia al petto", "Torsioni spinali", "90/90"]
+        },
+        {
+          "day": 2,
+          "title": "Sfida di Forza Superiore",
+          "extractionStatus": "complete",
+          "warmup": ["Gatto-mucca", "Rotazioni delle braccia", "Riscaldamento dei polsi", "Aperture del petto con rotazione", "Rotazioni del collo"],
+          "workout": ["Push up sulle ginocchia a cane a testa in giù", "Tocco alle spalle in quadrupedia", "Marcia in ponte", "Push-up a presa stretta al muro", "Plank lean flow", "Alzate a W prono", "Affondi indietro (alternati)", "Tocco dei talloni", "Push-up sulle ginocchia", "Contrazione isometrica dei dorsali"],
+          "cooldown": ["Posizione del bambino", "Stretching della spalla incrociato", "Torsioni spinali", "Stretching dei dorsali sopra la testa", "Stretching ginocchia al petto"]
+        },
+        {
+          "day": 3,
+          "title": "Sfida di Forza Inferiore",
+          "extractionStatus": "complete",
+          "warmup": ["Rotazioni del bacino", "Affondo profondo laterale (Cossack stretch)", "Stretching attivo di polpacci e bicipiti femorali", "Flessioni laterali dinamiche", "Gatto-mucca"],
+          "workout": ["Affondi in avanti (alternati)", "Ponte glutei (difficile)", "Cerniera dell'anca", "Dead bug", "Wall sit", "Alzate a T prono", "Squat con slancio all'indietro", "Marcia in ponte", "Donkey kick (sinistra)", "Donkey kick (destra)"],
+          "cooldown": ["Stretching dei bicipiti femorali da seduto", "90/90", "Stretching ginocchia al petto", "Posizione del bambino", "Stretching a farfalla da seduti"]
+        },
+        {
+          "day": 4,
+          "title": "Sfida di Forza del Core",
+          "extractionStatus": "complete",
+          "warmup": ["Gatto-mucca", "Flessioni laterali dinamiche", "Stretching attivo di polpacci e bicipiti femorali", "Rotazioni del collo", "Rotazioni del bacino"],
+          "workout": ["Tenuta plank su avambracci e ginocchia", "Crunch a bicicletta", "Ponte glutei isometrico", "Tocco alle spalle in quadrupedia", "Crunch laterale in piedi (sinistra)", "Crunch laterale in piedi (destra)", "Sollevamenti proni delle braccia (alternati)", "Roll down", "Tocco delle punte", "Contrazione isometrica dei dorsali"],
+          "cooldown": ["Stretching ginocchia al petto", "Torsioni spinali", "Posizione del bambino", "90/90", "Stretching della spalla incrociato"]
+        },
+        {
+          "day": 5,
+          "title": "Sfida di Forza Posturale",
+          "extractionStatus": "complete",
+          "warmup": ["Rotazioni del collo", "Rotazioni delle braccia", "Aperture del petto con rotazione", "Riscaldamento dei polsi", "Gatto-mucca"],
+          "workout": ["Alzate a Y prono", "Alzate a W prono", "Marcia in ponte", "Back widows (ginocchia piegate)", "Spostamento del peso in quadrupedia", "Dead bug", "Scivolamenti scapolari al muro", "Cerniera dell'anca", "Tenuta in posizione del cobra", "Bird dog"],
+          "cooldown": ["Stretching della spalla incrociato", "Stretching dei dorsali sopra la testa", "Posizione del bambino", "Torsioni spinali", "Stretching ginocchia al petto"]
+        }
+      ]
+    }
+  ]
+}
