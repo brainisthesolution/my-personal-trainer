@@ -3,18 +3,20 @@ const app = document.querySelector("#app");
 const STORAGE_KEYS = {
   settings: "fitTimer.settings",
   overrides: "fitTimer.routineOverrides",
-  lastRoutine: "fitTimer.lastRoutine"
+  lastRoutine: "fitTimer.lastRoutine",
+  sessions: "fitTimer.sessions"
 };
 
 const DEFAULT_SETTINGS = {
   exerciseDurationSec: 30,
-  changeDurationSec: 10,
+  prepareDurationSec: 10,
   restEveryExercises: 2,
   restDurationSec: 30,
   workoutRounds: 2,
   voiceEnabled: true,
   countdownEnabled: true,
   nextEnabled: true,
+  exerciseCueEnabled: false,
   speechRate: 1
 };
 
@@ -24,16 +26,35 @@ const PHASE_LABELS = {
   cooldown: "Defaticamento"
 };
 
+const FINISH_MESSAGES = [
+  "Allenamento concluso: ottimo lavoro! La costanza è la chiave per raggiungere l'obiettivo, ci vediamo domani!",
+  "Sessione completata: grande lavoro! Un passo alla volta, stai costruendo il risultato.",
+  "Allenamento finito: bravo! Recupera, respira e porta con te questa energia."
+];
+
+const DEFAULT_EXERCISE_GUIDE = {
+  summary: "Esercizio generale a corpo libero: mantieni controllo, postura e respirazione costante.",
+  steps: ["Prendi posizione con calma.", "Esegui il movimento nel range che controlli bene.", "Torna alla posizione iniziale senza scatti."],
+  focus: ["Controllo prima della velocita.", "Allineamento comodo.", "Respiro regolare."],
+  avoid: ["Compensare con slanci.", "Ignorare dolore o fastidio articolare.", "Perdere postura per fare piu ripetizioni."],
+  easier: ["Riduci ampiezza, velocita o durata."],
+  cue: "Controlla il movimento e mantieni il respiro regolare."
+};
+
 let sourceData = null;
 let exerciseData = null;
-let settings = loadJson(STORAGE_KEYS.settings, DEFAULT_SETTINGS);
+let exerciseGuideData = null;
+let settings = normalizeSettings(loadJson(STORAGE_KEYS.settings, DEFAULT_SETTINGS));
 let overrides = loadJson(STORAGE_KEYS.overrides, {});
 let routines = [];
 let exerciseLibrary = [];
 let exerciseCategories = [];
 let selected = { week: 1, day: 1 };
+let calendarMonth = startOfMonth(new Date());
 let editorPhase = "workout";
 let editorCategory = "Tutti";
+let libraryCategory = "Tutti";
+let exerciseDetailBack = { screen: "library" };
 
 let player = {
   active: false,
@@ -52,12 +73,14 @@ let player = {
 init();
 
 async function init() {
-  const [routinePayload, exercisePayload] = await Promise.all([
+  const [routinePayload, exercisePayload, guidePayload] = await Promise.all([
     fetch("data/routines.json").then((response) => response.json()),
-    fetch("data/exercise-library.json").then((response) => response.json())
+    fetch("data/exercise-library.json").then((response) => response.json()),
+    fetch("data/exercise-guides.json").then((response) => response.json())
   ]);
   sourceData = routinePayload;
   exerciseData = exercisePayload;
+  exerciseGuideData = guidePayload;
   routines = flattenRoutines(sourceData);
   applyRoutineOverrides();
   exerciseLibrary = buildExerciseLibrary(routines);
@@ -115,9 +138,17 @@ function renderHome() {
           <p class="eyebrow">My Personal Trainer</p>
           <h1>Allenamenti</h1>
         </div>
-        <button class="icon-button" data-action="settings" aria-label="Impostazioni" title="Impostazioni">
-          ${iconGear()}
-        </button>
+        <div class="top-actions">
+          <button class="icon-button" data-action="calendar" aria-label="Storico sessioni" title="Storico sessioni">
+            ${iconCalendar()}
+          </button>
+          <button class="icon-button" data-action="library" aria-label="Libreria esercizi" title="Libreria esercizi">
+            ${iconBook()}
+          </button>
+          <button class="icon-button" data-action="settings" aria-label="Impostazioni" title="Impostazioni">
+            ${iconGear()}
+          </button>
+        </div>
       </header>
 
       ${lastRoutine ? `
@@ -152,8 +183,97 @@ function renderHome() {
     selected = { week, day };
     renderRoutine(findRoutine(week, day));
   });
+  bindAction("calendar", renderCalendar);
+  bindAction("library", renderExerciseLibrary);
   bindAction("settings", renderSettings);
   bindAction("open-last", () => renderRoutine(lastRoutine));
+}
+
+function renderCalendar() {
+  const sessions = loadJson(STORAGE_KEYS.sessions, []);
+  const monthStart = startOfMonth(calendarMonth);
+  const monthDays = daysInMonth(monthStart);
+  const leadingDays = (monthStart.getDay() + 6) % 7;
+  const cells = [
+    ...Array.from({ length: leadingDays }, () => null),
+    ...Array.from({ length: monthDays }, (_, index) => new Date(monthStart.getFullYear(), monthStart.getMonth(), index + 1))
+  ];
+  const monthSessions = sessionsForMonth(sessions, monthStart);
+  const completedDays = new Set(monthSessions.map((session) => session.date));
+
+  app.innerHTML = `
+    <main class="screen">
+      <header class="topbar">
+        <button class="icon-button" data-action="home" aria-label="Indietro" title="Indietro">${iconBack()}</button>
+        <div>
+          <p class="eyebrow">Storico sessioni</p>
+          <h1>Calendario</h1>
+        </div>
+      </header>
+
+      <section class="calendar-summary">
+        <div><span>${monthSessions.length}</span><small>Sessioni</small></div>
+        <div><span>${completedDays.size}</span><small>Giorni attivi</small></div>
+        <div><span>${formatTime(monthSessions.reduce((sum, session) => sum + session.totalSeconds, 0))}</span><small>Tempo</small></div>
+      </section>
+
+      <section class="calendar-toolbar">
+        <button class="icon-button" data-action="prev-month" aria-label="Mese precedente" title="Mese precedente">${iconBack()}</button>
+        <strong>${monthLabel(monthStart)}</strong>
+        <button class="icon-button" data-action="next-month" aria-label="Mese successivo" title="Mese successivo">${iconForward()}</button>
+      </section>
+
+      <section class="calendar-grid" aria-label="Calendario allenamenti">
+        ${["L", "M", "M", "G", "V", "S", "D"].map((day) => `<span class="calendar-weekday">${day}</span>`).join("")}
+        ${cells.map((date) => calendarCell(date, sessions)).join("")}
+      </section>
+
+      <section class="session-list">
+        <h2>Sessioni del mese</h2>
+        ${monthSessions.length ? monthSessions.map(sessionCard).join("") : `<p class="empty-state">Nessun allenamento completato in questo mese.</p>`}
+      </section>
+    </main>
+  `;
+
+  bindAction("home", renderHome);
+  bindAction("prev-month", () => {
+    calendarMonth = new Date(monthStart.getFullYear(), monthStart.getMonth() - 1, 1);
+    renderCalendar();
+  });
+  bindAction("next-month", () => {
+    calendarMonth = new Date(monthStart.getFullYear(), monthStart.getMonth() + 1, 1);
+    renderCalendar();
+  });
+  bind("[data-session-routine]", "click", (event) => {
+    const [week, day] = event.currentTarget.dataset.sessionRoutine.split("-").map(Number);
+    const routine = findRoutine(week, day);
+    if (routine) renderRoutine(routine);
+  });
+}
+
+function calendarCell(date, sessions) {
+  if (!date) return `<span class="calendar-cell empty" aria-hidden="true"></span>`;
+  const key = localDateKey(date);
+  const daySessions = sessions.filter((session) => session.date === key);
+  const isToday = key === localDateKey(new Date());
+  return `
+    <span class="calendar-cell ${daySessions.length ? "completed" : ""} ${isToday ? "today" : ""}">
+      <span>${date.getDate()}</span>
+      ${daySessions.length ? `<small>${daySessions.length}</small>` : ""}
+    </span>
+  `;
+}
+
+function sessionCard(session) {
+  return `
+    <button class="session-card" data-session-routine="${session.week}-${session.day}">
+      <span>
+        <strong>${escapeHtml(session.title)}</strong>
+        <small>${formatSessionDate(session.completedAt)} · Settimana ${session.week}, giorno ${session.day}</small>
+      </span>
+      <span class="session-metrics">${session.totalExercises} es. · ${formatTime(session.totalSeconds)}</span>
+    </button>
+  `;
 }
 
 function routineCard(routine) {
@@ -202,6 +322,13 @@ function renderRoutine(routine) {
   bindAction("home", renderHome);
   bindAction("start", () => startRoutine(routine));
   bindAction("edit", () => renderEditor(routine));
+  bind("[data-guide]", "click", (event) => {
+    openExerciseDetail(decodeURIComponent(event.currentTarget.dataset.guide), {
+      screen: "routine",
+      week: routine.week,
+      day: routine.day
+    });
+  });
 }
 
 function phasePreview(label, items) {
@@ -216,10 +343,116 @@ function phasePreview(label, items) {
           <li>
             ${exerciseThumb(name)}
             <span>${escapeHtml(name)}</span>
+            <button class="icon-button mini" data-guide="${encodeURIComponent(name)}" aria-label="Guida ${escapeHtml(name)}" title="Guida esercizio">${iconInfo()}</button>
           </li>
         `).join("")}
       </ol>
     </section>
+  `;
+}
+
+function renderExerciseLibrary() {
+  const filteredExercises = exerciseLibrary.filter((exercise) => libraryCategory === "Tutti" || exercise.category === libraryCategory);
+
+  app.innerHTML = `
+    <main class="screen">
+      <header class="topbar">
+        <button class="icon-button" data-action="home" aria-label="Indietro" title="Indietro">${iconBack()}</button>
+        <div>
+          <p class="eyebrow">Guida esecuzione</p>
+          <h1>Libreria esercizi</h1>
+        </div>
+      </header>
+
+      <section class="library-filter">
+        <select id="libraryCategory" aria-label="Categoria esercizi">
+          ${exerciseCategories.map((category) => `<option value="${escapeHtml(category)}" ${category === libraryCategory ? "selected" : ""}>${escapeHtml(category)}</option>`).join("")}
+        </select>
+      </section>
+
+      <section class="exercise-library-list">
+        ${filteredExercises.map((exercise) => `
+          <button class="exercise-card" data-exercise="${encodeURIComponent(exercise.name)}">
+            ${exerciseThumb(exercise.name)}
+            <span>
+              <strong>${escapeHtml(exercise.name)}</strong>
+              <small>${escapeHtml(exercise.category)}</small>
+            </span>
+            ${iconForward()}
+          </button>
+        `).join("")}
+      </section>
+    </main>
+  `;
+
+  bindAction("home", renderHome);
+  bind("#libraryCategory", "change", (event) => {
+    libraryCategory = event.currentTarget.value;
+    renderExerciseLibrary();
+  });
+  bind("[data-exercise]", "click", (event) => {
+    openExerciseDetail(decodeURIComponent(event.currentTarget.dataset.exercise), { screen: "library" });
+  });
+}
+
+function openExerciseDetail(name, backTarget = { screen: "library" }) {
+  exerciseDetailBack = backTarget;
+  renderExerciseDetail(name);
+}
+
+function renderExerciseDetail(name) {
+  const meta = exerciseMeta(name);
+  const guide = exerciseGuide(meta);
+
+  app.innerHTML = `
+    <main class="screen">
+      <header class="topbar">
+        <button class="icon-button" data-action="back" aria-label="Indietro" title="Indietro">${iconBack()}</button>
+        <div>
+          <p class="eyebrow">${escapeHtml(meta.category)}</p>
+          <h1>${escapeHtml(meta.name)}</h1>
+        </div>
+      </header>
+
+      <section class="exercise-detail-hero">
+        ${exerciseHero(meta.name)}
+      </section>
+
+      <section class="guide-panel">
+        <p>${escapeHtml(guide.summary)}</p>
+      </section>
+
+      <section class="guide-grid">
+        ${guideBlock("Esecuzione", guide.steps)}
+        ${guideBlock("Focus", guide.focus)}
+        ${guideBlock("Evita", guide.avoid)}
+        ${guideBlock("Variante facile", guide.easier)}
+      </section>
+
+      <section class="voice-cue">
+        <span>Suggerimento vocale</span>
+        <p>${escapeHtml(guide.cue)}</p>
+      </section>
+    </main>
+  `;
+
+  bindAction("back", () => {
+    if (exerciseDetailBack.screen === "routine") {
+      renderRoutine(findRoutine(exerciseDetailBack.week, exerciseDetailBack.day));
+      return;
+    }
+    renderExerciseLibrary();
+  });
+}
+
+function guideBlock(title, items) {
+  return `
+    <article class="guide-block">
+      <h2>${title}</h2>
+      <ul>
+        ${items.map((item) => `<li>${escapeHtml(item)}</li>`).join("")}
+      </ul>
+    </article>
   `;
 }
 
@@ -236,7 +469,7 @@ function renderSettings() {
 
       <section class="settings-panel">
         ${numberSetting("exerciseDurationSec", "Durata esercizio", 5, 300, 5)}
-        ${numberSetting("changeDurationSec", "Cambio esercizio", 0, 120, 5)}
+        ${numberSetting("prepareDurationSec", "Preparazione esercizio", 5, 120, 5)}
         ${numberSetting("restEveryExercises", "Pausa ogni", 1, 10, 1)}
         ${numberSetting("restDurationSec", "Durata pausa", 0, 300, 5)}
         ${numberSetting("workoutRounds", "Ripetizioni routine", 1, 6, 1)}
@@ -247,6 +480,7 @@ function renderSettings() {
         ${toggleSetting("voiceEnabled", "Voce")}
         ${toggleSetting("countdownEnabled", "Countdown")}
         ${toggleSetting("nextEnabled", "Prossimo esercizio")}
+        ${toggleSetting("exerciseCueEnabled", "Suggerimenti vocali esercizio")}
       </section>
 
       <section class="action-row">
@@ -407,8 +641,9 @@ function renderPlayer() {
   const elapsed = elapsedTimelineSeconds();
   const segmentElapsed = elapsedCurrentSegmentSeconds();
   const remaining = remainingSeconds(segment);
-  const nextExercise = nextExerciseName(player.index);
+  const nextExercise = segment.kind === "prepare" ? "" : nextExerciseName(player.index);
   const visualName = segment.kind === "exercise" ? segment.name : segment.nextName;
+  const exerciseProgress = exerciseCounter(player.index);
 
   app.innerHTML = `
     <main class="player-screen ${segment.kind}">
@@ -416,7 +651,7 @@ function renderPlayer() {
         <button class="icon-button ghost" data-action="close-player" aria-label="Chiudi" title="Chiudi">${iconBack()}</button>
         <div>
           <p>${segment.phaseLabel}${segment.round ? `, giro ${segment.round} di ${settings.workoutRounds}` : ""}</p>
-          <strong>${Math.min(player.index + 1, player.timeline.length)} / ${player.timeline.length}</strong>
+          <strong>${exerciseProgress.current} / ${exerciseProgress.total}</strong>
         </div>
       </header>
 
@@ -455,15 +690,15 @@ function buildTimeline(routine) {
 
   for (let round = 1; round <= settings.workoutRounds; round += 1) {
     routine.workout.forEach((name, index) => {
-      timeline.push(exerciseSegment(name, "workout", round));
+      appendExercise(timeline, name, "workout", round);
       const isLastWorkout = round === settings.workoutRounds && index === routine.workout.length - 1;
-      if (!isLastWorkout) {
-        const shouldRest = (index + 1) % settings.restEveryExercises === 0;
+      const shouldRest = (index + 1) % settings.restEveryExercises === 0;
+      if (!isLastWorkout && shouldRest) {
         timeline.push({
-          kind: shouldRest ? "rest" : "change",
+          kind: "rest",
           phase: "workout",
           phaseLabel: PHASE_LABELS.workout,
-          duration: shouldRest ? settings.restDurationSec : settings.changeDurationSec,
+          duration: settings.restDurationSec,
           round,
           nextName: nextWorkoutName(routine.workout, round, index)
         });
@@ -476,18 +711,23 @@ function buildTimeline(routine) {
 }
 
 function addExercisePhase(timeline, exercises, phase) {
-  exercises.forEach((name, index) => {
-    timeline.push(exerciseSegment(name, phase, null));
-    if (index < exercises.length - 1 && settings.changeDurationSec > 0) {
-      timeline.push({
-        kind: "change",
-        phase,
-        phaseLabel: PHASE_LABELS[phase],
-        duration: settings.changeDurationSec,
-        nextName: exercises[index + 1]
-      });
-    }
-  });
+  exercises.forEach((name) => appendExercise(timeline, name, phase, null));
+}
+
+function appendExercise(timeline, name, phase, round) {
+  timeline.push(prepareSegment(name, phase, round));
+  timeline.push(exerciseSegment(name, phase, round));
+}
+
+function prepareSegment(name, phase, round) {
+  return {
+    kind: "prepare",
+    phase,
+    phaseLabel: PHASE_LABELS[phase],
+    duration: settings.prepareDurationSec,
+    round,
+    nextName: name
+  };
 }
 
 function exerciseSegment(name, phase, round) {
@@ -541,14 +781,21 @@ function updatePlayerClock(segment = player.timeline[player.index]) {
 function speakCurrentSegment() {
   const segment = player.timeline[player.index];
   if (!segment || !settings.voiceEnabled) return;
-  const key = `${player.index}:${segment.kind}:${segment.name || ""}`;
+  const key = `${player.index}:${segment.kind}:${segment.name || segment.nextName || ""}`;
   if (player.spokenSegment === key) return;
   player.spokenSegment = key;
   const parts = [];
+  if (segment.kind === "prepare") {
+    speak(`Prossimo esercizio: ${segment.nextName}`);
+    return;
+  }
   if (segment.kind === "exercise" && isFirstExerciseOfPhase(player.index)) {
     parts.push(segment.round ? `Allenamento, giro ${segment.round} di ${settings.workoutRounds}` : segment.phaseLabel);
   }
   parts.push(segmentTitle(segment));
+  if (segment.kind === "exercise" && settings.exerciseCueEnabled) {
+    parts.push(exerciseGuide(exerciseMeta(segment.name)).cue);
+  }
   if (settings.nextEnabled && segment.nextName) parts.push(`Prossimo: ${segment.nextName}`);
   speak(parts.join(". "));
 }
@@ -621,6 +868,8 @@ function stopPlayer() {
 
 function finishRoutine() {
   const routine = player.routine;
+  const finishMessage = randomFinishMessage();
+  recordCompletedSession(routine);
   stopPlayer();
   saveJson(STORAGE_KEYS.lastRoutine, { week: routine.week, day: routine.day });
   app.innerHTML = `
@@ -628,6 +877,7 @@ function finishRoutine() {
       <section>
         <p class="eyebrow">Completata</p>
         <h1>${escapeHtml(routine.title)}</h1>
+        <p class="finish-message">${escapeHtml(finishMessage)}</p>
         <p>Settimana ${routine.week}, giorno ${routine.day}</p>
       </section>
       <div class="action-row">
@@ -636,19 +886,20 @@ function finishRoutine() {
       </div>
     </main>
   `;
+  if (settings.voiceEnabled) speak(finishMessage);
   bindAction("again", () => startRoutine(routine));
   bindAction("home", renderHome);
 }
 
 function segmentTitle(segment) {
   if (segment.kind === "rest") return "Pausa";
-  if (segment.kind === "change") return "Cambio esercizio";
+  if (segment.kind === "prepare") return `Prossimo esercizio: ${segment.nextName}`;
   return segment.name;
 }
 
 function segmentKindLabel(segment) {
   if (segment.kind === "rest") return "Pausa";
-  if (segment.kind === "change") return "Cambio";
+  if (segment.kind === "prepare") return "Preparazione";
   return "Esercizio";
 }
 
@@ -664,6 +915,19 @@ function nextExerciseName(fromIndex) {
     if (segment.kind === "exercise") return segment.name;
   }
   return "";
+}
+
+function exerciseCounter(index) {
+  const total = player.timeline.filter((segment) => segment.kind === "exercise").length;
+  const segment = player.timeline[index];
+  const completedOrCurrent = player.timeline
+    .slice(0, index + 1)
+    .filter((item) => item.kind === "exercise").length;
+  const current = segment?.kind === "prepare" ? completedOrCurrent + 1 : completedOrCurrent;
+  return {
+    current: Math.min(total, Math.max(1, current)),
+    total
+  };
 }
 
 function isFirstExerciseOfPhase(index) {
@@ -702,6 +966,31 @@ function routineSummary(routine) {
   return { totalExercises, totalSeconds };
 }
 
+function recordCompletedSession(routine) {
+  if (!routine) return;
+  const completedAt = new Date();
+  const summary = routineSummary(routine);
+  const sessions = loadJson(STORAGE_KEYS.sessions, []);
+  const session = {
+    id: `${completedAt.toISOString()}-${routine.key}`,
+    completedAt: completedAt.toISOString(),
+    date: localDateKey(completedAt),
+    routineKey: routine.key,
+    week: routine.week,
+    day: routine.day,
+    title: routine.title,
+    totalExercises: summary.totalExercises,
+    totalSeconds: summary.totalSeconds,
+    workoutRounds: settings.workoutRounds
+  };
+  saveJson(STORAGE_KEYS.sessions, [session, ...sessions].slice(0, 500));
+  calendarMonth = startOfMonth(completedAt);
+}
+
+function randomFinishMessage() {
+  return FINISH_MESSAGES[Math.floor(Math.random() * FINISH_MESSAGES.length)];
+}
+
 async function requestWakeLock() {
   if (!("wakeLock" in navigator) || player.wakeLock) return;
   try {
@@ -734,6 +1023,37 @@ function exerciseMeta(name) {
     || { name, category: "Full body", image: "" };
 }
 
+function exerciseGuide(exercise) {
+  const exactGuide = exerciseGuideData?.exercises?.[exercise.name];
+  if (exactGuide) return normalizeGuide(exactGuide);
+
+  const normalizedName = exercise.name.toLowerCase();
+  const rule = exerciseGuideData?.rules?.find((item) =>
+    item.match?.some((term) => normalizedName.includes(String(term).toLowerCase()))
+  );
+  if (rule?.guide) return normalizeGuide(rule.guide);
+
+  const categoryGuide = exerciseGuideData?.categories?.[exercise.category];
+  if (categoryGuide) return normalizeGuide(categoryGuide);
+
+  return normalizeGuide(exerciseGuideData?.fallback || DEFAULT_EXERCISE_GUIDE);
+}
+
+function normalizeGuide(guide) {
+  return {
+    summary: guide?.summary || DEFAULT_EXERCISE_GUIDE.summary,
+    steps: listOrFallback(guide?.steps, DEFAULT_EXERCISE_GUIDE.steps),
+    focus: listOrFallback(guide?.focus, DEFAULT_EXERCISE_GUIDE.focus),
+    avoid: listOrFallback(guide?.avoid, DEFAULT_EXERCISE_GUIDE.avoid),
+    easier: listOrFallback(guide?.easier, DEFAULT_EXERCISE_GUIDE.easier),
+    cue: guide?.cue || DEFAULT_EXERCISE_GUIDE.cue
+  };
+}
+
+function listOrFallback(value, fallback) {
+  return Array.isArray(value) && value.length > 0 ? value : fallback;
+}
+
 function exerciseThumb(name) {
   const meta = exerciseMeta(name);
   if (!meta.image) return `<span class="exercise-thumb placeholder"></span>`;
@@ -764,12 +1084,54 @@ function formatTime(totalSeconds) {
   return `${minutes}:${String(seconds).padStart(2, "0")}`;
 }
 
+function startOfMonth(date) {
+  return new Date(date.getFullYear(), date.getMonth(), 1);
+}
+
+function daysInMonth(date) {
+  return new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate();
+}
+
+function localDateKey(date) {
+  return `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, "0")}-${String(date.getDate()).padStart(2, "0")}`;
+}
+
+function monthLabel(date) {
+  return new Intl.DateTimeFormat("it-IT", { month: "long", year: "numeric" }).format(date);
+}
+
+function sessionsForMonth(sessions, date) {
+  const prefix = `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, "0")}`;
+  return sessions
+    .filter((session) => session.date?.startsWith(prefix))
+    .sort((a, b) => new Date(b.completedAt) - new Date(a.completedAt));
+}
+
+function formatSessionDate(value) {
+  return new Intl.DateTimeFormat("it-IT", {
+    day: "2-digit",
+    month: "short",
+    hour: "2-digit",
+    minute: "2-digit"
+  }).format(new Date(value));
+}
+
 function loadJson(key, fallback) {
   try {
     return JSON.parse(localStorage.getItem(key)) ?? clone(fallback);
   } catch {
     return clone(fallback);
   }
+}
+
+function normalizeSettings(value) {
+  const next = { ...DEFAULT_SETTINGS, ...value };
+  if (!Number.isFinite(Number(next.prepareDurationSec)) || Number(next.prepareDurationSec) < 5) {
+    next.prepareDurationSec = DEFAULT_SETTINGS.prepareDurationSec;
+  }
+  delete next.changeDurationSec;
+  saveJson(STORAGE_KEYS.settings, next);
+  return next;
 }
 
 function saveJson(key, value) {
@@ -817,6 +1179,18 @@ function iconForward() {
 
 function iconGear() {
   return `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 15.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.9l.1.1-2 3.4-.2-.1a1.7 1.7 0 0 0-2 .1 7.2 7.2 0 0 1-1.7 1 1.7 1.7 0 0 0-1.2 1.6v.2H8.8V23a1.7 1.7 0 0 0-1.1-1.6 7.2 7.2 0 0 1-1.8-1 1.7 1.7 0 0 0-2-.1l-.2.1-2-3.4.1-.1A1.7 1.7 0 0 0 2.1 15a7.6 7.6 0 0 1 0-2 1.7 1.7 0 0 0-.3-1.9l-.1-.1 2-3.4.2.1a1.7 1.7 0 0 0 2-.1 7.2 7.2 0 0 1 1.8-1A1.7 1.7 0 0 0 8.8 5V4.8h4.4V5a1.7 1.7 0 0 0 1.2 1.6 7.2 7.2 0 0 1 1.7 1 1.7 1.7 0 0 0 2 .1l.2-.1 2 3.4-.1.1a1.7 1.7 0 0 0-.3 1.9 7.6 7.6 0 0 1 0 2z"/></svg>`;
+}
+
+function iconCalendar() {
+  return `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 2v4"/><path d="M16 2v4"/><path d="M3 10h18"/><path d="M5 4h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"/><path d="M8 14h.01"/><path d="M12 14h.01"/><path d="M16 14h.01"/><path d="M8 18h.01"/><path d="M12 18h.01"/></svg>`;
+}
+
+function iconBook() {
+  return `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M4 4.5A2.5 2.5 0 0 1 6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5z"/><path d="M8 6h8"/></svg>`;
+}
+
+function iconInfo() {
+  return `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 17v-6"/><path d="M12 7h.01"/><path d="M12 22a10 10 0 1 0 0-20 10 10 0 0 0 0 20z"/></svg>`;
 }
 
 function iconTrash() {

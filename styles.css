@@ -85,6 +85,12 @@ button {
   grid-column: 2 / 4;
 }
 
+.top-actions {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+}
+
 .eyebrow,
 .player-top p {
   margin: 0 0 5px;
@@ -220,6 +226,13 @@ button {
   margin-bottom: 14px;
 }
 
+.calendar-summary {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
 .stats-grid div {
   min-height: 76px;
   padding: 13px 10px;
@@ -228,22 +241,159 @@ button {
   background: var(--panel);
 }
 
+.calendar-summary div {
+  min-height: 76px;
+  padding: 13px 10px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--panel);
+}
+
 .stats-grid span,
-.stats-grid small {
+.stats-grid small,
+.calendar-summary span,
+.calendar-summary small {
   display: block;
   text-align: center;
 }
 
-.stats-grid span {
+.stats-grid span,
+.calendar-summary span {
   font-size: 25px;
   font-weight: 900;
 }
 
-.stats-grid small {
+.stats-grid small,
+.calendar-summary small {
   margin-top: 5px;
   color: var(--muted);
   font-size: 12px;
   font-weight: 800;
+}
+
+.calendar-toolbar {
+  display: grid;
+  grid-template-columns: 44px 1fr 44px;
+  gap: 10px;
+  align-items: center;
+  margin: 12px 0;
+}
+
+.calendar-toolbar strong {
+  text-align: center;
+  text-transform: capitalize;
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 6px;
+  margin: 12px 0 18px;
+}
+
+.calendar-weekday {
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 900;
+  text-align: center;
+}
+
+.calendar-cell {
+  position: relative;
+  display: grid;
+  place-items: center;
+  min-height: 44px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.62);
+  color: var(--ink);
+  font-weight: 850;
+}
+
+.calendar-cell.empty {
+  border-color: transparent;
+  background: transparent;
+}
+
+.calendar-cell.today {
+  border-color: var(--accent);
+}
+
+.calendar-cell.completed {
+  color: #fff;
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+.calendar-cell small {
+  position: absolute;
+  right: 5px;
+  bottom: 4px;
+  display: grid;
+  place-items: center;
+  min-width: 16px;
+  height: 16px;
+  padding: 0 4px;
+  border-radius: 999px;
+  color: var(--accent-strong);
+  background: #fff;
+  font-size: 10px;
+  font-weight: 900;
+}
+
+.session-list {
+  display: grid;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.session-list h2 {
+  margin: 0 0 2px;
+  font-size: 17px;
+}
+
+.session-card {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 10px;
+  align-items: center;
+  width: 100%;
+  min-height: 70px;
+  padding: 13px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--panel);
+  color: var(--ink);
+  text-align: left;
+}
+
+.session-card strong,
+.session-card small {
+  display: block;
+}
+
+.session-card small {
+  margin-top: 4px;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.session-metrics {
+  color: var(--accent-strong);
+  font-size: 12px;
+  font-weight: 900;
+  white-space: nowrap;
+}
+
+.empty-state {
+  margin: 0;
+  padding: 14px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  color: var(--muted);
+  background: var(--panel);
+  font-weight: 760;
 }
 
 .action-row {
@@ -321,7 +471,7 @@ button {
 
 .phase-block li {
   display: grid;
-  grid-template-columns: 48px 1fr;
+  grid-template-columns: 48px 1fr auto;
   gap: 10px;
   align-items: center;
   min-height: 66px;
@@ -445,6 +595,138 @@ button {
   font-weight: 800;
 }
 
+.library-filter {
+  margin: 0 0 14px;
+}
+
+.library-filter select {
+  width: 100%;
+  min-height: 46px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 0 12px;
+  color: var(--ink);
+  background: #fff;
+}
+
+.exercise-library-list {
+  display: grid;
+  gap: 8px;
+}
+
+.exercise-card {
+  display: grid;
+  grid-template-columns: 48px 1fr auto;
+  gap: 10px;
+  align-items: center;
+  width: 100%;
+  min-height: 72px;
+  padding: 12px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  color: var(--ink);
+  background: var(--panel);
+  text-align: left;
+}
+
+.exercise-card strong,
+.exercise-card small {
+  display: block;
+}
+
+.exercise-card strong {
+  line-height: 1.16;
+}
+
+.exercise-card small {
+  margin-top: 4px;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.exercise-card svg {
+  width: 22px;
+  height: 22px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.exercise-detail-hero {
+  display: grid;
+  place-items: center;
+  margin-bottom: 14px;
+}
+
+.exercise-detail-hero .exercise-hero {
+  width: min(100%, 420px);
+  background: #fff;
+  border-color: var(--line);
+  box-shadow: var(--shadow);
+}
+
+.guide-panel,
+.guide-block,
+.voice-cue {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--panel);
+}
+
+.guide-panel {
+  padding: 16px;
+  margin-bottom: 12px;
+}
+
+.guide-panel p,
+.voice-cue p {
+  margin: 0;
+  color: var(--muted);
+  font-weight: 720;
+  line-height: 1.38;
+}
+
+.guide-grid {
+  display: grid;
+  gap: 10px;
+}
+
+.guide-block {
+  padding: 14px;
+}
+
+.guide-block h2 {
+  margin: 0 0 8px;
+  font-size: 16px;
+}
+
+.guide-block ul {
+  display: grid;
+  gap: 6px;
+  margin: 0;
+  padding-left: 18px;
+  color: var(--muted);
+  font-weight: 700;
+  line-height: 1.34;
+}
+
+.voice-cue {
+  padding: 14px;
+  margin-top: 10px;
+}
+
+.voice-cue span {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--accent-strong);
+  font-size: 12px;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
 .icon-button {
   display: inline-grid;
   place-items: center;
@@ -471,6 +753,11 @@ button {
   color: var(--danger);
 }
 
+.icon-button.mini {
+  width: 36px;
+  height: 36px;
+}
+
 .icon-button.ghost {
   border-color: rgba(255, 255, 255, 0.2);
   color: #fff;
@@ -488,7 +775,7 @@ button {
   background: #10312d;
 }
 
-.player-screen.change {
+.player-screen.prepare {
   background: #1d2d38;
 }
 
@@ -632,6 +919,13 @@ button {
   margin: 10px 0 0;
   color: var(--muted);
   font-weight: 750;
+}
+
+.done-screen .finish-message {
+  max-width: 34rem;
+  margin: 16px auto 0;
+  font-size: 18px;
+  line-height: 1.35;
 }
 
 @media (min-width: 720px) {

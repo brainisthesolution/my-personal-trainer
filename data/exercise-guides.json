@@ -1,0 +1,539 @@
+{
+  "exercises": {
+    "Gatto-mucca": {
+      "summary": "Mobilizza colonna e bacino partendo in quadrupedia: mani sotto le spalle, ginocchia sotto le anche.",
+      "steps": [
+        "Inspira lasciando scendere leggermente la pancia e aprendo il petto.",
+        "Espira arrotondando la schiena verso l'alto e portando il mento verso il petto.",
+        "Alterna lentamente le due posizioni senza forzare il collo."
+      ],
+      "focus": [
+        "Movimento della colonna vertebrale, non delle braccia.",
+        "Respiro che guida il ritmo.",
+        "Spalle lontane dalle orecchie."
+      ],
+      "avoid": [
+        "Piegare i gomiti.",
+        "Muovere il bacino a scatti.",
+        "Buttare indietro la testa."
+      ],
+      "easier": [
+        "Riduci l'ampiezza e muoviti piu lentamente."
+      ],
+      "cue": "Inarca e arrotonda la schiena seguendo il respiro."
+    },
+    "Rotazioni del bacino": {
+      "summary": "Scioglie anche e zona lombare: parti in piedi con piedi stabili e mani sui fianchi.",
+      "steps": [
+        "Disegna cerchi lenti con il bacino.",
+        "Mantieni il busto alto e le ginocchia morbide.",
+        "Cambia direzione a meta tempo."
+      ],
+      "focus": [
+        "Movimento controllato delle anche.",
+        "Addome leggermente attivo.",
+        "Piedi sempre appoggiati."
+      ],
+      "avoid": [
+        "Muovere tutto il busto.",
+        "Forzare se senti fastidio lombare.",
+        "Accelerare perdendo controllo."
+      ],
+      "easier": [
+        "Fai cerchi piu piccoli."
+      ],
+      "cue": "Disegna cerchi lenti con il bacino e tieni il busto alto."
+    },
+    "Flessioni laterali dinamiche": {
+      "summary": "Allunga i fianchi e prepara il busto: piedi stabili, ginocchia morbide, petto aperto.",
+      "steps": [
+        "Porta un braccio sopra la testa.",
+        "Inclina il busto di lato senza ruotarlo.",
+        "Ritorna al centro e alterna lato."
+      ],
+      "focus": [
+        "Allungamento del fianco.",
+        "Bacino fermo.",
+        "Respiro ampio."
+      ],
+      "avoid": [
+        "Piegarti in avanti.",
+        "Collassare sulle spalle.",
+        "Spingere oltre una tensione comoda."
+      ],
+      "easier": [
+        "Tieni le mani sui fianchi e riduci l'inclinazione."
+      ],
+      "cue": "Allungati verso l'alto e poi inclina il busto di lato."
+    },
+    "Rotazioni del collo": {
+      "summary": "Mobilizza il collo con delicatezza: movimenti piccoli, lenti e senza dolore.",
+      "steps": [
+        "Parti con mento neutro e spalle rilassate.",
+        "Inclina o ruota lentamente entro un range comodo.",
+        "Torna al centro prima di cambiare lato."
+      ],
+      "focus": [
+        "Movimento leggero.",
+        "Mandibola rilassata.",
+        "Respiro lento."
+      ],
+      "avoid": [
+        "Cerchi completi veloci.",
+        "Forzare il fine corsa.",
+        "Alzare le spalle."
+      ],
+      "easier": [
+        "Riduci molto l'ampiezza."
+      ],
+      "cue": "Muovi il collo piano, senza forzare."
+    },
+    "Riscaldamento dei polsi": {
+      "summary": "Prepara polsi e avambracci, utile prima di push-up e lavori in quadrupedia.",
+      "steps": [
+        "Appoggia le mani o intreccia le dita davanti al corpo.",
+        "Ruota i polsi lentamente in entrambe le direzioni.",
+        "Se sei a terra, sposta poco peso avanti e indietro."
+      ],
+      "focus": [
+        "Pressione leggera.",
+        "Dita aperte.",
+        "Movimento senza dolore."
+      ],
+      "avoid": [
+        "Caricare troppo peso sui polsi.",
+        "Bloccare i gomiti.",
+        "Muoversi a scatti."
+      ],
+      "easier": [
+        "Esegui tutto in piedi senza appoggiare peso."
+      ],
+      "cue": "Ruota i polsi piano e tieni la pressione leggera."
+    },
+    "Aperture del petto con rotazione": {
+      "summary": "Apre torace e spalle: ruota dal busto mantenendo il bacino stabile.",
+      "steps": [
+        "Parti con braccia aperte o mani davanti al petto.",
+        "Ruota il busto aprendo un braccio verso il lato.",
+        "Torna al centro e alterna."
+      ],
+      "focus": [
+        "Petto che si apre.",
+        "Bacino fermo.",
+        "Collo lungo."
+      ],
+      "avoid": [
+        "Ruotare solo il braccio.",
+        "Inarcare la schiena.",
+        "Forzare la spalla."
+      ],
+      "easier": [
+        "Riduci la rotazione e tieni il gomito piegato."
+      ],
+      "cue": "Apri il petto ruotando dal busto, non dalla spalla."
+    },
+    "Burpee camminato": {
+      "summary": "Versione controllata del burpee: scendi con le mani a terra, cammina in plank e ritorna in piedi.",
+      "steps": [
+        "Piega le ginocchia e appoggia le mani davanti ai piedi.",
+        "Cammina indietro con un piede alla volta fino al plank.",
+        "Ritorna camminando avanti e rialzati senza salto."
+      ],
+      "focus": [
+        "Mani ben appoggiate.",
+        "Addome attivo nel plank.",
+        "Ritmo costante."
+      ],
+      "avoid": [
+        "Saltare se perdi controllo.",
+        "Lasciare cadere il bacino nel plank.",
+        "Curvare troppo la schiena quando ti rialzi."
+      ],
+      "easier": [
+        "Appoggia le mani su una sedia o un rialzo."
+      ],
+      "cue": "Mani a terra, cammina in plank e rialzati con controllo."
+    },
+    "Cerniera dell'anca": {
+      "summary": "Impara il movimento di hip hinge: il busto si inclina perche le anche vanno indietro.",
+      "steps": [
+        "Piedi alla larghezza delle anche e ginocchia morbide.",
+        "Spingi il bacino indietro come per chiudere una porta con i glutei.",
+        "Torna su stringendo leggermente i glutei."
+      ],
+      "focus": [
+        "Schiena lunga.",
+        "Peso su talloni e mesopiede.",
+        "Anche che guidano il movimento."
+      ],
+      "avoid": [
+        "Piegare la schiena.",
+        "Trasformarlo in uno squat.",
+        "Bloccare le ginocchia."
+      ],
+      "easier": [
+        "Fai il movimento davanti a una parete cercando di toccarla con i glutei."
+      ],
+      "cue": "Spingi le anche indietro e mantieni la schiena lunga."
+    },
+    "Shadow boxing": {
+      "summary": "Attivazione cardio leggera: pugni controllati davanti al corpo, piedi vivi e addome attivo.",
+      "steps": [
+        "Tieni guardia alta con gomiti vicini al busto.",
+        "Alterna jab e cross ruotando leggermente busto e spalle.",
+        "Resta leggero sui piedi senza irrigidirti."
+      ],
+      "focus": [
+        "Pugni controllati.",
+        "Spalle rilassate.",
+        "Respirazione continua."
+      ],
+      "avoid": [
+        "Bloccare i gomiti in estensione.",
+        "Alzare le spalle.",
+        "Muovere solo le braccia senza busto."
+      ],
+      "easier": [
+        "Riduci velocita e ampiezza dei pugni."
+      ],
+      "cue": "Guardia alta, pugni controllati e spalle rilassate."
+    },
+    "Wall sit": {
+      "summary": "Tenuta isometrica per gambe: schiena al muro, ginocchia piegate e piedi avanti.",
+      "steps": [
+        "Appoggia tutta la schiena al muro.",
+        "Scivola verso il basso finche le gambe lavorano ma resti stabile.",
+        "Mantieni ginocchia sopra i piedi e respira."
+      ],
+      "focus": [
+        "Schiena aderente.",
+        "Peso sui talloni.",
+        "Ginocchia allineate."
+      ],
+      "avoid": [
+        "Scendere troppo se perdi posizione.",
+        "Ginocchia che cadono verso l'interno.",
+        "Trattenere il respiro."
+      ],
+      "easier": [
+        "Resta piu alto, con ginocchia meno piegate."
+      ],
+      "cue": "Schiena al muro, ginocchia in linea e respiro costante."
+    },
+    "Push up sulle ginocchia a cane a testa in giù": {
+      "summary": "Push-up facilitato con transizione: fai una flessione sulle ginocchia e poi spingi le anche indietro.",
+      "steps": [
+        "Parti in posizione di push-up sulle ginocchia.",
+        "Piega i gomiti e scendi con petto controllato.",
+        "Risali e porta le anche indietro, allungando spalle e schiena."
+      ],
+      "focus": [
+        "Gomiti controllati.",
+        "Addome attivo.",
+        "Transizione lenta verso l'allungamento."
+      ],
+      "avoid": [
+        "Collassare sulle spalle.",
+        "Lasciare cadere il bacino.",
+        "Fare la transizione di scatto."
+      ],
+      "easier": [
+        "Riduci la profondita della flessione."
+      ],
+      "cue": "Flessione controllata, poi spingi le anche indietro."
+    },
+    "Bird dog": {
+      "summary": "Core e stabilita: da quadrupedia allunga braccio e gamba opposti senza ruotare il bacino.",
+      "steps": [
+        "Mani sotto spalle, ginocchia sotto anche.",
+        "Allunga un braccio in avanti e la gamba opposta indietro.",
+        "Torna al centro lentamente e alterna lato."
+      ],
+      "focus": [
+        "Bacino parallelo al pavimento.",
+        "Schiena lunga.",
+        "Movimento lento."
+      ],
+      "avoid": [
+        "Alzare troppo la gamba.",
+        "Ruotare il busto.",
+        "Inarcare la zona lombare."
+      ],
+      "easier": [
+        "Muovi solo le gambe o solo le braccia."
+      ],
+      "cue": "Allunga braccio e gamba opposti tenendo il bacino fermo."
+    },
+    "Dead bug": {
+      "summary": "Core a terra: muovi braccio e gamba opposti mantenendo la schiena stabile.",
+      "steps": [
+        "Sdraiati supino con braccia verso l'alto e ginocchia piegate a 90 gradi.",
+        "Abbassa lentamente braccio e gamba opposti.",
+        "Torna al centro prima di cambiare lato."
+      ],
+      "focus": [
+        "Zona lombare stabile.",
+        "Movimento lento.",
+        "Respiro regolare."
+      ],
+      "avoid": [
+        "Inarcare la schiena.",
+        "Andare troppo in basso con la gamba.",
+        "Muovere tutto insieme velocemente."
+      ],
+      "easier": [
+        "Tocca il tallone a terra invece di stendere tutta la gamba."
+      ],
+      "cue": "Schiena stabile, muovi lento braccio e gamba opposti."
+    },
+    "Marcia in ponte": {
+      "summary": "Ponte glutei con marcia: solleva il bacino e alterna i piedi senza farlo cadere.",
+      "steps": [
+        "Sdraiati supino, piedi a terra vicino ai glutei.",
+        "Solleva il bacino stringendo i glutei.",
+        "Solleva un piede alla volta mantenendo il bacino in pari."
+      ],
+      "focus": [
+        "Bacino stabile.",
+        "Glutei attivi.",
+        "Movimento piccolo e controllato."
+      ],
+      "avoid": [
+        "Ruotare il bacino.",
+        "Spingere con la schiena.",
+        "Sollevare troppo il piede."
+      ],
+      "easier": [
+        "Mantieni il ponte statico senza marciare."
+      ],
+      "cue": "Tieni il bacino alto e fermo mentre alterni i piedi."
+    },
+    "90/90": {
+      "summary": "Mobilita delle anche: siediti con una gamba davanti e una dietro, entrambe piegate circa a 90 gradi.",
+      "steps": [
+        "Sistema le ginocchia piegate davanti e dietro senza forzare.",
+        "Mantieni il busto alto o inclinati leggermente verso la gamba davanti.",
+        "Respira e lascia che l'anca si rilassi."
+      ],
+      "focus": [
+        "Tensione comoda nell'anca.",
+        "Schiena lunga.",
+        "Respirazione lenta."
+      ],
+      "avoid": [
+        "Forzare il ginocchio.",
+        "Collassare con il busto.",
+        "Sentire dolore pungente."
+      ],
+      "easier": [
+        "Metti un cuscino sotto il bacino o apri di piu gli angoli."
+      ],
+      "cue": "Schiena lunga e tensione comoda nell'anca."
+    }
+  },
+  "rules": [
+    {
+      "match": ["rotazioni delle braccia", "rotazioni dei gomiti"],
+      "guide": {
+        "summary": "Prepara spalle e gomiti con rotazioni controllate, senza cercare velocita.",
+        "steps": [
+          "Stendi o piega le braccia come richiesto dall'esercizio.",
+          "Disegna cerchi lenti e regolari.",
+          "Cambia direzione a meta tempo."
+        ],
+        "focus": ["Spalle basse.", "Cerchi simmetrici.", "Movimento fluido."],
+        "avoid": ["Alzare le spalle verso le orecchie.", "Fare rotazioni brusche.", "Perdere il controllo del busto."],
+        "easier": ["Fai cerchi piu piccoli."],
+        "cue": "Spalle basse, cerchi lenti e controllo."
+      }
+    },
+    {
+      "match": ["squat"],
+      "guide": {
+        "summary": "Esercizio per gambe e glutei: siediti indietro con le anche e risali spingendo il pavimento.",
+        "steps": [
+          "Piedi poco piu larghi delle anche, punte leggermente aperte.",
+          "Scendi portando il bacino indietro e le ginocchia nella direzione delle punte.",
+          "Risali spingendo da talloni e mesopiede, senza chiudere le ginocchia."
+        ],
+        "focus": ["Peso distribuito su tutto il piede.", "Petto aperto e schiena lunga.", "Ginocchia in linea con le punte."],
+        "avoid": ["Ginocchia che collassano verso l'interno.", "Schiena curva o spalle chiuse.", "Scendere piu di quanto riesci a controllare."],
+        "easier": ["Riduci la profondita o usa una sedia come riferimento."],
+        "cue": "Spingi le anche indietro e tieni le ginocchia in linea con i piedi."
+      }
+    },
+    {
+      "match": ["affond"],
+      "guide": {
+        "summary": "Esercizio per gambe e glutei: fai un passo controllato e piega entrambe le ginocchia mantenendo equilibrio.",
+        "steps": [
+          "Parti in piedi, piedi alla larghezza delle anche.",
+          "Fai un passo avanti, indietro o laterale secondo l'esercizio.",
+          "Scendi piegando entrambe le ginocchia e torna spingendo dal piede di appoggio."
+        ],
+        "focus": ["Busto alto.", "Ginocchio anteriore stabile sopra il piede.", "Passo abbastanza largo da non perdere equilibrio."],
+        "avoid": ["Appoggiare il piede troppo stretto.", "Perdere equilibrio per cercare troppa profondita.", "Spingere il ginocchio in avanti senza controllo."],
+        "easier": ["Accorcia il passo o tieniti a una parete."],
+        "cue": "Busto alto, passo stabile e ginocchio controllato."
+      }
+    },
+    {
+      "match": ["push", "presa stretta"],
+      "guide": {
+        "summary": "Spinta per petto, spalle e tricipiti: mani stabili, corpo compatto e gomiti controllati.",
+        "steps": [
+          "Metti le mani poco piu larghe delle spalle, o al muro se e la variante facilitata.",
+          "Attiva addome e glutei per tenere una linea stabile.",
+          "Piega i gomiti scendendo con il petto e risali spingendo via il pavimento o il muro."
+        ],
+        "focus": ["Collo lungo.", "Gomiti a circa 45 gradi dal busto.", "Bacino che non cede."],
+        "avoid": ["Spalle che salgono verso le orecchie.", "Bacino che cede.", "Movimento troppo veloce."],
+        "easier": ["Usa il muro o tieni le ginocchia a terra."],
+        "cue": "Corpo compatto, spingi il pavimento e mantieni il collo lungo."
+      }
+    },
+    {
+      "match": ["plank", "quadrupedia", "tocco alle spalle"],
+      "guide": {
+        "summary": "Core e stabilita: mantieni il tronco fermo mentre appoggi peso su mani o avambracci.",
+        "steps": [
+          "Allinea spalle e appoggi: mani o gomiti sotto le spalle.",
+          "Attiva addome e glutei prima di iniziare.",
+          "Mantieni posizione o alterna i tocchi senza oscillare."
+        ],
+        "focus": ["Bacino stabile.", "Collo lungo.", "Spinta attiva delle mani o degli avambracci."],
+        "avoid": ["Bacino che sale o cede.", "Spalle incassate.", "Oscillare da un lato all'altro."],
+        "easier": ["Appoggia le ginocchia o riduci la durata."],
+        "cue": "Addome attivo, bacino fermo e spalle stabili."
+      }
+    },
+    {
+      "match": ["ponte", "glutei", "donkey"],
+      "guide": {
+        "summary": "Lavoro su glutei e bacino: solleva o estendi con controllo, senza usare slancio.",
+        "steps": [
+          "Posiziona bene piedi o ginocchia secondo la variante.",
+          "Stringi leggermente i glutei prima di sollevare.",
+          "Sali fino a mantenere controllo e ritorna lentamente."
+        ],
+        "focus": ["Glutei attivi.", "Bacino stabile.", "Schiena neutra."],
+        "avoid": ["Spingere con la zona lombare.", "Slanciare la gamba.", "Aprire il bacino durante il movimento."],
+        "easier": ["Riduci l'ampiezza e rallenta la ripetizione."],
+        "cue": "Spingi dai glutei e mantieni il bacino stabile."
+      }
+    },
+    {
+      "match": ["crunch", "tocco dei talloni", "tocco delle punte"],
+      "guide": {
+        "summary": "Core addominale: avvicina costole e bacino con movimento controllato, senza tirare il collo.",
+        "steps": [
+          "Parti supino o in piedi secondo l'esercizio, addome leggermente attivo.",
+          "Esegui la flessione o la torsione lentamente.",
+          "Torna alla posizione iniziale controllando la discesa."
+        ],
+        "focus": ["Addome che guida il movimento.", "Collo rilassato.", "Respiro in uscita durante lo sforzo."],
+        "avoid": ["Tirare la testa con le mani.", "Usare slancio.", "Chiudere le spalle."],
+        "easier": ["Riduci l'ampiezza o rallenta il ritmo."],
+        "cue": "Muovi dal core, non dal collo."
+      }
+    },
+    {
+      "match": ["floor angels", "snow angels", "scivolamenti scapolari"],
+      "guide": {
+        "summary": "Mobilita e controllo delle spalle: fai scorrere braccia e scapole senza perdere postura.",
+        "steps": [
+          "Appoggia schiena al pavimento o al muro secondo l'esercizio.",
+          "Porta le braccia verso l'alto mantenendo controllo.",
+          "Ritorna lentamente tenendo spalle basse."
+        ],
+        "focus": ["Scapole che scorrono.", "Costole basse.", "Movimento lento."],
+        "avoid": ["Inarcare la schiena.", "Forzare se le spalle tirano.", "Alzare le spalle verso le orecchie."],
+        "easier": ["Piega di piu i gomiti o riduci l'ampiezza."],
+        "cue": "Spalle basse, costole ferme e braccia lente."
+      }
+    },
+    {
+      "match": ["alzate a y", "alzate a t", "alzate a w", "sollevamenti proni"],
+      "guide": {
+        "summary": "Rinforzo posturale: da prono solleva le braccia poco, pensando a muovere le scapole.",
+        "steps": [
+          "Sdraiati a pancia in giu con fronte appoggiata o collo lungo.",
+          "Metti le braccia nella forma richiesta: Y, T, W o alternate.",
+          "Solleva poco le braccia e torna giu lentamente."
+        ],
+        "focus": ["Scapole che si avvicinano leggermente.", "Collo rilassato.", "Movimento piccolo ma preciso."],
+        "avoid": ["Alzare troppo le braccia.", "Stringere il collo.", "Inarcare la zona lombare."],
+        "easier": ["Solleva una sola braccia alla volta o riduci l'ampiezza."],
+        "cue": "Solleva poco le braccia e tieni il collo lungo."
+      }
+    },
+    {
+      "match": ["back widows", "contrazione isometrica dei dorsali"],
+      "guide": {
+        "summary": "Attivazione schiena: usa gomiti e dorsali per aprire il petto, senza spingere con il collo.",
+        "steps": [
+          "Sdraiati supino o posizionati come mostrato dall'immagine.",
+          "Spingi leggermente gomiti o braccia contro il pavimento.",
+          "Solleva o mantieni il petto attivo per qualche secondo, poi rilascia."
+        ],
+        "focus": ["Petto aperto.", "Scapole attive.", "Collo rilassato."],
+        "avoid": ["Spingere con la testa.", "Inarcare eccessivamente la schiena.", "Trattenere il respiro."],
+        "easier": ["Piega le ginocchia o riduci la tenuta."],
+        "cue": "Apri il petto usando gomiti e scapole, collo rilassato."
+      }
+    },
+    {
+      "match": ["stretch", "farfalla", "bambino", "cobra", "roll down", "torsion"],
+      "guide": {
+        "summary": "Mobilita e scarico: entra nella posizione lentamente e cerca una tensione chiara ma sostenibile.",
+        "steps": [
+          "Posizionati come nell'immagine senza forzare.",
+          "Allunga fino a sentire tensione, non dolore.",
+          "Respira lentamente e mantieni la posizione o alterna lato se richiesto."
+        ],
+        "focus": ["Tensione sostenibile.", "Respiro lento.", "Spalle e mandibola rilassate."],
+        "avoid": ["Forzare la posizione.", "Molleggiare in modo aggressivo.", "Trattenere il respiro."],
+        "easier": ["Riduci l'ampiezza o usa un supporto sotto ginocchia o mani."],
+        "cue": "Respira lentamente e resta in una tensione comoda."
+      }
+    }
+  ],
+  "categories": {
+    "Riscaldamento": {
+      "summary": "Movimento preparatorio: serve ad attivare il corpo senza affaticarti subito.",
+      "steps": [
+        "Parti piano e aumenta gradualmente l'ampiezza.",
+        "Mantieni il respiro regolare.",
+        "Muoviti in modo fluido e controllato."
+      ],
+      "focus": ["Mobilita articolare.", "Calore progressivo.", "Movimento senza dolore."],
+      "avoid": ["Partire troppo forte.", "Movimenti bruschi.", "Forzare articolazioni rigide."],
+      "easier": ["Riduci ampiezza e velocita."],
+      "cue": "Muoviti sciolto, aumenta poco alla volta e respira."
+    },
+    "Stretching": {
+      "summary": "Mobilita e scarico: entra nella posizione lentamente e cerca una tensione chiara ma sostenibile.",
+      "steps": [
+        "Posizionati come nell'immagine senza forzare.",
+        "Allunga fino a sentire tensione, non dolore.",
+        "Respira lentamente e mantieni la posizione o alterna lato se richiesto."
+      ],
+      "focus": ["Tensione sostenibile.", "Respiro lento.", "Spalle e mandibola rilassate."],
+      "avoid": ["Forzare la posizione.", "Molleggiare in modo aggressivo.", "Trattenere il respiro."],
+      "easier": ["Riduci l'ampiezza o usa un supporto sotto ginocchia o mani."],
+      "cue": "Respira lentamente e resta in una tensione comoda."
+    }
+  },
+  "fallback": {
+    "summary": "Esercizio generale a corpo libero: mantieni controllo, postura e respirazione costante.",
+    "steps": [
+      "Prendi posizione con calma.",
+      "Esegui il movimento nel range che controlli bene.",
+      "Torna alla posizione iniziale senza scatti."
+    ],
+    "focus": ["Controllo prima della velocita.", "Allineamento comodo.", "Respiro regolare."],
+    "avoid": ["Compensare con slanci.", "Ignorare dolore o fastidio articolare.", "Perdere postura per fare piu ripetizioni."],
+    "easier": ["Riduci ampiezza, velocita o durata."],
+    "cue": "Controlla il movimento e mantieni il respiro regolare."
+  }
+}

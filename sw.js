@@ -1,4 +1,4 @@
-const CACHE_NAME = "fit-timer-v7";
+const CACHE_NAME = "fit-timer-v13";
 const ASSETS = [
   "./",
   "./index.html",
@@ -7,11 +7,13 @@ const ASSETS = [
   "./manifest.webmanifest",
   "./icons/icon.svg",
   "./data/routines.json",
-  "./data/exercise-library.json"
+  "./data/exercise-library.json",
+  "./data/exercise-guides.json"
 ];
 
 self.addEventListener("install", (event) => {
   event.waitUntil(caches.open(CACHE_NAME).then((cache) => cache.addAll(ASSETS)));
+  self.skipWaiting();
 });
 
 self.addEventListener("activate", (event) => {
@@ -20,6 +22,7 @@ self.addEventListener("activate", (event) => {
       Promise.all(keys.filter((key) => key !== CACHE_NAME).map((key) => caches.delete(key)))
     )
   );
+  self.clients.claim();
 });
 
 self.addEventListener("fetch", (event) => {
