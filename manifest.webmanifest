@@ -4,8 +4,8 @@
   "description": "Trainer vocale per programmi fitness personali.",
   "start_url": ".",
   "display": "standalone",
-  "background_color": "#f5f3ef",
-  "theme_color": "#101820",
+  "background_color": "#f4f1e9",
+  "theme_color": "#20201e",
   "orientation": "portrait",
   "icons": [
     {

@@ -8,16 +8,22 @@ const STORAGE_KEYS = {
 };
 
 const DEFAULT_SETTINGS = {
-  exerciseDurationSec: 30,
+  warmupDurationSec: 30,
+  workoutDurationSec: 30,
+  cooldownDurationSec: 30,
   prepareDurationSec: 10,
   restEveryExercises: 2,
   restDurationSec: 30,
+  roundRestDurationSec: 30,
   workoutRounds: 2,
   voiceEnabled: true,
   countdownEnabled: true,
   nextEnabled: true,
   exerciseCueEnabled: false,
-  speechRate: 1
+  speechRate: 1,
+  speechPitch: 1,
+  voiceURI: "",
+  englishVoiceURI: ""
 };
 
 const PHASE_LABELS = {
@@ -55,6 +61,8 @@ let editorPhase = "workout";
 let editorCategory = "Tutti";
 let libraryCategory = "Tutti";
 let exerciseDetailBack = { screen: "library" };
+let speechGeneration = 0;
+let currentUtterance = null;
 
 let player = {
   active: false,
@@ -88,6 +96,7 @@ async function init() {
   selected = loadJson(STORAGE_KEYS.lastRoutine, selected);
   if (!findRoutine(selected.week, selected.day)) selected = { week: 1, day: 1 };
   registerServiceWorker();
+  window.speechSynthesis?.addEventListener("voiceschanged", updateVoiceOptions);
   renderHome();
 }
 
@@ -132,11 +141,11 @@ function renderHome() {
   const lastRoutine = last && findRoutine(last.week, last.day);
 
   app.innerHTML = `
-    <main class="screen">
+    <main class="screen home-screen">
       <header class="topbar">
         <div>
           <p class="eyebrow">My Personal Trainer</p>
-          <h1>Allenamenti</h1>
+          <h1>Il tuo spazio.<br>Il tuo <em>ritmo.</em></h1>
         </div>
         <div class="top-actions">
           <button class="icon-button" data-action="calendar" aria-label="Storico sessioni" title="Storico sessioni">
@@ -162,12 +171,14 @@ function renderHome() {
         </section>
       ` : ""}
 
+      <div class="program-heading"><span>IL PROGRAMMA</span><span>4 SETTIMANE / CORPO LIBERO</span></div>
       <nav class="week-tabs" aria-label="Settimane">
         ${[1, 2, 3, 4].map((week) => `
-          <button class="${week === currentWeek ? "active" : ""}" data-week="${week}">S${week}</button>
+          <button class="${week === currentWeek ? "active" : ""}" data-week="${week}" aria-pressed="${week === currentWeek}"><small>SETTIMANA</small><span>0${week}</span></button>
         `).join("")}
       </nav>
 
+      <div class="section-heading"><h2>Una sessione alla volta.</h2><span>SETT. 0${currentWeek}</span></div>
       <section class="routine-list">
         ${weekRoutines.map((routine) => routineCard(routine)).join("")}
       </section>
@@ -277,14 +288,17 @@ function sessionCard(session) {
 }
 
 function routineCard(routine) {
-  const counts = `${routine.warmup.length} / ${routine.workout.length} / ${routine.cooldown.length}`;
+  const summary = routineSummary(routine);
   return `
     <button class="routine-card" data-routine="${routine.week}-${routine.day}">
-      <span class="day-pill">Giorno ${routine.day}</span>
-      <span class="routine-title">${escapeHtml(routine.title)}</span>
-      <span class="routine-meta">${counts}</span>
-      ${routine.extractionStatus === "generated-from-week-4-pattern" ? `<span class="status-pill">Generata</span>` : ""}
-      ${routine.hasLocalChanges ? `<span class="status-pill local">Modificata</span>` : ""}
+      <span class="day-index"><small>GIORNO</small>${String(routine.day).padStart(2, "0")}</span>
+      <span class="routine-body">
+        <span class="routine-title">${escapeHtml(routine.title)}</span>
+        <span class="routine-meta">${summary.totalExercises} esercizi <i>·</i> ${formatTime(summary.totalSeconds)} min <i>·</i> ${settings.workoutRounds} giri</span>
+        ${routine.extractionStatus === "generated-from-week-4-pattern" ? `<span class="status-pill">Generata</span>` : ""}
+        ${routine.hasLocalChanges ? `<span class="status-pill local">Modificata</span>` : ""}
+      </span>
+      <span class="routine-arrow" aria-hidden="true">${iconForward()}</span>
     </button>
   `;
 }
@@ -313,15 +327,17 @@ function renderRoutine(routine) {
         <button class="secondary" data-action="edit">Modifica</button>
       </section>
 
-      ${phasePreview("Riscaldamento", routine.warmup)}
-      ${phasePreview("Allenamento", routine.workout)}
-      ${phasePreview("Defaticamento", routine.cooldown)}
+      <button class="routine-timing-link" data-action="timing">Tempi e voce ${iconForward()}</button>
+      ${phasePreview("Riscaldamento", routine.warmup, "warmup")}
+      ${phasePreview("Allenamento", routine.workout, "workout")}
+      ${phasePreview("Defaticamento", routine.cooldown, "cooldown")}
     </main>
   `;
 
   bindAction("home", renderHome);
   bindAction("start", () => startRoutine(routine));
   bindAction("edit", () => renderEditor(routine));
+  bindAction("timing", () => renderSettings(routine));
   bind("[data-guide]", "click", (event) => {
     openExerciseDetail(decodeURIComponent(event.currentTarget.dataset.guide), {
       screen: "routine",
@@ -331,12 +347,12 @@ function renderRoutine(routine) {
   });
 }
 
-function phasePreview(label, items) {
+function phasePreview(label, items, phase) {
   return `
     <section class="phase-block">
       <header>
         <h2>${label}</h2>
-        <span>${items.length}</span>
+        <span>${items.length} es. · ${settings[`${phase}DurationSec`]} s${phase === "workout" ? ` · ${settings.workoutRounds} giri` : ""}</span>
       </header>
       <ol>
         ${items.map((name) => `
@@ -456,7 +472,8 @@ function guideBlock(title, items) {
   `;
 }
 
-function renderSettings() {
+function renderSettings(routine = null) {
+  const back = routine?.key ? () => renderRoutine(routine) : renderHome;
   app.innerHTML = `
     <main class="screen">
       <header class="topbar">
@@ -468,14 +485,31 @@ function renderSettings() {
       </header>
 
       <section class="settings-panel">
-        ${numberSetting("exerciseDurationSec", "Durata esercizio", 5, 300, 5)}
-        ${numberSetting("prepareDurationSec", "Preparazione esercizio", 5, 120, 5)}
-        ${numberSetting("restEveryExercises", "Pausa ogni", 1, 10, 1)}
-        ${numberSetting("restDurationSec", "Durata pausa", 0, 300, 5)}
-        ${numberSetting("workoutRounds", "Ripetizioni routine", 1, 6, 1)}
-        ${numberSetting("speechRate", "Velocità voce", 0.6, 1.4, 0.1)}
+        <h2 class="section-title"><span>01</span> Il tuo ritmo</h2>
+        <p class="section-note">Durata di ogni esercizio, distinta per fase.</p>
+        ${numberSetting("warmupDurationSec", "Riscaldamento", 5, 300, 5)}
+        ${numberSetting("workoutDurationSec", "Allenamento", 5, 300, 5)}
+        ${numberSetting("cooldownDurationSec", "Defaticamento", 5, 300, 5)}
       </section>
-
+      <section class="settings-panel">
+        <h2 class="section-title"><span>02</span> Passaggi e recupero</h2>
+        ${numberSetting("prepareDurationSec", "Preparazione esercizio", 0, 120, 5)}
+        ${numberSetting("restEveryExercises", "Pausa ogni", 1, 10, 1)}
+        ${numberSetting("restDurationSec", "Pausa tra esercizi", 0, 300, 5)}
+        ${numberSetting("roundRestDurationSec", "Recupero tra giri", 0, 300, 5)}
+        ${numberSetting("workoutRounds", "Giri di allenamento", 1, 6, 1)}
+        <p class="section-note">Il recupero tra giri sostituisce la pausa tra esercizi. Riscaldamento e defaticamento non hanno pause di recupero.</p>
+      </section>
+      <section class="settings-panel">
+        <h2 class="section-title"><span>03</span> La voce che ti guida</h2>
+        ${voiceSetting("voiceURI", "Voce italiana", "it")}
+        ${voiceSetting("englishVoiceURI", "Pronuncia inglese", "en")}
+        ${numberSetting("speechRate", "Velocità", 0.6, 1.4, 0.1)}
+        ${numberSetting("speechPitch", "Tonalità", 0.7, 1.3, 0.1)}
+        <p class="section-note">I termini inglesi della libreria usano la lingua originale. Le voci disponibili e la loro naturalezza dipendono dal dispositivo.</p>
+        <button class="secondary" data-action="test-voice" ${!("speechSynthesis" in window) ? "disabled" : ""}>Ascolta un esempio</button>
+        <p class="section-note" data-voice-status role="status">${!("speechSynthesis" in window) ? "La lettura vocale non è disponibile in questo browser." : ""}</p>
+      </section>
       <section class="settings-panel toggles">
         ${toggleSetting("voiceEnabled", "Voce")}
         ${toggleSetting("countdownEnabled", "Countdown")}
@@ -489,21 +523,28 @@ function renderSettings() {
     </main>
   `;
 
-  bindAction("home", renderHome);
+  bindAction("home", () => { cancelSpeech(); back(); });
   bind("[data-setting]", "input", (event) => {
     const key = event.currentTarget.dataset.setting;
     const value = event.currentTarget.type === "checkbox"
       ? event.currentTarget.checked
-      : Number(event.currentTarget.value);
+      : event.currentTarget.tagName === "SELECT" ? event.currentTarget.value : Number(event.currentTarget.value);
     settings = { ...settings, [key]: value };
     saveJson(STORAGE_KEYS.settings, settings);
     const output = document.querySelector(`[data-output="${key}"]`);
     if (output) output.textContent = settingDisplay(key, value);
+    cancelSpeech();
+  });
+  bindAction("test-voice", () => {
+    const status = document.querySelector("[data-voice-status]");
+    if (status) status.textContent = "Esempio: inizio giro, nome esercizio e indicazione di movimento.";
+    speak("Secondo giro. Preparati: Push-up sulle ginocchia. Mantieni il controllo e respira.");
   });
   bindAction("reset-settings", () => {
     settings = { ...DEFAULT_SETTINGS };
     saveJson(STORAGE_KEYS.settings, settings);
-    renderSettings();
+    cancelSpeech();
+    renderSettings(routine);
   });
 }
 
@@ -529,6 +570,7 @@ function toggleSetting(key, label) {
 function settingDisplay(key, value) {
   if (key === "restEveryExercises") return `${value} esercizi`;
   if (key === "workoutRounds") return `${value}x`;
+  if (key === "speechPitch") return `${Number(value).toFixed(1)}`;
   if (key === "speechRate") return `${Number(value).toFixed(1)}x`;
   return `${value}s`;
 }
@@ -691,14 +733,16 @@ function buildTimeline(routine) {
   for (let round = 1; round <= settings.workoutRounds; round += 1) {
     routine.workout.forEach((name, index) => {
       appendExercise(timeline, name, "workout", round);
-      const isLastWorkout = round === settings.workoutRounds && index === routine.workout.length - 1;
-      const shouldRest = (index + 1) % settings.restEveryExercises === 0;
+      const isRoundEnd = index === routine.workout.length - 1;
+      const isLastWorkout = round === settings.workoutRounds && isRoundEnd;
+      const shouldRest = isRoundEnd || (index + 1) % settings.restEveryExercises === 0;
       if (!isLastWorkout && shouldRest) {
         timeline.push({
           kind: "rest",
           phase: "workout",
           phaseLabel: PHASE_LABELS.workout,
-          duration: settings.restDurationSec,
+          duration: isRoundEnd ? settings.roundRestDurationSec : settings.restDurationSec,
+          betweenRounds: isRoundEnd,
           round,
           nextName: nextWorkoutName(routine.workout, round, index)
         });
@@ -736,7 +780,7 @@ function exerciseSegment(name, phase, round) {
     phase,
     phaseLabel: PHASE_LABELS[phase],
     name,
-    duration: settings.exerciseDurationSec,
+    duration: settings[`${phase}DurationSec`],
     round
   };
 }
@@ -780,24 +824,29 @@ function updatePlayerClock(segment = player.timeline[player.index]) {
 
 function speakCurrentSegment() {
   const segment = player.timeline[player.index];
-  if (!segment || !settings.voiceEnabled) return;
+  if (!segment || player.paused || !settings.voiceEnabled) return;
   const key = `${player.index}:${segment.kind}:${segment.name || segment.nextName || ""}`;
   if (player.spokenSegment === key) return;
   player.spokenSegment = key;
   const parts = [];
+  const prepared = segment.kind === "exercise" && player.timeline[player.index - 1]?.kind === "prepare";
+  if (segment.kind !== "rest" && !prepared && isFirstExerciseOfPhase(player.index)) {
+    parts.push(segment.round ? `${roundAnnouncement(segment.round)}. Allenamento` : segment.phaseLabel);
+  }
   if (segment.kind === "prepare") {
-    speak(`Prossimo esercizio: ${segment.nextName}`);
-    return;
+    parts.push(`Preparati: ${segment.nextName}`);
+  } else if (segment.kind === "rest") {
+    parts.push(segment.betweenRounds ? "Giro completato. Recupera" : "Pausa. Recupera");
+    if (settings.nextEnabled && segment.nextName) parts.push(`Dopo la pausa: ${segment.nextName}`);
+  } else {
+    parts.push(prepared ? "Via" : segment.name);
+    if (settings.exerciseCueEnabled) parts.push(exerciseGuide(exerciseMeta(segment.name)).cue);
   }
-  if (segment.kind === "exercise" && isFirstExerciseOfPhase(player.index)) {
-    parts.push(segment.round ? `Allenamento, giro ${segment.round} di ${settings.workoutRounds}` : segment.phaseLabel);
-  }
-  parts.push(segmentTitle(segment));
-  if (segment.kind === "exercise" && settings.exerciseCueEnabled) {
-    parts.push(exerciseGuide(exerciseMeta(segment.name)).cue);
-  }
-  if (settings.nextEnabled && segment.nextName) parts.push(`Prossimo: ${segment.nextName}`);
-  speak(parts.join(". "));
+  speak(parts.join(". ") + ".");
+}
+
+function roundAnnouncement(round) {
+  return `${["Primo", "Secondo", "Terzo", "Quarto", "Quinto", "Sesto"][round - 1] || round} giro`;
 }
 
 function maybeSpeakCountdown(segment) {
@@ -807,16 +856,83 @@ function maybeSpeakCountdown(segment) {
   const key = `${player.index}:${remaining}`;
   if (player.spokenCountdown === key) return;
   player.spokenCountdown = key;
-  speak(String(remaining), true);
+  speak(String(remaining));
 }
 
-function speak(text, interrupt = false) {
+// Match complete terms, longest first, so mixed-language exercise names retain
+// their Italian directions while the English movement uses an English voice.
+const ENGLISH_TERMS = /\b(cossack stretch|plank lean flow|shadow boxing|snow angels|floor angels|back widows|donkey kick|sumo squat|air squat|push[- ]up|bird dog|dead bug|roll down|wall sit|stretching|burpee|crunch|squat|plank)\b/gi;
+
+function speechParts(text) {
+  const normalized = text.replace(/90\/90/g, "novanta novanta").replace(/\b2v\b/gi, "seconda variante").replace(/[()]/g, ", ");
+  const parts = [];
+  let offset = 0;
+  for (const match of normalized.matchAll(ENGLISH_TERMS)) {
+    if (match.index > offset) parts.push({ text: normalized.slice(offset, match.index), lang: "it-IT" });
+    parts.push({ text: match[0].replace(/push up/i, "push-up"), lang: "en-GB" });
+    offset = match.index + match[0].length;
+  }
+  if (offset < normalized.length) parts.push({ text: normalized.slice(offset), lang: "it-IT" });
+  return parts.filter((part) => /[\p{L}\p{N}]/u.test(part.text));
+}
+
+function availableVoices(language) {
+  return (window.speechSynthesis?.getVoices() || []).filter((voice) => voice.lang.toLowerCase().replace("_", "-").startsWith(language));
+}
+
+function voiceOptions(key, language) {
+  return `<option value="">Automatica · ${language === "it" ? "italiano" : "inglese"}</option>` + availableVoices(language).map((voice) =>
+    `<option value="${escapeHtml(voice.voiceURI)}" ${settings[key] === voice.voiceURI ? "selected" : ""}>${escapeHtml(voice.name)} · ${escapeHtml(voice.lang)}</option>`
+  ).join("");
+}
+
+function voiceSetting(key, label, language) {
+  return `<label class="voice-select"><span>${label}</span><select data-setting="${key}" data-voice-language="${language}">${voiceOptions(key, language)}</select></label>`;
+}
+
+function updateVoiceOptions() {
+  document.querySelectorAll("[data-voice-language]").forEach((select) => {
+    select.innerHTML = voiceOptions(select.dataset.setting, select.dataset.voiceLanguage);
+  });
+}
+
+function cancelSpeech() {
+  speechGeneration += 1;
+  currentUtterance = null;
+  window.speechSynthesis?.cancel();
+}
+
+function speak(text) {
+  cancelSpeech();
   if (!("speechSynthesis" in window)) return;
-  if (interrupt) window.speechSynthesis.cancel();
-  const utterance = new SpeechSynthesisUtterance(text);
-  utterance.lang = "it-IT";
-  utterance.rate = settings.speechRate;
-  window.speechSynthesis.speak(utterance);
+  const generation = speechGeneration;
+  const parts = speechParts(text);
+  const playNext = () => {
+    if (generation !== speechGeneration) return;
+    const part = parts.shift();
+    if (!part) { currentUtterance = null; return; }
+    const utterance = new SpeechSynthesisUtterance(part.text.trim());
+    const voices = availableVoices(part.lang.slice(0, 2));
+    const preferredURI = part.lang.startsWith("it") ? settings.voiceURI : settings.englishVoiceURI;
+    const voice = voices.find((item) => item.voiceURI === preferredURI)
+      || voices.find((item) => item.lang === part.lang) || voices[0];
+    utterance.lang = voice?.lang || part.lang;
+    if (voice) utterance.voice = voice;
+    utterance.rate = settings.speechRate;
+    utterance.pitch = /^\d+$/.test(part.text.trim()) ? 1 : settings.speechPitch;
+    utterance.onend = playNext;
+    utterance.onerror = (event) => {
+      if (generation !== speechGeneration) return;
+      parts.length = 0;
+      currentUtterance = null;
+      const status = document.querySelector("[data-voice-status]");
+      if (status) status.textContent = `Lettura non disponibile (${event.error}). Prova un'altra voce del dispositivo.`;
+    };
+    // Retain a reference for WebKit until speech completes.
+    currentUtterance = utterance;
+    window.speechSynthesis.speak(utterance);
+  };
+  playNext();
 }
 
 function togglePlayer() {
@@ -824,9 +940,12 @@ function togglePlayer() {
     player.paused = false;
     player.segmentStartedAt = Date.now() - player.elapsedBeforePause * 1000;
     requestWakeLock();
+    player.spokenSegment = "";
+    speakCurrentSegment();
   } else {
-    player.paused = true;
+    cancelSpeech();
     player.elapsedBeforePause = Math.max(elapsedCurrentSegmentSeconds(), displayedElapsedSeconds());
+    player.paused = true;
     releaseWakeLock();
   }
   renderPlayer();
@@ -840,7 +959,9 @@ function displayedElapsedSeconds() {
 }
 
 function nextSegment() {
-  player.index = Math.min(player.timeline.length - 1, player.index + 1);
+  cancelSpeech();
+  if (player.index + 1 >= player.timeline.length) return finishRoutine();
+  player.index += 1;
   player.segmentStartedAt = Date.now();
   player.elapsedBeforePause = 0;
   player.spokenSegment = "";
@@ -850,6 +971,7 @@ function nextSegment() {
 }
 
 function previousSegment() {
+  cancelSpeech();
   player.index = Math.max(0, player.index - 1);
   player.segmentStartedAt = Date.now();
   player.elapsedBeforePause = 0;
@@ -861,7 +983,7 @@ function previousSegment() {
 
 function stopPlayer() {
   window.clearInterval(player.tickId);
-  window.speechSynthesis?.cancel();
+  cancelSpeech();
   releaseWakeLock();
   player.active = false;
 }
@@ -892,13 +1014,13 @@ function finishRoutine() {
 }
 
 function segmentTitle(segment) {
-  if (segment.kind === "rest") return "Pausa";
-  if (segment.kind === "prepare") return `Prossimo esercizio: ${segment.nextName}`;
+  if (segment.kind === "rest") return segment.betweenRounds ? "Recupero tra giri" : "Pausa";
+  if (segment.kind === "prepare") return segment.nextName;
   return segment.name;
 }
 
 function segmentKindLabel(segment) {
-  if (segment.kind === "rest") return "Pausa";
+  if (segment.kind === "rest") return segment.betweenRounds ? "Recupero tra giri" : "Pausa";
   if (segment.kind === "prepare") return "Preparazione";
   return "Esercizio";
 }
@@ -932,7 +1054,7 @@ function exerciseCounter(index) {
 
 function isFirstExerciseOfPhase(index) {
   const segment = player.timeline[index];
-  if (!segment || segment.kind !== "exercise") return false;
+  if (!segment || segment.kind === "rest") return false;
   for (let i = index - 1; i >= 0; i -= 1) {
     const previous = player.timeline[i];
     if (previous.kind === "exercise") return previous.phase !== segment.phase || previous.round !== segment.round;
@@ -1125,10 +1247,29 @@ function loadJson(key, fallback) {
 }
 
 function normalizeSettings(value) {
-  const next = { ...DEFAULT_SETTINGS, ...value };
-  if (!Number.isFinite(Number(next.prepareDurationSec)) || Number(next.prepareDurationSec) < 5) {
-    next.prepareDurationSec = DEFAULT_SETTINGS.prepareDurationSec;
+  const legacy = value && typeof value === "object" ? value : {};
+  const next = { ...DEFAULT_SETTINGS, ...legacy };
+  const limits = {
+    warmupDurationSec: [5, 300, 5], workoutDurationSec: [5, 300, 5], cooldownDurationSec: [5, 300, 5],
+    prepareDurationSec: [0, 120, 5], restEveryExercises: [1, 10, 1], restDurationSec: [0, 300, 5],
+    roundRestDurationSec: [0, 300, 5], workoutRounds: [1, 6, 1], speechRate: [0.6, 1.4, 0.1], speechPitch: [0.7, 1.3, 0.1]
+  };
+  for (const phase of ["warmup", "workout", "cooldown"]) {
+    const key = `${phase}DurationSec`;
+    if (!(key in legacy) && legacy.exerciseDurationSec != null) next[key] = legacy.exerciseDurationSec;
   }
+  if (!("roundRestDurationSec" in legacy) && legacy.restDurationSec != null) next.roundRestDurationSec = legacy.restDurationSec;
+  for (const [key, [min, max, step]] of Object.entries(limits)) {
+    const number = Number(next[key]);
+    next[key] = Number.isFinite(number) ? Number((Math.round(Math.max(min, Math.min(max, number)) / step) * step).toFixed(1)) : DEFAULT_SETTINGS[key];
+  }
+  for (const key of ["voiceEnabled", "countdownEnabled", "nextEnabled", "exerciseCueEnabled"]) {
+    if (typeof next[key] !== "boolean") next[key] = DEFAULT_SETTINGS[key];
+  }
+  for (const key of ["voiceURI", "englishVoiceURI"]) {
+    if (typeof next[key] !== "string") next[key] = "";
+  }
+  delete next.exerciseDurationSec;
   delete next.changeDurationSec;
   saveJson(STORAGE_KEYS.settings, next);
   return next;
