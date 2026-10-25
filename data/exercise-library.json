@@ -51,27 +51,30 @@
     },
     {
       "name": "Alzate a T prono",
-      "category": "Full body",
-      "image": "assets/exercises/alzate-a-t-prono.png",
+      "category": "Schiena/Postura",
+      "image": "assets/exercises/alzate-a-t-prono-corrected.png",
       "phases": [
         "workout"
-      ]
+      ],
+      "imageAlt": "Posizione prona: pancia sul tappetino e schiena visibile dall’alto. Alzate a T prono"
     },
     {
       "name": "Alzate a W prono",
-      "category": "Full body",
-      "image": "assets/exercises/alzate-a-w-prono.png",
+      "category": "Schiena/Postura",
+      "image": "assets/exercises/alzate-a-w-prono-corrected.png",
       "phases": [
         "workout"
-      ]
+      ],
+      "imageAlt": "Posizione prona: pancia sul tappetino e schiena visibile dall’alto. Alzate a W prono"
     },
     {
       "name": "Alzate a Y prono",
-      "category": "Full body",
-      "image": "assets/exercises/alzate-a-y-prono.png",
+      "category": "Schiena/Postura",
+      "image": "assets/exercises/alzate-a-y-prono-corrected.png",
       "phases": [
         "workout"
-      ]
+      ],
+      "imageAlt": "Posizione prona: pancia sul tappetino e schiena visibile dall’alto. Alzate a Y prono"
     },
     {
       "name": "Aperture del petto con rotazione",
@@ -359,15 +362,17 @@
       "image": "assets/exercises/snow-angels-inversi.png",
       "phases": [
         "workout"
-      ]
+      ],
+      "imageAlt": "Posizione prona: pancia sul tappetino e schiena visibile dall’alto. Snow angels inversi"
     },
     {
       "name": "Sollevamenti proni delle braccia (alternati)",
-      "category": "Parte superiore",
+      "category": "Schiena/Postura",
       "image": "assets/exercises/sollevamenti-proni-delle-braccia-alternati.png",
       "phases": [
         "workout"
-      ]
+      ],
+      "imageAlt": "Posizione prona: pancia sul tappetino e schiena visibile dall’alto. Sollevamenti proni delle braccia (alternati)"
     },
     {
       "name": "Spostamento del peso in quadrupedia",

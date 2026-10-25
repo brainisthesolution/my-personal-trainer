@@ -4,3 +4,4 @@ extracted_frames/
 data/ocr-frames.json
 scripts/
 .openai/
+tmp/

@@ -1,0 +1,87 @@
+{
+  "mode": "built-in image_gen",
+  "styleReference": "assets/exercises/air-squat.png and original exercise PNGs",
+  "invariants": "Same original instructional comic illustration, dark-haired short-bearded adult male, red sports T-shirt, blue shorts, dark shoes, bold black outlines, warm skin shading, transparent background. No vector diagrams or stick figures.",
+  "assets": [
+    {
+      "id": "prone-t",
+      "file": "assets/exercises/alzate-a-t-prono-corrected.png",
+      "generatedSource": "exec-db4e4c87-5d8d-48f5-a8db-fa0e7d882d9a.png"
+    },
+    {
+      "id": "prone-w-fixed",
+      "file": "assets/exercises/alzate-a-w-prono-corrected.png",
+      "generatedSource": "exec-6563ff1f-84e0-4fa1-b2e0-37864569414f.png"
+    },
+    {
+      "id": "prone-y",
+      "file": "assets/exercises/alzate-a-y-prono-corrected.png",
+      "generatedSource": "exec-77abf67f-ed0e-4758-aac0-7269ba1ae464.png"
+    },
+    {
+      "id": "face-corona",
+      "file": "assets/exercises/face-corona.png",
+      "generatedSource": "exec-d5a6150d-676d-40a5-8915-1de25bc0ee47.png"
+    },
+    {
+      "id": "face-fronte",
+      "file": "assets/exercises/face-fronte.png",
+      "generatedSource": "exec-b6c84bab-bd9d-4f74-badd-afd458dc2131.png"
+    },
+    {
+      "id": "face-occipite",
+      "file": "assets/exercises/face-occipite.png",
+      "generatedSource": "exec-d072ffc9-0d88-4800-8e76-1d67cd095ff9.png"
+    },
+    {
+      "id": "face-palpebra",
+      "file": "assets/exercises/face-palpebra.png",
+      "generatedSource": "exec-861646b6-9b19-45ff-b034-cb9650f10817.png"
+    },
+    {
+      "id": "face-binocolo",
+      "file": "assets/exercises/face-binocolo.png",
+      "generatedSource": "exec-bebd24cb-d1aa-4055-a132-2c392d5b1a23.png"
+    },
+    {
+      "id": "face-contorno",
+      "file": "assets/exercises/face-contorno.png",
+      "generatedSource": "exec-d050b614-238b-4b57-ba48-4694b5aae1fe.png"
+    },
+    {
+      "id": "face-sorriso",
+      "file": "assets/exercises/face-sorriso.png",
+      "generatedSource": "exec-69a5bc49-e121-40e1-8bdd-815b12163e94.png"
+    },
+    {
+      "id": "face-bacio",
+      "file": "assets/exercises/face-bacio.png",
+      "generatedSource": "exec-18660361-1f94-4ce0-9a74-f121b4a793f8.png"
+    }
+  ],
+  "home": {
+    "fitness": "assets/exercises/air-squat.png",
+    "face": "assets/exercises/face-corona.png"
+  },
+  "rejected": {
+    "file": "tmp/imagegen/rejected-prone-w.png",
+    "reason": "Incorrect arm placement and hand laterality identified by the user. Never used by the app."
+  },
+  "prompts": {
+    "proneT": "Correct the original supine T raise to prone: chest/pelvis down on mat, forehead on towel, both arms straight laterally at 90 degrees, hands raised slightly, thumbs up, dorsal three-quarter view. Keep exact comic style and character.",
+    "proneWFinal": "Replace the rejected pose using direct overhead dorsal view, head top and feet bottom. Chest/belly/pelvis/legs on mat, forehead on towel. Upper arms outward, elbows 90 degrees forming W, forearms directed toward head. Backs of hands visible, palms toward floor. Image-right anatomical right hand has thumb on inner left side; image-left left hand has thumb on inner right side. Five digits each, neutral wrists, no twisting or crossing torso. Preserve clothing and comic style.",
+    "proneY": "Correct the original supine Y raise to prone: chest/pelvis down, forehead on towel, arms extended diagonally forward in a Y, thumbs up, hands raised slightly, high dorsal three-quarter view. Keep original comic style and character.",
+    "faceCommon": "Original air-squat PNG is the style and character reference. Same short dark-haired, short-bearded adult athletic man, red T-shirt, warm shaded skin, bold black comic outlines. Single upper torso portrait, natural joints, five correctly oriented digits per hand, true transparent cutout. No labels, text, arrows, glow, or flat vector pictograms.",
+    "facePoses": {
+      "corona": "Both hands on crown of scalp, fingertips among hair, head slightly down.",
+      "fronte": "Both open palms flat on forehead above brows, eyes unobstructed.",
+      "occipite": "Back three-quarter view, both palms on occiput above nape, fingers upward, no face visible from rear.",
+      "palpebra": "Index/middle fingers on bony area under brows, eyes gently closed, no pressure on eyeballs or skin pulling.",
+      "binocolo": "Two hands in C shapes, each index on brow bone and corresponding thumb on cheekbone, no contact with eyeballs.",
+      "contorno": "Index/middle fingertips lightly on cheekbones below eye sockets, natural remaining fingers and wrists.",
+      "sorriso": "Small soft O mouth, lips covering teeth, no hands, relaxed eyebrows and red T-shirt.",
+      "bacio": "Small forward pursed-lip kiss, neutral upright neck and level chin, no jaw thrust, no hands."
+    }
+  },
+  "visualReview": "All selected illustrations inspected. W replacement checked from above for arm symmetry, neutral wrists, five fingers and opposite thumb laterality. Original correctly prone PNGs restored for alternating arm raises and inverse snow angels."
+}

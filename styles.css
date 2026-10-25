@@ -1048,3 +1048,88 @@ button:focus-visible, input:focus-visible, select:focus-visible {
 @media (prefers-reduced-motion: no-preference) {
   .primary, .secondary, .routine-card { transition: background-color 150ms; }
 }
+
+/* Practice selection and a shared journal. */
+[hidden] { display: none !important; }
+.home-intro { color: var(--muted); line-height: 1.6; font-size: 17px; margin: 0 0 24px; }
+.practice-choices { display: grid; gap: 16px; margin-bottom: 24px; }
+.practice-choice { position: relative; display: flex; flex-direction: column; align-items: flex-start; width: 100%; text-align: left; border: 1px solid var(--line); border-radius: 3px; padding: 24px; background: var(--panel); color: var(--ink); overflow: hidden; }
+.practice-choice .eyebrow { color: var(--accent); margin-bottom: 32px; }
+.practice-choice strong { display: block; font: 500 34px/1.1 Georgia, serif; letter-spacing: -1px; margin-bottom: 12px; }
+.practice-choice > span:not(.eyebrow):not(.practice-symbol):not(.practice-cta) { line-height: 1.6; font-size: 14px; color: var(--muted); }
+.practice-choice .practice-symbol { position: absolute; right: 12px; top: 16px; color: var(--accent); opacity: .8; }
+.practice-symbol svg { width: 110px; height: 90px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.practice-symbol .practice-art { display: block; width: 120px; height: 100px; object-fit: contain; }
+.practice-choice .practice-symbol { top: 38px; opacity: 1; }
+.practice-choice .eyebrow { margin-bottom: 112px; }
+.level-example { font-size: 12px; line-height: 1.7; color: var(--ink); }
+.level-comparison { margin-top: 16px; }
+.level-comparison-row { display: grid; grid-template-columns: 1.3fr .7fr 1fr; gap: 10px; padding: 12px 8px; border-bottom: 1px solid var(--line); align-items: center; font-size: 12px; }
+.level-comparison-row span:not(:first-child) { text-align: right; font-variant-numeric: tabular-nums; }
+.level-comparison-row.selected { background: #e8ebdf; }
+.level-comparison > .section-note { margin-top: 12px; }
+.face-choice { background: #e8ebdf; border-color: #c4cbb6; }
+.face-choice .eyebrow, .face-choice .practice-symbol, .face-choice .practice-cta { color: #46543a; }
+.practice-cta { display: flex; justify-content: space-between; align-items: center; gap: 12px; width: 100%; border-top: 1px solid var(--line); margin-top: 24px; padding-top: 16px; font-size: 13px; font-weight: 600; color: var(--accent); }
+.practice-cta svg, .last-practice svg, .journal-link svg, .text-link svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 1.5; flex-shrink: 0; }
+.last-practice { display: flex; align-items: center; justify-content: space-between; gap: 12px; width: 100%; margin: 18px 0; text-align: left; line-height: 1.5; }
+.journal-link { display: flex; align-items: center; gap: 16px; width: 100%; text-align: left; color: var(--ink); background: transparent; border: 0; border-block: 1px solid var(--line); padding: 20px 0; margin: 24px 0; }
+.journal-link span { flex: 1; }
+.journal-link strong, .journal-link small { display: block; }
+.journal-link small { color: var(--muted); margin-top: 6px; font-size: 12px; }
+.text-link { display: flex; align-items: center; gap: 8px; color: var(--accent); background: none; border: 0; padding: 0; margin-bottom: 24px; min-height: 44px; }
+.level-picker { margin: 24px 0; }
+.level-buttons { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px; margin: 10px 0 12px; border: 1px solid var(--line); border-radius: 3px; padding: 4px; }
+.level-buttons button { padding: 12px 3px; min-height: 44px; border: 0; background: transparent; color: var(--muted); font-size: 12px; border-radius: 2px; }
+.level-buttons button.active { background: var(--ink); color: var(--paper); }
+.face-screen .level-buttons button.active { background: var(--mint); }
+.routine-description, .exercise-dose { display: block; margin-top: 7px; font-size: 12px; line-height: 1.55; font-weight: 400; color: var(--muted); }
+.practice-note { background: #e8ebdf; border-left: 3px solid var(--mint); padding: 20px; margin: 24px 0; line-height: 1.65; font-size: 13px; }
+.practice-note p { margin: 8px 0 0; }
+.phase-block li > span { min-width: 0; }
+.guide-block p { font-size: 14px; line-height: 1.65; margin-bottom: 8px; }
+.guide-block ol { display: grid; gap: 10px; padding-left: 24px; margin: 0; }
+.guide-block li { font-weight: 400; line-height: 1.6; }
+.guide-block li::marker { color: var(--accent); font-weight: 600; }
+.guide-panel p { font-weight: 400; line-height: 1.6; margin-block: 8px; }
+.guide-block small { display: block; color: var(--accent); line-height: 1.55; }
+.guide-levels { display: grid; gap: 12px; margin-bottom: 24px; }
+.guide-block.selected-level { border-color: var(--accent); border-left: 3px solid var(--accent); }
+.storage-notice { padding: 16px; border: 1px solid var(--amber); background: #fff1d8; color: var(--ink); font-size: 14px; line-height: 1.6; }
+.backup-actions { display: grid; gap: 12px; margin: 24px 0; }
+.import-label { position: relative; cursor: pointer; display: grid; gap: 12px; text-align: center; }
+.import-label input { display: block; width: 100%; font-size: 12px; }
+.backup-status { font-size: 14px; line-height: 1.65; }
+.player-instruction { color: #eee8da; font-size: 14px; line-height: 1.55; max-width: 440px; margin: 4px 0; }
+.player-level { color: #c5bfb2; font-size: 11px; line-height: 1.55; max-width: 440px; margin: 0; }
+.face-repetition { color: var(--player-accent); font-size: 17px; line-height: 1.5; font-variant-numeric: tabular-nums; }
+.player-guide-button { border: 1px solid #ffffff55; background: transparent; color: #eee8da; padding: 11px 16px; border-radius: 3px; font-size: 13px; margin-top: 8px; min-height: 44px; }
+.player-guide { text-align: left; width: 100%; max-width: 500px; }
+.player-guide .guide-block { background: #faf8f2; color: #20201e; margin-bottom: 10px; }
+.player-guide .guide-block li { color: #37352f; }
+.timer-stage .exercise-hero:has(img[src$=".svg"]) { width: min(82vw, 350px); height: clamp(140px, 25svh, 230px); }
+.exercise-detail-hero .exercise-hero { max-width: 500px; }
+.routine-guidance { margin: 12px 0 22px; }
+.routine-guidance button { width: 100%; }
+.routine-guidance button[aria-pressed="true"] { border-color: var(--accent); }
+.voice-cue .action-row { flex-wrap: wrap; }
+.voice-cue .section-note { margin-bottom: 0; }
+.guide-sources { margin: 22px 0; padding: 18px; border: 1px solid var(--line); font-size: 13px; line-height: 1.7; }
+.guide-sources summary { cursor: pointer; font-weight: 600; }
+.guide-sources a { color: inherit; text-underline-offset: 3px; overflow-wrap: anywhere; }
+.guide-sources ul { padding-left: 20px; }
+.player-guide .voice-cue, .player-guide .guide-sources { background: #faf8f2; color: #20201e; padding: 18px; }
+.player-guide .voice-cue .section-note, .player-guide .guide-sources .section-note { color: #57534a; }
+@media (min-width: 700px) {
+  .practice-choices { grid-template-columns: 1fr 1fr; }
+  .practice-choice { min-height: 340px; }
+  .practice-choice .eyebrow { margin-bottom: 112px; }
+  .practice-cta { margin-top: auto; }
+  .backup-actions { grid-template-columns: 1fr 1fr; align-items: start; }
+}
+@media (max-width: 380px) {
+  .practice-choice { padding: 20px; }
+  .practice-choice .eyebrow { font-size: 9px; }
+  .practice-symbol svg { width: 82px; }
+  .level-buttons button { font-size: 11px; }
+}

@@ -4,7 +4,8 @@ const STORAGE_KEYS = {
   settings: "fitTimer.settings",
   overrides: "fitTimer.routineOverrides",
   lastRoutine: "fitTimer.lastRoutine",
-  sessions: "fitTimer.sessions"
+  sessions: "fitTimer.sessions",
+  sessionsBackup: "fitTimer.sessionsBackup"
 };
 
 const DEFAULT_SETTINGS = {
@@ -19,11 +20,20 @@ const DEFAULT_SETTINGS = {
   voiceEnabled: true,
   countdownEnabled: true,
   nextEnabled: true,
-  exerciseCueEnabled: false,
+  exerciseCueEnabled: true,
   speechRate: 1,
   speechPitch: 1,
   voiceURI: "",
-  englishVoiceURI: ""
+  englishVoiceURI: "",
+  intensity: "advanced",
+  faceIntensity: "advanced",
+  intensityModelVersion: 2
+};
+
+const LEVELS = {
+  beginner: { label: "Principiante", exerciseRatio: 0.7, durationRatio: 2 / 3, note: "Circa il 30% di esercizi in meno nella parte centrale e durata ridotta a due terzi." },
+  advanced: { label: "Avanzato", exerciseRatio: 1, durationRatio: 1, note: "La routine attuale: tutti gli esercizi e i tempi di riferimento." },
+  expert: { label: "Esperto", exerciseRatio: 1.3, durationRatio: 4 / 3, note: "Circa il 30% di esercizi in più nella parte centrale e durata aumentata di un terzo." }
 };
 
 const PHASE_LABELS = {
@@ -50,8 +60,15 @@ const DEFAULT_EXERCISE_GUIDE = {
 let sourceData = null;
 let exerciseData = null;
 let exerciseGuideData = null;
+let faceData = null;
+let selectedPractice = "fitness";
+let storageWarning = "";
+let sessionMemory = null;
+let historyDatabase = null;
+let historyWrite = Promise.resolve();
 let settings = normalizeSettings(loadJson(STORAGE_KEYS.settings, DEFAULT_SETTINGS));
 let overrides = loadJson(STORAGE_KEYS.overrides, {});
+if (!overrides || typeof overrides !== "object" || Array.isArray(overrides)) overrides = {};
 let routines = [];
 let exerciseLibrary = [];
 let exerciseCategories = [];
@@ -63,6 +80,7 @@ let libraryCategory = "Tutti";
 let exerciseDetailBack = { screen: "library" };
 let speechGeneration = 0;
 let currentUtterance = null;
+let guidanceSpeaking = false;
 
 let player = {
   active: false,
@@ -81,29 +99,42 @@ let player = {
 init();
 
 async function init() {
-  const [routinePayload, exercisePayload, guidePayload] = await Promise.all([
-    fetch("data/routines.json").then((response) => response.json()),
-    fetch("data/exercise-library.json").then((response) => response.json()),
-    fetch("data/exercise-guides.json").then((response) => response.json())
-  ]);
-  sourceData = routinePayload;
-  exerciseData = exercisePayload;
-  exerciseGuideData = guidePayload;
-  routines = flattenRoutines(sourceData);
+  try {
+    const [routinePayload, exercisePayload, guidePayload, facePayload] = await Promise.all([
+      fetch("data/routines.json").then((response) => response.json()),
+      fetch("data/exercise-library.json").then((response) => response.json()),
+      fetch("data/exercise-guides.json").then((response) => response.json()),
+      fetch("data/face-yoga.json").then((response) => response.json())
+    ]);
+    sourceData = routinePayload;
+    exerciseData = exercisePayload;
+    exerciseGuideData = guidePayload;
+    faceData = facePayload;
+    rebuildRoutines();
+    exerciseLibrary = buildExerciseLibrary(routines);
+    exerciseCategories = ["Tutti", ...exerciseData.categories];
+    selected = loadJson(STORAGE_KEYS.lastRoutine, selected);
+    if (!selected || !findRoutine(selected.week, selected.day)) selected = { week: 1, day: 1 };
+    await restoreHistory();
+    registerServiceWorker();
+    window.speechSynthesis?.addEventListener("voiceschanged", updateVoiceOptions);
+    renderHome();
+  } catch {
+    app.innerHTML = `<main class="screen"><h1>L’app non si è caricata</h1><p>Controlla la connessione e riapri l’app per completare l’aggiornamento. I dati del diario restano sul dispositivo.</p><button class="primary" data-action="reload">Riprova</button></main>`;
+    bindAction("reload", () => window.location.reload());
+  }
+}
+
+function rebuildRoutines() {
+  routines = [...flattenRoutines(sourceData), ...(faceData?.routines || [])];
   applyRoutineOverrides();
-  exerciseLibrary = buildExerciseLibrary(routines);
-  exerciseCategories = ["Tutti", ...exerciseData.categories];
-  selected = loadJson(STORAGE_KEYS.lastRoutine, selected);
-  if (!findRoutine(selected.week, selected.day)) selected = { week: 1, day: 1 };
-  registerServiceWorker();
-  window.speechSynthesis?.addEventListener("voiceschanged", updateVoiceOptions);
-  renderHome();
 }
 
 function flattenRoutines(data) {
   return data.weeks.flatMap((week) =>
     week.days.map((day) => ({
       ...day,
+      practice: "fitness",
       week: week.week,
       key: routineKey(week.week, day.day),
       warmup: [...day.warmup],
@@ -121,8 +152,8 @@ function applyRoutineOverrides() {
 }
 
 function buildExerciseLibrary(items) {
-  const metaByName = new Map((exerciseData?.exercises || []).map((exercise) => [exercise.name, exercise]));
-  const names = new Set();
+  const metaByName = new Map([...(exerciseData?.exercises || []), ...(faceData?.exercises || [])].map((exercise) => [exercise.name, exercise]));
+  const names = new Set(metaByName.keys());
   items.forEach((routine) => {
     ["warmup", "workout", "cooldown"].forEach((phase) => {
       routine[phase].forEach((name) => names.add(name));
@@ -135,17 +166,63 @@ function buildExerciseLibrary(items) {
 
 function renderHome() {
   stopPlayer();
+  const sessions = getSessions();
   const last = loadJson(STORAGE_KEYS.lastRoutine, null);
-  const currentWeek = selected.week;
-  const weekRoutines = routines.filter((routine) => routine.week === currentWeek);
   const lastRoutine = last && findRoutine(last.week, last.day);
+  app.innerHTML = `
+    <main class="screen home-screen practice-home">
+      <header class="topbar">
+        <div><p class="eyebrow">My Personal Trainer</p><h1>Il tuo spazio.<br>La tua <em>pratica.</em></h1></div>
+        <div class="top-actions">
+          <button class="icon-button" data-action="calendar" aria-label="Calendario">${iconCalendar()}</button>
+          <button class="icon-button" data-action="settings" aria-label="Impostazioni">${iconGear()}</button>
+        </div>
+      </header>
+      ${storageNotice()}
+      <p class="home-intro">Come vuoi prenderti cura di te, oggi?</p>
+      <section class="practice-choices" aria-label="Scegli la pratica">
+        <button class="practice-choice fitness-choice" data-action="fitness">
+          <span class="eyebrow">01 / Corpo e movimento</span><span class="practice-symbol" aria-hidden="true">${iconMovement()}</span>
+          <strong>Fitness</strong><span>Forza, mobilità e postura.<br>Il tuo programma di quattro settimane.</span>
+          <span class="practice-cta">Scegli l’allenamento ${iconForward()}</span>
+        </button>
+        <button class="practice-choice face-choice" data-action="face">
+          <span class="eyebrow">02 / Viso e rilassamento</span><span class="practice-symbol" aria-hidden="true">${iconFace()}</span>
+          <strong>Yoga facciale</strong><span>Scalpo, fronte, occhi e guance.<br>Gesti lenti, allo specchio.</span>
+          <span class="practice-cta">Scegli la routine ${iconForward()}</span>
+        </button>
+      </section>
+      ${lastRoutine ? `<button class="last-practice secondary" data-action="last">Ultima routine: ${escapeHtml(lastRoutine.title)} ${iconForward()}</button>` : ""}
+      <button class="journal-link" data-action="calendar">${iconCalendar()}<span><strong>Il tuo diario</strong><small>${sessions.length} ${sessions.length === 1 ? "sessione salvata" : "sessioni salvate"} · Fitness e yoga facciale</small></span>${iconForward()}</button>
+      <p class="section-note">Una pratica alla volta. Scegli un livello che ti permetta di mantenere un gesto comodo e preciso.</p>
+    </main>`;
+  bindAction("fitness", () => renderPractice("fitness"));
+  bindAction("face", () => renderPractice("face"));
+  bindAction("last", () => renderRoutine(lastRoutine));
+  bindAction("calendar", renderCalendar);
+  bindAction("settings", renderSettings);
+}
+
+function renderPractice(practice = selectedPractice) {
+  selectedPractice = practice;
+  libraryCategory = "Tutti";
+  if (practice === "face") return renderFaceHome();
+  renderFitness();
+}
+
+function renderFitness() {
+  stopPlayer();
+  const last = loadJson(STORAGE_KEYS.lastRoutine, null);
+  const currentWeek = selected.week || 1;
+  const weekRoutines = routines.filter((routine) => routine.week === currentWeek);
+  const lastRoutine = last?.week > 0 && findRoutine(last.week, last.day);
 
   app.innerHTML = `
     <main class="screen home-screen">
       <header class="topbar">
         <div>
           <p class="eyebrow">My Personal Trainer</p>
-          <h1>Il tuo spazio.<br>Il tuo <em>ritmo.</em></h1>
+          <h1>Corpo in movimento.<br>Al tuo <em>ritmo.</em></h1>
         </div>
         <div class="top-actions">
           <button class="icon-button" data-action="calendar" aria-label="Storico sessioni" title="Storico sessioni">
@@ -159,6 +236,8 @@ function renderHome() {
           </button>
         </div>
       </header>
+      <button class="text-link" data-action="home">${iconBack()} Tutte le pratiche</button>
+      ${levelSelector("fitness")}
 
       ${lastRoutine ? `
         <section class="resume-band">
@@ -187,7 +266,7 @@ function renderHome() {
 
   bind("[data-week]", "click", (event) => {
     selected.week = Number(event.currentTarget.dataset.week);
-    renderHome();
+    renderFitness();
   });
   bind("[data-routine]", "click", (event) => {
     const [week, day] = event.currentTarget.dataset.routine.split("-").map(Number);
@@ -198,10 +277,116 @@ function renderHome() {
   bindAction("library", renderExerciseLibrary);
   bindAction("settings", renderSettings);
   bindAction("open-last", () => renderRoutine(lastRoutine));
+  bindAction("home", renderHome);
+  bindLevels("fitness", renderFitness);
+}
+
+function renderFaceHome() {
+  stopPlayer();
+  app.innerHTML = `<main class="screen face-screen">
+    <header class="topbar"><button class="icon-button" data-action="home" aria-label="Tutte le pratiche">${iconBack()}</button><div><p class="eyebrow">Viso e rilassamento</p><h1>Yoga facciale</h1></div></header>
+    <p class="home-intro">Qualche minuto per rallentare.<br>Mani pulite, spalle morbide, uno specchio.</p>
+    ${levelSelector("face")}
+    <section class="routine-list">${routines.filter(r => r.practice === "face").map(routineCard).join("")}</section>
+    <aside class="practice-note"><strong>Delicatezza, a ogni livello.</strong><p>${escapeHtml(faceData.note)}</p></aside>
+    <button class="secondary last-practice" data-action="library">${iconBook()} Guide dei gesti</button>
+    <button class="journal-link" data-action="calendar">${iconCalendar()} Calendario delle pratiche ${iconForward()}</button>
+  </main>`;
+  bindAction("home", renderHome);
+  bindAction("calendar", renderCalendar);
+  bindAction("library", renderExerciseLibrary);
+  bindLevels("face", renderFaceHome);
+  bind("[data-routine]", "click", e => {
+    const [week, day] = e.currentTarget.dataset.routine.split("-").map(Number);
+    renderRoutine(findRoutine(week, day));
+  });
+}
+
+function practiceLevel(practice = selectedPractice) {
+  return settings[practice === "face" ? "faceIntensity" : "intensity"];
+}
+
+function levelSelector(practice, routine = null) {
+  const level = practiceLevel(practice);
+  return `<section class="level-picker"><p class="eyebrow">Il tuo livello</p><div class="level-buttons" role="group" aria-label="Livello della pratica">${Object.entries(LEVELS).map(([key, value]) => `<button data-level="${key}" aria-pressed="${level === key}" class="${level === key ? "active" : ""}">${value.label}</button>`).join("")}</div><p class="section-note">${LEVELS[level].note}${practice === "face" ? " I tempi cambiano con durata dei massaggi e ripetizioni; tenute, rilasci e pressione restano delicati." : " Riscaldamento, defaticamento, giri e recuperi restano quelli impostati."}</p>${routine ? levelComparison(routine) : practice === "fitness" ? `<p class="level-example">Durata di ogni esercizio centrale: ${Object.keys(LEVELS).map(key => `${LEVELS[key].label} ${workoutDuration(key)} s`).join(" · ")}. I tempi nelle impostazioni sono il riferimento avanzato.</p>` : ""}</section>`;
+}
+
+function workoutDuration(level = practiceLevel("fitness")) {
+  return Math.max(1, Math.round(settings.workoutDurationSec * LEVELS[level].durationRatio));
+}
+
+function bilateralKey(name) {
+  return name.replace(/\((sinistra|destra)\)/g, "(lato)");
+}
+
+function exerciseGroups(names) {
+  const groups = [];
+  const used = new Set();
+  names.forEach((name, index) => {
+    if (used.has(index)) return;
+    used.add(index);
+    const group = [name];
+    if (/\((sinistra|destra)\)/.test(name)) {
+      const other = names.findIndex((candidate, i) => !used.has(i) && candidate !== name && bilateralKey(candidate) === bilateralKey(name));
+      if (other >= 0) { used.add(other); group.push(names[other]); }
+    }
+    groups.push(group);
+  });
+  return groups;
+}
+
+function routineForLevel(routine, level = practiceLevel(routine.practice || "fitness")) {
+  const base = { ...routine, warmup: [...routine.warmup], workout: [...routine.workout], cooldown: [...routine.cooldown] };
+  if (level === "advanced" || !base.workout.length) return base;
+  const groups = exerciseGroups(base.workout);
+  if (level === "beginner") {
+    const count = Math.max(1, Math.floor(groups.length * LEVELS.beginner.exerciseRatio));
+    const indexes = new Set(Array.from({ length: count }, (_, i) => count === 1 ? 0 : Math.round(i * (groups.length - 1) / (count - 1))));
+    base.workout = groups.filter((_, index) => indexes.has(index)).flat();
+    return base;
+  }
+  const practice = routine.practice || "fitness";
+  const all = practice === "face" ? faceData?.exercises || [] : exerciseData?.exercises || [];
+  const present = new Set([...base.warmup, ...base.workout, ...base.cooldown]);
+  const categories = new Set(base.workout.map(name => exerciseMeta(name).category));
+  const pool = all.filter(e => e.phases?.includes("workout") && !present.has(e.name) && (practice === "face" || categories.has(e.category)));
+  const extraGroups = exerciseGroups(pool.map(e => e.name));
+  const target = Math.max(1, Math.round(routine.workout.length * LEVELS.expert.exerciseRatio) - routine.workout.length);
+  let added = 0;
+  for (const group of extraGroups) {
+    // A left/right exercise is added only with its matching side.
+    if (group.some(name => /\((sinistra|destra)\)/.test(name)) && group.length !== 2) continue;
+    if (added >= target) break;
+    base.workout.push(...group);
+    added += group.length;
+  }
+  // Very small custom routines may exhaust compatible exercises. Repeat a
+  // complete existing group rather than adding an unrelated movement or side.
+  for (let i = 0; added < target; i += 1) {
+    const group = groups[i % groups.length];
+    base.workout.push(...group);
+    added += group.length;
+  }
+  return base;
+}
+
+function levelComparison(routine) {
+  return `<div class="level-comparison" role="table" aria-label="Confronto dei livelli"><div class="level-comparison-row" role="row"><span>Livello</span><span>Esercizi</span><span>Durata totale</span></div>${Object.entries(LEVELS).map(([key, level]) => {
+    const summary = routineSummary(routine, key);
+    return `<div class="level-comparison-row ${practiceLevel(routine.practice) === key ? "selected" : ""}" role="row"><strong>${level.label}</strong><span>${summary.totalExercises}</span><span>${formatTime(summary.totalSeconds)}</span></div>`;
+  }).join("")}<p class="section-note">Esercizi conteggiati su tutti i giri. Il tempo totale comprende preparazione e recuperi. Le coppie destra/sinistra restano complete.</p></div>`;
+}
+
+function bindLevels(practice, render) {
+  bind("[data-level]", "click", e => {
+    settings[practice === "face" ? "faceIntensity" : "intensity"] = e.currentTarget.dataset.level;
+    saveJson(STORAGE_KEYS.settings, settings);
+    render();
+  });
 }
 
 function renderCalendar() {
-  const sessions = loadJson(STORAGE_KEYS.sessions, []);
+  const sessions = getSessions();
   const monthStart = startOfMonth(calendarMonth);
   const monthDays = daysInMonth(monthStart);
   const leadingDays = (monthStart.getDay() + 6) % 7;
@@ -221,6 +406,8 @@ function renderCalendar() {
           <h1>Calendario</h1>
         </div>
       </header>
+      ${storageNotice()}
+      <button class="routine-timing-link" data-action="backup">Backup e ripristino dello storico ${iconForward()}</button>
 
       <section class="calendar-summary">
         <div><span>${monthSessions.length}</span><small>Sessioni</small></div>
@@ -247,6 +434,7 @@ function renderCalendar() {
   `;
 
   bindAction("home", renderHome);
+  bindAction("backup", renderBackup);
   bindAction("prev-month", () => {
     calendarMonth = new Date(monthStart.getFullYear(), monthStart.getMonth() - 1, 1);
     renderCalendar();
@@ -280,7 +468,7 @@ function sessionCard(session) {
     <button class="session-card" data-session-routine="${session.week}-${session.day}">
       <span>
         <strong>${escapeHtml(session.title)}</strong>
-        <small>${formatSessionDate(session.completedAt)} · Settimana ${session.week}, giorno ${session.day}</small>
+        <small>${formatSessionDate(session.completedAt)} · ${session.practice === "face" || session.week === 0 ? "Yoga facciale" : `Fitness · Settimana ${session.week}, giorno ${session.day}`} ${session.intensity ? `· ${LEVELS[session.intensity]?.label || ""}` : ""}</small>
       </span>
       <span class="session-metrics">${session.totalExercises} es. · ${formatTime(session.totalSeconds)}</span>
     </button>
@@ -291,10 +479,11 @@ function routineCard(routine) {
   const summary = routineSummary(routine);
   return `
     <button class="routine-card" data-routine="${routine.week}-${routine.day}">
-      <span class="day-index"><small>GIORNO</small>${String(routine.day).padStart(2, "0")}</span>
+      <span class="day-index"><small>${routine.practice === "face" ? "RITUALE" : "GIORNO"}</small>${String(routine.day).padStart(2, "0")}</span>
       <span class="routine-body">
         <span class="routine-title">${escapeHtml(routine.title)}</span>
-        <span class="routine-meta">${summary.totalExercises} esercizi <i>·</i> ${formatTime(summary.totalSeconds)} min <i>·</i> ${settings.workoutRounds} giri</span>
+        <span class="routine-meta">${summary.totalExercises} esercizi <i>·</i> ${formatTime(summary.totalSeconds)} min <i>·</i> ${routine.practice === "face" ? "1 sequenza" : `${settings.workoutRounds} giri`}<br>${LEVELS[practiceLevel(routine.practice)].label}</span>
+        ${routine.description ? `<span class="routine-description">${escapeHtml(routine.description)}</span>` : ""}
         ${routine.extractionStatus === "generated-from-week-4-pattern" ? `<span class="status-pill">Generata</span>` : ""}
         ${routine.hasLocalChanges ? `<span class="status-pill local">Modificata</span>` : ""}
       </span>
@@ -305,13 +494,15 @@ function routineCard(routine) {
 
 function renderRoutine(routine) {
   if (!routine) return renderHome();
+  selectedPractice = routine.practice || "fitness";
   const summary = routineSummary(routine);
+  const effective = routineForLevel(routine);
   app.innerHTML = `
     <main class="screen">
       <header class="topbar">
         <button class="icon-button" data-action="home" aria-label="Indietro" title="Indietro">${iconBack()}</button>
         <div>
-          <p class="eyebrow">Settimana ${routine.week}, giorno ${routine.day}</p>
+          <p class="eyebrow">${routineContext(routine)}</p>
           <h1>${escapeHtml(routine.title)}</h1>
         </div>
       </header>
@@ -319,25 +510,34 @@ function renderRoutine(routine) {
       <section class="stats-grid">
         <div><span>${summary.totalExercises}</span><small>Esercizi</small></div>
         <div><span>${formatTime(summary.totalSeconds)}</span><small>Stimati</small></div>
-        <div><span>${settings.workoutRounds}</span><small>Giri</small></div>
+        <div><span>${routine.practice === "face" ? 1 : settings.workoutRounds}</span><small>${routine.practice === "face" ? "Sequenza" : "Giri"}</small></div>
       </section>
 
       <section class="action-row">
-        <button class="primary" data-action="start">Avvia</button>
+        <button class="primary" data-action="start" ${summary.totalExercises ? "" : "disabled"}>Avvia</button>
         <button class="secondary" data-action="edit">Modifica</button>
       </section>
 
       <button class="routine-timing-link" data-action="timing">Tempi e voce ${iconForward()}</button>
-      ${phasePreview("Riscaldamento", routine.warmup, "warmup")}
-      ${phasePreview("Allenamento", routine.workout, "workout")}
-      ${phasePreview("Defaticamento", routine.cooldown, "cooldown")}
+      ${routine.practice !== "face" ? `<section class="routine-guidance"><button class="secondary" data-action="toggle-guidance" aria-pressed="${settings.exerciseCueEnabled}">Guida vocale esercizi: ${settings.exerciseCueEnabled ? "attiva" : "disattivata"}</button><p class="section-note">${settings.voiceEnabled && settings.exerciseCueEnabled ? "La voce spiega gli appoggi durante la preparazione e il movimento al via. La stima include il tempo per ascoltare; i secondi di lavoro restano quelli del livello." : "Attiva la guida e la voce in “Tempi e voce” per ascoltare posizione e movimento durante la sessione."}${settings.prepareDurationSec === 0 ? " Con preparazione a zero, ascolta prima la guida dalla scheda: durante il lavoro sentirai solo le indicazioni che entrano nel tempo disponibile." : ""}</p></section>` : ""}
+      ${levelSelector(selectedPractice, routine)}
+      ${routine.practice === "face" ? `<p class="section-note">${escapeHtml(faceData.note)}</p>` : ""}
+      ${phasePreview("Riscaldamento", effective.warmup, "warmup", routine)}
+      ${phasePreview(routine.practice === "face" ? "La sequenza" : "Allenamento", effective.workout, "workout", routine)}
+      ${phasePreview("Defaticamento", effective.cooldown, "cooldown", routine)}
     </main>
   `;
 
-  bindAction("home", renderHome);
+  bindAction("home", () => renderPractice(routine.practice));
+  bindLevels(selectedPractice, () => renderRoutine(routine));
   bindAction("start", () => startRoutine(routine));
   bindAction("edit", () => renderEditor(routine));
   bindAction("timing", () => renderSettings(routine));
+  bindAction("toggle-guidance", () => {
+    settings.exerciseCueEnabled = !settings.exerciseCueEnabled;
+    saveJson(STORAGE_KEYS.settings, settings);
+    renderRoutine(routine);
+  });
   bind("[data-guide]", "click", (event) => {
     openExerciseDetail(decodeURIComponent(event.currentTarget.dataset.guide), {
       screen: "routine",
@@ -347,18 +547,19 @@ function renderRoutine(routine) {
   });
 }
 
-function phasePreview(label, items, phase) {
+function phasePreview(label, items, phase, routine) {
+  if (!items.length) return "";
   return `
     <section class="phase-block">
       <header>
         <h2>${label}</h2>
-        <span>${items.length} es. · ${settings[`${phase}DurationSec`]} s${phase === "workout" ? ` · ${settings.workoutRounds} giri` : ""}</span>
+        <span>${items.length} es. ${routine.practice === "face" ? "· dosi guidate" : `· ${phase === "workout" ? workoutDuration() : settings[`${phase}DurationSec`]} s${phase === "workout" ? ` · ${settings.workoutRounds} giri` : ""}`}</span>
       </header>
       <ol>
         ${items.map((name) => `
           <li>
             ${exerciseThumb(name)}
-            <span>${escapeHtml(name)}</span>
+            <span>${escapeHtml(name)}<small class="exercise-dose">${escapeHtml(levelInstruction(name, routine.practice, phase))}</small></span>
             <button class="icon-button mini" data-guide="${encodeURIComponent(name)}" aria-label="Guida ${escapeHtml(name)}" title="Guida esercizio">${iconInfo()}</button>
           </li>
         `).join("")}
@@ -368,21 +569,23 @@ function phasePreview(label, items, phase) {
 }
 
 function renderExerciseLibrary() {
-  const filteredExercises = exerciseLibrary.filter((exercise) => libraryCategory === "Tutti" || exercise.category === libraryCategory);
+  const practiceExercises = exerciseLibrary.filter(e => (e.practice || "fitness") === selectedPractice);
+  const categories = ["Tutti", ...new Set(practiceExercises.map(e => e.category))];
+  const filteredExercises = practiceExercises.filter((exercise) => libraryCategory === "Tutti" || exercise.category === libraryCategory);
 
   app.innerHTML = `
     <main class="screen">
       <header class="topbar">
         <button class="icon-button" data-action="home" aria-label="Indietro" title="Indietro">${iconBack()}</button>
         <div>
-          <p class="eyebrow">Guida esecuzione</p>
+          <p class="eyebrow">Guida esecuzione · ${selectedPractice === "face" ? "Yoga facciale" : "Fitness"}</p>
           <h1>Libreria esercizi</h1>
         </div>
       </header>
 
       <section class="library-filter">
         <select id="libraryCategory" aria-label="Categoria esercizi">
-          ${exerciseCategories.map((category) => `<option value="${escapeHtml(category)}" ${category === libraryCategory ? "selected" : ""}>${escapeHtml(category)}</option>`).join("")}
+          ${categories.map((category) => `<option value="${escapeHtml(category)}" ${category === libraryCategory ? "selected" : ""}>${escapeHtml(category)}</option>`).join("")}
         </select>
       </section>
 
@@ -392,7 +595,7 @@ function renderExerciseLibrary() {
             ${exerciseThumb(exercise.name)}
             <span>
               <strong>${escapeHtml(exercise.name)}</strong>
-              <small>${escapeHtml(exercise.category)}</small>
+              <small>${escapeHtml(exercise.category)} · ${LEVELS[practiceLevel()].label}</small>
             </span>
             ${iconForward()}
           </button>
@@ -401,7 +604,7 @@ function renderExerciseLibrary() {
     </main>
   `;
 
-  bindAction("home", renderHome);
+  bindAction("home", () => renderPractice());
   bind("#libraryCategory", "change", (event) => {
     libraryCategory = event.currentTarget.value;
     renderExerciseLibrary();
@@ -433,41 +636,91 @@ function renderExerciseDetail(name) {
       <section class="exercise-detail-hero">
         ${exerciseHero(meta.name)}
       </section>
+      ${guide.imageNote ? `<p class="section-note">${escapeHtml(guide.imageNote)}</p>` : ""}
 
       <section class="guide-panel">
         <p>${escapeHtml(guide.summary)}</p>
       </section>
 
+      ${guideAudio(meta.name)}
+
       <section class="guide-grid">
+        ${guide.setup ? guideBlock("Posizione di partenza", [guide.setup]) : ""}
         ${guideBlock("Esecuzione", guide.steps)}
+        ${guide.breath ? guideBlock("Respirazione e ritmo", [guide.breath]) : ""}
         ${guideBlock("Focus", guide.focus)}
         ${guideBlock("Evita", guide.avoid)}
         ${guideBlock("Variante facile", guide.easier)}
       </section>
-
-      <section class="voice-cue">
-        <span>Suggerimento vocale</span>
-        <p>${escapeHtml(guide.cue)}</p>
-      </section>
+      ${renderGuideLevels(meta.name)}
+      ${guideSources(guide)}
     </main>
   `;
 
   bindAction("back", () => {
+    cancelSpeech();
     if (exerciseDetailBack.screen === "routine") {
       renderRoutine(findRoutine(exerciseDetailBack.week, exerciseDetailBack.day));
       return;
     }
     renderExerciseLibrary();
   });
+  bindLevels(meta.practice || "fitness", () => renderExerciseDetail(name));
+  bindGuideAudio(meta.name);
+}
+
+function guideAudio(name) {
+  const guide = exerciseGuide(exerciseMeta(name));
+  return `<section class="voice-cue"><span>Guida da ascoltare</span><p>${escapeHtml(guide.voice?.move || guide.cue)}</p><div class="action-row"><button class="secondary" data-action="listen-guide" ${!("speechSynthesis" in window) ? "disabled" : ""}>Ascolta la guida completa</button><button class="secondary" data-action="stop-guide">Ferma voce</button></div><p class="section-note" data-voice-status role="status">${!("speechSynthesis" in window) ? "La lettura vocale non è disponibile in questo browser." : "Posizione iniziale, movimento e respirazione, con la velocità di voce impostata."}</p></section>`;
+}
+
+function bindGuideAudio(name) {
+  bindAction("listen-guide", () => {
+    const guide = exerciseGuide(exerciseMeta(name));
+    const status = document.querySelector("[data-voice-status]");
+    if (status) status.textContent = "Ascolto della guida completa…";
+    speak(speechSentences([name, guide.setup || guide.summary, ...guide.steps, guide.breath]), {
+      onDone: () => { if (status) status.textContent = "Guida terminata. Puoi riascoltarla quando vuoi."; }
+    });
+  });
+  bindAction("stop-guide", () => {
+    cancelSpeech();
+    const status = document.querySelector("[data-voice-status]");
+    if (status) status.textContent = "Lettura fermata.";
+  });
+}
+
+function guideSources(guide) {
+  if (!guide.sources.length) return "";
+  return `<details class="guide-sources"><summary>Fonti e variante descritta</summary>${guide.sourceNote ? `<p>${escapeHtml(guide.sourceNote)}</p>` : ""}<ul>${guide.sources.map(source => `<li><a href="${escapeHtml(source.url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(source.title)}</a></li>`).join("")}</ul><p class="section-note">Tecnica confrontata con queste fonti il ${escapeHtml(guide.reviewedOn.split("-").reverse().join("/"))}. I tempi di lavoro sono quelli del tuo programma. Le fonti online richiedono una connessione.</p></details>`;
+}
+
+function routineContext(routine) {
+  return routine.practice === "face" ? "Yoga facciale · Viso e scalpo" : `Fitness · Settimana ${routine.week}, giorno ${routine.day}`;
+}
+
+function levelInstruction(name, practice = selectedPractice, phase = "workout") {
+  const guide = exerciseGuide(exerciseMeta(name));
+  const level = practiceLevel(practice);
+  const dose = faceDose(name, level);
+  return dose ? `${doseLabel(dose)}` : `${phase === "workout" ? workoutDuration(level) : settings[`${phase}DurationSec`]} s di lavoro`;
+}
+
+function renderGuideLevels(name) {
+  const meta = exerciseMeta(name);
+  const guide = exerciseGuide(meta);
+  const practice = meta.practice || "fitness";
+  return `${levelSelector(practice)}<section class="guide-levels" aria-label="Dosi per livello">${Object.entries(LEVELS).map(([key, value]) => `<article class="guide-block ${practiceLevel(practice) === key ? "selected-level" : ""}"><h2>${value.label}</h2><p>${escapeHtml(value.note)}</p><small>${escapeHtml(faceDose(name, key) ? doseLabel(faceDose(name, key)) : `${workoutDuration(key)} s quando l’esercizio è nella fase centrale. Riscaldamento e defaticamento seguono i tempi impostati.`)}</small></article>`).join("")}</section>`;
 }
 
 function guideBlock(title, items) {
+  const list = title === "Esecuzione" ? "ol" : "ul";
   return `
     <article class="guide-block">
       <h2>${title}</h2>
-      <ul>
+      <${list}>
         ${items.map((item) => `<li>${escapeHtml(item)}</li>`).join("")}
-      </ul>
+      </${list}>
     </article>
   `;
 }
@@ -484,9 +737,9 @@ function renderSettings(routine = null) {
         </div>
       </header>
 
-      <section class="settings-panel">
+      ${routine?.practice === "face" ? `<section class="settings-panel"><p class="section-note">Lo yoga facciale segue le ripetizioni e le tenute del livello scelto, in una sola sequenza. I tempi fitness non modificano questa pratica.</p></section>` : `<section class="settings-panel">
         <h2 class="section-title"><span>01</span> Il tuo ritmo</h2>
-        <p class="section-note">Durata di ogni esercizio, distinta per fase.</p>
+        <p class="section-note">Questi sono i tempi di riferimento del livello avanzato. Principiante ed esperto riducono o aumentano il tempo della fase centrale; riscaldamento e defaticamento restano completi.</p>
         ${numberSetting("warmupDurationSec", "Riscaldamento", 5, 300, 5)}
         ${numberSetting("workoutDurationSec", "Allenamento", 5, 300, 5)}
         ${numberSetting("cooldownDurationSec", "Defaticamento", 5, 300, 5)}
@@ -494,12 +747,13 @@ function renderSettings(routine = null) {
       <section class="settings-panel">
         <h2 class="section-title"><span>02</span> Passaggi e recupero</h2>
         ${numberSetting("prepareDurationSec", "Preparazione esercizio", 0, 120, 5)}
+        <p class="section-note">Con la guida vocale fitness attiva, la preparazione può durare di più per lasciare finire le istruzioni. I secondi di esercizio non cambiano. Con preparazione a zero, usa “Ascolta la guida completa” prima di avviare.</p>
         ${numberSetting("restEveryExercises", "Pausa ogni", 1, 10, 1)}
         ${numberSetting("restDurationSec", "Pausa tra esercizi", 0, 300, 5)}
         ${numberSetting("roundRestDurationSec", "Recupero tra giri", 0, 300, 5)}
         ${numberSetting("workoutRounds", "Giri di allenamento", 1, 6, 1)}
         <p class="section-note">Il recupero tra giri sostituisce la pausa tra esercizi. Riscaldamento e defaticamento non hanno pause di recupero.</p>
-      </section>
+      </section>`}
       <section class="settings-panel">
         <h2 class="section-title"><span>03</span> La voce che ti guida</h2>
         ${voiceSetting("voiceURI", "Voce italiana", "it")}
@@ -514,16 +768,18 @@ function renderSettings(routine = null) {
         ${toggleSetting("voiceEnabled", "Voce")}
         ${toggleSetting("countdownEnabled", "Countdown")}
         ${toggleSetting("nextEnabled", "Prossimo esercizio")}
-        ${toggleSetting("exerciseCueEnabled", "Suggerimenti vocali esercizio")}
+        ${toggleSetting("exerciseCueEnabled", "Guida vocale degli esercizi")}
       </section>
 
       <section class="action-row">
         <button class="secondary" data-action="reset-settings">Ripristina</button>
       </section>
+      <button class="routine-timing-link" data-action="backup">Backup e ripristino dei dati ${iconForward()}</button>
     </main>
   `;
 
   bindAction("home", () => { cancelSpeech(); back(); });
+  bindAction("backup", renderBackup);
   bind("[data-setting]", "input", (event) => {
     const key = event.currentTarget.dataset.setting;
     const value = event.currentTarget.type === "checkbox"
@@ -577,7 +833,7 @@ function settingDisplay(key, value) {
 
 function renderEditor(routine) {
   const phases = ["warmup", "workout", "cooldown"];
-  const phaseExercises = exerciseLibrary.filter((exercise) => exercise.phases?.includes(editorPhase));
+  const phaseExercises = exerciseLibrary.filter((exercise) => (exercise.practice || "fitness") === (routine.practice || "fitness") && exercise.phases?.includes(editorPhase));
   const availableCategories = ["Tutti", ...new Set(phaseExercises.map((exercise) => exercise.category))];
   if (!availableCategories.includes(editorCategory)) editorCategory = "Tutti";
   const filteredExercises = phaseExercises.filter((exercise) => editorCategory === "Tutti" || exercise.category === editorCategory);
@@ -586,7 +842,7 @@ function renderEditor(routine) {
       <header class="topbar">
         <button class="icon-button" data-action="back-routine" aria-label="Indietro" title="Indietro">${iconBack()}</button>
         <div>
-          <p class="eyebrow">Settimana ${routine.week}, giorno ${routine.day}</p>
+          <p class="eyebrow">${routineContext(routine)}</p>
           <h1>Modifica</h1>
         </div>
       </header>
@@ -653,14 +909,15 @@ function renderEditor(routine) {
   bindAction("reset-routine", () => {
     delete overrides[routine.key];
     saveJson(STORAGE_KEYS.overrides, overrides);
-    routines = flattenRoutines(sourceData);
-    applyRoutineOverrides();
+    rebuildRoutines();
     exerciseLibrary = buildExerciseLibrary(routines);
     renderRoutine(findRoutine(routine.week, routine.day));
   });
 }
 
 function startRoutine(routine) {
+  if (!routine || !routineSummary(routine).totalExercises) return;
+  selectedPractice = routine.practice || "fitness";
   player.routine = routine;
   player.timeline = buildTimeline(routine);
   player.index = 0;
@@ -670,6 +927,10 @@ function startRoutine(routine) {
   player.segmentStartedAt = Date.now();
   player.spokenSegment = "";
   player.spokenCountdown = "";
+  player.spokenMidpoint = -1;
+  player.showGuide = false;
+  player.level = practiceLevel(selectedPractice);
+  player.sessionRecorded = false;
   saveJson(STORAGE_KEYS.lastRoutine, { week: routine.week, day: routine.day });
   requestWakeLock();
   renderPlayer();
@@ -704,6 +965,11 @@ function renderPlayer() {
         </div>
         <p class="segment-kind">${segmentKindLabel(segment)}</p>
         <h1>${escapeHtml(segmentTitle(segment))}</h1>
+        ${visualName ? `<p class="player-instruction">${escapeHtml(segment.kind === "prepare" ? (exerciseGuide(exerciseMeta(visualName)).voice?.prepare || exerciseGuide(exerciseMeta(visualName)).setup) : exerciseGuide(exerciseMeta(visualName)).cue)}</p><p class="player-level">${LEVELS[player.level || practiceLevel()].label} · ${escapeHtml(levelInstruction(visualName, player.routine?.practice, segment.phase))}</p>` : ""}
+        <p class="section-note" data-guidance-status role="status"></p>
+        ${segment.dose ? `<p class="face-repetition" data-face-repetition aria-live="off">${faceRepetitionLabel(segment, segmentElapsed)}</p>` : ""}
+        ${visualName ? `<button class="player-guide-button" data-action="player-guide">${player.paused && player.showGuide ? "Chiudi guida" : "Pausa e leggi la guida"}</button>` : ""}
+        ${player.paused && player.showGuide && visualName ? `<section class="player-guide">${guideBlock("Posizione", [exerciseGuide(exerciseMeta(visualName)).setup || exerciseGuide(exerciseMeta(visualName)).summary])}${guideBlock("Esecuzione", exerciseGuide(exerciseMeta(visualName)).steps)}${guideBlock("Respirazione", [exerciseGuide(exerciseMeta(visualName)).breath])}${guideBlock("Evita", exerciseGuide(exerciseMeta(visualName)).avoid)}${guideAudio(visualName)}${guideSources(exerciseGuide(exerciseMeta(visualName)))}</section>` : ""}
         ${nextExercise ? `<p class="next-line">Prossimo: ${escapeHtml(nextExercise)}</p>` : ""}
       </section>
 
@@ -724,15 +990,24 @@ function renderPlayer() {
   bindAction("toggle", togglePlayer);
   bindAction("next", nextSegment);
   bindAction("previous", previousSegment);
+  bindAction("player-guide", () => {
+    if (!player.paused) togglePlayer();
+    else cancelSpeech();
+    player.showGuide = !player.showGuide;
+    renderPlayer();
+  });
+  if (player.paused && player.showGuide && visualName) bindGuideAudio(visualName);
 }
 
-function buildTimeline(routine) {
+function buildTimeline(source, level = practiceLevel(source.practice || "fitness")) {
+  const routine = routineForLevel(source, level);
+  if (routine.practice === "face") return buildFaceTimeline(routine, level);
   const timeline = [];
   addExercisePhase(timeline, routine.warmup, "warmup");
 
   for (let round = 1; round <= settings.workoutRounds; round += 1) {
     routine.workout.forEach((name, index) => {
-      appendExercise(timeline, name, "workout", round);
+      appendExercise(timeline, name, "workout", round, workoutDuration(level));
       const isRoundEnd = index === routine.workout.length - 1;
       const isLastWorkout = round === settings.workoutRounds && isRoundEnd;
       const shouldRest = isRoundEnd || (index + 1) % settings.restEveryExercises === 0;
@@ -754,23 +1029,82 @@ function buildTimeline(routine) {
   return timeline.filter((segment) => segment.duration > 0);
 }
 
+function faceDose(name, level = practiceLevel("face")) {
+  const base = faceData?.exercises?.find(e => e.name === name)?.doses?.advanced;
+  if (!base) return null;
+  const ratio = LEVELS[level].durationRatio;
+  // Change total work through massage time/repetition count, without longer
+  // ocular holds, shorter releases or stronger pressure.
+  return base.seconds ? { seconds: Math.max(1, Math.round(base.seconds * ratio)) } : { ...base, reps: Math.max(1, Math.round(base.reps * ratio)) };
+}
+
+function doseLabel(dose) {
+  return dose.seconds ? `${dose.seconds} s · massaggio lento` : `${dose.reps} rip. · ${dose.hold} s gesto / ${dose.release} s rilascio`;
+}
+
+function buildFaceTimeline(routine, level = practiceLevel("face")) {
+  const timeline = [];
+  for (const phase of ["warmup", "workout", "cooldown"]) {
+    for (const name of routine[phase]) {
+      const dose = faceDose(name, level);
+      if (!dose) continue;
+      const phaseLabel = exerciseMeta(name).category;
+      if (settings.prepareDurationSec > 0) timeline.push({ kind: "prepare", phase, phaseLabel, duration: settings.prepareDurationSec, nextName: name });
+      timeline.push({ kind: "exercise", phase, phaseLabel, name, duration: dose.seconds || dose.reps * (dose.hold + dose.release), dose });
+    }
+  }
+  return timeline;
+}
+
+function faceRepetitionLabel(segment, elapsed) {
+  const dose = segment.dose;
+  if (dose.seconds) return "Massaggia lentamente · pressione leggera";
+  const cycle = dose.hold + dose.release;
+  const rep = Math.min(dose.reps, Math.floor(elapsed / cycle) + 1);
+  const inHold = elapsed % cycle < dose.hold;
+  return `${rep} / ${dose.reps} · ${inHold ? "Esegui con delicatezza" : "Rilascia e respira"}`;
+}
+
 function addExercisePhase(timeline, exercises, phase) {
   exercises.forEach((name) => appendExercise(timeline, name, phase, null));
 }
 
-function appendExercise(timeline, name, phase, round) {
-  timeline.push(prepareSegment(name, phase, round));
-  timeline.push(exerciseSegment(name, phase, round));
+function appendExercise(timeline, name, phase, round, duration = settings[`${phase}DurationSec`]) {
+  timeline.push(prepareSegment(name, phase, round, duration));
+  timeline.push({ ...exerciseSegment(name, phase, round), duration });
 }
 
-function prepareSegment(name, phase, round) {
+function prepareSegment(name, phase, round, workDuration = settings[`${phase}DurationSec`]) {
+  const guidance = fitnessNarration(name, phase, workDuration);
+  const duration = settings.prepareDurationSec > 0 && guidance && settings.voiceEnabled && settings.exerciseCueEnabled && "speechSynthesis" in window
+    ? Math.max(settings.prepareDurationSec, estimatedSpeechSeconds(`Preparati: ${name}. ${guidance.prepare}`) + 5)
+    : settings.prepareDurationSec;
   return {
     kind: "prepare",
     phase,
     phaseLabel: PHASE_LABELS[phase],
-    duration: settings.prepareDurationSec,
+    duration,
     round,
     nextName: name
+  };
+}
+
+// Budget setup separately from movement, so short work intervals keep their dose.
+// If a slow voice cannot fit the movement, explain it before the work timer starts.
+function estimatedSpeechSeconds(text) {
+  const words = speechParts(text).map(part => part.text).join(" ").trim().split(/\s+/).length;
+  return Math.ceil(words / (2 * settings.speechRate));
+}
+
+function fitnessNarration(name, phase, duration = settings[`${phase}DurationSec`]) {
+  const meta = exerciseMeta(name);
+  const guide = exerciseGuide(meta);
+  if (meta.practice === "face" || !guide.voice) return null;
+  // Use the actual workout dose for the selected level, including custom timing.
+  const moveFits = !guide.midpointCue && estimatedSpeechSeconds(guide.voice.move) + 4 <= duration;
+  return {
+    prepare: [guide.voice.prepare, !moveFits ? `Ascolta il movimento e parti al via. ${guide.voice.move}` : ""].filter(Boolean).join(" "),
+    move: moveFits ? guide.voice.move : guide.voice.short
   };
 }
 
@@ -794,7 +1128,16 @@ function startTick() {
     const segment = player.timeline[player.index];
     if (!segment) return finishRoutine();
     maybeSpeakCountdown(segment);
+    maybeSpeakMidpoint(segment);
     if (remainingSeconds(segment) <= 0) {
+      // Some device voices are slower than the estimate. Finish their setup
+      // before starting work, with a bounded grace period for missing callbacks.
+      if (segment.kind === "prepare" && guidanceSpeaking && fitnessNarration(segment.nextName, segment.phase) && elapsedCurrentSegmentSeconds() < segment.duration + 15) {
+        const status = document.querySelector("[data-guidance-status]");
+        if (status) status.textContent = "Ascolta le ultime indicazioni; il lavoro inizia al via.";
+        updatePlayerClock(segment);
+        return;
+      }
       player.index += 1;
       player.segmentStartedAt = Date.now();
       player.elapsedBeforePause = 0;
@@ -820,6 +1163,8 @@ function updatePlayerClock(segment = player.timeline[player.index]) {
   }
   if (ring) ring.style.setProperty("--progress", segmentProgress(segment));
   if (progress) progress.value = elapsedTimelineSeconds();
+  const repetition = document.querySelector("[data-face-repetition]");
+  if (repetition && segment.dose) repetition.textContent = faceRepetitionLabel(segment, elapsed);
 }
 
 function speakCurrentSegment() {
@@ -835,14 +1180,37 @@ function speakCurrentSegment() {
   }
   if (segment.kind === "prepare") {
     parts.push(`Preparati: ${segment.nextName}`);
+    if (settings.exerciseCueEnabled) {
+      const narration = fitnessNarration(segment.nextName, segment.phase, player.timeline[player.index + 1]?.duration);
+      if (narration) parts.push(narration.prepare);
+    }
   } else if (segment.kind === "rest") {
     parts.push(segment.betweenRounds ? "Giro completato. Recupera" : "Pausa. Recupera");
     if (settings.nextEnabled && segment.nextName) parts.push(`Dopo la pausa: ${segment.nextName}`);
   } else {
     parts.push(prepared ? "Via" : segment.name);
-    if (settings.exerciseCueEnabled) parts.push(exerciseGuide(exerciseMeta(segment.name)).cue);
+    if (settings.exerciseCueEnabled) {
+      const guide = exerciseGuide(exerciseMeta(segment.name));
+      // On resume avoid repeating a long instruction over a nearly finished timer.
+      const narration = fitnessNarration(segment.name, segment.phase, segment.duration);
+      parts.push(narration ? (elapsedCurrentSegmentSeconds() > 0 ? guide.voice.short : narration.move) : guide.cue);
+    }
   }
-  speak(parts.join(". ") + ".");
+  speak(speechSentences(parts), { guidance: settings.exerciseCueEnabled && segment.kind !== "rest" });
+}
+
+function speechSentences(parts) {
+  return parts.filter(Boolean).map(part => part.trim().replace(/[.!?]+$/, "")).join(". ") + ".";
+}
+
+function maybeSpeakMidpoint(segment) {
+  if (!settings.voiceEnabled || !settings.exerciseCueEnabled || segment.kind !== "exercise") return;
+  const cue = exerciseGuide(exerciseMeta(segment.name)).midpointCue;
+  if (!cue || player.spokenMidpoint === player.index || elapsedCurrentSegmentSeconds() < segment.duration / 2) return;
+  // Never deliver a late side change in the closing countdown, or cut the main guide.
+  if (guidanceSpeaking || remainingSeconds(segment) <= 3) return;
+  player.spokenMidpoint = player.index;
+  speak(cue, { guidance: true });
 }
 
 function roundAnnouncement(round) {
@@ -851,6 +1219,7 @@ function roundAnnouncement(round) {
 
 function maybeSpeakCountdown(segment) {
   if (!settings.voiceEnabled || !settings.countdownEnabled) return;
+  if (guidanceSpeaking) return;
   const remaining = remainingSeconds(segment);
   if (remaining > 3 || remaining < 1) return;
   const key = `${player.index}:${remaining}`;
@@ -899,18 +1268,20 @@ function updateVoiceOptions() {
 function cancelSpeech() {
   speechGeneration += 1;
   currentUtterance = null;
+  guidanceSpeaking = false;
   window.speechSynthesis?.cancel();
 }
 
-function speak(text) {
+function speak(text, { onDone, guidance = false } = {}) {
   cancelSpeech();
   if (!("speechSynthesis" in window)) return;
+  guidanceSpeaking = guidance;
   const generation = speechGeneration;
   const parts = speechParts(text);
   const playNext = () => {
     if (generation !== speechGeneration) return;
     const part = parts.shift();
-    if (!part) { currentUtterance = null; return; }
+    if (!part) { currentUtterance = null; guidanceSpeaking = false; onDone?.(); return; }
     const utterance = new SpeechSynthesisUtterance(part.text.trim());
     const voices = availableVoices(part.lang.slice(0, 2));
     const preferredURI = part.lang.startsWith("it") ? settings.voiceURI : settings.englishVoiceURI;
@@ -925,6 +1296,7 @@ function speak(text) {
       if (generation !== speechGeneration) return;
       parts.length = 0;
       currentUtterance = null;
+      guidanceSpeaking = false;
       const status = document.querySelector("[data-voice-status]");
       if (status) status.textContent = `Lettura non disponibile (${event.error}). Prova un'altra voce del dispositivo.`;
     };
@@ -937,6 +1309,7 @@ function speak(text) {
 
 function togglePlayer() {
   if (player.paused) {
+    player.showGuide = false;
     player.paused = false;
     player.segmentStartedAt = Date.now() - player.elapsedBeforePause * 1000;
     requestWakeLock();
@@ -960,23 +1333,27 @@ function displayedElapsedSeconds() {
 
 function nextSegment() {
   cancelSpeech();
+  player.showGuide = false;
   if (player.index + 1 >= player.timeline.length) return finishRoutine();
   player.index += 1;
   player.segmentStartedAt = Date.now();
   player.elapsedBeforePause = 0;
   player.spokenSegment = "";
   player.spokenCountdown = "";
+  player.spokenMidpoint = -1;
   speakCurrentSegment();
   renderPlayer();
 }
 
 function previousSegment() {
   cancelSpeech();
+  player.showGuide = false;
   player.index = Math.max(0, player.index - 1);
   player.segmentStartedAt = Date.now();
   player.elapsedBeforePause = 0;
   player.spokenSegment = "";
   player.spokenCountdown = "";
+  player.spokenMidpoint = -1;
   speakCurrentSegment();
   renderPlayer();
 }
@@ -1000,7 +1377,8 @@ function finishRoutine() {
         <p class="eyebrow">Completata</p>
         <h1>${escapeHtml(routine.title)}</h1>
         <p class="finish-message">${escapeHtml(finishMessage)}</p>
-        <p>Settimana ${routine.week}, giorno ${routine.day}</p>
+        <p>${routineContext(routine)}</p>
+        ${storageNotice()}
       </section>
       <div class="action-row">
         <button class="primary" data-action="again">Ripeti</button>
@@ -1082,17 +1460,18 @@ function elapsedTimelineSeconds() {
   return before + Math.min(current.duration, elapsedCurrentSegmentSeconds());
 }
 
-function routineSummary(routine) {
-  const totalExercises = routine.warmup.length + routine.workout.length * settings.workoutRounds + routine.cooldown.length;
-  const totalSeconds = buildTimeline(routine).reduce((sum, item) => sum + item.duration, 0);
+function routineSummary(routine, level = practiceLevel(routine.practice || "fitness")) {
+  const timeline = buildTimeline(routine, level);
+  const totalExercises = timeline.filter(s => s.kind === "exercise").length;
+  const totalSeconds = timeline.reduce((sum, item) => sum + item.duration, 0);
   return { totalExercises, totalSeconds };
 }
 
 function recordCompletedSession(routine) {
-  if (!routine) return;
+  if (!routine || player.sessionRecorded) return;
   const completedAt = new Date();
-  const summary = routineSummary(routine);
-  const sessions = loadJson(STORAGE_KEYS.sessions, []);
+  const summary = { totalExercises: player.timeline.filter(s => s.kind === "exercise").length, totalSeconds: player.timeline.reduce((sum, s) => sum + s.duration, 0) };
+  const sessions = getSessions();
   const session = {
     id: `${completedAt.toISOString()}-${routine.key}`,
     completedAt: completedAt.toISOString(),
@@ -1103,9 +1482,12 @@ function recordCompletedSession(routine) {
     title: routine.title,
     totalExercises: summary.totalExercises,
     totalSeconds: summary.totalSeconds,
-    workoutRounds: settings.workoutRounds
+    workoutRounds: routine.practice === "face" ? 1 : settings.workoutRounds,
+    practice: routine.practice || "fitness",
+    intensity: player.level || practiceLevel(routine.practice)
   };
-  saveJson(STORAGE_KEYS.sessions, [session, ...sessions].slice(0, 500));
+  persistSessions([session, ...sessions]);
+  player.sessionRecorded = true;
   calendarMonth = startOfMonth(completedAt);
 }
 
@@ -1142,10 +1524,12 @@ function persistRoutineOverride(routine) {
 function exerciseMeta(name) {
   return exerciseLibrary.find((exercise) => exercise.name === name)
     || exerciseData?.exercises?.find((exercise) => exercise.name === name)
+    || faceData?.exercises?.find((exercise) => exercise.name === name)
     || { name, category: "Full body", image: "" };
 }
 
 function exerciseGuide(exercise) {
+  if (exercise.guide) return normalizeGuide(exercise.guide);
   const exactGuide = exerciseGuideData?.exercises?.[exercise.name];
   if (exactGuide) return normalizeGuide(exactGuide);
 
@@ -1163,6 +1547,15 @@ function exerciseGuide(exercise) {
 
 function normalizeGuide(guide) {
   return {
+    setup: guide?.setup || "",
+    voice: guide?.voice || null,
+    midpointCue: guide?.midpointCue || "",
+    sourceNote: guide?.sourceNote || "",
+    reviewedOn: guide?.reviewedOn || "",
+    sources: (guide?.sourceIds || []).map(id => exerciseGuideData?.sources?.[id]).filter(source => source && /^https:\/\//.test(source.url)),
+    breath: guide?.breath || "",
+    levels: guide?.levels || {},
+    imageNote: guide?.imageNote || "",
     summary: guide?.summary || DEFAULT_EXERCISE_GUIDE.summary,
     steps: listOrFallback(guide?.steps, DEFAULT_EXERCISE_GUIDE.steps),
     focus: listOrFallback(guide?.focus, DEFAULT_EXERCISE_GUIDE.focus),
@@ -1187,7 +1580,7 @@ function exerciseHero(name) {
   if (!meta.image) return "";
   return `
     <figure class="exercise-hero">
-      <img src="${escapeHtml(meta.image)}" alt="">
+      <img src="${escapeHtml(meta.image)}" alt="${escapeHtml(meta.imageAlt || meta.name)}">
     </figure>
   `;
 }
@@ -1246,6 +1639,224 @@ function loadJson(key, fallback) {
   }
 }
 
+function normalizeSession(value) {
+  if (!value || typeof value !== "object" || typeof value.completedAt !== "string") return null;
+  const date = new Date(value.completedAt);
+  if (!Number.isFinite(date.getTime()) || typeof value.title !== "string" || value.title.length > 300) return null;
+  if (!Number.isInteger(value.week) || !Number.isInteger(value.day) || value.day < 1) return null;
+  if (!Number.isFinite(value.totalSeconds) || value.totalSeconds < 0 || !Number.isInteger(value.totalExercises) || value.totalExercises < 0) return null;
+  const key = typeof value.routineKey === "string" ? value.routineKey : routineKey(value.week, value.day);
+  return {
+    id: typeof value.id === "string" && value.id ? value.id : `${value.completedAt}-${key}`,
+    completedAt: value.completedAt,
+    date: typeof value.date === "string" && /^\d{4}-\d{2}-\d{2}$/.test(value.date) ? value.date : localDateKey(date),
+    routineKey: key, week: value.week, day: value.day, title: value.title,
+    totalExercises: value.totalExercises, totalSeconds: value.totalSeconds,
+    workoutRounds: Number.isInteger(value.workoutRounds) && value.workoutRounds > 0 ? value.workoutRounds : 1,
+    practice: value.practice === "face" || value.week === 0 ? "face" : "fitness",
+    ...(typeof value.intensity === "string" && Object.hasOwn(LEVELS, value.intensity) ? { intensity: value.intensity } : {})
+  };
+}
+
+function mergeSessions(...sources) {
+  const byId = new Map();
+  for (const source of sources) {
+    if (!Array.isArray(source)) continue;
+    for (const value of source) {
+      const session = normalizeSession(value);
+      if (session && !byId.has(session.id)) byId.set(session.id, session);
+    }
+  }
+  return [...byId.values()].sort((a, b) => b.completedAt.localeCompare(a.completedAt));
+}
+
+function getSessions() {
+  sessionMemory = mergeSessions(sessionMemory, loadJson(STORAGE_KEYS.sessions, []), loadJson(STORAGE_KEYS.sessionsBackup, []));
+  return sessionMemory;
+}
+
+async function openHistoryDatabase() {
+  if (!("indexedDB" in window)) return null;
+  return new Promise(resolve => {
+    let request;
+    try { request = window.indexedDB.open("fitTimer.history", 1); }
+    catch { resolve(null); return; }
+    let settled = false;
+    const finish = db => {
+      if (settled) { db?.close(); return; }
+      settled = true;
+      window.clearTimeout(timeout);
+      resolve(db);
+    };
+    const timeout = window.setTimeout(() => finish(null), 3000);
+    request.onupgradeneeded = () => {
+      if (!request.result.objectStoreNames.contains("sessions")) request.result.createObjectStore("sessions", { keyPath: "id" });
+    };
+    request.onsuccess = () => finish(request.result);
+    request.onerror = () => finish(null);
+    request.onblocked = () => finish(null);
+  });
+}
+
+async function restoreHistory() {
+  getSessions();
+  historyDatabase = await openHistoryDatabase();
+  if (historyDatabase) {
+    historyDatabase.onversionchange = () => { historyDatabase.close(); historyDatabase = null; };
+    try {
+      const saved = await new Promise((resolve, reject) => {
+        const tx = historyDatabase.transaction("sessions", "readonly");
+        const request = tx.objectStore("sessions").getAll();
+        request.onsuccess = () => resolve(request.result);
+        request.onerror = () => reject(request.error);
+      });
+      sessionMemory = mergeSessions(sessionMemory, saved);
+    } catch {
+      reportStorageProblem("La copia di sicurezza del diario non è accessibile. Esporta un backup dei dati disponibili.");
+    }
+  }
+  if (sessionMemory.length) persistSessions(sessionMemory);
+}
+
+function persistSessions(sessions) {
+  sessionMemory = mergeSessions(sessions, getSessions());
+  const primarySaved = saveJson(STORAGE_KEYS.sessions, sessionMemory);
+  const backupSaved = saveJson(STORAGE_KEYS.sessionsBackup, sessionMemory);
+  const snapshot = clone(sessionMemory);
+  if (!historyDatabase) return Promise.resolve(primarySaved || backupSaved);
+  historyWrite = historyWrite.catch(() => false).then(() => new Promise(resolve => {
+    try {
+      const tx = historyDatabase.transaction("sessions", "readwrite");
+      for (const session of snapshot) tx.objectStore("sessions").put(session);
+      tx.oncomplete = () => resolve(true);
+      tx.onerror = tx.onabort = () => {
+        reportStorageProblem("La copia di sicurezza del diario non è stata aggiornata. Esporta un backup.");
+        resolve(primarySaved || backupSaved);
+      };
+    } catch {
+      reportStorageProblem("La copia di sicurezza del diario non è disponibile. Esporta un backup.");
+      resolve(primarySaved || backupSaved);
+    }
+  }));
+  return historyWrite;
+}
+
+function storageNotice() {
+  return storageWarning ? `<p class="storage-notice" data-storage-notice role="alert">${escapeHtml(storageWarning)}</p>` : "";
+}
+
+function reportStorageProblem(message) {
+  storageWarning = message;
+  const notice = document.querySelector("[data-storage-notice]");
+  if (notice) notice.textContent = message;
+  else app.insertAdjacentHTML?.("afterbegin", storageNotice());
+}
+
+function createBackup() {
+  return {
+    app: "my-personal-trainer", schemaVersion: 1, exportedAt: new Date().toISOString(),
+    sessions: getSessions(), settings: { ...settings }, overrides: clone(overrides),
+    lastRoutine: loadJson(STORAGE_KEYS.lastRoutine, null)
+  };
+}
+
+function parseBackup(value) {
+  if (!value || value.app !== "my-personal-trainer" || value.schemaVersion !== 1 || !Array.isArray(value.sessions)) throw new Error("Questo file non è un backup compatibile di My Personal Trainer.");
+  if (value.sessions.some(session => !normalizeSession(session))) throw new Error("Il backup contiene sessioni non valide. Nessun dato è stato modificato.");
+  const importedSettings = {};
+  for (const key of Object.keys(DEFAULT_SETTINGS)) {
+    if (value.settings && Object.hasOwn(value.settings, key)) importedSettings[key] = value.settings[key];
+  }
+  const importedOverrides = {};
+  for (const routine of routines) {
+    const override = value.overrides?.[routine.key];
+    if (!override) continue;
+    const phases = {};
+    for (const phase of ["warmup", "workout", "cooldown"]) {
+      if (!Array.isArray(override[phase]) || override[phase].length > 200 || override[phase].some(name => typeof name !== "string" || !exerciseLibrary.some(e => e.name === name && (e.practice || "fitness") === (routine.practice || "fitness")))) throw new Error("Il backup contiene una routine non valida. Nessun dato è stato modificato.");
+      phases[phase] = [...override[phase]];
+    }
+    importedOverrides[routine.key] = phases;
+  }
+  const last = value.lastRoutine;
+  return {
+    sessions: mergeSessions(value.sessions), settings: importedSettings, overrides: importedOverrides,
+    lastRoutine: last && findRoutine(last.week, last.day) ? { week: Number(last.week), day: Number(last.day) } : null
+  };
+}
+
+async function applyBackup(backup) {
+  const before = getSessions().length;
+  const stored = await persistSessions(mergeSessions(getSessions(), backup.sessions));
+  if (!stored) throw new Error("Il dispositivo non riesce a salvare i dati. Conserva il file di backup e libera spazio prima di riprovare.");
+  settings = normalizeSettings({ ...settings, ...backup.settings });
+  overrides = { ...overrides, ...backup.overrides };
+  saveJson(STORAGE_KEYS.overrides, overrides);
+  if (backup.lastRoutine) { selected = backup.lastRoutine; saveJson(STORAGE_KEYS.lastRoutine, selected); }
+  rebuildRoutines();
+  exerciseLibrary = buildExerciseLibrary(routines);
+  return getSessions().length - before;
+}
+
+function renderBackup() {
+  let pending = null;
+  app.innerHTML = `<main class="screen">
+    <header class="topbar"><button class="icon-button" data-action="calendar" aria-label="Torna al calendario">${iconBack()}</button><div><p class="eyebrow">Il tuo diario, nel tempo</p><h1>Backup e ripristino</h1></div></header>
+    ${storageNotice()}
+    <section class="guide-panel"><h2>${getSessions().length} ${getSessions().length === 1 ? "sessione" : "sessioni"} da custodire</h2><p>Fitness e yoga facciale condividono lo stesso storico. Gli aggiornamenti mantengono i dati salvati e una copia locale di recupero.</p><p>I dati appartengono a questo browser e indirizzo dell’app. Per cambiare telefono, browser o indirizzo, esporta qui il backup e importalo nella nuova installazione. La cancellazione dei dati del sito elimina anche le copie locali.</p></section>
+    <section class="backup-actions"><button class="primary" data-action="export">Esporta tutti i dati</button><label class="secondary import-label">Scegli un backup<input id="backup-file" type="file" accept="application/json,.json"></label></section>
+    <p class="section-note">Il file contiene storico, livelli, impostazioni e routine personalizzate. Conservalo tra i tuoi file personali.</p>
+    <p data-backup-status role="status" class="backup-status"></p>
+    <button class="primary" data-action="apply-import" hidden>Unisci storico e ripristina impostazioni</button>
+    <section class="guide-panel"><h2>Protezione sul dispositivo</h2><p>Puoi chiedere al browser di conservare i dati dell’app più a lungo. La disponibilità dipende dal dispositivo.</p><button class="secondary" data-action="persist">Proteggi i dati locali</button></section>
+    <p class="section-note">Se lo storico manca, apri l’installazione precedente e prova a esportarlo. Un backup può recuperare i dati anche dopo un cambio di indirizzo; i dati già cancellati e privi di copie non sono ricostruibili.</p>
+  </main>`;
+  const status = () => document.querySelector("[data-backup-status]");
+  bindAction("calendar", renderCalendar);
+  bindAction("export", () => {
+    const blob = new Blob([JSON.stringify(createBackup(), null, 2)], { type: "application/json" });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = `my-personal-trainer-backup-${localDateKey(new Date())}.json`;
+    link.click();
+    window.setTimeout(() => URL.revokeObjectURL(url), 10000);
+    status().textContent = "Backup preparato. Conserva il file scaricato prima di cambiare installazione.";
+  });
+  bind("#backup-file", "change", async event => {
+    pending = null;
+    const button = document.querySelector('[data-action="apply-import"]');
+    button.hidden = true;
+    const file = event.currentTarget.files?.[0];
+    if (!file) return;
+    try {
+      if (file.size > 20 * 1024 * 1024) throw new Error("Il file è troppo grande (massimo 20 MB).");
+      pending = parseBackup(JSON.parse(await file.text()));
+      const additions = mergeSessions(getSessions(), pending.sessions).length - getSessions().length;
+      status().textContent = `${pending.sessions.length} sessioni nel backup, ${additions} da aggiungere. Lo storico esistente viene conservato. Impostazioni e routine presenti nel backup verranno ripristinate.`;
+      button.hidden = false;
+    } catch (error) { status().textContent = error.message || "Impossibile leggere il backup."; }
+  });
+  bindAction("apply-import", async event => {
+    if (!pending) return;
+    const button = event.currentTarget;
+    button.disabled = true;
+    try {
+      const count = await applyBackup(pending);
+      pending = null;
+      button.hidden = true;
+      status().textContent = `Ripristino completato: ${count} sessioni aggiunte. Totale: ${getSessions().length}.`;
+    } catch (error) { status().textContent = error.message; }
+    finally { button.disabled = false; }
+  });
+  bindAction("persist", async () => {
+    try {
+      const granted = await navigator.storage?.persist?.();
+      status().textContent = granted ? "Il browser ha attivato la conservazione persistente. Mantieni anche un backup esportato." : "Il browser non ha concesso la protezione persistente. Usa il backup esportato.";
+    } catch { status().textContent = "Protezione non disponibile. Usa il backup esportato."; }
+  });
+}
+
 function normalizeSettings(value) {
   const legacy = value && typeof value === "object" ? value : {};
   const next = { ...DEFAULT_SETTINGS, ...legacy };
@@ -1269,6 +1880,10 @@ function normalizeSettings(value) {
   for (const key of ["voiceURI", "englishVoiceURI"]) {
     if (typeof next[key] !== "string") next[key] = "";
   }
+  for (const key of ["intensity", "faceIntensity"]) {
+    if (legacy.intensityModelVersion !== 2 || typeof next[key] !== "string" || !Object.hasOwn(LEVELS, next[key])) next[key] = "advanced";
+  }
+  next.intensityModelVersion = 2;
   delete next.exerciseDurationSec;
   delete next.changeDurationSec;
   saveJson(STORAGE_KEYS.settings, next);
@@ -1278,8 +1893,10 @@ function normalizeSettings(value) {
 function saveJson(key, value) {
   try {
     localStorage.setItem(key, JSON.stringify(value));
+    return true;
   } catch {
-    // Storage can be unavailable in private or embedded browser contexts.
+    reportStorageProblem("Il dispositivo non riesce a salvare tutti i dati. Non chiudere l’app: esporta un backup dal calendario.");
+    return false;
   }
 }
 
@@ -1312,6 +1929,14 @@ function registerServiceWorker() {
 
 function iconBack() {
   return `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>`;
+}
+
+function iconMovement() {
+  return `<img src="assets/exercises/air-squat.png" alt="" class="practice-art">`;
+}
+
+function iconFace() {
+  return `<img src="assets/exercises/face-corona.png" alt="" class="practice-art">`;
 }
 
 function iconForward() {

@@ -1,503 +1,2299 @@
 {
   "exercises": {
-    "Gatto-mucca": {
-      "summary": "Mobilizza colonna e bacino partendo in quadrupedia: mani sotto le spalle, ginocchia sotto le anche.",
+    "90/90": {
+      "summary": "Mobilità delle anche con le due ginocchia piegate a circa 90°, un lato alla volta.",
+      "setup": "Siediti sul tappetino. Piega la gamba destra davanti a te e la sinistra di lato e dietro: entrambe le ginocchia formano circa un angolo retto. Appoggia le mani per sostenerti.",
       "steps": [
-        "Inspira lasciando scendere leggermente la pancia e aprendo il petto.",
-        "Espira arrotondando la schiena verso l'alto e portando il mento verso il petto.",
-        "Alterna lentamente le due posizioni senza forzare il collo."
+        "Raddrizza il busto e rivolgi il petto verso la coscia anteriore, senza schiacciare le ginocchia a terra.",
+        "Resta alto; se è già sufficiente, mantieni questa posizione. Solo se comodo, inclina leggermente il petto dalla piega delle anche senza incurvare la schiena.",
+        "A metà tempo torna alto, aiutati con le mani e inverti la posizione delle gambe. Non trascinare il ginocchio contro il pavimento."
       ],
+      "breath": "Respira lentamente nella tenuta. Espira nella piccola inclinazione; inspira tornando alto.",
       "focus": [
-        "Movimento della colonna vertebrale, non delle braccia.",
-        "Respiro che guida il ritmo.",
-        "Spalle lontane dalle orecchie."
+        "Senti un allungamento nelle anche e nel gluteo anteriore, senza pizzicore al ginocchio."
       ],
       "avoid": [
-        "Piegare i gomiti.",
-        "Muovere il bacino a scatti.",
-        "Buttare indietro la testa."
+        "Forzare ginocchia o anche.",
+        "Arrotondare la schiena per scendere più in basso."
       ],
       "easier": [
-        "Riduci l'ampiezza e muoviti piu lentamente."
+        "Siediti su un cuscino e apri gli angoli delle ginocchia."
       ],
-      "cue": "Inarca e arrotonda la schiena seguendo il respiro."
+      "levels": {
+        "beginner": "Siediti su un cuscino e apri gli angoli delle ginocchia.",
+        "advanced": "Mantieni il busto lungo con appoggi leggeri delle mani.",
+        "expert": "Riduci l’appoggio delle mani solo se resti stabile; non aumentare la tensione."
+      },
+      "cue": "Allunga il busto verso l’alto. Se comodo inclina poco il petto sulla gamba davanti, piegandoti dalle anche. Mantieni una tensione lieve, senza spingere le ginocchia.",
+      "voice": {
+        "prepare": "Siediti con una gamba piegata davanti e l’altra di lato, entrambe circa a novanta gradi. Sostieniti con le mani.",
+        "move": "Allunga il busto verso l’alto. Se comodo inclina poco il petto sulla gamba davanti, piegandoti dalle anche. Mantieni una tensione lieve, senza spingere le ginocchia.",
+        "short": "Busto alto, tensione lieve nelle anche. Non premere le ginocchia."
+      },
+      "sourceIds": [
+        "hips90"
+      ],
+      "reviewedOn": "2026-10-25",
+      "midpointCue": "Inverti le gambe aiutandoti con le mani."
     },
-    "Rotazioni del bacino": {
-      "summary": "Scioglie anche e zona lombare: parti in piedi con piedi stabili e mani sui fianchi.",
+    "Affondi in avanti (alternati)": {
+      "summary": "Passo avanti, piega le ginocchia e risali con controllo.",
+      "setup": "In piedi, piedi alla larghezza delle anche e mani sui fianchi. Guarda davanti a te. Se necessario tieni una mano su un sostegno stabile.",
       "steps": [
-        "Disegna cerchi lenti con il bacino.",
-        "Mantieni il busto alto e le ginocchia morbide.",
-        "Cambia direzione a meta tempo."
+        "Fai un passo avanti con il piede destro: mantieni i piedi separati lateralmente, come su due binari.",
+        "Piega entrambe le ginocchia e abbassa il bacino verso terra. Il ginocchio dietro scende senza urtare il pavimento; quello davanti segue la direzione del piede.",
+        "Mantieni il piede anteriore interamente appoggiato e il tallone posteriore sollevato. Il busto resta lungo, senza cadere in avanti.",
+        "Spingi sul piede davanti per tornare alla posizione iniziale. Riunisci i piedi alla larghezza delle anche e ripeti con la gamba sinistra."
       ],
+      "breath": "Inspira scendendo, espira quando spingi per risalire. Prima di alternare, ritrova l’equilibrio.",
       "focus": [
-        "Movimento controllato delle anche.",
-        "Addome leggermente attivo.",
-        "Piedi sempre appoggiati."
+        "La coscia e il gluteo della gamba davanti lavorano; il tronco resta stabile."
       ],
       "avoid": [
-        "Muovere tutto il busto.",
-        "Forzare se senti fastidio lombare.",
-        "Accelerare perdendo controllo."
+        "Ginocchio anteriore che cade verso l’interno.",
+        "Passo stretto o perdita dell’equilibrio."
       ],
       "easier": [
-        "Fai cerchi piu piccoli."
+        "Usa una parete e scendi poco, con un passo stabile."
       ],
-      "cue": "Disegna cerchi lenti con il bacino e tieni il busto alto."
+      "levels": {
+        "beginner": "Usa una parete e scendi poco, con un passo stabile.",
+        "advanced": "Scendi fin dove mantieni bacino e ginocchio allineati.",
+        "expert": "Aggiungi una pausa di un secondo in basso, senza perdere l’equilibrio."
+      },
+      "cue": "Fai un passo avanti. Piega entrambe le ginocchia e scendi con il bacino. Spingi sul piede davanti per tornare in piedi, poi alterna gamba. Mantieni i piedi su due binari.",
+      "voice": {
+        "prepare": "Mettiti in piedi con i piedi larghi come le anche. Mani sui fianchi e sguardo avanti; usa un sostegno se serve.",
+        "move": "Fai un passo avanti. Piega entrambe le ginocchia e scendi con il bacino. Spingi sul piede davanti per tornare in piedi, poi alterna gamba. Mantieni i piedi su due binari.",
+        "short": "Passo avanti, scendi col bacino e spingi sul piede davanti. Alterna gamba."
+      },
+      "sourceIds": [
+        "lunge"
+      ],
+      "reviewedOn": "2026-10-25",
+      "sourceNote": ""
+    },
+    "Affondi indietro (alternati)": {
+      "summary": "Passo indietro, piega le ginocchia e risali con controllo.",
+      "setup": "In piedi, piedi alla larghezza delle anche e mani sui fianchi. Guarda davanti a te. Se necessario tieni una mano su un sostegno stabile.",
+      "steps": [
+        "Fai un passo indietro con il piede destro: mantieni i piedi separati lateralmente, come su due binari.",
+        "Piega entrambe le ginocchia e abbassa il bacino verso terra. Il ginocchio dietro scende senza urtare il pavimento; quello davanti segue la direzione del piede.",
+        "Mantieni il piede anteriore interamente appoggiato e il tallone posteriore sollevato. Il busto resta lungo, senza cadere in avanti.",
+        "Spingi sul piede davanti per tornare alla posizione iniziale. Riunisci i piedi alla larghezza delle anche e ripeti con la gamba sinistra."
+      ],
+      "breath": "Inspira scendendo, espira quando spingi per risalire. Prima di alternare, ritrova l’equilibrio.",
+      "focus": [
+        "La coscia e il gluteo della gamba davanti lavorano; il tronco resta stabile."
+      ],
+      "avoid": [
+        "Ginocchio anteriore che cade verso l’interno.",
+        "Passo stretto o perdita dell’equilibrio."
+      ],
+      "easier": [
+        "Usa una parete e scendi poco, con un passo stabile."
+      ],
+      "levels": {
+        "beginner": "Usa una parete e scendi poco, con un passo stabile.",
+        "advanced": "Scendi fin dove mantieni bacino e ginocchio allineati.",
+        "expert": "Aggiungi una pausa di un secondo in basso, senza perdere l’equilibrio."
+      },
+      "cue": "Fai un passo indietro. Piega entrambe le ginocchia e scendi con il bacino. Spingi sul piede davanti per tornare in piedi, poi alterna gamba. Mantieni i piedi su due binari.",
+      "voice": {
+        "prepare": "Mettiti in piedi con i piedi larghi come le anche. Mani sui fianchi e sguardo avanti; usa un sostegno se serve.",
+        "move": "Fai un passo indietro. Piega entrambe le ginocchia e scendi con il bacino. Spingi sul piede davanti per tornare in piedi, poi alterna gamba. Mantieni i piedi su due binari.",
+        "short": "Passo indietro, scendi col bacino e spingi sul piede davanti. Alterna gamba."
+      },
+      "sourceIds": [
+        "reverse-lunge"
+      ],
+      "reviewedOn": "2026-10-25",
+      "sourceNote": "Variante a corpo libero dell’affondo indietro; nessun carico o sollevamento aggiuntivo del ginocchio."
+    },
+    "Affondo profondo laterale (Cossack stretch)": {
+      "summary": "Bacino di lato, tallone appoggiato e ritorno lento al centro.",
+      "setup": "In piedi, separa i piedi più delle spalle, con punte leggermente aperte. Tieni davanti a te un sostegno stabile: non serve raggiungere subito un affondo profondo.",
+      "steps": [
+        "Porta il bacino indietro e verso destra, piegando il ginocchio destro nella direzione delle dita del piede.",
+        "Lascia allungare la gamba sinistra. Mantieni il tallone destro a terra e il petto sollevato; scendi solo quanto controlli.",
+        "Nella variante più profonda la punta del piede sinistro può sollevarsi, con tallone appoggiato. Se il ginocchio tira, resta più alto e tieni entrambi i piedi piatti.",
+        "Spingi sul piede destro per tornare al centro, poi trasferisci lentamente il peso a sinistra. Non rimbalzare nella posizione bassa."
+      ],
+      "breath": "Inspira nello spostamento laterale; espira tornando al centro. Movimento lento, senza soste forzate in fondo.",
+      "focus": [
+        "Allungamento nella parte interna della coscia distesa e lavoro nella gamba piegata."
+      ],
+      "avoid": [
+        "Tallone della gamba piegata che si alza.",
+        "Forzare il ginocchio o molleggiare."
+      ],
+      "easier": [
+        "Tieniti a un supporto e fai un affondo laterale poco profondo."
+      ],
+      "levels": {
+        "beginner": "Tieniti a un supporto e fai un affondo laterale poco profondo.",
+        "advanced": "Aumenta gradualmente la discesa con il tallone a terra.",
+        "expert": "Rallenta il passaggio tra i lati, senza spingere oltre una tensione comoda."
+      },
+      "cue": "Sposta il bacino indietro e a destra. Piega il ginocchio destro, allungando la gamba sinistra. Torna al centro e alterna lato. Tieni il tallone della gamba piegata a terra.",
+      "voice": {
+        "prepare": "Apri i piedi oltre la larghezza delle spalle. Tieni un sostegno davanti a te e mantieni il petto alto.",
+        "move": "Sposta il bacino indietro e a destra. Piega il ginocchio destro, allungando la gamba sinistra. Torna al centro e alterna lato. Tieni il tallone della gamba piegata a terra.",
+        "short": "Sposta il bacino a destra, torna al centro e alterna. Tallone appoggiato."
+      },
+      "sourceIds": [
+        "side-lunge"
+      ],
+      "reviewedOn": "2026-10-25",
+      "sourceNote": "Adattamento di mobilità dell’affondo laterale: la profondità e la punta sollevata sono facoltative, non obiettivi obbligatori."
+    },
+    "Air squat": {
+      "summary": "Anche indietro, ginocchia verso le punte; spingi il pavimento per risalire.",
+      "setup": "In piedi con i piedi poco più larghi delle anche, punte leggermente aperte. Distribuisci il peso su tallone e basi dell’alluce e del mignolo. Porta le braccia avanti per bilanciarti.",
+      "steps": [
+        "Porta il bacino indietro e verso il basso come per sederti, piegando insieme anche e ginocchia.",
+        "Lascia avanzare le ginocchia nella direzione delle punte, senza farle cadere verso l’interno. Mantieni i talloni appoggiati.",
+        "Scendi solo finché il busto resta lungo e tutto il piede è stabile; non è obbligatorio portare le cosce parallele al pavimento.",
+        "Spingi il pavimento e risali con bacino e petto insieme, tornando alto senza spingere il bacino oltre i piedi."
+      ],
+      "breath": "Inspira mentre scendi, espira mentre risali. Usa circa due secondi per scendere e due per tornare alto.",
+      "focus": [
+        "Lavorano cosce e glutei. La pianta del piede resta stabile durante discesa e risalita."
+      ],
+      "avoid": [
+        "Ginocchia che si chiudono.",
+        "Talloni sollevati o schiena che cede."
+      ],
+      "easier": [
+        "Usa una sedia come riferimento e riduci la profondità."
+      ],
+      "levels": {
+        "beginner": "Usa una sedia come riferimento e riduci la profondità.",
+        "advanced": "Esegui una discesa completa nel tuo intervallo controllato.",
+        "expert": "Scendi in 3 secondi e fai una pausa breve prima di risalire."
+      },
+      "cue": "Porta il bacino indietro e scendi come per sederti. Ginocchia nella direzione delle punte, talloni a terra. Spingi il pavimento e risali con petto e bacino insieme.",
+      "voice": {
+        "prepare": "In piedi, piedi poco più larghi delle anche, punte leggermente aperte. Braccia avanti e peso distribuito su tutto il piede.",
+        "move": "Porta il bacino indietro e scendi come per sederti. Ginocchia nella direzione delle punte, talloni a terra. Spingi il pavimento e risali con petto e bacino insieme.",
+        "short": "Bacino indietro, piega le ginocchia e risali. Tieni i talloni appoggiati."
+      },
+      "sourceIds": [
+        "squat"
+      ],
+      "reviewedOn": "2026-10-25",
+      "sourceNote": ""
+    },
+    "Sumo squat": {
+      "summary": "Anche indietro, ginocchia verso le punte; spingi il pavimento per risalire.",
+      "setup": "In piedi con i piedi più larghi delle spalle, punte aperte quanto consentono le anche. Distribuisci il peso su tallone e basi dell’alluce e del mignolo. Porta le braccia avanti per bilanciarti.",
+      "steps": [
+        "Porta il bacino indietro e verso il basso come per sederti, piegando insieme anche e ginocchia.",
+        "Lascia avanzare le ginocchia nella direzione delle punte, senza farle cadere verso l’interno. Mantieni i talloni appoggiati.",
+        "Scendi solo finché il busto resta lungo e tutto il piede è stabile; non è obbligatorio portare le cosce parallele al pavimento.",
+        "Spingi il pavimento e risali con bacino e petto insieme, tornando alto senza spingere il bacino oltre i piedi."
+      ],
+      "breath": "Inspira mentre scendi, espira mentre risali. Usa circa due secondi per scendere e due per tornare alto.",
+      "focus": [
+        "Lavorano cosce e glutei. La pianta del piede resta stabile durante discesa e risalita."
+      ],
+      "avoid": [
+        "Ginocchia che si chiudono.",
+        "Talloni sollevati o schiena che cede."
+      ],
+      "easier": [
+        "Usa una sedia come riferimento e riduci la profondità."
+      ],
+      "levels": {
+        "beginner": "Usa una sedia come riferimento e riduci la profondità.",
+        "advanced": "Esegui una discesa completa nel tuo intervallo controllato.",
+        "expert": "Scendi in 3 secondi e fai una pausa breve prima di risalire."
+      },
+      "cue": "Porta il bacino indietro e scendi come per sederti. Ginocchia nella direzione delle punte, talloni a terra. Spingi il pavimento e risali con petto e bacino insieme.",
+      "voice": {
+        "prepare": "In piedi, piedi più larghi delle spalle, punte aperte quanto consentono le anche. Braccia avanti e peso distribuito su tutto il piede.",
+        "move": "Porta il bacino indietro e scendi come per sederti. Ginocchia nella direzione delle punte, talloni a terra. Spingi il pavimento e risali con petto e bacino insieme.",
+        "short": "Scendi tra i piedi e risali. Ginocchia nella direzione delle punte."
+      },
+      "sourceIds": [
+        "squat"
+      ],
+      "reviewedOn": "2026-10-25",
+      "sourceNote": "Stessa meccanica dello squat a corpo libero; il sumo usa una base più ampia, senza forzare l’apertura delle anche."
+    },
+    "Alzate a T prono": {
+      "summary": "Pancia in giù e fronte appoggiata; solleva poco le braccia a T.",
+      "setup": "Sdraiati a pancia in giù, con gambe e bacino appoggiati. Sostieni la fronte su un asciugamano piegato abbastanza alto da lasciare libero il naso. Guarda il tappetino.",
+      "steps": [
+        "Apri le braccia ai lati all’altezza delle spalle, formando una T. Gomiti distesi senza bloccarli, pollici orientati verso l’alto.",
+        "Attiva leggermente l’addome e tieni il collo in linea con il dorso. Le spalle non salgono verso le orecchie.",
+        "Solleva mani e braccia di pochi centimetri, muovendo le spalle senza lanciare il torace in alto. Non cercare altezza a costo di inarcare la zona lombare.",
+        "Fai una breve pausa, poi riappoggia lentamente. Rilassa la contrazione prima di ripetere."
+      ],
+      "breath": "Espira sollevando le braccia, inspira riappoggiandole. Conta due secondi per salire e due per scendere.",
+      "focus": [
+        "La contrazione si avverte intorno alle scapole e dietro le spalle, non come una compressione lombare."
+      ],
+      "avoid": [
+        "Girarti sulla schiena: questo esercizio è prono.",
+        "Inarcare la zona lombare o alzare il mento.",
+        "Portare le spalle alle orecchie."
+      ],
+      "easier": [
+        "Solleva un braccio alla volta, pochi centimetri, mantenendo la fronte appoggiata."
+      ],
+      "levels": {
+        "beginner": "Solleva un braccio alla volta, pochi centimetri, mantenendo la fronte appoggiata.",
+        "advanced": "Solleva entrambe le braccia nella forma T, con torace e bacino fermi.",
+        "expert": "Mantieni 2 secondi in alto e riappoggia in 3 secondi; resta senza pesi."
+      },
+      "cue": "Solleva mani e braccia di pochi centimetri. Lascia il petto appoggiato, il collo lungo e le spalle lontane dalle orecchie. Fai una breve pausa e riappoggia lentamente.",
+      "voice": {
+        "prepare": "Sdraiati a pancia in giù, fronte sostenuta su un asciugamano e bacino appoggiato. Apri le braccia ai lati a formare una T, con i pollici verso l’alto.",
+        "move": "Solleva mani e braccia di pochi centimetri. Lascia il petto appoggiato, il collo lungo e le spalle lontane dalle orecchie. Fai una breve pausa e riappoggia lentamente.",
+        "short": "Solleva poco le braccia a T e riappoggia. Petto e bacino fermi."
+      },
+      "sourceIds": [
+        "prone"
+      ],
+      "reviewedOn": "2026-10-25",
+      "sourceNote": "Alzate ripetute a piccola ampiezza, adattate dalla serie prona ACE; non una tenuta prolungata e non un sollevamento del busto."
+    },
+    "Alzate a W prono": {
+      "summary": "Pancia in giù e fronte appoggiata; solleva poco le braccia a W.",
+      "setup": "Sdraiati a pancia in giù, con gambe e bacino appoggiati. Sostieni la fronte su un asciugamano piegato abbastanza alto da lasciare libero il naso. Guarda il tappetino.",
+      "steps": [
+        "Piega i gomiti e portali un poco verso i fianchi: braccia e avambracci disegnano una W. Le mani restano circa ai lati della testa, in una rotazione comoda delle spalle.",
+        "Attiva leggermente l’addome e tieni il collo in linea con il dorso. Le spalle non salgono verso le orecchie.",
+        "Solleva mani e braccia di pochi centimetri, muovendo le spalle senza lanciare il torace in alto. Non cercare altezza a costo di inarcare la zona lombare.",
+        "Fai una breve pausa, poi riappoggia lentamente. Rilassa la contrazione prima di ripetere."
+      ],
+      "breath": "Espira sollevando le braccia, inspira riappoggiandole. Conta due secondi per salire e due per scendere.",
+      "focus": [
+        "La contrazione si avverte intorno alle scapole e dietro le spalle, non come una compressione lombare."
+      ],
+      "avoid": [
+        "Girarti sulla schiena: questo esercizio è prono.",
+        "Inarcare la zona lombare o alzare il mento.",
+        "Portare le spalle alle orecchie."
+      ],
+      "easier": [
+        "Solleva un braccio alla volta, pochi centimetri, mantenendo la fronte appoggiata."
+      ],
+      "levels": {
+        "beginner": "Solleva un braccio alla volta, pochi centimetri, mantenendo la fronte appoggiata.",
+        "advanced": "Solleva entrambe le braccia nella forma W, con torace e bacino fermi.",
+        "expert": "Mantieni 2 secondi in alto e riappoggia in 3 secondi; resta senza pesi."
+      },
+      "cue": "Solleva mani e braccia di pochi centimetri. Lascia il petto appoggiato, il collo lungo e le spalle lontane dalle orecchie. Fai una breve pausa e riappoggia lentamente.",
+      "voice": {
+        "prepare": "Sdraiati a pancia in giù, fronte sostenuta su un asciugamano e bacino appoggiato. Piega i gomiti e avvicinali un poco ai fianchi, con le mani ai lati della testa: forma una W.",
+        "move": "Solleva mani e braccia di pochi centimetri. Lascia il petto appoggiato, il collo lungo e le spalle lontane dalle orecchie. Fai una breve pausa e riappoggia lentamente.",
+        "short": "Solleva poco le braccia a W e riappoggia. Petto e bacino fermi."
+      },
+      "sourceIds": [
+        "prone"
+      ],
+      "reviewedOn": "2026-10-25",
+      "sourceNote": "Alzate ripetute a piccola ampiezza, adattate dalla serie prona ACE; non una tenuta prolungata e non un sollevamento del busto."
+    },
+    "Alzate a Y prono": {
+      "summary": "Pancia in giù e fronte appoggiata; solleva poco le braccia a Y.",
+      "setup": "Sdraiati a pancia in giù, con gambe e bacino appoggiati. Sostieni la fronte su un asciugamano piegato abbastanza alto da lasciare libero il naso. Guarda il tappetino.",
+      "steps": [
+        "Allunga le braccia in diagonale oltre la testa, formando una Y. Gomiti distesi senza bloccarli e pollici orientati verso l’alto.",
+        "Attiva leggermente l’addome e tieni il collo in linea con il dorso. Le spalle non salgono verso le orecchie.",
+        "Solleva mani e braccia di pochi centimetri, muovendo le spalle senza lanciare il torace in alto. Non cercare altezza a costo di inarcare la zona lombare.",
+        "Fai una breve pausa, poi riappoggia lentamente. Rilassa la contrazione prima di ripetere."
+      ],
+      "breath": "Espira sollevando le braccia, inspira riappoggiandole. Conta due secondi per salire e due per scendere.",
+      "focus": [
+        "La contrazione si avverte intorno alle scapole e dietro le spalle, non come una compressione lombare."
+      ],
+      "avoid": [
+        "Girarti sulla schiena: questo esercizio è prono.",
+        "Inarcare la zona lombare o alzare il mento.",
+        "Portare le spalle alle orecchie."
+      ],
+      "easier": [
+        "Solleva un braccio alla volta, pochi centimetri, mantenendo la fronte appoggiata."
+      ],
+      "levels": {
+        "beginner": "Solleva un braccio alla volta, pochi centimetri, mantenendo la fronte appoggiata.",
+        "advanced": "Solleva entrambe le braccia nella forma Y, con torace e bacino fermi.",
+        "expert": "Mantieni 2 secondi in alto e riappoggia in 3 secondi; resta senza pesi."
+      },
+      "cue": "Solleva mani e braccia di pochi centimetri. Lascia il petto appoggiato, il collo lungo e le spalle lontane dalle orecchie. Fai una breve pausa e riappoggia lentamente.",
+      "voice": {
+        "prepare": "Sdraiati a pancia in giù, fronte sostenuta su un asciugamano e bacino appoggiato. Allunga le braccia in diagonale oltre la testa, formando una Y, con i pollici verso l’alto.",
+        "move": "Solleva mani e braccia di pochi centimetri. Lascia il petto appoggiato, il collo lungo e le spalle lontane dalle orecchie. Fai una breve pausa e riappoggia lentamente.",
+        "short": "Solleva poco le braccia a Y e riappoggia. Petto e bacino fermi."
+      },
+      "sourceIds": [
+        "prone"
+      ],
+      "reviewedOn": "2026-10-25",
+      "sourceNote": "Alzate ripetute a piccola ampiezza, adattate dalla serie prona ACE; non una tenuta prolungata e non un sollevamento del busto."
+    },
+    "Sollevamenti proni delle braccia (alternati)": {
+      "summary": "Pancia in giù, fronte appoggiata; un braccio alla volta, senza alzare il petto.",
+      "setup": "Sdraiati a pancia in giù, fronte sostenuta e naso libero. Allunga le braccia davanti a te circa alla larghezza delle spalle; lascia gambe e bacino sul tappetino.",
+      "steps": [
+        "Rendi stabile l’addome senza trattenere il fiato e allunga la mano destra in avanti.",
+        "Solleva soltanto il braccio destro di pochi centimetri: petto, bacino e gambe restano appoggiati.",
+        "Riappoggia la mano lentamente e ripeti con il braccio sinistro, mantenendo il collo fermo.",
+        "Se la schiena si inarca o la spalla sale all’orecchio, riduci l’altezza del braccio."
+      ],
+      "breath": "Espira sollevando un braccio, inspira mentre lo riappoggi. Alterna con calma.",
+      "focus": [
+        "Il movimento viene dalla spalla; il resto del corpo resta tranquillo."
+      ],
+      "avoid": [
+        "Schiena a terra: la posizione corretta è a pancia in giù.",
+        "Sollevare tutto il busto.",
+        "Trattenere il respiro o irrigidire il collo."
+      ],
+      "easier": [
+        "Solleva appena la mano, tenendo il gomito più morbido."
+      ],
+      "levels": {
+        "beginner": "Solleva appena la mano, tenendo il gomito più morbido.",
+        "advanced": "Alterna le braccia distese senza ruotare il bacino.",
+        "expert": "Fai una pausa di 2 secondi in alto e abbassa in 3 secondi."
+      },
+      "cue": "Allunga e solleva poco il braccio destro, poi riappoggialo. Ripeti con il sinistro. Muovi un solo braccio alla volta, senza alzare testa o petto.",
+      "voice": {
+        "prepare": "A pancia in giù, fronte sostenuta e braccia distese davanti a te. Lascia petto, bacino e gambe appoggiati.",
+        "move": "Allunga e solleva poco il braccio destro, poi riappoggialo. Ripeti con il sinistro. Muovi un solo braccio alla volta, senza alzare testa o petto.",
+        "short": "Solleva poco un braccio e riappoggia, poi alterna. Testa e petto fermi."
+      },
+      "sourceIds": [
+        "prone"
+      ],
+      "reviewedOn": "2026-10-25",
+      "sourceNote": "Variante alternata del sollevamento delle braccia prono, senza il sollevamento controlaterale della gamba."
+    },
+    "Aperture del petto con rotazione": {
+      "summary": "Ruota il torace, bacino fermo e spalle morbide.",
+      "setup": "In piedi con piedi alla larghezza delle anche, ginocchia morbide e braccia aperte ai lati sotto o all’altezza delle spalle. Tieni il bacino rivolto avanti.",
+      "steps": [
+        "Ruota lentamente il torace verso destra: lo sterno cambia direzione, mentre bacino e piedi restano stabili.",
+        "Le braccia accompagnano il torace senza essere lanciate indietro. Segui la mano con lo sguardo solo se il collo è comodo.",
+        "Torna al centro e ripeti a sinistra. Usa un arco piccolo se senti la rotazione soprattutto nella zona lombare."
+      ],
+      "breath": "Espira ruotando, inspira tornando al centro.",
+      "focus": [
+        "Mobilità del torace e apertura delle spalle, con bacino stabile."
+      ],
+      "avoid": [
+        "Slanci delle braccia.",
+        "Ruotare le ginocchia o forzare la zona lombare."
+      ],
+      "easier": [
+        "Tieni le mani sul petto e fai rotazioni piccole."
+      ],
+      "levels": {
+        "beginner": "Tieni le mani sul petto e fai rotazioni piccole.",
+        "advanced": "Apri le braccia e mantieni il bacino stabile.",
+        "expert": "Fermati un secondo alla fine di ogni rotazione comoda."
+      },
+      "cue": "Ruota il petto verso destra, senza trascinare il bacino. Torna al centro e ruota a sinistra. Le braccia accompagnano il torace, senza slanci e senza forzare il collo.",
+      "voice": {
+        "prepare": "In piedi, piedi stabili e ginocchia morbide. Apri le braccia ai lati e tieni il bacino rivolto avanti.",
+        "move": "Ruota il petto verso destra, senza trascinare il bacino. Torna al centro e ruota a sinistra. Le braccia accompagnano il torace, senza slanci e senza forzare il collo.",
+        "short": "Ruota il torace, torna al centro e alterna. Tieni fermo il bacino."
+      },
+      "sourceIds": [
+        "trunk-rotation"
+      ],
+      "reviewedOn": "2026-10-25",
+      "sourceNote": "Adattamento in piedi della rotazione del tronco. La fonte sui piegamenti e sulle rotazioni sostiene il movimento di base, non il nome usato nel programma."
+    },
+    "Back widows (completi)": {
+      "summary": "Schiena a terra; spingi con i gomiti, senza caricare la testa.",
+      "setup": "Sdraiati sulla schiena. Distendi le gambe e appoggia i talloni sul tappetino. Piega i gomiti e appoggiali vicino ai fianchi; gli avambracci possono restare rivolti verso l’alto.",
+      "steps": [
+        "Avvicina delicatamente le scapole e premi i gomiti contro il pavimento, come per spingerlo dietro di te.",
+        "Questa spinta solleva di poco la parte alta del tronco. Il collo accompagna il busto e resta lungo: non usare nuca o testa come punto di spinta.",
+        "Fai una breve pausa, poi abbassa lentamente le spalle e allenta la pressione dei gomiti.",
+        "Ripeti senza colpi di reni. Se devi spingere con la testa per salire, riduci il movimento fino a una semplice pressione dei gomiti."
+      ],
+      "breath": "Espira durante la pressione dei gomiti, inspira abbassandoti. Mantieni il gesto piccolo e controllato.",
+      "focus": [
+        "Contrazione nella parte alta della schiena, senza caricare la nuca."
+      ],
+      "avoid": [
+        "Spingere sulla nuca.",
+        "Cercare un ponte lombare o slanciare il busto."
+      ],
+      "easier": [
+        "Tieni le ginocchia piegate e prova solo la spinta dei gomiti, senza sollevarti."
+      ],
+      "levels": {
+        "beginner": "Tieni le ginocchia piegate e prova solo la spinta dei gomiti, senza sollevarti.",
+        "advanced": "Solleva il torace pochi centimetri con la posizione prevista.",
+        "expert": "Mantieni 2 secondi nella piccola salita, poi torna lentamente."
+      },
+      "cue": "Premi i gomiti nel tappetino e avvicina le scapole. Solleva appena la parte alta del tronco, senza spingere con la testa. Riappoggia lentamente e rilascia la pressione.",
+      "voice": {
+        "prepare": "Sdraiati sulla schiena. Distendi le gambe e appoggia i talloni sul tappetino. Gomiti piegati e appoggiati vicino ai fianchi.",
+        "move": "Premi i gomiti nel tappetino e avvicina le scapole. Solleva appena la parte alta del tronco, senza spingere con la testa. Riappoggia lentamente e rilascia la pressione.",
+        "short": "Premi i gomiti, solleva poco il torace e riappoggia. Non spingere con la testa."
+      },
+      "sourceIds": [
+        "back-widow"
+      ],
+      "reviewedOn": "2026-10-25",
+      "sourceNote": "La fonte descrive la versione con ginocchia piegate. “Completi” indica qui la variante con gambe distese, mantenendo lo stesso gesto dei gomiti."
+    },
+    "Back widows (ginocchia piegate)": {
+      "summary": "Schiena a terra; spingi con i gomiti, senza caricare la testa.",
+      "setup": "Sdraiati sulla schiena. Piega le ginocchia e appoggia i piedi alla larghezza delle anche. Piega i gomiti e appoggiali vicino ai fianchi; gli avambracci possono restare rivolti verso l’alto.",
+      "steps": [
+        "Avvicina delicatamente le scapole e premi i gomiti contro il pavimento, come per spingerlo dietro di te.",
+        "Questa spinta solleva di poco la parte alta del tronco. Il collo accompagna il busto e resta lungo: non usare nuca o testa come punto di spinta.",
+        "Fai una breve pausa, poi abbassa lentamente le spalle e allenta la pressione dei gomiti.",
+        "Ripeti senza colpi di reni. Se devi spingere con la testa per salire, riduci il movimento fino a una semplice pressione dei gomiti."
+      ],
+      "breath": "Espira durante la pressione dei gomiti, inspira abbassandoti. Mantieni il gesto piccolo e controllato.",
+      "focus": [
+        "Contrazione nella parte alta della schiena, senza caricare la nuca."
+      ],
+      "avoid": [
+        "Spingere sulla nuca.",
+        "Cercare un ponte lombare o slanciare il busto."
+      ],
+      "easier": [
+        "Tieni le ginocchia piegate e prova solo la spinta dei gomiti, senza sollevarti."
+      ],
+      "levels": {
+        "beginner": "Tieni le ginocchia piegate e prova solo la spinta dei gomiti, senza sollevarti.",
+        "advanced": "Solleva il torace pochi centimetri con la posizione prevista.",
+        "expert": "Mantieni 2 secondi nella piccola salita, poi torna lentamente."
+      },
+      "cue": "Premi i gomiti nel tappetino e avvicina le scapole. Solleva appena la parte alta del tronco, senza spingere con la testa. Riappoggia lentamente e rilascia la pressione.",
+      "voice": {
+        "prepare": "Sdraiati sulla schiena. Piega le ginocchia e appoggia i piedi alla larghezza delle anche. Gomiti piegati e appoggiati vicino ai fianchi.",
+        "move": "Premi i gomiti nel tappetino e avvicina le scapole. Solleva appena la parte alta del tronco, senza spingere con la testa. Riappoggia lentamente e rilascia la pressione.",
+        "short": "Premi i gomiti, solleva poco il torace e riappoggia. Non spingere con la testa."
+      },
+      "sourceIds": [
+        "back-widow"
+      ],
+      "reviewedOn": "2026-10-25",
+      "sourceNote": ""
+    },
+    "Bird dog": {
+      "summary": "Allunga braccio e gamba opposti; bacino fermo e schiena lunga.",
+      "setup": "Mettiti a quattro appoggi: mani sotto le spalle, ginocchia sotto le anche, dita aperte. Guarda tra le mani e mantieni la schiena nella sua posizione naturale.",
+      "steps": [
+        "Attiva l’addome e distribuisci il peso sui punti di appoggio, senza spostarti molto di lato.",
+        "Allunga insieme il braccio destro avanti e la gamba sinistra indietro, cercando distanza fra mano e tallone, non altezza.",
+        "Fermati quando gli arti sono circa in linea con il busto, o prima se il bacino ruota. Immagina un bicchiere sulla zona lombare da non rovesciare.",
+        "Riporta mano e ginocchio sotto il corpo. Ritrova l’appoggio, poi allunga braccio sinistro e gamba destra."
+      ],
+      "breath": "Espira mentre allunghi gli arti, inspira nel ritorno. Fermati un istante nella posizione allungata.",
+      "focus": [
+        "Addome attivo e bacino fermo; il movimento non aumenta la curva lombare."
+      ],
+      "avoid": [
+        "Gamba troppo alta e schiena inarcata.",
+        "Bacino che si apre lateralmente."
+      ],
+      "easier": [
+        "Muovi solo un braccio o solo una gamba, con le dita del piede che scorrono a terra."
+      ],
+      "levels": {
+        "beginner": "Muovi solo un braccio o solo una gamba, con le dita del piede che scorrono a terra.",
+        "advanced": "Allunga braccio e gamba opposti mantenendo il bacino parallelo al tappetino.",
+        "expert": "Mantieni 3 secondi in allungo e torna in 3 secondi."
+      },
+      "cue": "Allunga il braccio destro avanti e la gamba sinistra indietro. Tieni il bacino parallelo al pavimento. Riappoggia entrambi, poi cambia diagonale. Cerca lunghezza, senza sollevare troppo gli arti.",
+      "voice": {
+        "prepare": "A quattro appoggi, mani sotto le spalle e ginocchia sotto le anche. Guarda tra le mani e stabilizza l’addome.",
+        "move": "Allunga il braccio destro avanti e la gamba sinistra indietro. Tieni il bacino parallelo al pavimento. Riappoggia entrambi, poi cambia diagonale. Cerca lunghezza, senza sollevare troppo gli arti.",
+        "short": "Allunga braccio e gamba opposti. Riappoggia e cambia diagonale, col bacino fermo."
+      },
+      "sourceIds": [
+        "bird"
+      ],
+      "reviewedOn": "2026-10-25"
+    },
+    "Burpee camminato": {
+      "summary": "Mani in appoggio, un piede alla volta indietro e ritorna in piedi.",
+      "setup": "In piedi davanti al tappetino, piedi alla larghezza delle anche. In questa variante non sono previsti né salto né piegamento sulle braccia.",
+      "steps": [
+        "Piega anche e ginocchia e porta le mani a terra davanti ai piedi, circa alla larghezza delle spalle.",
+        "Sposta un piede alla volta indietro, fino a un plank alto: spalle sopra i polsi, addome attivo e bacino in linea con il busto.",
+        "Riporta un piede alla volta avanti, abbastanza vicino alle mani da poter risalire senza tirare la schiena.",
+        "Spingi i piedi a terra e torna completamente in piedi. Alterna il piede che parte per primo nella ripetizione successiva."
+      ],
+      "breath": "Respira in ogni passaggio ed espira mentre risali. Prenditi il tempo necessario a posare bene mani e piedi.",
+      "focus": [
+        "Transizioni controllate; nella posizione a terra l’addome impedisce al bacino di cedere."
+      ],
+      "avoid": [
+        "Lanciare i piedi indietro.",
+        "Lasciar cedere la schiena.",
+        "Trattenere il respiro per tutta la sequenza."
+      ],
+      "easier": [
+        "Appoggia le mani su un rialzo largo, stabile e bloccato contro una parete, riducendo la distanza da terra."
+      ],
+      "levels": {
+        "beginner": "Appoggia le mani su un piano rialzato stabile e fai passi corti.",
+        "advanced": "Esegui la sequenza a terra, un passo alla volta.",
+        "expert": "Rendi i passaggi continui mantenendo il plank fermo per 2 secondi; sempre senza salto."
+      },
+      "cue": "Piega le gambe e appoggia le mani. Porta un piede alla volta indietro fino al plank. Riporta i piedi avanti uno alla volta e torna in piedi, senza slanciare la schiena.",
+      "voice": {
+        "prepare": "In piedi davanti al tappetino, piedi larghi come le anche. Esegui la versione camminata, senza salto e senza piegamento sulle braccia.",
+        "move": "Piega le gambe e appoggia le mani. Porta un piede alla volta indietro fino al plank. Riporta i piedi avanti uno alla volta e torna in piedi, senza slanciare la schiena.",
+        "short": "Mani a terra, piedi indietro uno alla volta. Riportali avanti e torna in piedi."
+      },
+      "sourceIds": [
+        "burpee"
+      ],
+      "reviewedOn": "2026-10-25"
+    },
+    "Cerniera dell'anca": {
+      "summary": "Anche indietro, schiena lunga e ginocchia morbide.",
+      "setup": "In piedi, piedi alla larghezza delle anche, ginocchia appena piegate e mani sulle pieghe delle anche. Tieni testa e schiena in linea.",
+      "steps": [
+        "Spingi il bacino indietro, come per chiudere una porta con i glutei. Il busto si inclina perché si piegano le anche.",
+        "Le ginocchia restano morbide ma cambiano poco angolo: non trasformare il gesto in uno squat.",
+        "Fermati quando senti una lieve tensione dietro le cosce, prima che la schiena si incurvi o il peso vada sulle sole punte.",
+        "Premi i piedi a terra e riporta il bacino sopra i talloni, tornando alto senza inarcarti all’indietro."
+      ],
+      "breath": "Inspira mentre porti il bacino indietro; espira tornando in piedi. Discesa e risalita lente.",
+      "focus": [
+        "Tensione controllata dietro le cosce; il carico resta distribuito su tutto il piede."
+      ],
+      "avoid": [
+        "Trasformare il gesto in uno squat profondo.",
+        "Arrotondare o iperestendere la schiena."
+      ],
+      "easier": [
+        "Fai il gesto vicino a un muro, toccandolo con i glutei."
+      ],
+      "levels": {
+        "beginner": "Fai il gesto vicino a un muro, toccandolo con i glutei.",
+        "advanced": "Allontana il bacino mantenendo il peso a metà piede.",
+        "expert": "Scendi in 3 secondi, fermati un secondo e risali senza slancio."
+      },
+      "cue": "Spingi i glutei indietro e inclina il busto dalle anche. Mantieni la schiena lunga e le ginocchia quasi ferme. Premi i piedi a terra e torna alto, senza inarcarti.",
+      "voice": {
+        "prepare": "In piedi, piedi larghi come le anche e ginocchia appena piegate. Metti le mani sulle pieghe delle anche.",
+        "move": "Spingi i glutei indietro e inclina il busto dalle anche. Mantieni la schiena lunga e le ginocchia quasi ferme. Premi i piedi a terra e torna alto, senza inarcarti.",
+        "short": "Glutei indietro e busto lungo. Spingi i piedi a terra e torna alto."
+      },
+      "sourceIds": [
+        "hinge"
+      ],
+      "reviewedOn": "2026-10-25",
+      "sourceNote": "Esercizio didattico a corpo libero: si usa il gesto della fonte senza il bastone di controllo."
+    },
+    "Contrazione isometrica dei dorsali": {
+      "summary": "Contrazione della parte alta della schiena con avvicinamento delle scapole.",
+      "setup": "In piedi, piedi alla larghezza delle anche e braccia lungo i fianchi, mani aperte. Tieni il petto alto senza sporgere le costole e rilassa le spalle.",
+      "steps": [
+        "Porta le braccia leggermente indietro, con i gomiti morbidi, e avvicina delicatamente le scapole.",
+        "Immagina di accompagnare le spalle lontano dalle orecchie. Non stringerle con forza e non inarcare la zona lombare.",
+        "Mantieni la contrazione per circa tre secondi, continuando a respirare.",
+        "Rilascia completamente per altri tre secondi. Ripeti, distinguendo bene contrazione e rilassamento."
+      ],
+      "breath": "Respira normalmente sia durante la contrazione sia nel rilascio.",
+      "focus": [
+        "Contrazione tra le scapole, con collo rilassato."
+      ],
+      "avoid": [
+        "Inarcare la schiena per portare indietro i gomiti.",
+        "Stringere il collo o spingere con la testa."
+      ],
+      "easier": [
+        "Esegui seduto con una contrazione lieve, senza cercare forza massima."
+      ],
+      "levels": {
+        "beginner": "Esegui seduto con una contrazione lieve, senza cercare forza massima.",
+        "advanced": "Alterna tenute di 3 secondi e rilasci di 3 secondi.",
+        "expert": "Mantieni 5 secondi con costole ferme e rilascio completo di almeno 3 secondi."
+      },
+      "cue": "Porta poco indietro le braccia e avvicina delicatamente le scapole. Mantieni tre secondi respirando, poi rilascia per tre secondi. Non alzare le spalle e non inarcare la schiena.",
+      "imageNote": "L’immagine è indicativa: per questa variante segui la posizione seduta o in piedi descritta nella guida.",
+      "voice": {
+        "prepare": "In piedi, braccia lungo i fianchi e mani aperte. Tieni il petto alto e le costole ferme.",
+        "move": "Porta poco indietro le braccia e avvicina delicatamente le scapole. Mantieni tre secondi respirando, poi rilascia per tre secondi. Non alzare le spalle e non inarcare la schiena.",
+        "short": "Avvicina le scapole tre secondi e rilascia tre secondi, senza alzare le spalle."
+      },
+      "sourceIds": [
+        "scapula"
+      ],
+      "reviewedOn": "2026-10-25",
+      "sourceNote": "Il nome storico “dorsali” è conservato nel programma: il gesto descritto è una contrazione scapolare e non isola il grande dorsale."
+    },
+    "Crunch a bicicletta": {
+      "summary": "Ruota il torace verso il ginocchio; mani leggere e collo lungo.",
+      "setup": "Sdraiati sulla schiena. Porta le cosce sopra le anche e piega le ginocchia a circa 90°. Appoggia le dita ai lati della testa, gomiti aperti e presa leggera.",
+      "steps": [
+        "Espira e solleva leggermente le scapole, lasciando il collo in linea con il torace.",
+        "Avvicina il ginocchio destro al petto e ruota il torace portando la spalla sinistra verso quel ginocchio. Contemporaneamente allunga la gamba sinistra in diagonale.",
+        "Il gomito non deve toccare per forza il ginocchio: la rotazione parte dalle costole, non da una trazione della mano sulla testa.",
+        "Passa lentamente al centro e inverti braccio e gamba. Se la zona lombare si inarca, tieni la gamba allungata più alta o accorcia il gesto."
+      ],
+      "breath": "Espira a ogni avvicinamento tra spalla e ginocchio, inspira passando dal centro. Non pedalare velocemente.",
+      "focus": [
+        "L’addome accompagna la rotazione; il bacino non oscilla da un lato all’altro."
+      ],
+      "avoid": [
+        "Tirare la testa con le mani.",
+        "Pedalare velocemente o perdere l’appoggio lombare comodo."
+      ],
+      "easier": [
+        "Lascia un piede a terra e avvicina un ginocchio alla volta, senza rotazione ampia."
+      ],
+      "levels": {
+        "beginner": "Lascia un piede a terra e avvicina un ginocchio alla volta, senza rotazione ampia.",
+        "advanced": "Alterna lentamente le diagonali, senza inarcare la schiena.",
+        "expert": "Fermati un secondo in ogni rotazione e allunga la gamba solo fin dove controlli il bacino."
+      },
+      "cue": "Porta la spalla sinistra verso il ginocchio destro e allunga l’altra gamba. Passa dal centro e inverti. Ruota il torace lentamente, senza tirare la testa con le mani.",
+      "voice": {
+        "prepare": "Sulla schiena, ginocchia piegate sopra le anche e dita leggere ai lati della testa. Solleva appena le scapole.",
+        "move": "Porta la spalla sinistra verso il ginocchio destro e allunga l’altra gamba. Passa dal centro e inverti. Ruota il torace lentamente, senza tirare la testa con le mani.",
+        "short": "Spalla verso il ginocchio opposto, poi alterna. Non tirare la testa."
+      },
+      "sourceIds": [
+        "bicycle"
+      ],
+      "reviewedOn": "2026-10-25"
+    },
+    "Crunch laterale in piedi (destra)": {
+      "summary": "Lavora a destra: ginocchio e gomito si avvicinano di lato, senza tirare il collo.",
+      "setup": "In piedi, piedi alla larghezza delle anche. Porta la mano destra vicino alla tempia e il gomito aperto. Tieni l’altra mano su un sostegno se serve.",
+      "steps": [
+        "Trasferisci il peso sulla gamba sinistra, lasciando il ginocchio di appoggio morbido.",
+        "Solleva il ginocchio destro verso l’esterno e inclina il torace dallo stesso lato, avvicinando le costole al bacino.",
+        "Gomito e ginocchio si avvicinano senza dover combaciare. Non tirare la testa e non ruotare il petto verso il pavimento.",
+        "Riappoggia il piede e raddrizza il busto. Ripeti sul lato destro per tutto l’intervallo: l’altro lato ha una voce separata nella routine."
+      ],
+      "breath": "Espira avvicinando costole e bacino, inspira riallungando il fianco.",
+      "focus": [
+        "Contrazione sul fianco che si accorcia, con equilibrio sulla gamba opposta."
+      ],
+      "avoid": [
+        "Tirare il collo o ruotare il busto.",
+        "Slanciare la gamba e perdere l’equilibrio."
+      ],
+      "easier": [
+        "Tieniti a una parete con la mano libera e solleva poco il ginocchio."
+      ],
+      "levels": {
+        "beginner": "Tieniti a una parete con la mano libera e solleva poco il ginocchio.",
+        "advanced": "Esegui il gesto senza appoggio, con ritorno completo del piede a terra.",
+        "expert": "Mantieni l’equilibrio un secondo prima di riappoggiare il piede."
+      },
+      "cue": "Solleva il ginocchio destro di lato e avvicina il gomito dello stesso lato, piegando il fianco. Riappoggia il piede e riallungati. Ripeti qui, senza tirare la testa.",
+      "voice": {
+        "prepare": "In piedi, mano destra alla tempia e gomito aperto. Sposta il peso sulla gamba sinistra; usa un sostegno se serve.",
+        "move": "Solleva il ginocchio destro di lato e avvicina il gomito dello stesso lato, piegando il fianco. Riappoggia il piede e riallungati. Ripeti qui, senza tirare la testa.",
+        "short": "Ginocchio e gomito destro si avvicinano di lato. Riappoggia il piede e riallungati."
+      },
+      "sourceIds": [
+        "side-bend"
+      ],
+      "reviewedOn": "2026-10-25",
+      "sourceNote": "Adattamento del piegamento laterale con sollevamento del ginocchio; la fonte sostiene la flessione del tronco, non questa combinazione specifica.",
+      "imageNote": ""
+    },
+    "Crunch laterale in piedi (destra) 2v": {
+      "summary": "Lavora a destra: ginocchio e gomito si avvicinano di lato, senza tirare il collo.",
+      "setup": "In piedi, piedi alla larghezza delle anche. Porta la mano destra vicino alla tempia e il gomito aperto. Tieni l’altra mano su un sostegno se serve.",
+      "steps": [
+        "Trasferisci il peso sulla gamba sinistra, lasciando il ginocchio di appoggio morbido.",
+        "Solleva il ginocchio destro verso l’esterno e inclina il torace dallo stesso lato, avvicinando le costole al bacino.",
+        "Gomito e ginocchio si avvicinano senza dover combaciare. Non tirare la testa e non ruotare il petto verso il pavimento.",
+        "Riappoggia il piede e raddrizza il busto. Ripeti sul lato destro per tutto l’intervallo: l’altro lato ha una voce separata nella routine."
+      ],
+      "breath": "Espira avvicinando costole e bacino, inspira riallungando il fianco.",
+      "focus": [
+        "Contrazione sul fianco che si accorcia, con equilibrio sulla gamba opposta."
+      ],
+      "avoid": [
+        "Tirare il collo o ruotare il busto.",
+        "Slanciare la gamba e perdere l’equilibrio."
+      ],
+      "easier": [
+        "Tieniti a una parete con la mano libera e solleva poco il ginocchio."
+      ],
+      "levels": {
+        "beginner": "Tieniti a una parete con la mano libera e solleva poco il ginocchio.",
+        "advanced": "Esegui il gesto senza appoggio, con ritorno completo del piede a terra.",
+        "expert": "Mantieni l’equilibrio un secondo prima di riappoggiare il piede."
+      },
+      "cue": "Solleva il ginocchio destro di lato e avvicina il gomito dello stesso lato, piegando il fianco. Riappoggia il piede e riallungati. Ripeti qui, senza tirare la testa.",
+      "imageNote": "La sigla “2v” è conservata dal programma originale; la guida usa lo stesso movimento laterale di base.",
+      "voice": {
+        "prepare": "In piedi, mano destra alla tempia e gomito aperto. Sposta il peso sulla gamba sinistra; usa un sostegno se serve.",
+        "move": "Solleva il ginocchio destro di lato e avvicina il gomito dello stesso lato, piegando il fianco. Riappoggia il piede e riallungati. Ripeti qui, senza tirare la testa.",
+        "short": "Ginocchio e gomito destro si avvicinano di lato. Riappoggia il piede e riallungati."
+      },
+      "sourceIds": [
+        "side-bend"
+      ],
+      "reviewedOn": "2026-10-25",
+      "sourceNote": "Adattamento del piegamento laterale con sollevamento del ginocchio. La sigla “2v” non identifica una tecnica verificabile: viene mantenuto lo stesso gesto di base."
+    },
+    "Crunch laterale in piedi (sinistra)": {
+      "summary": "Lavora a sinistra: ginocchio e gomito si avvicinano di lato, senza tirare il collo.",
+      "setup": "In piedi, piedi alla larghezza delle anche. Porta la mano sinistra vicino alla tempia e il gomito aperto. Tieni l’altra mano su un sostegno se serve.",
+      "steps": [
+        "Trasferisci il peso sulla gamba destra, lasciando il ginocchio di appoggio morbido.",
+        "Solleva il ginocchio sinistro verso l’esterno e inclina il torace dallo stesso lato, avvicinando le costole al bacino.",
+        "Gomito e ginocchio si avvicinano senza dover combaciare. Non tirare la testa e non ruotare il petto verso il pavimento.",
+        "Riappoggia il piede e raddrizza il busto. Ripeti sul lato sinistro per tutto l’intervallo: l’altro lato ha una voce separata nella routine."
+      ],
+      "breath": "Espira avvicinando costole e bacino, inspira riallungando il fianco.",
+      "focus": [
+        "Contrazione sul fianco che si accorcia, con equilibrio sulla gamba opposta."
+      ],
+      "avoid": [
+        "Tirare il collo o ruotare il busto.",
+        "Slanciare la gamba e perdere l’equilibrio."
+      ],
+      "easier": [
+        "Tieniti a una parete con la mano libera e solleva poco il ginocchio."
+      ],
+      "levels": {
+        "beginner": "Tieniti a una parete con la mano libera e solleva poco il ginocchio.",
+        "advanced": "Esegui il gesto senza appoggio, con ritorno completo del piede a terra.",
+        "expert": "Mantieni l’equilibrio un secondo prima di riappoggiare il piede."
+      },
+      "cue": "Solleva il ginocchio sinistro di lato e avvicina il gomito dello stesso lato, piegando il fianco. Riappoggia il piede e riallungati. Ripeti qui, senza tirare la testa.",
+      "voice": {
+        "prepare": "In piedi, mano sinistra alla tempia e gomito aperto. Sposta il peso sulla gamba destra; usa un sostegno se serve.",
+        "move": "Solleva il ginocchio sinistro di lato e avvicina il gomito dello stesso lato, piegando il fianco. Riappoggia il piede e riallungati. Ripeti qui, senza tirare la testa.",
+        "short": "Ginocchio e gomito sinistro si avvicinano di lato. Riappoggia il piede e riallungati."
+      },
+      "sourceIds": [
+        "side-bend"
+      ],
+      "reviewedOn": "2026-10-25",
+      "sourceNote": "Adattamento del piegamento laterale con sollevamento del ginocchio; la fonte sostiene la flessione del tronco, non questa combinazione specifica.",
+      "imageNote": ""
+    },
+    "Crunch laterale in piedi (sinistra) 2v": {
+      "summary": "Lavora a sinistra: ginocchio e gomito si avvicinano di lato, senza tirare il collo.",
+      "setup": "In piedi, piedi alla larghezza delle anche. Porta la mano sinistra vicino alla tempia e il gomito aperto. Tieni l’altra mano su un sostegno se serve.",
+      "steps": [
+        "Trasferisci il peso sulla gamba destra, lasciando il ginocchio di appoggio morbido.",
+        "Solleva il ginocchio sinistro verso l’esterno e inclina il torace dallo stesso lato, avvicinando le costole al bacino.",
+        "Gomito e ginocchio si avvicinano senza dover combaciare. Non tirare la testa e non ruotare il petto verso il pavimento.",
+        "Riappoggia il piede e raddrizza il busto. Ripeti sul lato sinistro per tutto l’intervallo: l’altro lato ha una voce separata nella routine."
+      ],
+      "breath": "Espira avvicinando costole e bacino, inspira riallungando il fianco.",
+      "focus": [
+        "Contrazione sul fianco che si accorcia, con equilibrio sulla gamba opposta."
+      ],
+      "avoid": [
+        "Tirare il collo o ruotare il busto.",
+        "Slanciare la gamba e perdere l’equilibrio."
+      ],
+      "easier": [
+        "Tieniti a una parete con la mano libera e solleva poco il ginocchio."
+      ],
+      "levels": {
+        "beginner": "Tieniti a una parete con la mano libera e solleva poco il ginocchio.",
+        "advanced": "Esegui il gesto senza appoggio, con ritorno completo del piede a terra.",
+        "expert": "Mantieni l’equilibrio un secondo prima di riappoggiare il piede."
+      },
+      "cue": "Solleva il ginocchio sinistro di lato e avvicina il gomito dello stesso lato, piegando il fianco. Riappoggia il piede e riallungati. Ripeti qui, senza tirare la testa.",
+      "imageNote": "La sigla “2v” è conservata dal programma originale; la guida usa lo stesso movimento laterale di base.",
+      "voice": {
+        "prepare": "In piedi, mano sinistra alla tempia e gomito aperto. Sposta il peso sulla gamba destra; usa un sostegno se serve.",
+        "move": "Solleva il ginocchio sinistro di lato e avvicina il gomito dello stesso lato, piegando il fianco. Riappoggia il piede e riallungati. Ripeti qui, senza tirare la testa.",
+        "short": "Ginocchio e gomito sinistro si avvicinano di lato. Riappoggia il piede e riallungati."
+      },
+      "sourceIds": [
+        "side-bend"
+      ],
+      "reviewedOn": "2026-10-25",
+      "sourceNote": "Adattamento del piegamento laterale con sollevamento del ginocchio. La sigla “2v” non identifica una tecnica verificabile: viene mantenuto lo stesso gesto di base."
+    },
+    "Dead bug": {
+      "summary": "Allunga la diagonale e mantieni il bacino fermo; espira lentamente.",
+      "setup": "Sdraiati sulla schiena, braccia verticali verso il soffitto. Solleva le gambe con cosce sopra le anche e ginocchia piegate a 90°: gli stinchi sono circa paralleli al pavimento.",
+      "steps": [
+        "Espira e rendi stabile l’addome, mantenendo la zona lombare vicina al tappetino senza schiacciarla con forza.",
+        "Allunga lentamente il braccio destro oltre la testa e la gamba sinistra in avanti, lasciandoli scendere solo finché il bacino resta fermo.",
+        "Fermati prima che la schiena si inarchi: non è necessario arrivare a toccare il pavimento.",
+        "Riporta braccio e ginocchio sopra il busto. Ripeti con braccio sinistro e gamba destra, senza perdere il controllo durante il cambio."
+      ],
+      "breath": "Espira lentamente durante l’allungamento, inspira tornando al centro. Usa un arco più corto se non riesci a respirare.",
+      "focus": [
+        "L’addome lavora per impedire che le costole si aprano e il bacino si inclini."
+      ],
+      "avoid": [
+        "Perdere il controllo lombare.",
+        "Allungare troppo la gamba o muovere rapidamente."
+      ],
+      "easier": [
+        "Tieni ferme le braccia e tocca il tappetino con un tallone alla volta."
+      ],
+      "levels": {
+        "beginner": "Tieni ferme le braccia e tocca il tappetino con un tallone alla volta.",
+        "advanced": "Muovi braccio e gamba opposti senza perdere la posizione del bacino.",
+        "expert": "Allunga in 3 secondi e fermati un secondo nel punto che controlli."
+      },
+      "cue": "Allunga il braccio destro oltre la testa e la gamba sinistra avanti. Fermati prima che la schiena si inarchi. Torna al centro e cambia diagonale, espirando mentre allunghi.",
+      "voice": {
+        "prepare": "Sulla schiena, braccia verso il soffitto, cosce sopra le anche e ginocchia a novanta gradi. Stabilizza il bacino.",
+        "move": "Allunga il braccio destro oltre la testa e la gamba sinistra avanti. Fermati prima che la schiena si inarchi. Torna al centro e cambia diagonale, espirando mentre allunghi.",
+        "short": "Allunga braccio e gamba opposti, torna e alterna. Non inarcare la schiena."
+      },
+      "sourceIds": [
+        "dead"
+      ],
+      "reviewedOn": "2026-10-25"
+    },
+    "Donkey kick (destra)": {
+      "summary": "Gamba destra, ginocchio piegato: muovi dall’anca e lascia il bacino fermo.",
+      "setup": "A quattro appoggi: mani sotto le spalle e ginocchia sotto le anche. Dita aperte e schiena lunga, senza sprofondare tra le spalle.",
+      "steps": [
+        "Mantieni piegato a circa 90° il ginocchio destro. Attiva l’addome e lascia le due anche rivolte al tappetino.",
+        "Solleva la coscia destra indietro, portando la pianta del piede verso il soffitto, senza cambiare l’angolo del ginocchio.",
+        "Fermati prima di inarcare la schiena o aprire il bacino di lato: il piede non deve salire il più in alto possibile.",
+        "Riporta lentamente il ginocchio sotto l’anca. Ripeti soltanto con la gamba destra per questo intervallo."
+      ],
+      "breath": "Espira sollevando la coscia, inspira tornando. Non cercare slancio con il piede.",
+      "focus": [
+        "Lavoro nel gluteo della gamba destra; la zona lombare resta ferma."
+      ],
+      "avoid": [
+        "Spingere il piede troppo in alto.",
+        "Aprire il bacino o piegare i gomiti."
+      ],
+      "easier": [
+        "Fai un sollevamento piccolo mantenendo tutti gli altri appoggi fermi."
+      ],
+      "levels": {
+        "beginner": "Fai un sollevamento piccolo mantenendo tutti gli altri appoggi fermi.",
+        "advanced": "Solleva la coscia con bacino parallelo al tappetino.",
+        "expert": "Mantieni 2 secondi in alto senza inarcare la schiena."
+      },
+      "cue": "Solleva la coscia destra indietro, con la pianta del piede verso il soffitto. Tieni ferme le anche e non inarcare la schiena. Riporta lentamente il ginocchio sotto l’anca.",
+      "voice": {
+        "prepare": "A quattro appoggi, mani sotto le spalle e ginocchia sotto le anche. Tieni il ginocchio destro piegato a novanta gradi.",
+        "move": "Solleva la coscia destra indietro, con la pianta del piede verso il soffitto. Tieni ferme le anche e non inarcare la schiena. Riporta lentamente il ginocchio sotto l’anca.",
+        "short": "Solleva la coscia destra indietro e riappoggia, senza inarcare la schiena."
+      },
+      "sourceIds": [
+        "donkey"
+      ],
+      "reviewedOn": "2026-10-25"
+    },
+    "Donkey kick (sinistra)": {
+      "summary": "Gamba sinistra, ginocchio piegato: muovi dall’anca e lascia il bacino fermo.",
+      "setup": "A quattro appoggi: mani sotto le spalle e ginocchia sotto le anche. Dita aperte e schiena lunga, senza sprofondare tra le spalle.",
+      "steps": [
+        "Mantieni piegato a circa 90° il ginocchio sinistro. Attiva l’addome e lascia le due anche rivolte al tappetino.",
+        "Solleva la coscia sinistra indietro, portando la pianta del piede verso il soffitto, senza cambiare l’angolo del ginocchio.",
+        "Fermati prima di inarcare la schiena o aprire il bacino di lato: il piede non deve salire il più in alto possibile.",
+        "Riporta lentamente il ginocchio sotto l’anca. Ripeti soltanto con la gamba sinistra per questo intervallo."
+      ],
+      "breath": "Espira sollevando la coscia, inspira tornando. Non cercare slancio con il piede.",
+      "focus": [
+        "Lavoro nel gluteo della gamba sinistra; la zona lombare resta ferma."
+      ],
+      "avoid": [
+        "Spingere il piede troppo in alto.",
+        "Aprire il bacino o piegare i gomiti."
+      ],
+      "easier": [
+        "Fai un sollevamento piccolo mantenendo tutti gli altri appoggi fermi."
+      ],
+      "levels": {
+        "beginner": "Fai un sollevamento piccolo mantenendo tutti gli altri appoggi fermi.",
+        "advanced": "Solleva la coscia con bacino parallelo al tappetino.",
+        "expert": "Mantieni 2 secondi in alto senza inarcare la schiena."
+      },
+      "cue": "Solleva la coscia sinistra indietro, con la pianta del piede verso il soffitto. Tieni ferme le anche e non inarcare la schiena. Riporta lentamente il ginocchio sotto l’anca.",
+      "voice": {
+        "prepare": "A quattro appoggi, mani sotto le spalle e ginocchia sotto le anche. Tieni il ginocchio sinistro piegato a novanta gradi.",
+        "move": "Solleva la coscia sinistra indietro, con la pianta del piede verso il soffitto. Tieni ferme le anche e non inarcare la schiena. Riporta lentamente il ginocchio sotto l’anca.",
+        "short": "Solleva la coscia sinistra indietro e riappoggia, senza inarcare la schiena."
+      },
+      "sourceIds": [
+        "donkey"
+      ],
+      "reviewedOn": "2026-10-25"
     },
     "Flessioni laterali dinamiche": {
-      "summary": "Allunga i fianchi e prepara il busto: piedi stabili, ginocchia morbide, petto aperto.",
+      "summary": "Allungati verso l’alto, poi inclina il fianco senza ruotare.",
+      "setup": "In piedi, piedi alla larghezza delle anche e ginocchia morbide. Lascia un braccio lungo il fianco e solleva l’altro sopra la testa, senza irrigidire la spalla.",
       "steps": [
-        "Porta un braccio sopra la testa.",
-        "Inclina il busto di lato senza ruotarlo.",
-        "Ritorna al centro e alterna lato."
+        "Allungati verso l’alto, poi inclina il torace verso il lato opposto al braccio sollevato.",
+        "La mano bassa scorre lungo la coscia. Mantieni entrambi i piedi appoggiati e il bacino quasi fermo.",
+        "Torna completamente al centro prima di cambiare braccio e inclinarti dall’altro lato.",
+        "Mantieni il petto rivolto avanti: non trasformare l’inclinazione in una rotazione o in un piegamento in avanti."
       ],
+      "breath": "Espira inclinando il busto, inspira tornando al centro. Alterna senza rimbalzare.",
       "focus": [
-        "Allungamento del fianco.",
-        "Bacino fermo.",
-        "Respiro ampio."
+        "Allungamento sul fianco del braccio sollevato, senza compressione della zona lombare."
       ],
       "avoid": [
         "Piegarti in avanti.",
-        "Collassare sulle spalle.",
-        "Spingere oltre una tensione comoda."
+        "Spingere il bacino fuori asse."
       ],
       "easier": [
-        "Tieni le mani sui fianchi e riduci l'inclinazione."
+        "Tieni entrambe le mani sui fianchi e fai inclinazioni piccole."
       ],
-      "cue": "Allungati verso l'alto e poi inclina il busto di lato."
+      "levels": {
+        "beginner": "Tieni entrambe le mani sui fianchi e fai inclinazioni piccole.",
+        "advanced": "Allunga il braccio sopra la testa con una tensione comoda.",
+        "expert": "Rallenta il ritorno al centro, senza aumentare la tensione."
+      },
+      "cue": "Allungati verso l’alto e inclina il busto dalla parte opposta al braccio alto. Torna al centro, cambia braccio e ripeti. Tieni il petto avanti e i piedi appoggiati.",
+      "voice": {
+        "prepare": "In piedi, piedi stabili e ginocchia morbide. Solleva un braccio sopra la testa e lascia l’altro lungo la coscia.",
+        "move": "Allungati verso l’alto e inclina il busto dalla parte opposta al braccio alto. Torna al centro, cambia braccio e ripeti. Tieni il petto avanti e i piedi appoggiati.",
+        "short": "Inclina il busto di lato, torna al centro e alterna, senza ruotare."
+      },
+      "sourceIds": [
+        "side-bend"
+      ],
+      "reviewedOn": "2026-10-25"
     },
-    "Rotazioni del collo": {
-      "summary": "Mobilizza il collo con delicatezza: movimenti piccoli, lenti e senza dolore.",
+    "Floor angels": {
+      "summary": "Schiena a terra, costole ferme; fai scorrere le braccia lentamente.",
+      "setup": "Sdraiati sulla schiena con ginocchia piegate e piedi appoggiati. Apri le braccia a W: gomiti piegati, mani ai lati della testa e palmi verso il soffitto.",
       "steps": [
-        "Parti con mento neutro e spalle rilassate.",
-        "Inclina o ruota lentamente entro un range comodo.",
-        "Torna al centro prima di cambiare lato."
+        "Lascia la testa comoda e le costole ferme: non aumentare la curva lombare per appoggiare le mani.",
+        "Fai scorrere le braccia sul tappetino verso l’alto, distendendo progressivamente i gomiti come per disegnare un angelo.",
+        "Fermati dove le spalle restano comode. Se polsi o gomiti non toccano il pavimento, non premerli con forza.",
+        "Riporta lentamente le braccia alla W, facendo scendere i gomiti verso i fianchi. Ripeti senza spostare il bacino."
       ],
+      "breath": "Inspira portando le braccia in alto, espira riportandole alla W. Il movimento è lento.",
       "focus": [
-        "Movimento leggero.",
-        "Mandibola rilassata.",
-        "Respiro lento."
+        "Scorrimento controllato delle spalle; bacino e costole non compensano il movimento."
       ],
       "avoid": [
-        "Cerchi completi veloci.",
-        "Forzare il fine corsa.",
-        "Alzare le spalle."
+        "Inarcare la schiena per toccare a terra con le mani.",
+        "Forzare una spalla dolente."
       ],
       "easier": [
-        "Riduci molto l'ampiezza."
+        "Lavora in un arco breve, anche con le mani staccate dal pavimento."
       ],
-      "cue": "Muovi il collo piano, senza forzare."
+      "levels": {
+        "beginner": "Lavora in un arco breve, anche con le mani staccate dal pavimento.",
+        "advanced": "Allunga le braccia fin dove le costole rimangono ferme.",
+        "expert": "Rallenta entrambe le direzioni e fai una pausa breve senza forzare gli appoggi."
+      },
+      "cue": "Fai scorrere le braccia verso l’alto e poi torna alla W. Muovi le spalle senza aprire le costole o inarcare la schiena. Non forzare i polsi contro il tappetino.",
+      "voice": {
+        "prepare": "Sulla schiena, ginocchia piegate e piedi a terra. Apri le braccia a W, con i palmi verso il soffitto.",
+        "move": "Fai scorrere le braccia verso l’alto e poi torna alla W. Muovi le spalle senza aprire le costole o inarcare la schiena. Non forzare i polsi contro il tappetino.",
+        "short": "Scorri con le braccia sopra la testa e torna alla W. Costole ferme."
+      },
+      "sourceIds": [
+        "angels"
+      ],
+      "reviewedOn": "2026-10-25",
+      "sourceNote": "Versione sul pavimento dei wall angels: cambia l’appoggio del corpo, mantenendo la stessa traiettoria delle braccia."
     },
-    "Riscaldamento dei polsi": {
-      "summary": "Prepara polsi e avambracci, utile prima di push-up e lavori in quadrupedia.",
+    "Gatto-mucca": {
+      "summary": "Inspira e apri il petto; espira e arrotonda la schiena.",
+      "setup": "A quattro appoggi: mani sotto le spalle e ginocchia sotto le anche. Tieni i gomiti distesi senza bloccarli e il peso distribuito tra mani e ginocchia.",
       "steps": [
-        "Appoggia le mani o intreccia le dita davanti al corpo.",
-        "Ruota i polsi lentamente in entrambe le direzioni.",
-        "Se sei a terra, sposta poco peso avanti e indietro."
+        "Inspirando, inclina il bacino e lascia scendere leggermente l’addome: il petto si apre e la schiena forma una curva morbida.",
+        "Solleva lo sguardo solo poco davanti alle mani, senza rovesciare la testa indietro.",
+        "Espirando, ruota il bacino nella direzione opposta e spingi dolcemente il dorso verso il soffitto. Il mento si avvicina al petto senza essere schiacciato.",
+        "Alterna le due forme in modo continuo, lasciando partire il movimento dal bacino e distribuendolo lungo la colonna."
       ],
+      "breath": "Un’inspirazione per aprire, un’espirazione per arrotondare. Non occorre trattenere le posizioni.",
       "focus": [
-        "Pressione leggera.",
-        "Dita aperte.",
-        "Movimento senza dolore."
+        "Il movimento si distribuisce nella schiena, senza una piega brusca concentrata nella zona lombare."
       ],
       "avoid": [
-        "Caricare troppo peso sui polsi.",
-        "Bloccare i gomiti.",
-        "Muoversi a scatti."
+        "Gettare la testa all’indietro.",
+        "Cercare una curva lombare eccessiva."
       ],
       "easier": [
-        "Esegui tutto in piedi senza appoggiare peso."
+        "Riduci l’ampiezza e muovi soprattutto il bacino."
       ],
-      "cue": "Ruota i polsi piano e tieni la pressione leggera."
-    },
-    "Aperture del petto con rotazione": {
-      "summary": "Apre torace e spalle: ruota dal busto mantenendo il bacino stabile.",
-      "steps": [
-        "Parti con braccia aperte o mani davanti al petto.",
-        "Ruota il busto aprendo un braccio verso il lato.",
-        "Torna al centro e alterna."
+      "levels": {
+        "beginner": "Riduci l’ampiezza e muovi soprattutto il bacino.",
+        "advanced": "Coordina tutta la colonna con il respiro.",
+        "expert": "Rallenta il movimento, distribuendolo progressivamente lungo la colonna."
+      },
+      "cue": "Inspira, inclina il bacino e apri delicatamente il petto. Espira, ruota il bacino e arrotonda il dorso verso il soffitto. Alterna senza piegare i gomiti e senza forzare il collo.",
+      "voice": {
+        "prepare": "A quattro appoggi, mani sotto le spalle e ginocchia sotto le anche. Tieni i gomiti distesi ma morbidi.",
+        "move": "Inspira, inclina il bacino e apri delicatamente il petto. Espira, ruota il bacino e arrotonda il dorso verso il soffitto. Alterna senza piegare i gomiti e senza forzare il collo.",
+        "short": "Inspira e apri il petto. Espira e arrotonda il dorso, senza forzare."
+      },
+      "sourceIds": [
+        "cat"
       ],
-      "focus": [
-        "Petto che si apre.",
-        "Bacino fermo.",
-        "Collo lungo."
-      ],
-      "avoid": [
-        "Ruotare solo il braccio.",
-        "Inarcare la schiena.",
-        "Forzare la spalla."
-      ],
-      "easier": [
-        "Riduci la rotazione e tieni il gomito piegato."
-      ],
-      "cue": "Apri il petto ruotando dal busto, non dalla spalla."
-    },
-    "Burpee camminato": {
-      "summary": "Versione controllata del burpee: scendi con le mani a terra, cammina in plank e ritorna in piedi.",
-      "steps": [
-        "Piega le ginocchia e appoggia le mani davanti ai piedi.",
-        "Cammina indietro con un piede alla volta fino al plank.",
-        "Ritorna camminando avanti e rialzati senza salto."
-      ],
-      "focus": [
-        "Mani ben appoggiate.",
-        "Addome attivo nel plank.",
-        "Ritmo costante."
-      ],
-      "avoid": [
-        "Saltare se perdi controllo.",
-        "Lasciare cadere il bacino nel plank.",
-        "Curvare troppo la schiena quando ti rialzi."
-      ],
-      "easier": [
-        "Appoggia le mani su una sedia o un rialzo."
-      ],
-      "cue": "Mani a terra, cammina in plank e rialzati con controllo."
-    },
-    "Cerniera dell'anca": {
-      "summary": "Impara il movimento di hip hinge: il busto si inclina perche le anche vanno indietro.",
-      "steps": [
-        "Piedi alla larghezza delle anche e ginocchia morbide.",
-        "Spingi il bacino indietro come per chiudere una porta con i glutei.",
-        "Torna su stringendo leggermente i glutei."
-      ],
-      "focus": [
-        "Schiena lunga.",
-        "Peso su talloni e mesopiede.",
-        "Anche che guidano il movimento."
-      ],
-      "avoid": [
-        "Piegare la schiena.",
-        "Trasformarlo in uno squat.",
-        "Bloccare le ginocchia."
-      ],
-      "easier": [
-        "Fai il movimento davanti a una parete cercando di toccarla con i glutei."
-      ],
-      "cue": "Spingi le anche indietro e mantieni la schiena lunga."
-    },
-    "Shadow boxing": {
-      "summary": "Attivazione cardio leggera: pugni controllati davanti al corpo, piedi vivi e addome attivo.",
-      "steps": [
-        "Tieni guardia alta con gomiti vicini al busto.",
-        "Alterna jab e cross ruotando leggermente busto e spalle.",
-        "Resta leggero sui piedi senza irrigidirti."
-      ],
-      "focus": [
-        "Pugni controllati.",
-        "Spalle rilassate.",
-        "Respirazione continua."
-      ],
-      "avoid": [
-        "Bloccare i gomiti in estensione.",
-        "Alzare le spalle.",
-        "Muovere solo le braccia senza busto."
-      ],
-      "easier": [
-        "Riduci velocita e ampiezza dei pugni."
-      ],
-      "cue": "Guardia alta, pugni controllati e spalle rilassate."
-    },
-    "Wall sit": {
-      "summary": "Tenuta isometrica per gambe: schiena al muro, ginocchia piegate e piedi avanti.",
-      "steps": [
-        "Appoggia tutta la schiena al muro.",
-        "Scivola verso il basso finche le gambe lavorano ma resti stabile.",
-        "Mantieni ginocchia sopra i piedi e respira."
-      ],
-      "focus": [
-        "Schiena aderente.",
-        "Peso sui talloni.",
-        "Ginocchia allineate."
-      ],
-      "avoid": [
-        "Scendere troppo se perdi posizione.",
-        "Ginocchia che cadono verso l'interno.",
-        "Trattenere il respiro."
-      ],
-      "easier": [
-        "Resta piu alto, con ginocchia meno piegate."
-      ],
-      "cue": "Schiena al muro, ginocchia in linea e respiro costante."
-    },
-    "Push up sulle ginocchia a cane a testa in giù": {
-      "summary": "Push-up facilitato con transizione: fai una flessione sulle ginocchia e poi spingi le anche indietro.",
-      "steps": [
-        "Parti in posizione di push-up sulle ginocchia.",
-        "Piega i gomiti e scendi con petto controllato.",
-        "Risali e porta le anche indietro, allungando spalle e schiena."
-      ],
-      "focus": [
-        "Gomiti controllati.",
-        "Addome attivo.",
-        "Transizione lenta verso l'allungamento."
-      ],
-      "avoid": [
-        "Collassare sulle spalle.",
-        "Lasciare cadere il bacino.",
-        "Fare la transizione di scatto."
-      ],
-      "easier": [
-        "Riduci la profondita della flessione."
-      ],
-      "cue": "Flessione controllata, poi spingi le anche indietro."
-    },
-    "Bird dog": {
-      "summary": "Core e stabilita: da quadrupedia allunga braccio e gamba opposti senza ruotare il bacino.",
-      "steps": [
-        "Mani sotto spalle, ginocchia sotto anche.",
-        "Allunga un braccio in avanti e la gamba opposta indietro.",
-        "Torna al centro lentamente e alterna lato."
-      ],
-      "focus": [
-        "Bacino parallelo al pavimento.",
-        "Schiena lunga.",
-        "Movimento lento."
-      ],
-      "avoid": [
-        "Alzare troppo la gamba.",
-        "Ruotare il busto.",
-        "Inarcare la zona lombare."
-      ],
-      "easier": [
-        "Muovi solo le gambe o solo le braccia."
-      ],
-      "cue": "Allunga braccio e gamba opposti tenendo il bacino fermo."
-    },
-    "Dead bug": {
-      "summary": "Core a terra: muovi braccio e gamba opposti mantenendo la schiena stabile.",
-      "steps": [
-        "Sdraiati supino con braccia verso l'alto e ginocchia piegate a 90 gradi.",
-        "Abbassa lentamente braccio e gamba opposti.",
-        "Torna al centro prima di cambiare lato."
-      ],
-      "focus": [
-        "Zona lombare stabile.",
-        "Movimento lento.",
-        "Respiro regolare."
-      ],
-      "avoid": [
-        "Inarcare la schiena.",
-        "Andare troppo in basso con la gamba.",
-        "Muovere tutto insieme velocemente."
-      ],
-      "easier": [
-        "Tocca il tallone a terra invece di stendere tutta la gamba."
-      ],
-      "cue": "Schiena stabile, muovi lento braccio e gamba opposti."
+      "reviewedOn": "2026-10-25"
     },
     "Marcia in ponte": {
-      "summary": "Ponte glutei con marcia: solleva il bacino e alterna i piedi senza farlo cadere.",
+      "summary": "Ponte stabile; solleva un piede alla volta senza far ruotare il bacino.",
+      "setup": "Sdraiati sulla schiena, ginocchia piegate e piedi alla larghezza delle anche. Le braccia sono a terra lungo i fianchi, testa e collo rilassati.",
       "steps": [
-        "Sdraiati supino, piedi a terra vicino ai glutei.",
-        "Solleva il bacino stringendo i glutei.",
-        "Solleva un piede alla volta mantenendo il bacino in pari."
+        "Premi i piedi nel tappetino e solleva il bacino fino a creare una linea tra spalle, anche e ginocchia.",
+        "Mantieni il bacino orizzontale e solleva appena il piede destro, senza portare il ginocchio al petto.",
+        "Riappoggia completamente il piede destro, ritrova la stabilità e solleva il sinistro.",
+        "Continua a piccoli passi. Se un fianco scende o la schiena si inarca, abbassa il bacino e riparti, oppure mantieni entrambi i piedi appoggiati."
       ],
+      "breath": "Respira continuamente, con passi lenti e brevi. Non sospendere il fiato quando stacchi un piede.",
       "focus": [
-        "Bacino stabile.",
-        "Glutei attivi.",
-        "Movimento piccolo e controllato."
+        "Lavoro dei glutei e dell’addome per mantenere il bacino fermo durante la marcia."
       ],
       "avoid": [
-        "Ruotare il bacino.",
-        "Spingere con la schiena.",
-        "Sollevare troppo il piede."
+        "Bacino che scende o ruota.",
+        "Spingere con la nuca."
       ],
       "easier": [
-        "Mantieni il ponte statico senza marciare."
+        "Mantieni entrambi i piedi a terra e alterna solo un lieve alleggerimento del tallone."
       ],
-      "cue": "Tieni il bacino alto e fermo mentre alterni i piedi."
+      "levels": {
+        "beginner": "Mantieni entrambi i piedi a terra e alterna solo un lieve alleggerimento del tallone.",
+        "advanced": "Solleva un piede alla volta senza muovere il bacino.",
+        "expert": "Mantieni 2 secondi su un piede, poi cambia lato lentamente."
+      },
+      "cue": "Solleva il bacino in ponte. Stacca appena un piede, riappoggialo e alterna. Tieni le due anche alla stessa altezza. Se il bacino oscilla, abbassalo e riparti con entrambi i piedi.",
+      "voice": {
+        "prepare": "Sulla schiena, ginocchia piegate e piedi larghi come le anche. Braccia a terra e collo rilassato.",
+        "move": "Solleva il bacino in ponte. Stacca appena un piede, riappoggialo e alterna. Tieni le due anche alla stessa altezza. Se il bacino oscilla, abbassalo e riparti con entrambi i piedi.",
+        "short": "Bacino alto, stacca appena un piede e alterna. Mantieni le anche orizzontali."
+      },
+      "sourceIds": [
+        "march"
+      ],
+      "reviewedOn": "2026-10-25"
     },
-    "90/90": {
-      "summary": "Mobilita delle anche: siediti con una gamba davanti e una dietro, entrambe piegate circa a 90 gradi.",
+    "Plank lean flow": {
+      "summary": "Spingi le mani a terra e sposta poco le spalle, bacino stabile.",
+      "setup": "Parti in plank alto, mani sotto le spalle e piedi arretrati. Testa, tronco e bacino sono in linea. Puoi appoggiare le ginocchia, mantenendo la linea dalle spalle alle ginocchia.",
       "steps": [
-        "Sistema le ginocchia piegate davanti e dietro senza forzare.",
-        "Mantieni il busto alto o inclinati leggermente verso la gamba davanti.",
-        "Respira e lascia che l'anca si rilassi."
+        "Apri le dita e premi il pavimento, tenendo le scapole sostenute e l’addome attivo.",
+        "Sposta tutto il corpo di pochi centimetri avanti, portando le spalle appena oltre i polsi. Il movimento avviene anche alle caviglie.",
+        "Torna lentamente con le spalle sopra i polsi. Il bacino si muove insieme al tronco, senza scendere o salire da solo.",
+        "Ripeti con un’oscillazione piccola. Se senti pressione ai polsi, riduci lo spostamento o torna agli appoggi sulle ginocchia."
       ],
+      "breath": "Espira nello spostamento avanti, inspira tornando. Non trattenere il respiro.",
       "focus": [
-        "Tensione comoda nell'anca.",
-        "Schiena lunga.",
-        "Respirazione lenta."
+        "Addome e spalle sostengono il corpo; nessuna compressione ai polsi o alla schiena."
       ],
       "avoid": [
-        "Forzare il ginocchio.",
-        "Collassare con il busto.",
-        "Sentire dolore pungente."
+        "Caricare i polsi oltre un intervallo comodo.",
+        "Far scendere il bacino."
       ],
       "easier": [
-        "Metti un cuscino sotto il bacino o apri di piu gli angoli."
+        "Ginocchia appoggiate e spostamento minimo."
       ],
-      "cue": "Schiena lunga e tensione comoda nell'anca."
+      "levels": {
+        "beginner": "Ginocchia appoggiate e spostamento minimo.",
+        "advanced": "Ginocchia sollevate e oscillazione piccola controllata.",
+        "expert": "Rallenta il passaggio avanti e fermati un secondo senza comprimere i polsi."
+      },
+      "cue": "Porta il corpo di pochi centimetri avanti, poi torna con le spalle sopra i polsi. Muoviti come un blocco, senza far cedere il bacino. Mantieni l’oscillazione piccola e respira.",
+      "voice": {
+        "prepare": "In plank sulle mani, spalle sopra i polsi e corpo in linea. Appoggia le ginocchia se serve a mantenere la posizione.",
+        "move": "Porta il corpo di pochi centimetri avanti, poi torna con le spalle sopra i polsi. Muoviti come un blocco, senza far cedere il bacino. Mantieni l’oscillazione piccola e respira.",
+        "short": "Corpo in linea: spostati poco avanti e torna, senza far cedere il bacino."
+      },
+      "sourceIds": [
+        "plank"
+      ],
+      "reviewedOn": "2026-10-25",
+      "sourceNote": "Adattamento dinamico del plank alto. “Lean flow” è il nome del programma, non una sequenza standard della fonte."
+    },
+    "Ponte glutei (facile)": {
+      "summary": "Spingi dai piedi e dai glutei; bacino stabile e collo rilassato.",
+      "setup": "Sdraiati sulla schiena, ginocchia piegate e piedi alla larghezza delle anche. Avvicina i piedi quanto basta a tenere circa verticali gli stinchi nella posizione alta. Braccia lungo i fianchi.",
+      "steps": [
+        "Attiva leggermente l’addome e premi talloni e parte centrale dei piedi a terra.",
+        "Solleva il bacino fino ad allineare spalle, anche e ginocchia. La parte alta della schiena resta appoggiata: non cercare altezza inarcando la zona lombare.",
+        "Fai una breve pausa, poi abbassa il bacino in modo controllato fino al tappetino.",
+        "Ripeti spingendo allo stesso modo con entrambi i piedi, mantenendo le ginocchia nella direzione delle punte."
+      ],
+      "breath": "Espira sollevando il bacino, inspira abbassandolo. Nella tenuta respira normalmente senza bloccare l’addome.",
+      "focus": [
+        "La spinta parte dai glutei; collo e zona lombare non devono sostenere lo sforzo."
+      ],
+      "avoid": [
+        "Spinta sulla nuca.",
+        "Schiena troppo inarcata o ginocchia che si chiudono."
+      ],
+      "easier": [
+        "Usa due piedi e un sollevamento piccolo; interrompi la tenuta quando perdi postura."
+      ],
+      "levels": {
+        "beginner": "Usa due piedi e un sollevamento piccolo; interrompi la tenuta quando perdi postura.",
+        "advanced": "Cerca l’allineamento spalle-anche-ginocchia nella variante descritta.",
+        "expert": "Rallenta la discesa a 3 secondi oppure mantieni il ponte preciso; evita di aumentare l’arco lombare."
+      },
+      "cue": "Premi i piedi a terra e solleva il bacino, allineando spalle, anche e ginocchia. Stringi i glutei senza inarcare la schiena, poi riappoggia lentamente. Non spingere con la testa.",
+      "voice": {
+        "prepare": "Sulla schiena, ginocchia piegate e piedi a terra. Braccia lungo i fianchi. Mantieni testa e collo rilassati.",
+        "move": "Premi i piedi a terra e solleva il bacino, allineando spalle, anche e ginocchia. Stringi i glutei senza inarcare la schiena, poi riappoggia lentamente. Non spingere con la testa.",
+        "short": "Premi i piedi, alza il bacino e riappoggia lentamente, senza inarcare la schiena."
+      },
+      "sourceIds": [
+        "bridge"
+      ],
+      "reviewedOn": "2026-10-25"
+    },
+    "Ponte glutei (difficile)": {
+      "summary": "Spingi dai piedi e dai glutei; bacino stabile e collo rilassato.",
+      "setup": "Sdraiati sulla schiena, ginocchia piegate e piedi alla larghezza delle anche. Avvicina i piedi quanto basta a tenere circa verticali gli stinchi nella posizione alta. Braccia lungo i fianchi. Porta un ginocchio verso il busto e lascia l’altro piede a terra.",
+      "steps": [
+        "Mantieni il ginocchio della gamba libera piegato e il piede sollevato: non usarlo per prendere slancio.",
+        "Premi il piede a terra e solleva il bacino, lasciando le due anche alla stessa altezza.",
+        "Riappoggia lentamente il bacino e ripeti sullo stesso piede. L’altezza è quella che controlli senza inarcare la schiena.",
+        "A metà tempo appoggia entrambi i piedi, cambia gamba e riparti. Se il bacino ruota, usa la versione a due piedi."
+      ],
+      "breath": "Espira sollevando il bacino, inspira abbassandolo. Nella tenuta respira normalmente senza bloccare l’addome.",
+      "focus": [
+        "La spinta parte dai glutei; collo e zona lombare non devono sostenere lo sforzo."
+      ],
+      "avoid": [
+        "Spinta sulla nuca.",
+        "Schiena troppo inarcata o ginocchia che si chiudono."
+      ],
+      "easier": [
+        "Usa due piedi e un sollevamento piccolo; interrompi la tenuta quando perdi postura."
+      ],
+      "levels": {
+        "beginner": "Usa due piedi e un sollevamento piccolo; interrompi la tenuta quando perdi postura.",
+        "advanced": "Cerca l’allineamento spalle-anche-ginocchia nella variante descritta.",
+        "expert": "Rallenta la discesa a 3 secondi oppure mantieni il ponte preciso; evita di aumentare l’arco lombare."
+      },
+      "cue": "Con un piede a terra e l’altro sollevato, spingi e alza il bacino. Tieni le anche alla stessa altezza e riappoggia lentamente. Ripeti sulla stessa gamba fino al cambio.",
+      "voice": {
+        "prepare": "Sulla schiena, ginocchia piegate e piedi a terra. Braccia lungo i fianchi. Porta un ginocchio verso il busto, lasciando l’altro piede appoggiato.",
+        "move": "Con un piede a terra e l’altro sollevato, spingi e alza il bacino. Tieni le anche alla stessa altezza e riappoggia lentamente. Ripeti sulla stessa gamba fino al cambio.",
+        "short": "Spingi sul piede appoggiato, alza il bacino e riappoggia. Tieni le anche orizzontali."
+      },
+      "sourceIds": [
+        "bridge"
+      ],
+      "reviewedOn": "2026-10-25",
+      "midpointCue": "Abbassa il bacino e cambia la gamba di appoggio."
+    },
+    "Ponte glutei isometrico": {
+      "summary": "Spingi dai piedi e dai glutei; bacino stabile e collo rilassato.",
+      "setup": "Sdraiati sulla schiena, ginocchia piegate e piedi alla larghezza delle anche. Avvicina i piedi quanto basta a tenere circa verticali gli stinchi nella posizione alta. Braccia lungo i fianchi.",
+      "steps": [
+        "Attiva leggermente l’addome e premi talloni e parte centrale dei piedi a terra.",
+        "Solleva il bacino fino ad allineare spalle, anche e ginocchia. La parte alta della schiena resta appoggiata: non cercare altezza inarcando la zona lombare.",
+        "Mantieni questa altezza respirando e distribuendo il peso fra i piedi e la parte alta della schiena.",
+        "Se il bacino scende o la schiena si inarca, riappoggialo, recupera un momento e riprendi senza scatti."
+      ],
+      "breath": "Espira sollevando il bacino, inspira abbassandolo. Nella tenuta respira normalmente senza bloccare l’addome.",
+      "focus": [
+        "La spinta parte dai glutei; collo e zona lombare non devono sostenere lo sforzo."
+      ],
+      "avoid": [
+        "Spinta sulla nuca.",
+        "Schiena troppo inarcata o ginocchia che si chiudono."
+      ],
+      "easier": [
+        "Usa due piedi e un sollevamento piccolo; interrompi la tenuta quando perdi postura."
+      ],
+      "levels": {
+        "beginner": "Usa due piedi e un sollevamento piccolo; interrompi la tenuta quando perdi postura.",
+        "advanced": "Cerca l’allineamento spalle-anche-ginocchia nella variante descritta.",
+        "expert": "Rallenta la discesa a 3 secondi oppure mantieni il ponte preciso; evita di aumentare l’arco lombare."
+      },
+      "cue": "Solleva il bacino fino ad allineare spalle, anche e ginocchia. Mantieni la posizione respirando, con le ginocchia parallele. Se perdi la linea, abbassa il bacino e recupera un momento.",
+      "voice": {
+        "prepare": "Sulla schiena, ginocchia piegate e piedi a terra. Braccia lungo i fianchi. Mantieni testa e collo rilassati.",
+        "move": "Solleva il bacino fino ad allineare spalle, anche e ginocchia. Mantieni la posizione respirando, con le ginocchia parallele. Se perdi la linea, abbassa il bacino e recupera un momento.",
+        "short": "Mantieni spalle, anche e ginocchia in linea. Respira senza inarcare la schiena."
+      },
+      "sourceIds": [
+        "bridge"
+      ],
+      "reviewedOn": "2026-10-25"
+    },
+    "Posizione del bambino": {
+      "summary": "Bacino verso i talloni, fronte sostenuta e respiri lenti.",
+      "setup": "Mettiti in ginocchio, con dorsi dei piedi appoggiati e ginocchia aperte quanto è comodo. Porta le mani avanti sul tappetino.",
+      "steps": [
+        "Sposta lentamente il bacino indietro verso i talloni. Se non li raggiungi, fermati prima: non forzare le ginocchia.",
+        "Allunga le braccia davanti e lascia scendere il busto tra le cosce. Appoggia la fronte su tappetino o cuscino, mantenendo libero il naso.",
+        "Rimani fermo e lascia espandere la schiena con il respiro. Le spalle restano lontane dalle orecchie.",
+        "Per uscire, premi dolcemente le mani e riporta il bacino sopra le ginocchia."
+      ],
+      "breath": "Respira lentamente nella posizione, senza cercare di scendere di più a ogni costo.",
+      "focus": [
+        "Allungamento comodo della schiena e delle spalle, senza pressione alle ginocchia."
+      ],
+      "avoid": [
+        "Forzare il bacino sui talloni.",
+        "Premere su ginocchia dolenti."
+      ],
+      "easier": [
+        "Metti un cuscino tra glutei e talloni e uno sotto la fronte."
+      ],
+      "levels": {
+        "beginner": "Metti un cuscino tra glutei e talloni e uno sotto la fronte.",
+        "advanced": "Mantieni l’allungo comodo senza premere con le braccia.",
+        "expert": "Rilassa il peso a ogni espirazione; non cercare più profondità."
+      },
+      "cue": "Porta il bacino verso i talloni e lascia scendere il busto. Appoggia la fronte e respira nella schiena. Non forzare le ginocchia; torna su aiutandoti con le mani.",
+      "voice": {
+        "prepare": "In ginocchio, apri le ginocchia quanto è comodo e allunga le mani avanti sul tappetino.",
+        "move": "Porta il bacino verso i talloni e lascia scendere il busto. Appoggia la fronte e respira nella schiena. Non forzare le ginocchia; torna su aiutandoti con le mani.",
+        "short": "Bacino verso i talloni, fronte sostenuta e braccia avanti. Respira senza forzare."
+      },
+      "sourceIds": [
+        "child"
+      ],
+      "reviewedOn": "2026-10-25"
+    },
+    "Push up sulle ginocchia a cane a testa in giù": {
+      "summary": "Push-up sulle ginocchia, poi bacino in alto e indietro; torna alle ginocchia.",
+      "setup": "Mani poco più larghe delle spalle e ginocchia sul tappetino. Arretra le ginocchia finché spalle, bacino e ginocchia formano una linea. Guarda il tappetino poco davanti alle mani.",
+      "steps": [
+        "Attiva addome e glutei. Piega i gomiti indietro e leggermente verso l’esterno, circa a 30–45° dal busto.",
+        "Abbassa insieme petto e bacino, come un unico blocco, fin dove mantieni la linea del tronco.",
+        "Spingi con tutta la mano e distendi i gomiti per tornare su: il bacino non deve partire per primo.",
+        "Dalla posizione alta punta le dita dei piedi e spingi il bacino indietro e verso l’alto, formando una V rovesciata.",
+        "Lascia le ginocchia piegate quanto serve per allungare la schiena. Non occorre appoggiare i talloni.",
+        "Riporta le spalle sopra le mani e appoggia le ginocchia con controllo prima del piegamento successivo."
+      ],
+      "breath": "Inspira nel piegamento ed espira risalendo. Respira ancora durante il passaggio alla V rovesciata.",
+      "focus": [
+        "Due movimenti distinti: prima la spinta delle braccia, poi l’allungamento della schiena."
+      ],
+      "avoid": [
+        "Scendere prima con il bacino.",
+        "Forzare i talloni a terra o bloccare le ginocchia nell’allungo."
+      ],
+      "easier": [
+        "Riduci la discesa e torna con il bacino indietro mantenendo le ginocchia appoggiate."
+      ],
+      "levels": {
+        "beginner": "Riduci la discesa e torna con il bacino indietro mantenendo le ginocchia appoggiate.",
+        "advanced": "Alterna push-up sulle ginocchia e cane a testa in giù con passaggi lenti.",
+        "expert": "Rallenta la discesa a 3 secondi e fermati un respiro nell’allungo."
+      },
+      "cue": "Esegui un piegamento sulle ginocchia e risali. Punta i piedi, spingi il bacino indietro e in alto. Tieni le ginocchia morbide, poi riappoggiale prima del piegamento successivo.",
+      "voice": {
+        "prepare": "Parti con mani a terra e corpo in linea dalle spalle alle ginocchia. Punta i piedi solo nella seconda parte del gesto.",
+        "move": "Esegui un piegamento sulle ginocchia e risali. Punta i piedi, spingi il bacino indietro e in alto. Tieni le ginocchia morbide, poi riappoggiale prima del piegamento successivo.",
+        "short": "Piegamento sulle ginocchia, risali e spingi il bacino in alto. Riappoggia le ginocchia."
+      },
+      "sourceIds": [
+        "pushup",
+        "dog"
+      ],
+      "reviewedOn": "2026-10-25",
+      "sourceNote": "Combinazione di due esercizi descritti separatamente nelle fonti, con ritorno controllato sulle ginocchia."
+    },
+    "Push-up a presa stretta al muro": {
+      "summary": "Corpo allineato, gomiti vicini al busto; spingi il muro.",
+      "setup": "In piedi di fronte a un muro libero, piedi alla larghezza delle anche e poco arretrati. Appoggia i palmi all’altezza del petto, appena più stretti delle spalle, senza sovrapporre le mani.",
+      "steps": [
+        "Allinea testa, busto e bacino, con addome leggermente attivo. La distanza dal muro deve consentire di tenere i talloni appoggiati.",
+        "Piega lentamente i gomiti vicino ai fianchi e avvicina il petto al muro: tutto il corpo si inclina insieme.",
+        "Fermati prima che la schiena si inarchi o i gomiti si aprano molto.",
+        "Premi il muro e distendi i gomiti per tornare alla posizione iniziale. Se senti i polsi compressi, allarga leggermente la presa e avvicina i piedi."
+      ],
+      "breath": "Inspira avvicinandoti al muro, espira spingendo. Nessun rimbalzo sul muro.",
+      "focus": [
+        "Lavoro di petto e tricipiti, senza pressione scomoda ai polsi."
+      ],
+      "avoid": [
+        "Gomiti aperti di lato.",
+        "Testa protesa avanti o bacino che cede."
+      ],
+      "easier": [
+        "Avvicina i piedi al muro e limita la piega dei gomiti."
+      ],
+      "levels": {
+        "beginner": "Avvicina i piedi al muro e limita la piega dei gomiti.",
+        "advanced": "Allontana poco i piedi mantenendo il corpo allineato.",
+        "expert": "Scendi in 3 secondi, fermati un secondo vicino al muro e risali lentamente."
+      },
+      "cue": "Piega i gomiti vicino ai fianchi e avvicina il petto al muro. Premi con i palmi e torna indietro, muovendo il corpo come un blocco. Mantieni i talloni appoggiati.",
+      "voice": {
+        "prepare": "Davanti al muro, palmi all’altezza del petto appena più stretti delle spalle. Piedi poco indietro e corpo in linea.",
+        "move": "Piega i gomiti vicino ai fianchi e avvicina il petto al muro. Premi con i palmi e torna indietro, muovendo il corpo come un blocco. Mantieni i talloni appoggiati.",
+        "short": "Petto verso il muro, gomiti vicini al busto. Spingi per tornare indietro."
+      },
+      "sourceIds": [
+        "wall-pushup"
+      ],
+      "reviewedOn": "2026-10-25",
+      "sourceNote": "Variante con presa più stretta del wall press-up. Non serve una presa a diamante."
+    },
+    "Push-up sulle ginocchia": {
+      "summary": "Petto e bacino scendono insieme; spingi e mantieni il collo lungo.",
+      "setup": "Mani poco più larghe delle spalle e ginocchia sul tappetino. Arretra le ginocchia finché spalle, bacino e ginocchia formano una linea. Guarda il tappetino poco davanti alle mani.",
+      "steps": [
+        "Attiva addome e glutei. Piega i gomiti indietro e leggermente verso l’esterno, circa a 30–45° dal busto.",
+        "Abbassa insieme petto e bacino, come un unico blocco, fin dove mantieni la linea del tronco.",
+        "Spingi con tutta la mano e distendi i gomiti per tornare su: il bacino non deve partire per primo.",
+        "Ritrova la posizione iniziale prima di ripetere. Non serve toccare il pavimento con il petto se perdi controllo."
+      ],
+      "breath": "Inspira scendendo, espira mentre spingi. Movimento continuo e lento.",
+      "focus": [
+        "Lavorano petto e braccia, mentre l’addome mantiene fermo il tronco."
+      ],
+      "avoid": [
+        "Bacino che cede.",
+        "Gomiti aperti a 90° o mento proteso avanti."
+      ],
+      "easier": [
+        "Usa il muro oppure riduci molto la discesa sulle ginocchia."
+      ],
+      "levels": {
+        "beginner": "Usa il muro oppure riduci molto la discesa sulle ginocchia.",
+        "advanced": "Esegui il movimento sulle ginocchia mantenendo la linea del busto.",
+        "expert": "Scendi in 3 secondi e fermati un secondo prima di risalire, sempre sulle ginocchia."
+      },
+      "cue": "Piega i gomiti obliqui verso il busto e abbassa insieme petto e bacino. Spingi con tutta la mano per risalire. Mantieni il corpo in linea, senza lasciare cadere la pancia.",
+      "voice": {
+        "prepare": "Mani poco più larghe delle spalle e ginocchia a terra. Arretrale finché spalle, bacino e ginocchia sono in linea.",
+        "move": "Piega i gomiti obliqui verso il busto e abbassa insieme petto e bacino. Spingi con tutta la mano per risalire. Mantieni il corpo in linea, senza lasciare cadere la pancia.",
+        "short": "Abbassa insieme petto e bacino. Spingi sulle mani per risalire, col busto in linea."
+      },
+      "sourceIds": [
+        "pushup"
+      ],
+      "reviewedOn": "2026-10-25"
+    },
+    "Riscaldamento dei polsi": {
+      "summary": "Polsi morbidi, piccoli cerchi e dita rilassate.",
+      "setup": "In piedi o seduto, gomiti piegati e avambracci davanti al busto. Tieni le spalle rilassate e le mani morbide, senza intrecciare le dita.",
+      "steps": [
+        "Apri le dita, poi richiudile delicatamente, senza stringere forte i pugni.",
+        "Mantieni fermi gli avambracci e muovi i polsi in piccoli cerchi, passando da piegamento a estensione e inclinazione laterale.",
+        "Usa un arco comodo: le dita accompagnano la mano ma non devono essere tirate dall’altra mano.",
+        "A metà tempo inverti il verso dei cerchi. Non appoggiare il peso del corpo sui polsi durante questo riscaldamento."
+      ],
+      "breath": "Respira liberamente; il movimento è lento e non richiede forza.",
+      "focus": [
+        "Mobilità leggera del polso, senza formicolio o pressione articolare."
+      ],
+      "avoid": [
+        "Forzare la flessione dei polsi.",
+        "Cerchi bruschi o dolore."
+      ],
+      "easier": [
+        "Fai cerchi molto piccoli, un polso alla volta."
+      ],
+      "levels": {
+        "beginner": "Fai cerchi molto piccoli, un polso alla volta.",
+        "advanced": "Alterna aperture delle dita e cerchi comodi.",
+        "expert": "Cura la fluidità in entrambe le direzioni; non aggiungere pressione o carico."
+      },
+      "cue": "Apri e chiudi dolcemente le dita, poi disegna piccoli cerchi con i polsi. Gli avambracci restano fermi. Usa un arco comodo, senza stringere i pugni o forzare.",
+      "voice": {
+        "prepare": "Porta gli avambracci davanti al busto, con gomiti piegati e mani rilassate. Tieni ferme le spalle.",
+        "move": "Apri e chiudi dolcemente le dita, poi disegna piccoli cerchi con i polsi. Gli avambracci restano fermi. Usa un arco comodo, senza stringere i pugni o forzare.",
+        "short": "Disegna piccoli cerchi con i polsi, lasciando fermi gli avambracci."
+      },
+      "sourceIds": [
+        "wrists"
+      ],
+      "reviewedOn": "2026-10-25",
+      "midpointCue": "Inverti il verso dei piccoli cerchi dei polsi."
+    },
+    "Roll down": {
+      "summary": "Srotola il busto lentamente, ginocchia morbide; risali senza scatti.",
+      "setup": "In piedi, piedi alla larghezza delle anche, ginocchia morbide e braccia rilassate. Mantieni il peso distribuito su entrambi i piedi.",
+      "steps": [
+        "Espira, avvicina leggermente il mento al petto e lascia scendere la testa, poi la parte alta della schiena.",
+        "Piega le ginocchia quanto serve mentre il busto scende gradualmente. Le braccia pendono: non tirare verso il pavimento.",
+        "Fermati all’altezza che controlli, senza cercare di toccare le punte dei piedi. Il peso resta sul centro dei piedi.",
+        "Risalendo, premi i piedi a terra e ricomponi lentamente il busto. Riporta la testa in posizione per ultima, senza scatti."
+      ],
+      "breath": "Espira iniziando la discesa; continua a respirare se il movimento dura più di un respiro.",
+      "focus": [
+        "Mobilizzazione graduale della schiena; non una prova di profondità."
+      ],
+      "avoid": [
+        "Scatti verso il pavimento.",
+        "Ginocchia bloccate o capogiri."
+      ],
+      "easier": [
+        "Riduci molto la discesa e sostieni le mani sulle cosce. In caso di osteoporosi o fratture vertebrali, scegli la variante indicata dal fisioterapista, evitando di forzare l’arrotondamento."
+      ],
+      "levels": {
+        "beginner": "Scendi solo poco e appoggia le mani sulle cosce.",
+        "advanced": "Lascia scendere il busto nell’intervallo comodo con ginocchia morbide.",
+        "expert": "Rallenta la sequenza mantenendo uguale l’ampiezza, senza cercare il pavimento."
+      },
+      "cue": "Lascia scendere lentamente testa e busto, piegando le ginocchia quanto serve. Non cercare il pavimento. Premi i piedi a terra e risali con calma, riportando la testa per ultima.",
+      "voice": {
+        "prepare": "In piedi, piedi larghi come le anche, ginocchia morbide e braccia rilassate. Mantieni il peso su entrambi i piedi.",
+        "move": "Lascia scendere lentamente testa e busto, piegando le ginocchia quanto serve. Non cercare il pavimento. Premi i piedi a terra e risali con calma, riportando la testa per ultima.",
+        "short": "Scendi lentamente col busto e risali. Piega le ginocchia, senza cercare il pavimento."
+      },
+      "sourceIds": [
+        "roll"
+      ],
+      "reviewedOn": "2026-10-25",
+      "sourceNote": "La fonte approfondisce gli adattamenti della flessione per chi ha osteoporosi o rischio di frattura; non è una prescrizione universale di ampiezza."
+    },
+    "Rotazioni dei gomiti": {
+      "summary": "Mobilità dei gomiti: piegamento e distensione, seguiti da rotazione degli avambracci.",
+      "setup": "In piedi o seduto, lascia le braccia vicino ai fianchi e le spalle rilassate. Inizia con gomiti piegati e mani davanti al busto.",
+      "steps": [
+        "Piega i gomiti per avvicinare le mani alle spalle, poi distendili lentamente senza bloccarli a fine corsa.",
+        "Torna con i gomiti piegati a circa 90°, mantenendoli vicini ai fianchi.",
+        "Ruota gli avambracci portando i palmi verso l’alto e poi verso il basso, senza muovere spalle e busto.",
+        "Alterna questi gesti comodi: il gomito si piega e si distende, mentre la rotazione riguarda l’avambraccio. Non cercare cerchi forzati dentro l’articolazione."
+      ],
+      "breath": "Respira normalmente e mantieni il movimento lento.",
+      "focus": [
+        "Mobilità di gomiti e avambracci, senza torsione forzata delle spalle."
+      ],
+      "avoid": [
+        "Cerchi troppo ampi.",
+        "Muovere tutta la spalla o stringere i pugni."
+      ],
+      "easier": [
+        "Un braccio alla volta e cerchi piccoli."
+      ],
+      "levels": {
+        "beginner": "Un braccio alla volta e cerchi piccoli.",
+        "advanced": "Muovi entrambi gli avambracci con regolarità.",
+        "expert": "Cura la stessa ampiezza e fluidità nei due versi; non accelerare."
+      },
+      "cue": "Piega e distendi lentamente i gomiti. Poi tienili a novanta gradi e gira i palmi verso l’alto e verso il basso. Non cercare di far ruotare il gomito in cerchio.",
+      "voice": {
+        "prepare": "Braccia vicino ai fianchi, gomiti piegati e spalle rilassate. Muovi gli avambracci senza trascinare il busto.",
+        "move": "Piega e distendi lentamente i gomiti. Poi tienili a novanta gradi e gira i palmi verso l’alto e verso il basso. Non cercare di far ruotare il gomito in cerchio.",
+        "short": "Piega e distendi i gomiti, poi ruota i palmi in alto e in basso."
+      },
+      "sourceIds": [
+        "elbow"
+      ],
+      "reviewedOn": "2026-10-25",
+      "imageNote": "Il nome storico è conservato. I movimenti da seguire sono piegamento/distensione e palmi su/giù: le frecce del disegno non richiedono di forzare cerchi al gomito."
+    },
+    "Rotazioni del bacino": {
+      "summary": "Cerchi lenti del bacino, ginocchia morbide e busto alto.",
+      "setup": "In piedi, piedi alla larghezza delle anche e mani sui fianchi. Mantieni le ginocchia morbide e il busto alto.",
+      "steps": [
+        "Sposta il bacino di poco avanti, poi a destra, indietro e a sinistra, tracciando un cerchio piccolo.",
+        "Le ginocchia accompagnano il gesto senza irrigidirsi; piedi e talloni restano appoggiati.",
+        "Lascia il torace il più possibile tranquillo: non cercare un grande cerchio inarcando la schiena.",
+        "A metà tempo inverti il verso, mantenendo la stessa ampiezza comoda."
+      ],
+      "breath": "Respiro libero e regolare per tutto il movimento.",
+      "focus": [
+        "Mobilità dolce delle anche e del bacino, con spostamento contenuto del peso."
+      ],
+      "avoid": [
+        "Cerchi estremi della zona lombare.",
+        "Ginocchia rigide o piedi che si sollevano."
+      ],
+      "easier": [
+        "Disegna cerchi piccoli e usa una parete per l’equilibrio."
+      ],
+      "levels": {
+        "beginner": "Disegna cerchi piccoli e usa una parete per l’equilibrio.",
+        "advanced": "Esegui cerchi comodi in entrambe le direzioni.",
+        "expert": "Rendi il cerchio più uniforme senza aumentare l’ampiezza."
+      },
+      "cue": "Sposta poco il bacino avanti, di lato, indietro e dall’altro lato. Disegna un cerchio piccolo, senza inarcare la schiena o sollevare i talloni. Continua respirando.",
+      "voice": {
+        "prepare": "In piedi, mani sui fianchi e ginocchia morbide. Tieni i piedi appoggiati e il busto alto.",
+        "move": "Sposta poco il bacino avanti, di lato, indietro e dall’altro lato. Disegna un cerchio piccolo, senza inarcare la schiena o sollevare i talloni. Continua respirando.",
+        "short": "Piccoli cerchi col bacino, mantenendo busto alto e piedi appoggiati."
+      },
+      "sourceIds": [
+        "stretch-coaching"
+      ],
+      "reviewedOn": "2026-10-25",
+      "midpointCue": "Inverti il verso del cerchio, mantenendo il movimento piccolo.",
+      "sourceNote": "Indicazioni generali NASM per mobilità dinamica controllata; la fonte non descrive questa esatta sequenza di circonduzione del bacino."
+    },
+    "Rotazioni del collo": {
+      "summary": "Ruota piano la testa, torna al centro e cambia lato senza forzare.",
+      "setup": "Seduto o in piedi, raddrizza il busto, rilassa le spalle e guarda davanti a te. Mantieni il mento circa parallelo al pavimento.",
+      "steps": [
+        "Ruota lentamente la testa verso destra, come per guardare oltre la spalla, senza muovere il torace.",
+        "Fermati nel tratto comodo, senza cercare il massimo e senza sollevare il mento.",
+        "Torna a guardare davanti, poi ruota a sinistra.",
+        "Alterna passando sempre dal centro. Non disegnare cerchi completi con la testa e non accompagnare il movimento con le mani."
+      ],
+      "breath": "Respira liberamente e fai una breve pausa al centro prima di cambiare lato.",
+      "focus": [
+        "Rotazione comoda del collo, senza tensione marcata, dolore o capogiro."
+      ],
+      "avoid": [
+        "Cerchi completi con la testa.",
+        "Spingere con le mani o forzare il fine corsa."
+      ],
+      "easier": [
+        "Ruota solo pochi gradi per lato."
+      ],
+      "levels": {
+        "beginner": "Ruota solo pochi gradi per lato.",
+        "advanced": "Esplora la rotazione comoda senza alzare le spalle.",
+        "expert": "Rallenta il ritorno al centro; non aumentare la tensione."
+      },
+      "cue": "Gira lentamente la testa verso una spalla, torna al centro e ripeti dall’altra parte. Mantieni fermo il busto. Non alzare il mento e non fare cerchi completi con il collo.",
+      "voice": {
+        "prepare": "Busto alto e spalle rilassate. Guarda davanti a te, con il mento parallelo al pavimento.",
+        "move": "Gira lentamente la testa verso una spalla, torna al centro e ripeti dall’altra parte. Mantieni fermo il busto. Non alzare il mento e non fare cerchi completi con il collo.",
+        "short": "Guarda verso una spalla, torna al centro e alterna. Niente cerchi completi."
+      },
+      "sourceIds": [
+        "neck"
+      ],
+      "reviewedOn": "2026-10-25"
+    },
+    "Rotazioni delle braccia": {
+      "summary": "Spalle basse, cerchi lenti delle braccia e busto fermo.",
+      "setup": "In piedi, piedi alla larghezza delle anche e ginocchia morbide. Apri le braccia ai lati all’altezza comoda per le spalle, con gomiti non bloccati.",
+      "steps": [
+        "Disegna piccoli cerchi con le mani, facendo partire il movimento dalle spalle.",
+        "Mantieni il busto fermo e le spalle lontane dalle orecchie: non oscillare con la schiena per ampliare i cerchi.",
+        "Allarga l’arco solo se riesci a mantenerlo fluido e senza fastidio.",
+        "A metà tempo inverti la direzione; abbassa un poco le braccia se il collo si irrigidisce."
+      ],
+      "breath": "Respira liberamente, mantenendo cerchi lenti e regolari.",
+      "focus": [
+        "Mobilizzazione delle spalle con ampiezza controllata."
+      ],
+      "avoid": [
+        "Alzare le spalle.",
+        "Usare slancio o cercare ampiezza con dolore."
+      ],
+      "easier": [
+        "Gomiti piegati e cerchi piccoli, anche un braccio alla volta."
+      ],
+      "levels": {
+        "beginner": "Gomiti piegati e cerchi piccoli, anche un braccio alla volta.",
+        "advanced": "Braccia distese e cerchi regolari in entrambi i versi.",
+        "expert": "Cura il controllo del cerchio senza velocizzare o aggiungere pesi."
+      },
+      "cue": "Disegna piccoli cerchi con le braccia, partendo dalle spalle. Il busto resta fermo. Allarga il movimento solo se è comodo e non irrigidisce il collo.",
+      "voice": {
+        "prepare": "In piedi, apri le braccia ai lati a un’altezza comoda. Tieni le ginocchia morbide e le spalle basse.",
+        "move": "Disegna piccoli cerchi con le braccia, partendo dalle spalle. Il busto resta fermo. Allarga il movimento solo se è comodo e non irrigidisce il collo.",
+        "short": "Piccoli cerchi con le braccia, mantenendo il busto fermo e le spalle basse."
+      },
+      "sourceIds": [
+        "arms"
+      ],
+      "reviewedOn": "2026-10-25",
+      "midpointCue": "Cambia direzione dei cerchi, senza alzare le spalle."
+    },
+    "Scivolamenti scapolari al muro": {
+      "summary": "Schiena al muro, costole ferme; le braccia scorrono senza forzare.",
+      "setup": "Appoggia schiena e bacino a una parete, piedi poco avanti e ginocchia morbide. Piega i gomiti a W, con mani verso l’alto e dorsi delle mani rivolti al muro.",
+      "steps": [
+        "Mantieni le costole sopra il bacino e il collo lungo, senza schiacciare con forza la zona lombare contro il muro.",
+        "Fai scorrere le braccia verso il soffitto, distendendo progressivamente i gomiti.",
+        "Fermati prima che le costole sporgano, la schiena si inarchi o le spalle diventino scomode. Non forzare polsi e gomiti contro la parete.",
+        "Riporta lentamente i gomiti verso i fianchi e ricrea la W, mantenendo fermo il busto."
+      ],
+      "breath": "Inspira salendo con le braccia, espira scendendo. Usa una velocità uniforme.",
+      "focus": [
+        "Movimento delle spalle sul torace, con tronco stabile."
+      ],
+      "avoid": [
+        "Inarcare la schiena.",
+        "Spingere la testa contro il muro."
+      ],
+      "easier": [
+        "Usa un arco piccolo e lascia le mani staccate dal muro se serve."
+      ],
+      "levels": {
+        "beginner": "Usa un arco piccolo e lascia le mani staccate dal muro se serve.",
+        "advanced": "Allunga le braccia senza perdere il controllo delle costole.",
+        "expert": "Salita e discesa in 3 secondi ciascuna, senza aumentare la tensione."
+      },
+      "cue": "Fai scorrere le braccia verso il soffitto, poi riporta i gomiti verso i fianchi. Mantieni ferme le costole e non inarcare la schiena. Fermati prima di forzare le spalle.",
+      "voice": {
+        "prepare": "Schiena al muro, piedi poco avanti e ginocchia morbide. Porta le braccia a W, mani verso l’alto.",
+        "move": "Fai scorrere le braccia verso il soffitto, poi riporta i gomiti verso i fianchi. Mantieni ferme le costole e non inarcare la schiena. Fermati prima di forzare le spalle.",
+        "short": "Scorri con le braccia in alto e torna alla W. Non aprire le costole."
+      },
+      "sourceIds": [
+        "scapula"
+      ],
+      "reviewedOn": "2026-10-25"
+    },
+    "Shadow boxing": {
+      "summary": "Colpi controllati, gomiti morbidi e mani che tornano in guardia.",
+      "setup": "In piedi, piede sinistro un poco avanti al destro, piedi separati lateralmente e ginocchia morbide. Mani in guardia vicino alle guance, mento leggermente rientrato e polsi dritti.",
+      "steps": [
+        "Distendi il braccio sinistro davanti a te con un pugno leggero, senza colpire oggetti e senza bloccare violentemente il gomito.",
+        "Riporta subito la mano alla guancia. Allunga il braccio destro accompagnando il gesto con una piccola rotazione di torace e bacino.",
+        "Lascia ruotare il piede posteriore con il bacino, evitando di torcere il ginocchio su un piede bloccato.",
+        "Alterna i diretti lentamente, mantenendo una mano in guardia mentre l’altra si muove. Non servono pesi, colpi massimali o passi rapidi."
+      ],
+      "breath": "Espira brevemente a ogni pugno e inspira nel richiamo. Ritmo leggero e controllato.",
+      "focus": [
+        "Coordinazione e movimento continuo, senza irrigidire spalle e collo."
+      ],
+      "avoid": [
+        "Colpi a fine corsa.",
+        "Spalle rigide o torsioni del ginocchio."
+      ],
+      "easier": [
+        "Colpi lenti e corti, piedi fermi e nessun rimbalzo."
+      ],
+      "levels": {
+        "beginner": "Colpi lenti e corti, piedi fermi e nessun rimbalzo.",
+        "advanced": "Alterna i colpi con piccole rotazioni controllate.",
+        "expert": "Usa sequenze di 2 colpi e un passo laterale lento, mantenendo equilibrio e guardia."
+      },
+      "cue": "Allunga un pugno davanti e riportalo subito in guardia, poi alterna. Accompagna con una piccola rotazione del corpo e del piede. Non bloccare il gomito e non colpire con forza.",
+      "voice": {
+        "prepare": "Un piede poco avanti all’altro, ginocchia morbide e mani vicino alle guance. Mento leggermente rientrato e polsi dritti.",
+        "move": "Allunga un pugno davanti e riportalo subito in guardia, poi alterna. Accompagna con una piccola rotazione del corpo e del piede. Non bloccare il gomito e non colpire con forza.",
+        "short": "Pugno leggero avanti, richiamo in guardia e alterna. Non bloccare il gomito."
+      },
+      "sourceIds": [
+        "boxing"
+      ],
+      "reviewedOn": "2026-10-25",
+      "sourceNote": "Sequenza introduttiva di soli diretti alternati, adattata ai principi di guardia e rotazione del manuale England Boxing."
+    },
+    "Snow angels inversi": {
+      "summary": "Pancia in giù; disegna un angelo con le braccia, petto e testa appoggiati.",
+      "setup": "Sdraiati a pancia in giù, fronte sostenuta su un asciugamano e naso libero. Gambe e bacino appoggiati, braccia lungo i fianchi e mani rivolte al tappetino.",
+      "steps": [
+        "Attiva leggermente l’addome e solleva appena le mani dal pavimento, mantenendo il petto appoggiato.",
+        "Apri le braccia ai lati e falle passare lentamente verso la testa, disegnando un arco come un angelo nella neve.",
+        "Ruota le braccia quanto è comodo per le spalle, senza forzare i polsi o alzare il mento. Fermati prima di perdere la posizione della schiena.",
+        "Inverti il percorso e riporta le mani vicino ai fianchi. Puoi riappoggiarle tra le ripetizioni."
+      ],
+      "breath": "Inspira aprendo le braccia, espira tornando lungo i fianchi. Riduci l’arco se il respiro si blocca.",
+      "focus": [
+        "Controllo delle spalle durante l’arco, con collo e zona lombare rilassati."
+      ],
+      "avoid": [
+        "Eseguirlo sulla schiena: questa è la variante inversa prona.",
+        "Alzare petto o testa.",
+        "Forzare le spalle sopra la testa."
+      ],
+      "easier": [
+        "Fai un arco breve, anche con le mani che sfiorano il tappetino."
+      ],
+      "levels": {
+        "beginner": "Fai un arco breve, anche con le mani che sfiorano il tappetino.",
+        "advanced": "Muovi entrambe le braccia nell’arco controllato.",
+        "expert": "Rallenta a 3 secondi per direzione, mantenendo la fronte appoggiata."
+      },
+      "cue": "Solleva appena le mani. Apri le braccia ai lati e portale verso la testa con un arco lento, poi torna ai fianchi. Non alzare il mento e non inarcare la schiena.",
+      "voice": {
+        "prepare": "A pancia in giù, fronte sostenuta e petto appoggiato. Braccia lungo i fianchi, gambe e bacino fermi.",
+        "move": "Solleva appena le mani. Apri le braccia ai lati e portale verso la testa con un arco lento, poi torna ai fianchi. Non alzare il mento e non inarcare la schiena.",
+        "short": "Braccia dai fianchi verso la testa e ritorno. Mantieni petto e bacino appoggiati."
+      },
+      "sourceIds": [
+        "prone"
+      ],
+      "reviewedOn": "2026-10-25",
+      "sourceNote": "Adattamento dinamico delle posizioni prone di stabilizzazione scapolare: la fonte sostiene postura e controllo, non questa esatta sequenza continua."
+    },
+    "Spostamento del peso in quadrupedia": {
+      "summary": "Muovi il corpo come un blocco, mani e ginocchia sempre appoggiate.",
+      "setup": "A quattro appoggi, mani sotto le spalle e ginocchia sotto le anche. Apri le dita e mantieni entrambi i palmi e le due ginocchia a terra.",
+      "steps": [
+        "Sostieni il busto spingendo dolcemente il pavimento, con gomiti distesi senza bloccarli.",
+        "Sposta il corpo di pochi centimetri avanti, lasciando che le spalle superino appena i polsi.",
+        "Riporta il corpo indietro fino alla posizione iniziale, senza sederti sui talloni e senza staccare le mani.",
+        "Ripeti l’oscillazione mantenendo testa, schiena e bacino in linea. L’ampiezza si riduce se senti pressione ai polsi."
+      ],
+      "breath": "Espira spostandoti avanti, inspira tornando al centro.",
+      "focus": [
+        "Trasferimento graduale del peso sulle mani senza perdere il sostegno delle spalle."
+      ],
+      "avoid": [
+        "Piegare la schiena invece di muovere il corpo insieme.",
+        "Caricare i polsi oltre il comfort."
+      ],
+      "easier": [
+        "Spostamento minimo, con un cuscino sotto le ginocchia se serve."
+      ],
+      "levels": {
+        "beginner": "Spostamento minimo, con un cuscino sotto le ginocchia se serve.",
+        "advanced": "Oscilla con controllo mantenendo tutti gli appoggi.",
+        "expert": "Ferma il gesto per 2 secondi davanti e dietro, senza aumentare il carico sui polsi."
+      },
+      "cue": "Sposta il corpo pochi centimetri avanti e poi torna al centro. Mantieni la schiena lunga e i gomiti morbidi. Non staccare le mani e riduci lo spostamento se i polsi tirano.",
+      "voice": {
+        "prepare": "A quattro appoggi, mani sotto le spalle e ginocchia sotto le anche. Palmi e ginocchia restano sempre a terra.",
+        "move": "Sposta il corpo pochi centimetri avanti e poi torna al centro. Mantieni la schiena lunga e i gomiti morbidi. Non staccare le mani e riduci lo spostamento se i polsi tirano.",
+        "short": "Sposta il corpo poco avanti e torna. Mani e ginocchia restano a terra."
+      },
+      "sourceIds": [
+        "bird"
+      ],
+      "reviewedOn": "2026-10-25",
+      "sourceNote": "Esercizio preparatorio in quadrupedia: usa gli appoggi e il controllo del tronco del bird dog, senza sollevare gli arti."
+    },
+    "Squat con slancio all'indietro": {
+      "summary": "Squat controllato; completa il gesto finale senza perdere l’equilibrio.",
+      "setup": "In piedi con piedi poco più larghi delle anche e punte leggermente aperte. Tieni un sostegno stabile vicino se ti serve equilibrio.",
+      "steps": [
+        "Porta il bacino indietro e piega le ginocchia, seguendo la direzione delle punte. Mantieni tutto il piede appoggiato.",
+        "Spingi i piedi a terra e torna completamente in piedi, senza slancio.",
+        "Sposta il peso sul piede sinistro e allunga la gamba destra di poco indietro, contraendo il gluteo. Non inclinare il bacino né inarcare la schiena.",
+        "Riappoggia il piede e ripeti lo squat. Dopo la risalita alterna la gamba che va indietro. Il nome “slancio” non richiede un calcio veloce."
+      ],
+      "breath": "Inspira nello squat, espira risalendo. Continua a respirare nel movimento successivo.",
+      "focus": [
+        "Controllo nella transizione tra squat e secondo movimento, senza perdere l’appoggio."
+      ],
+      "avoid": [
+        "Perdere l’equilibrio.",
+        "Inarcare la schiena o chiudere le ginocchia."
+      ],
+      "easier": [
+        "Usa una parete, riduci lo squat ed esegui il gesto finale con ampiezza minima."
+      ],
+      "levels": {
+        "beginner": "Usa una parete, riduci lo squat ed esegui il gesto finale con ampiezza minima.",
+        "advanced": "Collega lo squat al gesto finale senza oscillare con il busto.",
+        "expert": "Fai una pausa di un secondo tra squat e gesto finale, controllando l’equilibrio."
+      },
+      "cue": "Scendi in squat e torna alto. Allunga una gamba poco indietro, senza inarcare la schiena. Riappoggia il piede, ripeti lo squat e cambia gamba a ogni risalita.",
+      "voice": {
+        "prepare": "In piedi, piedi poco più larghi delle anche e ginocchia morbide. Tieni un sostegno vicino per l’equilibrio.",
+        "move": "Scendi in squat e torna alto. Allunga una gamba poco indietro, senza inarcare la schiena. Riappoggia il piede, ripeti lo squat e cambia gamba a ogni risalita.",
+        "short": "Squat, risali e allunga poco una gamba indietro. Ripeti e alterna gamba."
+      },
+      "sourceIds": [
+        "squat",
+        "donkey"
+      ],
+      "reviewedOn": "2026-10-25",
+      "sourceNote": "Combinazione a corpo libero: squat seguito da estensione dell’anca in piedi."
+    },
+    "Squat con sollevamento polpacci": {
+      "summary": "Squat controllato; completa il gesto finale senza perdere l’equilibrio.",
+      "setup": "In piedi con piedi poco più larghi delle anche e punte leggermente aperte. Tieni un sostegno stabile vicino se ti serve equilibrio.",
+      "steps": [
+        "Porta il bacino indietro e piega le ginocchia, seguendo la direzione delle punte. Mantieni tutto il piede appoggiato.",
+        "Spingi i piedi a terra e torna completamente in piedi, senza slancio.",
+        "Solo quando sei tornato alto, premi le basi delle dita e solleva entrambi i talloni, senza far cedere le caviglie verso l’esterno.",
+        "Riabbassa completamente i talloni e ritrova l’equilibrio prima dello squat successivo. Non è previsto un salto."
+      ],
+      "breath": "Inspira nello squat, espira risalendo. Continua a respirare nel movimento successivo.",
+      "focus": [
+        "Controllo nella transizione tra squat e secondo movimento, senza perdere l’appoggio."
+      ],
+      "avoid": [
+        "Perdere l’equilibrio.",
+        "Inarcare la schiena o chiudere le ginocchia."
+      ],
+      "easier": [
+        "Usa una parete, riduci lo squat ed esegui il gesto finale con ampiezza minima."
+      ],
+      "levels": {
+        "beginner": "Usa una parete, riduci lo squat ed esegui il gesto finale con ampiezza minima.",
+        "advanced": "Collega lo squat al gesto finale senza oscillare con il busto.",
+        "expert": "Fai una pausa di un secondo tra squat e gesto finale, controllando l’equilibrio."
+      },
+      "cue": "Scendi in squat e torna completamente alto. Poi solleva i talloni sulle basi delle dita. Riappoggiali lentamente prima dello squat successivo. Tieni separate le due azioni, senza saltare.",
+      "voice": {
+        "prepare": "In piedi, piedi poco più larghi delle anche e ginocchia morbide. Tieni un sostegno vicino per l’equilibrio.",
+        "move": "Scendi in squat e torna completamente alto. Poi solleva i talloni sulle basi delle dita. Riappoggiali lentamente prima dello squat successivo. Tieni separate le due azioni, senza saltare.",
+        "short": "Squat, risali e solleva i talloni. Riappoggiali prima di scendere ancora."
+      },
+      "sourceIds": [
+        "squat",
+        "calf"
+      ],
+      "reviewedOn": "2026-10-25",
+      "sourceNote": "Combinazione a corpo libero: squat seguito da sollevamento dei talloni."
+    },
+    "Stretching a farfalla da seduti": {
+      "summary": "Busto alto, ginocchia libere e tensione leggera nelle anche.",
+      "setup": "Siediti sul tappetino e unisci le piante dei piedi, con ginocchia aperte. Tieni i piedi alla distanza dal bacino che ti consente di stare comodo e alto con il busto.",
+      "steps": [
+        "Sostieniti con le mani dietro il bacino oppure appoggiale alle caviglie senza tirare.",
+        "Lascia scendere le ginocchia con il loro peso. Non premerle con gomiti o mani e non farle molleggiare.",
+        "Mantieni il petto alto. Se senti già una lieve tensione all’interno delle cosce, resta qui senza piegarti avanti.",
+        "Per uscire, accompagna le ginocchia verso il centro con le mani."
+      ],
+      "breath": "Respiri lenti nella tenuta, senza forzare la discesa delle ginocchia.",
+      "focus": [
+        "Tensione lieve e simmetrica nella parte interna delle cosce."
+      ],
+      "avoid": [
+        "Spingere le ginocchia a terra.",
+        "Arrotondare la schiena o molleggiare."
+      ],
+      "easier": [
+        "Siediti su un cuscino e metti un sostegno sotto ciascuna coscia se le ginocchia restano alte."
+      ],
+      "levels": {
+        "beginner": "Siediti su un cuscino e sostieni le ginocchia con altri supporti.",
+        "advanced": "Mantieni il busto alto e la tensione comoda.",
+        "expert": "Cura il rilassamento a ogni respiro, senza aumentare la profondità."
+      },
+      "cue": "Lascia scendere le ginocchia con il loro peso e respira. Mantieni il petto alto, senza tirare i piedi verso di te. Non premere le ginocchia e non molleggiare.",
+      "voice": {
+        "prepare": "Siediti e unisci le piante dei piedi. Apri le ginocchia e sostieniti con le mani se serve a tenere il busto alto.",
+        "move": "Lascia scendere le ginocchia con il loro peso e respira. Mantieni il petto alto, senza tirare i piedi verso di te. Non premere le ginocchia e non molleggiare.",
+        "short": "Piante unite, busto alto e ginocchia rilassate. Respira senza premerle a terra."
+      },
+      "sourceIds": [
+        "butterfly"
+      ],
+      "reviewedOn": "2026-10-25"
+    },
+    "Stretching attivo di polpacci e bicipiti femorali": {
+      "summary": "Tallone avanti e punta alta; inclina dalle anche con schiena lunga.",
+      "setup": "In piedi, porta il tallone destro poco avanti e solleva la punta di quel piede. La gamba davanti resta quasi distesa; il ginocchio sinistro è morbido e sostiene il peso.",
+      "steps": [
+        "Porta il bacino indietro e inclina il busto dalla piega delle anche, mantenendo la schiena lunga.",
+        "Appoggia le mani sulla coscia di sostegno, senza premere sul ginocchio disteso e senza tirare la punta del piede.",
+        "Fermati alla prima tensione lieve dietro la coscia e nel polpaccio della gamba anteriore: non cercare il pavimento con le mani.",
+        "Torna alto, riappoggia tutta la pianta e cambia gamba. Alterna con un movimento lento, senza rimbalzi."
+      ],
+      "breath": "Espira nella piccola inclinazione, inspira tornando alto. Alterna ogni pochi secondi.",
+      "focus": [
+        "Allungamento controllato dietro la gamba avanti, non uno stiramento della zona lombare."
+      ],
+      "avoid": [
+        "Bloccare con forza il ginocchio davanti.",
+        "Incurvare la schiena o tirare le dita del piede."
+      ],
+      "easier": [
+        "Mani su un supporto e inclinazione minima."
+      ],
+      "levels": {
+        "beginner": "Mani su un supporto e inclinazione minima.",
+        "advanced": "Alterna i lati mantenendo il tallone davanti appoggiato.",
+        "expert": "Rallenta il passaggio tra i lati; la tensione resta lieve."
+      },
+      "cue": "Porta il bacino indietro e inclina il busto dalle anche. Senti una tensione lieve dietro la gamba davanti. Torna alto e cambia gamba, senza incurvare la schiena o rimbalzare.",
+      "voice": {
+        "prepare": "In piedi, un tallone poco avanti e punta sollevata. Piega leggermente il ginocchio della gamba dietro, che sostiene il peso.",
+        "move": "Porta il bacino indietro e inclina il busto dalle anche. Senti una tensione lieve dietro la gamba davanti. Torna alto e cambia gamba, senza incurvare la schiena o rimbalzare.",
+        "short": "Tallone avanti, bacino indietro e busto lungo. Torna alto e cambia gamba."
+      },
+      "sourceIds": [
+        "hamstrings",
+        "stretch-coaching"
+      ],
+      "reviewedOn": "2026-10-25",
+      "sourceNote": "Variante dinamica alternata con tallone a terra; non una tenuta statica e non una ricerca forzata delle dita del piede."
+    },
+    "Stretching dei bicipiti femorali da seduto": {
+      "summary": "Allungamento da seduto con entrambe le gambe davanti: il busto si inclina dalle anche.",
+      "setup": "Siediti con entrambe le gambe distese davanti a te, circa parallele, talloni appoggiati e punte rivolte verso l’alto. Lascia le ginocchia leggermente morbide, senza spingerle contro il pavimento.",
+      "steps": [
+        "Senti l’appoggio sotto i glutei e allunga il busto verso l’alto. Se il bacino cade indietro, siediti su un asciugamano piegato e piega un poco di più le ginocchia.",
+        "Porta il petto poco in avanti dalla piega delle anche, mantenendo la schiena lunga. Le mani scivolano sulle cosce o sulle tibie senza tirare.",
+        "Fermati quando senti una tensione lieve dietro entrambe le cosce. Non è necessario raggiungere le punte dei piedi, né distendere del tutto le ginocchia.",
+        "Mantieni questa posizione respirando, senza molleggiare. Per uscire, riporta lentamente il busto verticale. In questa variante le due gambe lavorano insieme: non si cambia lato."
+      ],
+      "breath": "Respira lentamente e mantieni la posizione senza rimbalzi. Non aumentare la profondità se perdi il controllo del busto.",
+      "focus": [
+        "Tensione lieve dietro le cosce; collo e zona lombare non devono essere forzati."
+      ],
+      "avoid": [
+        "Arrotondare molto la schiena per arrivare ai piedi.",
+        "Tirare le dita dei piedi o bloccare con forza le ginocchia.",
+        "Rimbalzare o insistere se compaiono dolore, formicolio o trazione elettrica."
+      ],
+      "easier": [
+        "Siediti su un asciugamano piegato, piega leggermente entrambe le ginocchia e tieni le mani sulle cosce. Anche una piccola inclinazione è sufficiente."
+      ],
+      "levels": {
+        "beginner": "Siediti su un cuscino e piega un po’ il ginocchio davanti.",
+        "advanced": "Mantieni l’inclinazione comoda con la schiena lunga.",
+        "expert": "Allunga l’espirazione senza cercare di scendere di più."
+      },
+      "cue": "Inclina poco il petto in avanti dalle anche, con schiena lunga. Lascia le mani su cosce o tibie. Mantieni una lieve tensione dietro entrambe le cosce, senza cercare i piedi.",
+      "voice": {
+        "prepare": "Siediti con entrambe le gambe distese davanti, talloni a terra e ginocchia morbide. Allunga il busto; usa un asciugamano sotto il bacino se serve.",
+        "move": "Inclina poco il petto in avanti dalle anche, con schiena lunga. Lascia le mani su cosce o tibie. Mantieni una lieve tensione dietro entrambe le cosce, senza cercare i piedi.",
+        "short": "Gambe davanti, inclina il petto dalle anche. Tensione lieve dietro le cosce, senza forzare."
+      },
+      "sourceIds": [
+        "hamstrings",
+        "stretch-coaching"
+      ],
+      "reviewedOn": "2026-10-25",
+      "imageNote": "La figura indica la direzione generale. Non occorre copiarne la profondità o raggiungere i piedi: mantieni il busto lungo e le ginocchia morbide."
+    },
+    "Stretching dei dorsali sopra la testa": {
+      "summary": "Braccia in alto quanto è comodo; costole ferme e collo libero.",
+      "setup": "In piedi o seduto con busto alto, porta entrambe le braccia sopra la testa. Tieni le mani separate o intrecciale solo se le spalle restano comode.",
+      "steps": [
+        "Allunga le mani verso il soffitto, come per aumentare la distanza tra bacino e ascelle.",
+        "Mantieni le costole sopra il bacino, senza sporgere il petto o inarcare la zona lombare.",
+        "Rilassa il collo e respira nella posizione. Non serve distendere completamente i gomiti se questo irrigidisce le spalle.",
+        "Rilascia e abbassa lentamente le braccia se perdi la posizione comoda."
+      ],
+      "breath": "Respiri lenti e continui nella tenuta, senza sollevare le spalle verso le orecchie.",
+      "focus": [
+        "Allungamento comodo lungo i lati del tronco e sotto le ascelle."
+      ],
+      "avoid": [
+        "Inarcare la schiena.",
+        "Spalle incassate o braccia forzate indietro."
+      ],
+      "easier": [
+        "Tieni le mani separate e i gomiti piegati."
+      ],
+      "levels": {
+        "beginner": "Tieni le mani separate e i gomiti piegati.",
+        "advanced": "Allunga le braccia senza alzare le spalle.",
+        "expert": "Cura respiro e controllo delle costole, senza tirare più forte."
+      },
+      "cue": "Allunga le mani verso il soffitto mantenendo ferme le costole. Respira e lascia il collo rilassato. Non inarcare la schiena per salire di più; abbassa le braccia se le spalle tirano.",
+      "voice": {
+        "prepare": "Busto alto, braccia sopra la testa fin dove è comodo. Tieni le mani separate se intrecciarle irrigidisce le spalle.",
+        "move": "Allunga le mani verso il soffitto mantenendo ferme le costole. Respira e lascia il collo rilassato. Non inarcare la schiena per salire di più; abbassa le braccia se le spalle tirano.",
+        "short": "Mani verso il soffitto e costole ferme. Respira senza inarcare la schiena."
+      },
+      "sourceIds": [
+        "stretch-coaching",
+        "arms"
+      ],
+      "reviewedOn": "2026-10-25",
+      "sourceNote": "Allungamento generale sopra la testa con controllo delle costole; il nome non implica l’isolamento di un singolo muscolo."
+    },
+    "Stretching della spalla incrociato": {
+      "summary": "Braccio davanti al petto, spalla bassa; cambia lato a metà tempo.",
+      "setup": "In piedi o seduto, busto rivolto avanti. Porta il braccio destro davanti al petto e sostienilo con la mano o l’avambraccio sinistro, sopra il gomito.",
+      "steps": [
+        "Avvicina delicatamente il braccio al petto, mantenendo la spalla destra bassa.",
+        "Non premere direttamente sul gomito e non ruotare tutto il busto per aumentare la tensione.",
+        "Mantieni una lieve tensione dietro la spalla, con mandibola e collo rilassati.",
+        "A metà tempo rilascia lentamente e ripeti con il braccio sinistro."
+      ],
+      "breath": "Respira normalmente durante la tenuta e rilascia con calma prima di cambiare lato.",
+      "focus": [
+        "Tensione lieve dietro la spalla del braccio che attraversa il petto."
+      ],
+      "avoid": [
+        "Premere direttamente sull’articolazione del gomito.",
+        "Tirare forte o ruotare il busto."
+      ],
+      "easier": [
+        "Sostieni il braccio con una presa leggera e un gomito morbido."
+      ],
+      "levels": {
+        "beginner": "Sostieni il braccio con una presa leggera e un gomito morbido.",
+        "advanced": "Mantieni una tensione lieve dietro la spalla.",
+        "expert": "Rilassa più accuratamente il collo; non aumentare la trazione."
+      },
+      "cue": "Avvicina delicatamente il braccio al petto. Mantieni bassa la spalla e respira, senza premere sul gomito. Cerca una lieve tensione dietro la spalla, senza ruotare il busto.",
+      "voice": {
+        "prepare": "Porta il braccio destro davanti al petto e sostienilo con l’altro braccio sopra il gomito. Tieni il busto avanti.",
+        "move": "Avvicina delicatamente il braccio al petto. Mantieni bassa la spalla e respira, senza premere sul gomito. Cerca una lieve tensione dietro la spalla, senza ruotare il busto.",
+        "short": "Avvicina il braccio al petto, tenendo bassa la spalla. Mantieni senza forzare."
+      },
+      "sourceIds": [
+        "basic-stretches"
+      ],
+      "reviewedOn": "2026-10-25",
+      "midpointCue": "Rilascia e cambia braccio, con la spalla bassa."
+    },
+    "Stretching ginocchia al petto": {
+      "summary": "Avvicina le cosce con delicatezza e lascia la testa appoggiata.",
+      "setup": "Sdraiati sulla schiena con ginocchia piegate e piedi a terra. Appoggia comodamente la testa, usando un piccolo cuscino se necessario.",
+      "steps": [
+        "Solleva un ginocchio e sostieni la coscia da dietro, avvicinandola delicatamente al busto.",
+        "Se è comodo, avvicina anche l’altra gamba e abbraccia le due cosce, senza tirare direttamente sulle ginocchia.",
+        "Lascia la testa appoggiata e mantieni una presa leggera. Non schiacciare le cosce contro l’addome e non dondolare con forza.",
+        "Per uscire, allontana poco le cosce e appoggia un piede alla volta, tornando alla posizione iniziale."
+      ],
+      "breath": "Respira lentamente nella posizione. Lascia spazio all’addome per espandersi.",
+      "focus": [
+        "Rilassamento e tensione lieve nella parte bassa della schiena, senza pressione alle ginocchia."
+      ],
+      "avoid": [
+        "Tirare sulle rotule.",
+        "Sollevare la testa o comprimere troppo il ventre."
+      ],
+      "easier": [
+        "Avvicina una gamba alla volta, lasciando l’altro piede a terra."
+      ],
+      "levels": {
+        "beginner": "Avvicina una gamba alla volta, lasciando l’altro piede a terra.",
+        "advanced": "Avvicina entrambe le cosce con una tensione comoda.",
+        "expert": "Lascia rilassare la schiena col respiro; evita trazioni più forti."
+      },
+      "cue": "Avvicina un ginocchio al petto sostenendo la coscia da dietro, poi aggiungi l’altro se è comodo. Respira senza tirare forte. Per uscire appoggia un piede alla volta.",
+      "voice": {
+        "prepare": "Sulla schiena, ginocchia piegate e piedi a terra. Tieni la testa comodamente appoggiata.",
+        "move": "Avvicina un ginocchio al petto sostenendo la coscia da dietro, poi aggiungi l’altro se è comodo. Respira senza tirare forte. Per uscire appoggia un piede alla volta.",
+        "short": "Avvicina dolcemente le cosce al petto, testa appoggiata. Respira senza stringere forte."
+      },
+      "sourceIds": [
+        "back-stretches"
+      ],
+      "reviewedOn": "2026-10-25"
+    },
+    "Tenuta in posizione del cobra": {
+      "summary": "Pancia in giù, petto poco sollevato; bacino appoggiato e collo lungo.",
+      "setup": "Sdraiati a pancia in giù, gambe distese e dorsi dei piedi appoggiati. Metti le mani vicino al torace, sotto o poco avanti alle spalle, con gomiti rivolti indietro.",
+      "steps": [
+        "Allunga il petto in avanti e sollevalo lentamente, usando i muscoli della schiena e una pressione leggera delle mani.",
+        "Mantieni il bacino a terra e i gomiti piegati quanto serve. Non devi raddrizzare completamente le braccia.",
+        "Tieni il collo lungo e guarda poco avanti e in basso, senza rovesciare la testa. Mantieni solo un’altezza comoda.",
+        "Respira nella tenuta; se senti compressione o dolore lombare, abbassa il torace e interrompi. Per uscire, torna sul tappetino lentamente."
+      ],
+      "breath": "Respira normalmente durante la tenuta, poi espira mentre riappoggi il torace.",
+      "focus": [
+        "Apertura comoda del petto e dell’addome, senza dolore nella zona lombare."
+      ],
+      "avoid": [
+        "Raddrizzare i gomiti a forza.",
+        "Alzare il mento o sentire pizzicore lombare."
+      ],
+      "easier": [
+        "Solleva il petto pochissimo oppure usa gli avambracci in una sfinge comoda."
+      ],
+      "levels": {
+        "beginner": "Solleva il petto pochissimo oppure usa gli avambracci in una sfinge comoda.",
+        "advanced": "Mantieni il cobra basso con un carico leggero sulle mani.",
+        "expert": "Allunga il petto in avanti con minore spinta delle mani; non salire più in alto."
+      },
+      "cue": "Allunga il petto avanti e sollevalo poco, aiutandoti leggermente con le mani. Mantieni il bacino a terra, gomiti morbidi e collo lungo. Respira; abbassati se senti compressione nella schiena.",
+      "voice": {
+        "prepare": "A pancia in giù, mani vicino al torace e gomiti rivolti indietro. Lascia bacino e gambe appoggiati.",
+        "move": "Allunga il petto avanti e sollevalo poco, aiutandoti leggermente con le mani. Mantieni il bacino a terra, gomiti morbidi e collo lungo. Respira; abbassati se senti compressione nella schiena.",
+        "short": "Petto poco sollevato e bacino a terra. Respira, senza comprimere la zona lombare."
+      },
+      "sourceIds": [
+        "cobra"
+      ],
+      "reviewedOn": "2026-10-25"
+    },
+    "Tenuta plank su avambracci e ginocchia": {
+      "summary": "Avambracci attivi, addome stabile e ginocchia a terra; continua a respirare.",
+      "setup": "Appoggia avambracci e ginocchia sul tappetino, con gomiti sotto le spalle. Arretra le ginocchia finché spalle, bacino e ginocchia formano una linea.",
+      "steps": [
+        "Premi dolcemente gli avambracci a terra, senza sprofondare con il petto tra le spalle.",
+        "Attiva addome e glutei quanto basta a mantenere il bacino in linea: non alzare il sedere e non lasciare cadere la pancia.",
+        "Guarda il tappetino tra gli avambracci e continua a respirare. Le ginocchia restano sempre appoggiate.",
+        "Se perdi la linea o trattieni il respiro, riavvicina le ginocchia alle anche e recupera prima di riprendere."
+      ],
+      "breath": "Respiro continuo e regolare per tutta la tenuta.",
+      "focus": [
+        "L’addome sostiene il tronco, senza pressione lombare."
+      ],
+      "avoid": [
+        "Bacino che cede.",
+        "Spalle incassate o sguardo in avanti."
+      ],
+      "easier": [
+        "Tieni le ginocchia più vicine e alterna 5 secondi di tenuta e 5 di recupero."
+      ],
+      "levels": {
+        "beginner": "Tieni le ginocchia più vicine e alterna 5 secondi di tenuta e 5 di recupero.",
+        "advanced": "Mantieni la linea spalle-bacino-ginocchia respirando.",
+        "expert": "Allontana poco le ginocchia solo se controlli il bacino; le ginocchia restano appoggiate."
+      },
+      "cue": "Spingi gli avambracci nel tappetino e mantieni il corpo in linea, respirando. Non alzare il sedere e non lasciar cadere la pancia. Recupera se non riesci a mantenere la posizione.",
+      "voice": {
+        "prepare": "Avambracci e ginocchia a terra, gomiti sotto le spalle. Arretra le ginocchia fino ad allineare spalle, bacino e ginocchia.",
+        "move": "Spingi gli avambracci nel tappetino e mantieni il corpo in linea, respirando. Non alzare il sedere e non lasciar cadere la pancia. Recupera se non riesci a mantenere la posizione.",
+        "short": "Avambracci e ginocchia a terra, busto in linea. Respira mantenendo fermo il bacino."
+      },
+      "sourceIds": [
+        "plank"
+      ],
+      "reviewedOn": "2026-10-25",
+      "sourceNote": "Versione facilitata del plank, con appoggio costante sulle ginocchia."
+    },
+    "Tocco alle spalle in quadrupedia": {
+      "summary": "Ginocchia a terra; tocca la spalla opposta e mantieni il bacino fermo.",
+      "setup": "A quattro appoggi, mani sotto le spalle e ginocchia poco più larghe delle anche per stabilità. Le ginocchia rimangono a terra per tutto l’esercizio.",
+      "steps": [
+        "Attiva l’addome e sposta poco il peso sulla mano sinistra, mantenendo il bacino parallelo al pavimento.",
+        "Stacca la mano destra e tocca la spalla sinistra, senza ruotare il torace.",
+        "Riappoggia la mano destra sotto la spalla e ridistribuisci il peso.",
+        "Ripeti con l’altra mano. Se il busto oscilla, limita il gesto a staccare appena una mano, senza cercare subito la spalla."
+      ],
+      "breath": "Espira mentre stacchi la mano, inspira riappoggiandola. Ripristina l’appoggio prima del cambio.",
+      "focus": [
+        "Controllo dell’addome nel cambio di appoggio, senza dondolare."
+      ],
+      "avoid": [
+        "Oscillare con il bacino.",
+        "Portare il peso sul bordo del polso."
+      ],
+      "easier": [
+        "Alleggerisci solo la mano senza staccarla completamente."
+      ],
+      "levels": {
+        "beginner": "Alleggerisci solo la mano senza staccarla completamente.",
+        "advanced": "Tocca la spalla opposta mantenendo entrambe le ginocchia appoggiate.",
+        "expert": "Mantieni il tocco per 2 secondi senza muovere il bacino."
+      },
+      "cue": "Sposta poco il peso su una mano e tocca la spalla opposta con l’altra. Riappoggia la mano e alterna. Tieni fermo il bacino, senza ruotare il petto.",
+      "voice": {
+        "prepare": "A quattro appoggi, ginocchia un poco divaricate e sempre a terra. Mani sotto le spalle e addome attivo.",
+        "move": "Sposta poco il peso su una mano e tocca la spalla opposta con l’altra. Riappoggia la mano e alterna. Tieni fermo il bacino, senza ruotare il petto.",
+        "short": "Tocca la spalla opposta, riappoggia e alterna. Ginocchia a terra e bacino fermo."
+      },
+      "sourceIds": [
+        "bird"
+      ],
+      "reviewedOn": "2026-10-25",
+      "sourceNote": "Adattamento del controllo in quadrupedia a tre appoggi; la fonte riguarda il bird dog, non il tocco della spalla."
+    },
+    "Tocco dei talloni": {
+      "summary": "Avvicina la mano al tallone di lato; collo lungo e bacino fermo.",
+      "setup": "Sdraiati sulla schiena, ginocchia piegate e piedi a terra alla larghezza delle anche. Braccia distese lungo i fianchi, mani rivolte verso i talloni.",
+      "steps": [
+        "Espira e solleva appena le scapole, lasciando il mento lontano dal petto e lo sguardo verso le ginocchia.",
+        "Piega il torace di lato e fai scorrere la mano destra verso il tallone destro. Il bacino e i piedi restano fermi.",
+        "Torna al centro e allunga la mano sinistra verso il tallone sinistro, senza ruotare il busto.",
+        "Non serve toccare il tallone. Se il collo si affatica, riappoggia la testa tra le ripetizioni e usa un gesto più piccolo."
+      ],
+      "breath": "Espira raggiungendo un tallone, inspira passando dal centro. Mantieni un ritmo lento.",
+      "focus": [
+        "Contrazione alternata dei fianchi con bacino fermo."
+      ],
+      "avoid": [
+        "Tirare il mento al petto.",
+        "Slanci delle braccia o rotazioni del bacino."
+      ],
+      "easier": [
+        "Avvicina i piedi e solleva pochissimo le scapole; riposa la testa quando serve."
+      ],
+      "levels": {
+        "beginner": "Avvicina i piedi e solleva pochissimo le scapole; riposa la testa quando serve.",
+        "advanced": "Alterna i tocchi con scapole appena sollevate.",
+        "expert": "Rallenta e fai una pausa breve vicino a ogni tallone, senza irrigidire il collo."
+      },
+      "cue": "Solleva appena le scapole e porta la mano destra verso il tallone destro, poi cambia lato. Piega il fianco senza ruotare il busto. Non occorre toccare davvero il tallone.",
+      "voice": {
+        "prepare": "Sulla schiena, ginocchia piegate e piedi appoggiati. Braccia lungo i fianchi, mani rivolte verso i talloni.",
+        "move": "Solleva appena le scapole e porta la mano destra verso il tallone destro, poi cambia lato. Piega il fianco senza ruotare il busto. Non occorre toccare davvero il tallone.",
+        "short": "Mano verso il tallone dello stesso lato, poi alterna, senza ruotare il busto."
+      },
+      "sourceIds": [
+        "heels"
+      ],
+      "reviewedOn": "2026-10-25"
+    },
+    "Tocco delle punte": {
+      "summary": "Mani verso i piedi e scapole poco sollevate; nessuno slancio.",
+      "setup": "Sdraiati sulla schiena. Solleva le gambe verso il soffitto, con ginocchia leggermente piegate se necessario, e porta le braccia verticali verso i piedi.",
+      "steps": [
+        "Espira e avvicina le costole al bacino, sollevando le scapole dal tappetino.",
+        "Allunga le mani verso le punte dei piedi, senza lanciare le braccia o staccare il bacino.",
+        "Non serve toccare i piedi né sedersi: il movimento è un piccolo sollevamento della parte alta del torace.",
+        "Inspira e riappoggia lentamente le scapole, mantenendo le gambe ferme. Accorcia il gesto se la zona lombare si inarca."
+      ],
+      "breath": "Espira nella piccola salita, inspira tornando sul tappetino.",
+      "focus": [
+        "Lavoro addominale con bacino stabile, senza trazione sul collo."
+      ],
+      "avoid": [
+        "Tirare il collo in avanti.",
+        "Slanciare le gambe o inarcare la schiena."
+      ],
+      "easier": [
+        "Piega le ginocchia e porta le mani verso le cosce."
+      ],
+      "levels": {
+        "beginner": "Piega le ginocchia e porta le mani verso le cosce.",
+        "advanced": "Allunga le mani verso i piedi mantenendo il collo rilassato.",
+        "expert": "Mantieni un secondo nella piccola salita e scendi in 3 secondi."
+      },
+      "cue": "Espira e solleva le scapole, allungando le mani verso le punte. Mantieni fermo il bacino. Non serve toccare i piedi: riappoggia lentamente le scapole senza slanciare le braccia.",
+      "voice": {
+        "prepare": "Sulla schiena, gambe verso il soffitto e ginocchia morbide. Porta le braccia verticali, verso i piedi.",
+        "move": "Espira e solleva le scapole, allungando le mani verso le punte. Mantieni fermo il bacino. Non serve toccare i piedi: riappoggia lentamente le scapole senza slanciare le braccia.",
+        "short": "Solleva poco le scapole verso le punte e riappoggia, senza slanciare le braccia."
+      },
+      "sourceIds": [
+        "toes"
+      ],
+      "reviewedOn": "2026-10-25"
+    },
+    "Torsioni spinali": {
+      "summary": "Ginocchia insieme, ruota lentamente e lascia le spalle rilassate.",
+      "setup": "Sdraiati sulla schiena, ginocchia piegate e piedi a terra vicini tra loro. Apri le braccia ai lati in una posizione comoda per le spalle.",
+      "steps": [
+        "Tieni le ginocchia vicine e falle scendere lentamente insieme verso destra, lasciando ruotare il bacino.",
+        "Fermati prima che la spalla opposta si stacchi dal tappetino o la schiena venga tirata. I piedi accompagnano la rotazione.",
+        "Riporta le ginocchia al centro con controllo, senza slancio, poi ripeti verso sinistra.",
+        "Mantieni la testa appoggiata: non occorre girarla dalla parte opposta per aumentare la torsione."
+      ],
+      "breath": "Espira nella rotazione e inspira tornando al centro. Usa un movimento continuo senza rimbalzi.",
+      "focus": [
+        "Rotazione dolce della parte bassa della schiena, senza trazione forzata."
+      ],
+      "avoid": [
+        "Forzare le ginocchia a terra.",
+        "Torsioni veloci o dolore lombare."
+      ],
+      "easier": [
+        "Metti un cuscino sotto le ginocchia sul lato della discesa."
+      ],
+      "levels": {
+        "beginner": "Metti un cuscino sotto le ginocchia sul lato della discesa.",
+        "advanced": "Alterna i lati nell’intervallo comodo mantenendo le spalle rilassate.",
+        "expert": "Fai una pausa di un respiro per lato; non aumentare la torsione."
+      },
+      "cue": "Lascia scendere insieme le ginocchia verso un lato, mantenendo entrambe le spalle appoggiate. Torna lentamente al centro e cambia lato. Riduci l’arco prima che la spalla si sollevi.",
+      "voice": {
+        "prepare": "Sulla schiena, ginocchia piegate e vicine, piedi a terra. Apri le braccia ai lati in modo comodo.",
+        "move": "Lascia scendere insieme le ginocchia verso un lato, mantenendo entrambe le spalle appoggiate. Torna lentamente al centro e cambia lato. Riduci l’arco prima che la spalla si sollevi.",
+        "short": "Ginocchia unite verso un lato, torna al centro e alterna. Spalle appoggiate."
+      },
+      "sourceIds": [
+        "back-stretches"
+      ],
+      "reviewedOn": "2026-10-25"
+    },
+    "Wall sit": {
+      "summary": "Schiena al muro, piedi stabili e ginocchia allineate; continua a respirare.",
+      "setup": "Appoggia schiena e bacino a un muro libero. Piedi alla larghezza delle anche, abbastanza avanti da poter scendere tenendo i talloni a terra. Lascia le mani libere o sulle cosce senza spingere.",
+      "steps": [
+        "Fai scivolare il dorso lungo il muro e piega le ginocchia, come per sederti su una sedia alta.",
+        "Fermati a una profondità sostenibile: non devi raggiungere per forza l’angolo retto. Ginocchia nella direzione delle punte e peso su tutto il piede.",
+        "Mantieni la posizione, lasciando schiena e bacino appoggiati. Non trattenere il fiato né spingere con le mani sulle ginocchia.",
+        "Quando serve, premi i piedi a terra e scivola lentamente verso l’alto per uscire dalla tenuta."
+      ],
+      "breath": "Respiro regolare per tutta la tenuta. Espira quando spingi per risalire.",
+      "focus": [
+        "Lavoro nelle cosce, con schiena sostenuta e piedi stabili."
+      ],
+      "avoid": [
+        "Ginocchia che si chiudono.",
+        "Scendere oltre ciò che riesci a mantenere."
+      ],
+      "easier": [
+        "Scendi poco e alterna 5 secondi di tenuta e 5 di recupero in piedi."
+      ],
+      "levels": {
+        "beginner": "Scendi poco e alterna 5 secondi di tenuta e 5 di recupero in piedi.",
+        "advanced": "Mantieni la posizione comoda con piedi e ginocchia stabili.",
+        "expert": "Scendi gradualmente fino a cosce circa orizzontali solo se non perdi allineamento o comfort."
+      },
+      "cue": "Scivola lungo il muro e fermati come su una sedia alta. Mantieni le ginocchia nella direzione dei piedi e respira. Non serve scendere a novanta gradi; risali se perdi la posizione.",
+      "voice": {
+        "prepare": "Schiena al muro, piedi larghi come le anche e poco avanti. Mantieni i talloni appoggiati e le mani libere.",
+        "move": "Scivola lungo il muro e fermati come su una sedia alta. Mantieni le ginocchia nella direzione dei piedi e respira. Non serve scendere a novanta gradi; risali se perdi la posizione.",
+        "short": "Mantieni la posizione contro il muro. Talloni appoggiati e respiro continuo."
+      },
+      "sourceIds": [
+        "wall-squat"
+      ],
+      "reviewedOn": "2026-10-25",
+      "sourceNote": "Tenuta statica nella posizione di wall squat, a profondità controllabile."
     }
   },
-  "rules": [
-    {
-      "match": ["rotazioni delle braccia", "rotazioni dei gomiti"],
-      "guide": {
-        "summary": "Prepara spalle e gomiti con rotazioni controllate, senza cercare velocita.",
-        "steps": [
-          "Stendi o piega le braccia come richiesto dall'esercizio.",
-          "Disegna cerchi lenti e regolari.",
-          "Cambia direzione a meta tempo."
-        ],
-        "focus": ["Spalle basse.", "Cerchi simmetrici.", "Movimento fluido."],
-        "avoid": ["Alzare le spalle verso le orecchie.", "Fare rotazioni brusche.", "Perdere il controllo del busto."],
-        "easier": ["Fai cerchi piu piccoli."],
-        "cue": "Spalle basse, cerchi lenti e controllo."
-      }
-    },
-    {
-      "match": ["squat"],
-      "guide": {
-        "summary": "Esercizio per gambe e glutei: siediti indietro con le anche e risali spingendo il pavimento.",
-        "steps": [
-          "Piedi poco piu larghi delle anche, punte leggermente aperte.",
-          "Scendi portando il bacino indietro e le ginocchia nella direzione delle punte.",
-          "Risali spingendo da talloni e mesopiede, senza chiudere le ginocchia."
-        ],
-        "focus": ["Peso distribuito su tutto il piede.", "Petto aperto e schiena lunga.", "Ginocchia in linea con le punte."],
-        "avoid": ["Ginocchia che collassano verso l'interno.", "Schiena curva o spalle chiuse.", "Scendere piu di quanto riesci a controllare."],
-        "easier": ["Riduci la profondita o usa una sedia come riferimento."],
-        "cue": "Spingi le anche indietro e tieni le ginocchia in linea con i piedi."
-      }
-    },
-    {
-      "match": ["affond"],
-      "guide": {
-        "summary": "Esercizio per gambe e glutei: fai un passo controllato e piega entrambe le ginocchia mantenendo equilibrio.",
-        "steps": [
-          "Parti in piedi, piedi alla larghezza delle anche.",
-          "Fai un passo avanti, indietro o laterale secondo l'esercizio.",
-          "Scendi piegando entrambe le ginocchia e torna spingendo dal piede di appoggio."
-        ],
-        "focus": ["Busto alto.", "Ginocchio anteriore stabile sopra il piede.", "Passo abbastanza largo da non perdere equilibrio."],
-        "avoid": ["Appoggiare il piede troppo stretto.", "Perdere equilibrio per cercare troppa profondita.", "Spingere il ginocchio in avanti senza controllo."],
-        "easier": ["Accorcia il passo o tieniti a una parete."],
-        "cue": "Busto alto, passo stabile e ginocchio controllato."
-      }
-    },
-    {
-      "match": ["push", "presa stretta"],
-      "guide": {
-        "summary": "Spinta per petto, spalle e tricipiti: mani stabili, corpo compatto e gomiti controllati.",
-        "steps": [
-          "Metti le mani poco piu larghe delle spalle, o al muro se e la variante facilitata.",
-          "Attiva addome e glutei per tenere una linea stabile.",
-          "Piega i gomiti scendendo con il petto e risali spingendo via il pavimento o il muro."
-        ],
-        "focus": ["Collo lungo.", "Gomiti a circa 45 gradi dal busto.", "Bacino che non cede."],
-        "avoid": ["Spalle che salgono verso le orecchie.", "Bacino che cede.", "Movimento troppo veloce."],
-        "easier": ["Usa il muro o tieni le ginocchia a terra."],
-        "cue": "Corpo compatto, spingi il pavimento e mantieni il collo lungo."
-      }
-    },
-    {
-      "match": ["plank", "quadrupedia", "tocco alle spalle"],
-      "guide": {
-        "summary": "Core e stabilita: mantieni il tronco fermo mentre appoggi peso su mani o avambracci.",
-        "steps": [
-          "Allinea spalle e appoggi: mani o gomiti sotto le spalle.",
-          "Attiva addome e glutei prima di iniziare.",
-          "Mantieni posizione o alterna i tocchi senza oscillare."
-        ],
-        "focus": ["Bacino stabile.", "Collo lungo.", "Spinta attiva delle mani o degli avambracci."],
-        "avoid": ["Bacino che sale o cede.", "Spalle incassate.", "Oscillare da un lato all'altro."],
-        "easier": ["Appoggia le ginocchia o riduci la durata."],
-        "cue": "Addome attivo, bacino fermo e spalle stabili."
-      }
-    },
-    {
-      "match": ["ponte", "glutei", "donkey"],
-      "guide": {
-        "summary": "Lavoro su glutei e bacino: solleva o estendi con controllo, senza usare slancio.",
-        "steps": [
-          "Posiziona bene piedi o ginocchia secondo la variante.",
-          "Stringi leggermente i glutei prima di sollevare.",
-          "Sali fino a mantenere controllo e ritorna lentamente."
-        ],
-        "focus": ["Glutei attivi.", "Bacino stabile.", "Schiena neutra."],
-        "avoid": ["Spingere con la zona lombare.", "Slanciare la gamba.", "Aprire il bacino durante il movimento."],
-        "easier": ["Riduci l'ampiezza e rallenta la ripetizione."],
-        "cue": "Spingi dai glutei e mantieni il bacino stabile."
-      }
-    },
-    {
-      "match": ["crunch", "tocco dei talloni", "tocco delle punte"],
-      "guide": {
-        "summary": "Core addominale: avvicina costole e bacino con movimento controllato, senza tirare il collo.",
-        "steps": [
-          "Parti supino o in piedi secondo l'esercizio, addome leggermente attivo.",
-          "Esegui la flessione o la torsione lentamente.",
-          "Torna alla posizione iniziale controllando la discesa."
-        ],
-        "focus": ["Addome che guida il movimento.", "Collo rilassato.", "Respiro in uscita durante lo sforzo."],
-        "avoid": ["Tirare la testa con le mani.", "Usare slancio.", "Chiudere le spalle."],
-        "easier": ["Riduci l'ampiezza o rallenta il ritmo."],
-        "cue": "Muovi dal core, non dal collo."
-      }
-    },
-    {
-      "match": ["floor angels", "snow angels", "scivolamenti scapolari"],
-      "guide": {
-        "summary": "Mobilita e controllo delle spalle: fai scorrere braccia e scapole senza perdere postura.",
-        "steps": [
-          "Appoggia schiena al pavimento o al muro secondo l'esercizio.",
-          "Porta le braccia verso l'alto mantenendo controllo.",
-          "Ritorna lentamente tenendo spalle basse."
-        ],
-        "focus": ["Scapole che scorrono.", "Costole basse.", "Movimento lento."],
-        "avoid": ["Inarcare la schiena.", "Forzare se le spalle tirano.", "Alzare le spalle verso le orecchie."],
-        "easier": ["Piega di piu i gomiti o riduci l'ampiezza."],
-        "cue": "Spalle basse, costole ferme e braccia lente."
-      }
-    },
-    {
-      "match": ["alzate a y", "alzate a t", "alzate a w", "sollevamenti proni"],
-      "guide": {
-        "summary": "Rinforzo posturale: da prono solleva le braccia poco, pensando a muovere le scapole.",
-        "steps": [
-          "Sdraiati a pancia in giu con fronte appoggiata o collo lungo.",
-          "Metti le braccia nella forma richiesta: Y, T, W o alternate.",
-          "Solleva poco le braccia e torna giu lentamente."
-        ],
-        "focus": ["Scapole che si avvicinano leggermente.", "Collo rilassato.", "Movimento piccolo ma preciso."],
-        "avoid": ["Alzare troppo le braccia.", "Stringere il collo.", "Inarcare la zona lombare."],
-        "easier": ["Solleva una sola braccia alla volta o riduci l'ampiezza."],
-        "cue": "Solleva poco le braccia e tieni il collo lungo."
-      }
-    },
-    {
-      "match": ["back widows", "contrazione isometrica dei dorsali"],
-      "guide": {
-        "summary": "Attivazione schiena: usa gomiti e dorsali per aprire il petto, senza spingere con il collo.",
-        "steps": [
-          "Sdraiati supino o posizionati come mostrato dall'immagine.",
-          "Spingi leggermente gomiti o braccia contro il pavimento.",
-          "Solleva o mantieni il petto attivo per qualche secondo, poi rilascia."
-        ],
-        "focus": ["Petto aperto.", "Scapole attive.", "Collo rilassato."],
-        "avoid": ["Spingere con la testa.", "Inarcare eccessivamente la schiena.", "Trattenere il respiro."],
-        "easier": ["Piega le ginocchia o riduci la tenuta."],
-        "cue": "Apri il petto usando gomiti e scapole, collo rilassato."
-      }
-    },
-    {
-      "match": ["stretch", "farfalla", "bambino", "cobra", "roll down", "torsion"],
-      "guide": {
-        "summary": "Mobilita e scarico: entra nella posizione lentamente e cerca una tensione chiara ma sostenibile.",
-        "steps": [
-          "Posizionati come nell'immagine senza forzare.",
-          "Allunga fino a sentire tensione, non dolore.",
-          "Respira lentamente e mantieni la posizione o alterna lato se richiesto."
-        ],
-        "focus": ["Tensione sostenibile.", "Respiro lento.", "Spalle e mandibola rilassate."],
-        "avoid": ["Forzare la posizione.", "Molleggiare in modo aggressivo.", "Trattenere il respiro."],
-        "easier": ["Riduci l'ampiezza o usa un supporto sotto ginocchia o mani."],
-        "cue": "Respira lentamente e resta in una tensione comoda."
-      }
-    }
-  ],
+  "rules": [],
   "categories": {
     "Riscaldamento": {
       "summary": "Movimento preparatorio: serve ad attivare il corpo senza affaticarti subito.",
@@ -506,9 +2302,19 @@
         "Mantieni il respiro regolare.",
         "Muoviti in modo fluido e controllato."
       ],
-      "focus": ["Mobilita articolare.", "Calore progressivo.", "Movimento senza dolore."],
-      "avoid": ["Partire troppo forte.", "Movimenti bruschi.", "Forzare articolazioni rigide."],
-      "easier": ["Riduci ampiezza e velocita."],
+      "focus": [
+        "Mobilita articolare.",
+        "Calore progressivo.",
+        "Movimento senza dolore."
+      ],
+      "avoid": [
+        "Partire troppo forte.",
+        "Movimenti bruschi.",
+        "Forzare articolazioni rigide."
+      ],
+      "easier": [
+        "Riduci ampiezza e velocita."
+      ],
       "cue": "Muoviti sciolto, aumenta poco alla volta e respira."
     },
     "Stretching": {
@@ -518,9 +2324,19 @@
         "Allunga fino a sentire tensione, non dolore.",
         "Respira lentamente e mantieni la posizione o alterna lato se richiesto."
       ],
-      "focus": ["Tensione sostenibile.", "Respiro lento.", "Spalle e mandibola rilassate."],
-      "avoid": ["Forzare la posizione.", "Molleggiare in modo aggressivo.", "Trattenere il respiro."],
-      "easier": ["Riduci l'ampiezza o usa un supporto sotto ginocchia o mani."],
+      "focus": [
+        "Tensione sostenibile.",
+        "Respiro lento.",
+        "Spalle e mandibola rilassate."
+      ],
+      "avoid": [
+        "Forzare la posizione.",
+        "Molleggiare in modo aggressivo.",
+        "Trattenere il respiro."
+      ],
+      "easier": [
+        "Riduci l'ampiezza o usa un supporto sotto ginocchia o mani."
+      ],
       "cue": "Respira lentamente e resta in una tensione comoda."
     }
   },
@@ -531,9 +2347,231 @@
       "Esegui il movimento nel range che controlli bene.",
       "Torna alla posizione iniziale senza scatti."
     ],
-    "focus": ["Controllo prima della velocita.", "Allineamento comodo.", "Respiro regolare."],
-    "avoid": ["Compensare con slanci.", "Ignorare dolore o fastidio articolare.", "Perdere postura per fare piu ripetizioni."],
-    "easier": ["Riduci ampiezza, velocita o durata."],
+    "focus": [
+      "Controllo prima della velocita.",
+      "Allineamento comodo.",
+      "Respiro regolare."
+    ],
+    "avoid": [
+      "Compensare con slanci.",
+      "Ignorare dolore o fastidio articolare.",
+      "Perdere postura per fare piu ripetizioni."
+    ],
+    "easier": [
+      "Riduci ampiezza, velocita o durata."
+    ],
     "cue": "Controlla il movimento e mantieni il respiro regolare."
+  },
+  "sources": {
+    "hamstrings": {
+      "title": "NHS Cardiff and Vale · Hamstring exercises",
+      "url": "https://cavuhb.nhs.wales/files/podiatry/podiatry-general-footcare-pdf/",
+      "checkedOn": "2026-10-25"
+    },
+    "stretch-coaching": {
+      "title": "NASM · Stretches for beginners",
+      "url": "https://www.nasm.org/resource-center/blog/recovery/stretches-for-beginners",
+      "checkedOn": "2026-10-25"
+    },
+    "hips90": {
+      "title": "Cleveland Clinic · 90/90 hip stretch",
+      "url": "https://health.clevelandclinic.org/90-90-stretch",
+      "checkedOn": "2026-10-25"
+    },
+    "lunge": {
+      "title": "ACE · Forward lunge",
+      "url": "https://www.acefitness.org/resources/everyone/exercise-library/94/forward-lunge/",
+      "checkedOn": "2026-10-25"
+    },
+    "reverse-lunge": {
+      "title": "ACE · Lower-body exercises for dynamic balance",
+      "url": "https://www.acefitness.org/resources/pros/expert-articles/6295/lower-body-exercises-for-dynamic-balance/",
+      "checkedOn": "2026-10-25"
+    },
+    "side-lunge": {
+      "title": "ACE · Side lunge",
+      "url": "https://www.acefitness.org/resources/everyone/exercise-library/50/side-lunge/",
+      "checkedOn": "2026-10-25"
+    },
+    "squat": {
+      "title": "ACE · Bodyweight squat",
+      "url": "https://www.acefitness.org/resources/everyone/exercise-library/135/bodyweight-squat/",
+      "checkedOn": "2026-10-25"
+    },
+    "prone": {
+      "title": "ACE · Prone scapular stabilization: I, Y, T, W, O",
+      "url": "https://www.acefitness.org/resources/everyone/exercise-library/249/prone-scapular-shoulder-stabilization-series-i-y-t-w-o-formation/",
+      "checkedOn": "2026-10-25"
+    },
+    "back-widow": {
+      "title": "ATHLEAN-X · Bodyweight back workout, Back Widow",
+      "url": "https://learn.athleanx.com/articles/back-for-men/bodyweight-back-workout",
+      "checkedOn": "2026-10-25"
+    },
+    "bird": {
+      "title": "ACE · Bird dog",
+      "url": "https://www.acefitness.org/resources/everyone/exercise-library/14/bird-dog/",
+      "checkedOn": "2026-10-25"
+    },
+    "burpee": {
+      "title": "NASM · Squat thrust burpees e variante camminata",
+      "url": "https://www.nasm.org/resource-center/exercise-library/squat-thrust-burpees",
+      "checkedOn": "2026-10-25"
+    },
+    "hinge": {
+      "title": "ACE · Hip hinge",
+      "url": "https://www.acefitness.org/resources/everyone/exercise-library/33/hip-hinge/",
+      "checkedOn": "2026-10-25"
+    },
+    "scapula": {
+      "title": "Royal Papworth NHS · Scapular squeezes e wall angels",
+      "url": "https://royalpapworth.nhs.uk/application/files/7517/0774/1302/PI-155-Physiotherapy-information-after-pectus-surgery-vs2.pdf",
+      "checkedOn": "2026-10-25"
+    },
+    "bicycle": {
+      "title": "ACE · Supine bicycle crunches",
+      "url": "https://www.acefitness.org/resources/everyone/exercise-library/241/supine-bicycle-crunches/",
+      "checkedOn": "2026-10-25"
+    },
+    "side-bend": {
+      "title": "University Hospital Southampton NHS · Side bend",
+      "url": "https://www.uhs.nhs.uk/Media/UHS-website-2019/Patientinformation/Respiratory/Exercises-to-improve-your-posture-562-PIL.pdf",
+      "checkedOn": "2026-10-25"
+    },
+    "trunk-rotation": {
+      "title": "Chelsea and Westminster NHS · Trunk rotation",
+      "url": "https://www.chelwest.nhs.uk/your-visit/patient-leaflets/rib-fractures-information-1.pdf",
+      "checkedOn": "2026-10-25"
+    },
+    "dead": {
+      "title": "NASM · Dead bug",
+      "url": "https://www.nasm.org/resource-center/exercise-library/dead-bug",
+      "checkedOn": "2026-10-25"
+    },
+    "donkey": {
+      "title": "ACE · Quadruped bent-knee hip extensions",
+      "url": "https://www.acefitness.org/resources/everyone/exercise-library/270/quadruped-bent-knee-hip-extensions/",
+      "checkedOn": "2026-10-25"
+    },
+    "angels": {
+      "title": "Cleveland Clinic · Wall angels",
+      "url": "https://health.clevelandclinic.org/posture-exercises",
+      "checkedOn": "2026-10-25"
+    },
+    "cat": {
+      "title": "ACE · Cat-cow",
+      "url": "https://www.acefitness.org/resources/everyone/exercise-library/15/cat-cow/",
+      "checkedOn": "2026-10-25"
+    },
+    "bridge": {
+      "title": "NASM · Glute bridge",
+      "url": "https://www.nasm.org/resource-center/blog/training/why-the-glute-bridge-belongs-in-almost-every-client-program",
+      "checkedOn": "2026-10-25"
+    },
+    "march": {
+      "title": "US Navy · Dynamic warm-up: glute bridge marching",
+      "url": "https://www.mynavyhr.navy.mil/Portals/55/Support/Culture%20Resilience/Physical/Dynamic%20Warm-Up%20Attachment.pdf?ver=ZMrxNi6WRqOfENnm9e8VeQ%3D%3D",
+      "checkedOn": "2026-10-25"
+    },
+    "child": {
+      "title": "ACE · Child’s pose",
+      "url": "https://www.acefitness.org/resources/everyone/exercise-library/227/childs-pose/",
+      "checkedOn": "2026-10-25"
+    },
+    "pushup": {
+      "title": "ACE · Bent-knee push-up",
+      "url": "https://www.acefitness.org/resources/everyone/exercise-library/13/bent-knee-push-up/",
+      "checkedOn": "2026-10-25"
+    },
+    "dog": {
+      "title": "ACE · Downward-facing dog",
+      "url": "https://www.acefitness.org/resources/everyone/exercise-library/18/downward-facing-dog/",
+      "checkedOn": "2026-10-25"
+    },
+    "wall-pushup": {
+      "title": "North Tees NHS · Wall press-ups",
+      "url": "https://www.nth.nhs.uk/resources/standing-exercises/",
+      "checkedOn": "2026-10-25"
+    },
+    "wrists": {
+      "title": "Royal Orthopaedic Hospital NHS · Wrist exercises",
+      "url": "https://roh.nhs.uk/services-information/hands-and-forearm/hands-and-forearm-services/carpal-tunnel",
+      "checkedOn": "2026-10-25"
+    },
+    "roll": {
+      "title": "Royal Osteoporosis Society · Roll down e adattamenti",
+      "url": "https://www.tims.nhs.uk/wp-content/uploads/2019/10/ros-about-exercise-sheet-1.pdf",
+      "checkedOn": "2026-10-25"
+    },
+    "elbow": {
+      "title": "Cambridge University Hospitals NHS · Elbow range of movement",
+      "url": "https://www.cuh.nhs.uk/patient-information/elbow-range-of-movement-exercises/",
+      "checkedOn": "2026-10-25"
+    },
+    "neck": {
+      "title": "NHS · Flexibility exercises: neck rotation",
+      "url": "https://www.nhs.uk/live-well/exercise/flexibility-exercises/",
+      "checkedOn": "2026-10-25"
+    },
+    "arms": {
+      "title": "NASM · Arm circles",
+      "url": "https://blog.nasm.org/workout-plans/9-best-arm-exercises/",
+      "checkedOn": "2026-10-25"
+    },
+    "boxing": {
+      "title": "England Boxing · Coaching Handbook, shadow boxing",
+      "url": "https://www.englandboxing.org/wp-content/uploads/2026/02/EB_Boxing-Coaching-Handbook-Part-1_09_02_26.pdf",
+      "checkedOn": "2026-10-25"
+    },
+    "butterfly": {
+      "title": "Royal United Hospitals Bath NHS · Butterfly stretch",
+      "url": "https://ruh.nhs.uk/patients/patient_information/PHY046_Relaxing_the_Pelvic_Floor.pdf",
+      "checkedOn": "2026-10-25"
+    },
+    "basic-stretches": {
+      "title": "Mayo Clinic · Basic stretches: shoulder e calf",
+      "url": "https://www.mayoclinic.org/healthy-lifestyle/fitness/in-depth/stretching/art-20546848",
+      "checkedOn": "2026-10-25"
+    },
+    "back-stretches": {
+      "title": "Mayo Clinic · Knee-to-chest e lower-back rotation",
+      "url": "https://www.mayoclinic.org/healthy-lifestyle/adult-health/in-depth/back-pain/art-20546859",
+      "checkedOn": "2026-10-25"
+    },
+    "cobra": {
+      "title": "ACE · Cobra",
+      "url": "https://www.acefitness.org/resources/everyone/exercise-library/16/cobra/",
+      "checkedOn": "2026-10-25"
+    },
+    "plank": {
+      "title": "ACE · Front plank",
+      "url": "https://www.acefitness.org/resources/everyone/exercise-library/32/front-plank/",
+      "checkedOn": "2026-10-25"
+    },
+    "heels": {
+      "title": "Muscle & Strength · Lying alternate heel touches",
+      "url": "https://www.muscleandstrength.com/exercises/lying-heel-touches.html",
+      "checkedOn": "2026-10-25"
+    },
+    "toes": {
+      "title": "Muscle & Strength · Straight-leg toe touch",
+      "url": "https://cdn.muscleandstrength.com/exercises/floor-reach.html",
+      "checkedOn": "2026-10-25"
+    },
+    "wall-squat": {
+      "title": "NHS · Wall squats",
+      "url": "https://www.nhs.uk/live-well/exercise/knee-exercises-for-runners/",
+      "checkedOn": "2026-10-25"
+    },
+    "calf": {
+      "title": "Royal Berkshire NHS · Heel raises",
+      "url": "https://www.royalberkshire.nhs.uk/media/rirprct4/pulmonary-rehabilitation-exercises_mar23.pdf",
+      "checkedOn": "2026-10-25"
+    }
+  },
+  "review": {
+    "date": "2026-10-25",
+    "scope": "62 esercizi fitness. Testi originali in italiano, confrontati con spiegazioni di enti sanitari, associazioni di formazione e autori dei movimenti.",
+    "method": "Le fonti sostengono la tecnica, non le dosi del programma. Gli adattamenti e i nomi non standard sono dichiarati nelle singole schede. Nessuna validazione clinica individuale."
   }
 }

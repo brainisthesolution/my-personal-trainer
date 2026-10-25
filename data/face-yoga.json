@@ -1,0 +1,502 @@
+{
+  "note": "Esegui allo specchio con mani pulite e gesti leggeri. I livelli cambiano il numero di gesti e il tempo complessivo, mai la pressione. Intorno agli occhi appoggia le dita solo sui bordi ossei; interrompi con dolore, irritazione o disturbi visivi. Questa è una pratica di benessere, non un trattamento della ptosi: per palpebre cadenti o problemi oculari chiedi indicazioni all’oculista.",
+  "provenance": [
+    "Scheda_Face_Yoga_e_Scalpo.pdf",
+    "Scheda_Face_Yoga_e_Scalpo-v2.pdf"
+  ],
+  "adaptations": "Le copie con suffisso 2 sono duplicate. Le dosi principiante sono ridotte; i rilasci di 3 secondi sono aggiunti per guidare il timer. I gesti oculari sono adattati senza forza o trazione; il bacio viene eseguito con collo neutro. La pratica non riprende le promesse di lifting o trattamento della ptosi dei PDF. Il livello avanzato conserva le dosi di riferimento; principiante ed esperto scalano durata dei massaggi e ripetizioni a 2/3 e 4/3 senza aumentare le tenute oculari o ridurre i rilasci.",
+  "sources": [
+    {
+      "title": "American Academy of Ophthalmology: ptosi",
+      "url": "https://www.aao.org/eye-health/diseases/what-is-ptosis"
+    },
+    {
+      "title": "Occupational Safety and Health Council: protezione occhi",
+      "url": "https://www.oshc.org.hk/oshc_data/files/books/2016/CB1263E.pdf"
+    }
+  ],
+  "exercises": [
+    {
+      "name": "Scollamento della corona",
+      "practice": "face",
+      "category": "Scalpo e fronte",
+      "image": "assets/exercises/face-corona.png",
+      "imageAlt": "Illustrazione in stile fumetto: Scollamento della corona. Segui i passaggi della guida.",
+      "phases": [
+        "warmup",
+        "workout",
+        "cooldown"
+      ],
+      "doses": {
+        "beginner": {
+          "seconds": 40
+        },
+        "advanced": {
+          "seconds": 60
+        },
+        "expert": {
+          "seconds": 80
+        }
+      },
+      "guide": {
+        "summary": "Piccoli cerchi sullo scalpo, dall’attaccatura verso la nuca; pressione leggera.",
+        "setup": "Seduto, busto alto e spalle rilassate. Mani pulite e polpastrelli tra i capelli, vicino all’attaccatura.",
+        "steps": [
+          "Appoggia i polpastrelli senza usare le unghie.",
+          "Esegui piccoli cerchi muovendo delicatamente la cute, senza sfregare sui capelli.",
+          "Sposta le mani dall’attaccatura verso la sommità e poi verso la nuca.",
+          "Lavora su piccole zone, allentando la pressione quando cambi punto."
+        ],
+        "avoid": [
+          "Tirare i capelli o grattare con le unghie.",
+          "Insistere su cute irritata o dolente."
+        ],
+        "focus": [
+          "Gesto piccolo e comodo, nessun dolore o pressione sugli occhi."
+        ],
+        "breath": "Respira normalmente durante il gesto e rilassa completamente nel rilascio.",
+        "easier": [
+          "Fai cerchi più piccoli e alleggerisci ancora il contatto."
+        ],
+        "levels": {
+          "beginner": "40 secondi di massaggio leggero.",
+          "advanced": "60 secondi di massaggio leggero.",
+          "expert": "80 secondi di massaggio leggero."
+        },
+        "cue": "Piccoli cerchi sullo scalpo, dall’attaccatura verso la nuca; pressione leggera."
+      }
+    },
+    {
+      "name": "Resistenza frontale",
+      "practice": "face",
+      "category": "Scalpo e fronte",
+      "image": "assets/exercises/face-fronte.png",
+      "imageAlt": "Illustrazione in stile fumetto: Resistenza frontale. Segui i passaggi della guida.",
+      "phases": [
+        "warmup",
+        "workout",
+        "cooldown"
+      ],
+      "doses": {
+        "beginner": {
+          "reps": 7,
+          "hold": 5,
+          "release": 3
+        },
+        "advanced": {
+          "reps": 10,
+          "hold": 5,
+          "release": 3
+        },
+        "expert": {
+          "reps": 13,
+          "hold": 5,
+          "release": 3
+        }
+      },
+      "guide": {
+        "summary": "Palmi leggeri sulla fronte, piccolo sollevamento delle sopracciglia e rilascio completo.",
+        "setup": "Seduto davanti allo specchio, appoggia i palmi sulla fronte sopra le sopracciglia, senza coprire gli occhi.",
+        "steps": [
+          "Mantieni la pelle ferma con un contatto leggero, senza trascinarla.",
+          "Prova un piccolo sollevamento delle sopracciglia contro una resistenza minima delle mani.",
+          "Mantieni per i secondi indicati senza corrugare la fronte.",
+          "Rilascia completamente sopracciglia e mani per 3 secondi."
+        ],
+        "avoid": [
+          "Premere forte o trascinare la pelle.",
+          "Creare pieghe marcate sulla fronte.",
+          "Trattenere il respiro."
+        ],
+        "focus": [
+          "Gesto piccolo e comodo, nessun dolore o pressione sugli occhi."
+        ],
+        "breath": "Respira normalmente durante il gesto e rilassa completamente nel rilascio.",
+        "easier": [
+          "Riduci le ripetizioni e impara a rilassare completamente tra i gesti."
+        ],
+        "levels": {
+          "beginner": "7 ripetizioni con 5 secondi di gesto e 3 di rilascio.",
+          "advanced": "10 ripetizioni con 5 secondi di gesto e 3 di rilascio.",
+          "expert": "13 ripetizioni con 5 secondi di gesto e 3 di rilascio."
+        },
+        "cue": "Palmi leggeri sulla fronte, piccolo sollevamento delle sopracciglia e rilascio completo."
+      }
+    },
+    {
+      "name": "Trazione occipitale delicata",
+      "practice": "face",
+      "category": "Scalpo e fronte",
+      "image": "assets/exercises/face-occipite.png",
+      "imageAlt": "Illustrazione in stile fumetto: Trazione occipitale delicata. Segui i passaggi della guida.",
+      "phases": [
+        "warmup",
+        "workout",
+        "cooldown"
+      ],
+      "doses": {
+        "beginner": {
+          "reps": 7,
+          "hold": 5,
+          "release": 3
+        },
+        "advanced": {
+          "reps": 10,
+          "hold": 5,
+          "release": 3
+        },
+        "expert": {
+          "reps": 13,
+          "hold": 5,
+          "release": 3
+        }
+      },
+      "guide": {
+        "summary": "Mani dietro la testa; un contatto lieve sullo scalpo e collo fermo.",
+        "setup": "Seduto con mento neutro. Appoggia i palmi sulla parte posteriore della testa, sopra la nuca.",
+        "steps": [
+          "Appoggia le mani senza afferrare i capelli.",
+          "Accompagna la cute dello scalpo appena indietro, senza spostare la testa o piegare il collo.",
+          "Mantieni un contatto lieve per la tenuta indicata; gli occhi restano rilassati.",
+          "Rilascia completamente le mani per 3 secondi."
+        ],
+        "avoid": [
+          "Tirare la testa o forzare il collo.",
+          "Spalancare gli occhi o stirare la cute con forza."
+        ],
+        "focus": [
+          "Gesto piccolo e comodo, nessun dolore o pressione sugli occhi."
+        ],
+        "breath": "Respira normalmente durante il gesto e rilassa completamente nel rilascio.",
+        "easier": [
+          "Riduci le ripetizioni e impara a rilassare completamente tra i gesti."
+        ],
+        "levels": {
+          "beginner": "7 ripetizioni con 5 secondi di gesto e 3 di rilascio.",
+          "advanced": "10 ripetizioni con 5 secondi di gesto e 3 di rilascio.",
+          "expert": "13 ripetizioni con 5 secondi di gesto e 3 di rilascio."
+        },
+        "cue": "Mani dietro la testa; un contatto lieve sullo scalpo e collo fermo."
+      }
+    },
+    {
+      "name": "Palpebra attiva delicata",
+      "practice": "face",
+      "category": "Zona occhi",
+      "image": "assets/exercises/face-palpebra.png",
+      "imageAlt": "Illustrazione in stile fumetto: Palpebra attiva delicata. Segui i passaggi della guida.",
+      "phases": [
+        "warmup",
+        "workout",
+        "cooldown"
+      ],
+      "doses": {
+        "beginner": {
+          "reps": 7,
+          "hold": 3,
+          "release": 3
+        },
+        "advanced": {
+          "reps": 10,
+          "hold": 3,
+          "release": 3
+        },
+        "expert": {
+          "reps": 13,
+          "hold": 3,
+          "release": 3
+        }
+      },
+      "guide": {
+        "summary": "Dita leggere sull’osso del sopracciglio; chiudi e riapri gli occhi senza forzare.",
+        "setup": "Seduto allo specchio. Appoggia indice e medio solo sull’osso sotto le sopracciglia, mai sulla palpebra mobile o sul bulbo.",
+        "steps": [
+          "Mantieni un contatto leggero senza sollevare o tirare la pelle.",
+          "Chiudi lentamente gli occhi come in un ammiccamento morbido, senza opporre forza con le dita.",
+          "Mantieni la chiusura comoda per i secondi indicati.",
+          "Riapri senza spalancare e rilassa per 3 secondi."
+        ],
+        "avoid": [
+          "Pressione sul bulbo o sulla palpebra mobile.",
+          "Chiusure forzate, tremore ricercato o trazione della pelle.",
+          "Continuare con irritazione o disturbi visivi."
+        ],
+        "focus": [
+          "Gesto piccolo e comodo, nessun dolore o pressione sugli occhi."
+        ],
+        "breath": "Respira normalmente durante il gesto e rilassa completamente nel rilascio.",
+        "easier": [
+          "Riduci le ripetizioni e impara a rilassare completamente tra i gesti."
+        ],
+        "levels": {
+          "beginner": "7 ripetizioni con 3 secondi di gesto e 3 di rilascio.",
+          "advanced": "10 ripetizioni con 3 secondi di gesto e 3 di rilascio.",
+          "expert": "13 ripetizioni con 3 secondi di gesto e 3 di rilascio."
+        },
+        "cue": "Dita leggere sull’osso del sopracciglio; chiudi e riapri gli occhi senza forzare."
+      }
+    },
+    {
+      "name": "Il binocolo delicato",
+      "practice": "face",
+      "category": "Zona occhi",
+      "image": "assets/exercises/face-binocolo.png",
+      "imageAlt": "Illustrazione in stile fumetto: Il binocolo delicato. Segui i passaggi della guida.",
+      "phases": [
+        "warmup",
+        "workout",
+        "cooldown"
+      ],
+      "doses": {
+        "beginner": {
+          "reps": 7,
+          "hold": 3,
+          "release": 3
+        },
+        "advanced": {
+          "reps": 10,
+          "hold": 3,
+          "release": 3
+        },
+        "expert": {
+          "reps": 13,
+          "hold": 3,
+          "release": 3
+        }
+      },
+      "guide": {
+        "summary": "Forma due C sui bordi ossei; socchiudi piano e rilassa completamente.",
+        "setup": "Seduto, mani pulite. Forma una C con indice e pollice di ogni mano: indice sull’osso del sopracciglio, pollice sullo zigomo.",
+        "steps": [
+          "Appoggia le dita sui bordi ossei senza toccare il bulbo o trascinare la cute.",
+          "Socchiudi delicatamente gli occhi mantenendo la fronte rilassata.",
+          "Mantieni 3 secondi con una contrazione minima.",
+          "Rilascia 3 secondi e riapri gli occhi senza spalancarli."
+        ],
+        "avoid": [
+          "Strizzare forte gli occhi.",
+          "Premere sulle palpebre o sul bulbo.",
+          "Tirare gli angoli degli occhi."
+        ],
+        "focus": [
+          "Gesto piccolo e comodo, nessun dolore o pressione sugli occhi."
+        ],
+        "breath": "Respira normalmente durante il gesto e rilassa completamente nel rilascio.",
+        "easier": [
+          "Riduci le ripetizioni e impara a rilassare completamente tra i gesti."
+        ],
+        "levels": {
+          "beginner": "7 ripetizioni con 3 secondi di gesto e 3 di rilascio.",
+          "advanced": "10 ripetizioni con 3 secondi di gesto e 3 di rilascio.",
+          "expert": "13 ripetizioni con 3 secondi di gesto e 3 di rilascio."
+        },
+        "cue": "Forma due C sui bordi ossei; socchiudi piano e rilassa completamente."
+      }
+    },
+    {
+      "name": "Massaggio leggero del contorno occhi",
+      "practice": "face",
+      "category": "Zona occhi",
+      "image": "assets/exercises/face-contorno.png",
+      "imageAlt": "Illustrazione in stile fumetto: Massaggio leggero del contorno occhi. Segui i passaggi della guida.",
+      "phases": [
+        "warmup",
+        "workout",
+        "cooldown"
+      ],
+      "doses": {
+        "beginner": {
+          "seconds": 20
+        },
+        "advanced": {
+          "seconds": 30
+        },
+        "expert": {
+          "seconds": 40
+        }
+      },
+      "guide": {
+        "summary": "Micro-cerchi leggeri solo sui bordi ossei, mai sull’occhio.",
+        "setup": "Seduto senza occhiali, mani pulite; polpastrelli sul bordo osseo del sopracciglio e sullo zigomo, lontani dal bulbo.",
+        "steps": [
+          "Appoggia appena i polpastrelli sull’osso sotto l’inizio del sopracciglio, senza premere verso l’occhio.",
+          "Fai micro-cerchi molto leggeri per metà del tempo.",
+          "Sposta le dita sullo zigomo, sotto il bordo dell’orbita, per la seconda metà.",
+          "Rilascia se avverti fastidio; evita palpebre mobili e bulbo."
+        ],
+        "avoid": [
+          "Pressione sull’occhio, sfregamenti o ricerca di dolore.",
+          "Massaggiare aree irritate o appena sottoposte a procedure."
+        ],
+        "focus": [
+          "Gesto piccolo e comodo, nessun dolore o pressione sugli occhi."
+        ],
+        "breath": "Respira normalmente durante il gesto e rilassa completamente nel rilascio.",
+        "easier": [
+          "Fai cerchi più piccoli e alleggerisci ancora il contatto."
+        ],
+        "levels": {
+          "beginner": "20 secondi di massaggio leggero.",
+          "advanced": "30 secondi di massaggio leggero.",
+          "expert": "40 secondi di massaggio leggero."
+        },
+        "cue": "Micro-cerchi leggeri solo sui bordi ossei, mai sull’occhio."
+      }
+    },
+    {
+      "name": "Il sorriso a O",
+      "practice": "face",
+      "category": "Zigomi e guance",
+      "image": "assets/exercises/face-sorriso.png",
+      "imageAlt": "Illustrazione in stile fumetto: Il sorriso a O. Segui i passaggi della guida.",
+      "phases": [
+        "warmup",
+        "workout",
+        "cooldown"
+      ],
+      "doses": {
+        "beginner": {
+          "reps": 8,
+          "hold": 3,
+          "release": 3
+        },
+        "advanced": {
+          "reps": 12,
+          "hold": 3,
+          "release": 3
+        },
+        "expert": {
+          "reps": 16,
+          "hold": 3,
+          "release": 3
+        }
+      },
+      "guide": {
+        "summary": "Da una piccola O a un sorriso morbido; fronte e mandibola rilassate.",
+        "setup": "Seduto allo specchio con spalle rilassate e mandibola comoda; le labbra coprono delicatamente i denti.",
+        "steps": [
+          "Forma una O piccola senza spalancare la bocca.",
+          "Solleva poco gli angoli della bocca verso un sorriso, mantenendo la fronte morbida.",
+          "Torna alla O durante i secondi del gesto, con movimento lento.",
+          "Rilassa completamente labbra e mandibola nel rilascio."
+        ],
+        "avoid": [
+          "Stringere i denti o spingere con la mandibola.",
+          "Contrazioni forti che creano pieghe marcate o dolore."
+        ],
+        "focus": [
+          "Gesto piccolo e comodo, nessun dolore o pressione sugli occhi."
+        ],
+        "breath": "Respira normalmente durante il gesto e rilassa completamente nel rilascio.",
+        "easier": [
+          "Riduci le ripetizioni e impara a rilassare completamente tra i gesti."
+        ],
+        "levels": {
+          "beginner": "8 ripetizioni con 3 secondi di gesto e 3 di rilascio.",
+          "advanced": "12 ripetizioni con 3 secondi di gesto e 3 di rilascio.",
+          "expert": "16 ripetizioni con 3 secondi di gesto e 3 di rilascio."
+        },
+        "cue": "Da una piccola O a un sorriso morbido; fronte e mandibola rilassate."
+      }
+    },
+    {
+      "name": "Il bacio morbido",
+      "practice": "face",
+      "category": "Contorno e collo",
+      "image": "assets/exercises/face-bacio.png",
+      "imageAlt": "Illustrazione in stile fumetto: Il bacio morbido. Segui i passaggi della guida.",
+      "phases": [
+        "warmup",
+        "workout",
+        "cooldown"
+      ],
+      "doses": {
+        "beginner": {
+          "reps": 7,
+          "hold": 3,
+          "release": 3
+        },
+        "advanced": {
+          "reps": 10,
+          "hold": 3,
+          "release": 3
+        },
+        "expert": {
+          "reps": 13,
+          "hold": 3,
+          "release": 3
+        }
+      },
+      "guide": {
+        "summary": "Piccolo bacio in avanti, mento neutro e collo morbido; poi rilascia.",
+        "setup": "Seduto, testa in posizione neutra e mandibola rilassata. Questa variante evita l’estensione del collo della scheda originale.",
+        "steps": [
+          "Allunga appena le labbra in avanti come per un piccolo bacio.",
+          "Mantieni il mento neutro, senza spingere la mandibola o guardare il soffitto.",
+          "Tieni la posizione con intensità lieve per i secondi indicati.",
+          "Rilassa completamente bocca e collo per 3 secondi."
+        ],
+        "avoid": [
+          "Inclinare molto la testa indietro.",
+          "Spingere la mandibola o stringere i denti.",
+          "Continuare con fastidio cervicale o mandibolare."
+        ],
+        "focus": [
+          "Gesto piccolo e comodo, nessun dolore o pressione sugli occhi."
+        ],
+        "breath": "Respira normalmente durante il gesto e rilassa completamente nel rilascio.",
+        "easier": [
+          "Riduci le ripetizioni e impara a rilassare completamente tra i gesti."
+        ],
+        "levels": {
+          "beginner": "7 ripetizioni con 3 secondi di gesto e 3 di rilascio.",
+          "advanced": "10 ripetizioni con 3 secondi di gesto e 3 di rilascio.",
+          "expert": "13 ripetizioni con 3 secondi di gesto e 3 di rilascio."
+        },
+        "cue": "Piccolo bacio in avanti, mento neutro e collo morbido; poi rilascia."
+      }
+    }
+  ],
+  "routines": [
+    {
+      "key": "0-1",
+      "week": 0,
+      "day": 1,
+      "practice": "face",
+      "title": "Viso e scalpo · essenziale",
+      "description": "La sequenza base, con un gesto delicato anche per bocca e collo.",
+      "warmup": [
+        "Scollamento della corona"
+      ],
+      "workout": [
+        "Resistenza frontale",
+        "Il binocolo delicato",
+        "Il sorriso a O"
+      ],
+      "cooldown": [
+        "Il bacio morbido"
+      ]
+    },
+    {
+      "key": "0-2",
+      "week": 0,
+      "day": 2,
+      "practice": "face",
+      "title": "Scalpo e contorno occhi",
+      "description": "Dalla scheda v2: una sequenza più completa, con rilascio tra le contrazioni.",
+      "warmup": [
+        "Scollamento della corona",
+        "Trazione occipitale delicata"
+      ],
+      "workout": [
+        "Palpebra attiva delicata",
+        "Resistenza frontale",
+        "Il binocolo delicato"
+      ],
+      "cooldown": [
+        "Massaggio leggero del contorno occhi",
+        "Il sorriso a O"
+      ]
+    }
+  ]
+}
