@@ -380,7 +380,8 @@
       "image": "assets/exercises/spostamento-del-peso-in-quadrupedia.png",
       "phases": [
         "workout"
-      ]
+      ],
+      "imageAlt": "Posizione di partenza a quattro appoggi, prima di sollevare le ginocchia e passare all’appoggio su mani e avampiedi."
     },
     {
       "name": "Squat con slancio all'indietro",

@@ -1701,41 +1701,45 @@
       "sourceNote": "Adattamento dinamico delle posizioni prone di stabilizzazione scapolare: la fonte sostiene postura e controllo, non questa esatta sequenza continua."
     },
     "Spostamento del peso in quadrupedia": {
-      "summary": "Muovi il corpo come un blocco, mani e ginocchia sempre appoggiate.",
-      "setup": "A quattro appoggi, mani sotto le spalle e ginocchia sotto le anche. Apri le dita e mantieni entrambi i palmi e le due ginocchia a terra.",
+      "summary": "Sposta il peso tra mani e avampiedi, mantenendo le ginocchia sollevate dal tappetino.",
+      "setup": "Parti a quattro appoggi, con mani sotto le spalle e ginocchia sotto le anche. Apri le dita delle mani e punta le dita dei piedi, preparando l’appoggio sugli avampiedi.",
       "steps": [
-        "Sostieni il busto spingendo dolcemente il pavimento, con gomiti distesi senza bloccarli.",
-        "Sposta il corpo di pochi centimetri avanti, lasciando che le spalle superino appena i polsi.",
-        "Riporta il corpo indietro fino alla posizione iniziale, senza sederti sui talloni e senza staccare le mani.",
-        "Ripeti l’oscillazione mantenendo testa, schiena e bacino in linea. L’ampiezza si riduce se senti pressione ai polsi."
+        "Premi palmi e avampiedi contro il tappetino, attiva l’addome e solleva entrambe le ginocchia di pochi centimetri. Le ginocchia rimangono piegate, circa sotto le anche, e i talloni sollevati.",
+        "Mantenendo le ginocchia sospese, sposta lentamente il corpo di pochi centimetri in avanti, trasferendo più peso sulle mani. Mani e piedi restano nello stesso punto: non camminare.",
+        "Torna indietro verso gli avampiedi senza riappoggiare le ginocchia e senza alzare il sedere. Mantieni la schiena stabile e il bacino quasi alla stessa altezza.",
+        "Ripeti piccole oscillazioni avanti e indietro. Se perdi la posizione, appoggia le ginocchia per recuperare, poi riprendi il movimento sugli avampiedi."
       ],
-      "breath": "Espira spostandoti avanti, inspira tornando al centro.",
+      "breath": "Espira spostandoti avanti, inspira tornando indietro. Continua a respirare mentre mantieni le ginocchia sospese.",
       "focus": [
-        "Trasferimento graduale del peso sulle mani senza perdere il sostegno delle spalle."
+        "Il peso è sostenuto da mani e avampiedi; durante il movimento le ginocchia restano sollevate.",
+        "Addome attivo e oscillazione piccola, senza movimenti della zona lombare."
       ],
       "avoid": [
-        "Piegare la schiena invece di muovere il corpo insieme.",
-        "Caricare i polsi oltre il comfort."
+        "Appoggiare le ginocchia durante le oscillazioni: si abbassano soltanto per recuperare.",
+        "Alzare molto il bacino, inarcare la schiena o trattenere il respiro.",
+        "Spostare mani e piedi come in una camminata o caricare i polsi oltre un’ampiezza comoda."
       ],
       "easier": [
-        "Spostamento minimo, con un cuscino sotto le ginocchia se serve."
+        "Riduci l’oscillazione oppure mantieni per un breve tratto la posizione ferma su mani e avampiedi. Appoggia le ginocchia per recuperare se non riesci a mantenere il controllo."
       ],
       "levels": {
-        "beginner": "Spostamento minimo, con un cuscino sotto le ginocchia se serve.",
-        "advanced": "Oscilla con controllo mantenendo tutti gli appoggi.",
-        "expert": "Ferma il gesto per 2 secondi davanti e dietro, senza aumentare il carico sui polsi."
+        "beginner": "Stesso appoggio su mani e avampiedi, ginocchia sospese e durata ridotta prevista dal livello.",
+        "advanced": "Oscillazioni controllate su mani e avampiedi per la durata di riferimento.",
+        "expert": "Stesso movimento e stessi appoggi, con la durata maggiore prevista dal livello."
       },
-      "cue": "Sposta il corpo pochi centimetri avanti e poi torna al centro. Mantieni la schiena lunga e i gomiti morbidi. Non staccare le mani e riduci lo spostamento se i polsi tirano.",
+      "cue": "Appoggiati su mani e avampiedi e solleva le ginocchia pochi centimetri. Oscilla lentamente avanti e indietro, tenendo il bacino basso e la schiena ferma. Le ginocchia restano sospese.",
       "voice": {
-        "prepare": "A quattro appoggi, mani sotto le spalle e ginocchia sotto le anche. Palmi e ginocchia restano sempre a terra.",
-        "move": "Sposta il corpo pochi centimetri avanti e poi torna al centro. Mantieni la schiena lunga e i gomiti morbidi. Non staccare le mani e riduci lo spostamento se i polsi tirano.",
-        "short": "Sposta il corpo poco avanti e torna. Mani e ginocchia restano a terra."
+        "prepare": "Parti con mani sotto le spalle e ginocchia sotto le anche. Punta le dita dei piedi per preparare l’appoggio sugli avampiedi.",
+        "move": "Appoggiati su mani e avampiedi e solleva le ginocchia pochi centimetri. Oscilla lentamente avanti e indietro, tenendo il bacino basso e la schiena ferma. Le ginocchia restano sospese.",
+        "short": "Mani e avampiedi a terra, ginocchia sollevate. Oscilla poco avanti e indietro, senza alzare il bacino."
       },
+      "imageNote": "Il disegno mostra la posizione di partenza. Durante le oscillazioni appoggiati su mani e avampiedi e tieni le ginocchia sollevate dal tappetino.",
       "sourceIds": [
-        "bird"
+        "bear-base",
+        "plank-rock"
       ],
-      "reviewedOn": "2026-10-25",
-      "sourceNote": "Esercizio preparatorio in quadrupedia: usa gli appoggi e il controllo del tronco del bird dog, senza sollevare gli arti."
+      "reviewedOn": "2026-10-28",
+      "sourceNote": "Variante sul posto della posizione con ginocchia piegate e sollevate: si trasferisce il peso senza camminare. Le fonti descrivono la base del bear crawl e le oscillazioni nel plank; questa combinazione è l’adattamento usato nel programma."
     },
     "Squat con slancio all'indietro": {
       "summary": "Squat controllato; completa il gesto finale senza perdere l’equilibrio.",
@@ -2567,6 +2571,16 @@
       "title": "Royal Berkshire NHS · Heel raises",
       "url": "https://www.royalberkshire.nhs.uk/media/rirprct4/pulmonary-rehabilitation-exercises_mar23.pdf",
       "checkedOn": "2026-10-25"
+    },
+    "bear-base": {
+      "title": "ACE · Bear crawl: appoggio su mani e piedi con ginocchia piegate",
+      "url": "https://www.acefitness.org/resources/everyone/exercise-library/150/bear-crawl/",
+      "checkedOn": "2026-10-28"
+    },
+    "plank-rock": {
+      "title": "Cleveland Clinic · Plank: oscillazioni avanti e indietro",
+      "url": "https://health.clevelandclinic.org/plank-exercise-benefits",
+      "checkedOn": "2026-10-28"
     }
   },
   "review": {

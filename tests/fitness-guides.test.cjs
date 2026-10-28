@@ -36,6 +36,21 @@ test('elbow mobility distinguishes flexion from forearm rotation and does not pr
   assert.match(g.steps.join(' '),/Non cercare cerchi forzati/);
 });
 
+test('quadruped weight shifts use hands and forefeet with knees hovering in written and spoken guidance', () => {
+  const g=data.exercises['Spostamento del peso in quadrupedia'];
+  assert.match(g.setup,/avampiedi/);
+  assert.match(g.steps.join(' '),/solleva entrambe le ginocchia/);
+  for (const text of [g.summary,g.cue,g.voice.move,g.voice.short]) {
+    assert.match(text,/avampiedi/);
+    assert.match(text,/ginocchia (sollevate|sospese)|solleva le ginocchia/);
+    assert.doesNotMatch(text,/ginocchia.*restano a terra|ginocchia sempre appoggiate/);
+  }
+  assert.match(g.imageNote,/posizione di partenza/);
+  assert.match(g.imageNote,/ginocchia sollevate/);
+  assert.match(g.steps.join(' '),/appoggia le ginocchia per recuperare/);
+  assert.notDeepEqual(g.sourceIds,['bird']);
+});
+
 test('side-specific exercises remain on their named side, bilateral stretches have no accidental switch', () => {
   for(const side of ['destra','sinistra']) {
     for(const name of [`Donkey kick (${side})`,`Crunch laterale in piedi (${side})`,`Crunch laterale in piedi (${side}) 2v`]) {
