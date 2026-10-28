@@ -62,14 +62,18 @@ test('phase durations, odd-length round recovery and summary use the same timeli
   assert.equal(c.run('exerciseCounter(0).total'), 8);
 });
 
-test('round announcement follows recovery, before preparation countdown, without repetition', () => {
+test('preparation announces only the name; the new round is announced once when work begins', () => {
   const c = appContext(); configure(c);
   c.run('player.index = player.timeline.findIndex(s => s.betweenRounds); speakCurrentSegment();');
   assert.equal(c.spoken[0].text, 'Giro completato. Recupera. Dopo la pausa:');
+  const before=c.spoken.length;
   c.run('nextSegment();');
-  assert.match(c.spoken.at(-1).text, /^Secondo giro\. Allenamento\. Preparati:/);
+  drainSpeech(c);
+  const preparation=c.spoken.slice(before).map(u=>u.text).join(' ');
+  assert.match(preparation,/Air squat/);
+  assert.doesNotMatch(preparation,/giro|Allenamento|Preparati|Via/);
   c.run('nextSegment();');
-  assert.equal(c.spoken.at(-1).text, 'Via.');
+  assert.equal(c.spoken.at(-1).text, 'Secondo giro. Allenamento. Via.');
 });
 
 test('zero preparation and recovery still announce each round once', () => {
@@ -142,22 +146,42 @@ function drainSpeech(c) {
   for (let guard = 0; guard < 100 && i < c.spoken.length; guard++, i++) c.spoken[i].onend();
 }
 
-test('spoken fitness setup and movement are separate and preserve the work dose', () => {
+test('preparation says only the exercise name; movement guidance starts with work', () => {
   const c = guided({workoutDurationSec:20});
   c.run('speakCurrentSegment()');
   drainSpeech(c);
-  const setup = c.spoken.map(u => u.text).join(' ');
-  assert.match(setup, /quattro appoggi/);
-  assert.match(setup, /mani sotto le spalle/);
+  const preparation = c.spoken.map(u => u.text).join(' ');
+  assert.equal(preparation,'Gatto-mucca.');
+  assert.equal(c.run('guidanceSpeaking'),false);
   const timeline = c.json('player.timeline');
-  assert.ok(timeline[0].duration > 10);
+  assert.equal(timeline[0].duration, 10);
   assert.equal(timeline.find(x => x.phase === 'workout' && x.kind === 'exercise').duration, 20);
   const before = c.spoken.length;
   c.run('nextSegment()'); drainSpeech(c);
   assert.match(c.spoken.slice(before).map(u => u.text).join(' '), /Inspira.*Espira/);
 });
 
-test('a slow voice moves long instructions into preparation using the actual level dose', () => {
+test('preparation stays fixed for every exercise, level and voice setting', () => {
+  for(const seconds of [0,5,10,20]) {
+    for(const rate of [0.6,1,1.4]) {
+      const c=guided({prepareDurationSec:seconds,speechRate:rate});
+      c.run(`player.routine.workout=${JSON.stringify(library.exercises.map(e=>e.name))};`);
+      for(const level of ['beginner','advanced','expert']) {
+        const timeline=c.json(`buildTimeline(player.routine,"${level}")`);
+        const preparations=timeline.filter(s=>s.kind==='prepare');
+        const exercises=timeline.filter(s=>s.kind==='exercise');
+        assert.equal(preparations.length,seconds===0 ? 0 : exercises.length);
+        for(const s of preparations) assert.equal(s.duration,seconds);
+        const guidedTotal=timeline.reduce((sum,s)=>sum+s.duration,0);
+        c.run('settings.voiceEnabled=false; settings.exerciseCueEnabled=false;');
+        assert.equal(c.run(`buildTimeline(player.routine,"${level}").reduce((sum,s)=>sum+s.duration,0)`),guidedTotal);
+        c.run('settings.voiceEnabled=true; settings.exerciseCueEnabled=true;');
+      }
+    }
+  }
+});
+
+test('a slow voice uses brief movement guidance without moving instructions into preparation', () => {
   const c = guided({speechRate:0.6,workoutDurationSec:30,intensity:'beginner'});
   c.run('player.routine.workout=["Bird dog"];');
   const timeline = c.json('buildTimeline(player.routine, "beginner")');
@@ -165,10 +189,11 @@ test('a slow voice moves long instructions into preparation using the actual lev
   assert.equal(timeline[exercise].duration, 20);
   const narration = c.json('fitnessNarration("Bird dog", "workout", 20)');
   assert.equal(narration.move, guides.exercises['Bird dog'].voice.short);
-  assert.ok(narration.prepare.includes(guides.exercises['Bird dog'].voice.move));
-  assert.equal(timeline[exercise-1].duration, c.run('Math.max(settings.prepareDurationSec, estimatedSpeechSeconds("Preparati: Bird dog. " + fitnessNarration("Bird dog", "workout", 20).prepare) + 5)'));
-  c.run('settings.voiceEnabled=false;');
-  assert.equal(c.json('buildTimeline(player.routine, "beginner")')[0].duration, 10);
+  assert.equal(narration.prepare,undefined);
+  assert.equal(timeline[exercise-1].duration,10);
+  c.run(`player.timeline=${JSON.stringify(timeline)}; player.index=${exercise-1}; speakCurrentSegment();`);
+  drainSpeech(c);
+  assert.equal(c.spoken.map(u=>u.text).join(' '),'Bird dog');
 });
 
 test('zero preparation stays zero and saved voice choices remain respected', () => {
@@ -192,17 +217,22 @@ test('countdown does not interrupt a movement instruction and speech errors rele
   assert.equal(c.spoken.at(-1).text,'2');
 });
 
-test('preparation can finish a slower device utterance before work, with a bounded fallback', () => {
+test('preparation ends at the configured second even if device speech never completes', () => {
   const c = guided();
-  c.run('startTick(); player.segmentStartedAt=Date.now()-(player.timeline[0].duration+1)*1000;');
+  c.run('startTick(); player.segmentStartedAt=Date.now()+1000-player.timeline[0].duration*1000;');
+  const stale=c.spoken.at(-1);
+  const cancelled=c.cancelled();
   c.tick();
   assert.equal(c.run('player.index'),0);
-  drainSpeech(c); c.tick();
+  assert.equal(c.run('remainingSeconds(player.timeline[0])'),1);
+  c.run('player.segmentStartedAt=Date.now()-player.timeline[0].duration*1000;');
+  c.tick();
   assert.equal(c.run('player.index'),1);
-  const stuck = guided();
-  stuck.run('startTick(); player.segmentStartedAt=Date.now()-(player.timeline[0].duration+16)*1000;');
-  stuck.tick();
-  assert.equal(stuck.run('player.index'),1);
+  assert.equal(c.run('remainingSeconds(player.timeline[1])'),30);
+  assert.ok(c.cancelled()>cancelled);
+  const count=c.spoken.length;
+  stale.onend();
+  assert.equal(c.spoken.length,count);
 });
 
 test('side changes are announced once halfway through an exercise, after the short cue', () => {

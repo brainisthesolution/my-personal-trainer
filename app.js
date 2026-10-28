@@ -519,7 +519,7 @@ function renderRoutine(routine) {
       </section>
 
       <button class="routine-timing-link" data-action="timing">Tempi e voce ${iconForward()}</button>
-      ${routine.practice !== "face" ? `<section class="routine-guidance"><button class="secondary" data-action="toggle-guidance" aria-pressed="${settings.exerciseCueEnabled}">Guida vocale esercizi: ${settings.exerciseCueEnabled ? "attiva" : "disattivata"}</button><p class="section-note">${settings.voiceEnabled && settings.exerciseCueEnabled ? "La voce spiega gli appoggi durante la preparazione e il movimento al via. La stima include il tempo per ascoltare; i secondi di lavoro restano quelli del livello." : "Attiva la guida e la voce in “Tempi e voce” per ascoltare posizione e movimento durante la sessione."}${settings.prepareDurationSec === 0 ? " Con preparazione a zero, ascolta prima la guida dalla scheda: durante il lavoro sentirai solo le indicazioni che entrano nel tempo disponibile." : ""}</p></section>` : ""}
+      ${routine.practice !== "face" ? `<section class="routine-guidance"><button class="secondary" data-action="toggle-guidance" aria-pressed="${settings.exerciseCueEnabled}">Guida vocale esercizi: ${settings.exerciseCueEnabled ? "attiva" : "disattivata"}</button><p class="section-note">${settings.voiceEnabled && settings.exerciseCueEnabled ? "Durante la preparazione senti solo il nome dell’esercizio; le indicazioni del movimento arrivano al via. La preparazione dura sempre i secondi impostati." : "Attiva la guida e la voce in “Tempi e voce” per ascoltare le indicazioni del movimento all’inizio dell’esercizio."}${settings.prepareDurationSec === 0 ? " Con preparazione a zero, ascolta prima la guida dalla scheda: durante il lavoro sentirai solo le indicazioni che entrano nel tempo disponibile." : ""}</p></section>` : ""}
       ${levelSelector(selectedPractice, routine)}
       ${routine.practice === "face" ? `<p class="section-note">${escapeHtml(faceData.note)}</p>` : ""}
       ${phasePreview("Riscaldamento", effective.warmup, "warmup", routine)}
@@ -747,7 +747,7 @@ function renderSettings(routine = null) {
       <section class="settings-panel">
         <h2 class="section-title"><span>02</span> Passaggi e recupero</h2>
         ${numberSetting("prepareDurationSec", "Preparazione esercizio", 0, 120, 5)}
-        <p class="section-note">Con la guida vocale fitness attiva, la preparazione può durare di più per lasciare finire le istruzioni. I secondi di esercizio non cambiano. Con preparazione a zero, usa “Ascolta la guida completa” prima di avviare.</p>
+        <p class="section-note">La preparazione dura sempre i secondi impostati, anche con la guida vocale attiva. La voce annuncia solo il nome; le indicazioni del movimento arrivano al via. Con preparazione a zero, l’esercizio inizia subito.</p>
         ${numberSetting("restEveryExercises", "Pausa ogni", 1, 10, 1)}
         ${numberSetting("restDurationSec", "Pausa tra esercizi", 0, 300, 5)}
         ${numberSetting("roundRestDurationSec", "Recupero tra giri", 0, 300, 5)}
@@ -966,7 +966,6 @@ function renderPlayer() {
         <p class="segment-kind">${segmentKindLabel(segment)}</p>
         <h1>${escapeHtml(segmentTitle(segment))}</h1>
         ${visualName ? `<p class="player-instruction">${escapeHtml(segment.kind === "prepare" ? (exerciseGuide(exerciseMeta(visualName)).voice?.prepare || exerciseGuide(exerciseMeta(visualName)).setup) : exerciseGuide(exerciseMeta(visualName)).cue)}</p><p class="player-level">${LEVELS[player.level || practiceLevel()].label} · ${escapeHtml(levelInstruction(visualName, player.routine?.practice, segment.phase))}</p>` : ""}
-        <p class="section-note" data-guidance-status role="status"></p>
         ${segment.dose ? `<p class="face-repetition" data-face-repetition aria-live="off">${faceRepetitionLabel(segment, segmentElapsed)}</p>` : ""}
         ${visualName ? `<button class="player-guide-button" data-action="player-guide">${player.paused && player.showGuide ? "Chiudi guida" : "Pausa e leggi la guida"}</button>` : ""}
         ${player.paused && player.showGuide && visualName ? `<section class="player-guide">${guideBlock("Posizione", [exerciseGuide(exerciseMeta(visualName)).setup || exerciseGuide(exerciseMeta(visualName)).summary])}${guideBlock("Esecuzione", exerciseGuide(exerciseMeta(visualName)).steps)}${guideBlock("Respirazione", [exerciseGuide(exerciseMeta(visualName)).breath])}${guideBlock("Evita", exerciseGuide(exerciseMeta(visualName)).avoid)}${guideAudio(visualName)}${guideSources(exerciseGuide(exerciseMeta(visualName)))}</section>` : ""}
@@ -1070,27 +1069,23 @@ function addExercisePhase(timeline, exercises, phase) {
 }
 
 function appendExercise(timeline, name, phase, round, duration = settings[`${phase}DurationSec`]) {
-  timeline.push(prepareSegment(name, phase, round, duration));
+  timeline.push(prepareSegment(name, phase, round));
   timeline.push({ ...exerciseSegment(name, phase, round), duration });
 }
 
-function prepareSegment(name, phase, round, workDuration = settings[`${phase}DurationSec`]) {
-  const guidance = fitnessNarration(name, phase, workDuration);
-  const duration = settings.prepareDurationSec > 0 && guidance && settings.voiceEnabled && settings.exerciseCueEnabled && "speechSynthesis" in window
-    ? Math.max(settings.prepareDurationSec, estimatedSpeechSeconds(`Preparati: ${name}. ${guidance.prepare}`) + 5)
-    : settings.prepareDurationSec;
+function prepareSegment(name, phase, round) {
   return {
     kind: "prepare",
     phase,
     phaseLabel: PHASE_LABELS[phase],
-    duration,
+    duration: settings.prepareDurationSec,
     round,
     nextName: name
   };
 }
 
-// Budget setup separately from movement, so short work intervals keep their dose.
-// If a slow voice cannot fit the movement, explain it before the work timer starts.
+// Choose movement guidance to fit the work interval. Speech never changes timing;
+// preparation announces only the name and the complete guide remains available.
 function estimatedSpeechSeconds(text) {
   const words = speechParts(text).map(part => part.text).join(" ").trim().split(/\s+/).length;
   return Math.ceil(words / (2 * settings.speechRate));
@@ -1103,7 +1098,6 @@ function fitnessNarration(name, phase, duration = settings[`${phase}DurationSec`
   // Use the actual workout dose for the selected level, including custom timing.
   const moveFits = !guide.midpointCue && estimatedSpeechSeconds(guide.voice.move) + 4 <= duration;
   return {
-    prepare: [guide.voice.prepare, !moveFits ? `Ascolta il movimento e parti al via. ${guide.voice.move}` : ""].filter(Boolean).join(" "),
     move: moveFits ? guide.voice.move : guide.voice.short
   };
 }
@@ -1130,14 +1124,6 @@ function startTick() {
     maybeSpeakCountdown(segment);
     maybeSpeakMidpoint(segment);
     if (remainingSeconds(segment) <= 0) {
-      // Some device voices are slower than the estimate. Finish their setup
-      // before starting work, with a bounded grace period for missing callbacks.
-      if (segment.kind === "prepare" && guidanceSpeaking && fitnessNarration(segment.nextName, segment.phase) && elapsedCurrentSegmentSeconds() < segment.duration + 15) {
-        const status = document.querySelector("[data-guidance-status]");
-        if (status) status.textContent = "Ascolta le ultime indicazioni; il lavoro inizia al via.";
-        updatePlayerClock(segment);
-        return;
-      }
       player.index += 1;
       player.segmentStartedAt = Date.now();
       player.elapsedBeforePause = 0;
@@ -1175,15 +1161,11 @@ function speakCurrentSegment() {
   player.spokenSegment = key;
   const parts = [];
   const prepared = segment.kind === "exercise" && player.timeline[player.index - 1]?.kind === "prepare";
-  if (segment.kind !== "rest" && !prepared && isFirstExerciseOfPhase(player.index)) {
+  if (segment.kind === "exercise" && elapsedCurrentSegmentSeconds() === 0 && isFirstExerciseOfPhase(player.index)) {
     parts.push(segment.round ? `${roundAnnouncement(segment.round)}. Allenamento` : segment.phaseLabel);
   }
   if (segment.kind === "prepare") {
-    parts.push(`Preparati: ${segment.nextName}`);
-    if (settings.exerciseCueEnabled) {
-      const narration = fitnessNarration(segment.nextName, segment.phase, player.timeline[player.index + 1]?.duration);
-      if (narration) parts.push(narration.prepare);
-    }
+    parts.push(segment.nextName);
   } else if (segment.kind === "rest") {
     parts.push(segment.betweenRounds ? "Giro completato. Recupera" : "Pausa. Recupera");
     if (settings.nextEnabled && segment.nextName) parts.push(`Dopo la pausa: ${segment.nextName}`);
@@ -1196,7 +1178,7 @@ function speakCurrentSegment() {
       parts.push(narration ? (elapsedCurrentSegmentSeconds() > 0 ? guide.voice.short : narration.move) : guide.cue);
     }
   }
-  speak(speechSentences(parts), { guidance: settings.exerciseCueEnabled && segment.kind !== "rest" });
+  speak(speechSentences(parts), { guidance: settings.exerciseCueEnabled && segment.kind === "exercise" });
 }
 
 function speechSentences(parts) {
